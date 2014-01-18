@@ -9,13 +9,57 @@
 
 void _GLOBAL__I__ZN17AutonomousCommandC2Ev();
 
+void _GLOBAL__I__ZN11BlockerIdleC2Ev();
+
+void _GLOBAL__I__ZN12BlockerLowerC2Ev();
+
+void _GLOBAL__I__ZN12BlockerRaiseC2Ev();
+
+void _GLOBAL__I__ZN13CollectorDownC2Ev();
+
+void _GLOBAL__I__ZN14CollectorEjectC2Ev();
+
+void _GLOBAL__I__ZN13CollectorIdleC2Ev();
+
+void _GLOBAL__I__ZN13CollectorLoadC2Ev();
+
+void _GLOBAL__I__ZN11CollectorUPC2Ev();
+
+void _GLOBAL__I__ZN13DetectHotGoalC2Ev();
+
+void _GLOBAL__I__ZN5DriveC2Ev();
+
+void _GLOBAL__I__ZN5ShootC2Ev();
+
+void _GLOBAL__I__ZN16ShootTargetTrussC2Ev();
+
+void _GLOBAL__I__ZN11ShooterGrabC2Ev();
+
+void _GLOBAL__I__ZN11ShooterIdleC2Ev();
+
+void _GLOBAL__I__ZN15ShooterRealeaseC2Ev();
+
+void _GLOBAL__I__ZN13ShooterSpinUpC2Ev();
+
+void _GLOBAL__I__ZN17ShooterTargetGoalC2Ev();
+
 void _GLOBAL__I__ZN2OIC2Ev();
 
 void _GLOBAL__I__ZN5Robot14driveSubsystemE();
 
 void _GLOBAL__I__ZN8RobotMap27driveSubsystemleftRearDriveE();
 
+void _GLOBAL__I__ZN7BlockerC2Ev();
+
+void _GLOBAL__I__ZN6CameraC2Ev();
+
+void _GLOBAL__I__ZN9CollectorC2Ev();
+
 void _GLOBAL__I__ZN14DriveSubsystemC2Ev();
+
+void _GLOBAL__I__ZN10ShooterArmC2Ev();
+
+void _GLOBAL__I__ZN13ShooterWheelsC2Ev();
 
 void _GLOBAL__I__ZN12PrintCommandC2EPKc();
 
@@ -73,10 +117,32 @@ extern void (*_ctors[])();
 void (*_ctors[])() =
     {
     _GLOBAL__I__ZN17AutonomousCommandC2Ev,
+    _GLOBAL__I__ZN11BlockerIdleC2Ev,
+    _GLOBAL__I__ZN12BlockerLowerC2Ev,
+    _GLOBAL__I__ZN12BlockerRaiseC2Ev,
+    _GLOBAL__I__ZN13CollectorDownC2Ev,
+    _GLOBAL__I__ZN14CollectorEjectC2Ev,
+    _GLOBAL__I__ZN13CollectorIdleC2Ev,
+    _GLOBAL__I__ZN13CollectorLoadC2Ev,
+    _GLOBAL__I__ZN11CollectorUPC2Ev,
+    _GLOBAL__I__ZN13DetectHotGoalC2Ev,
+    _GLOBAL__I__ZN5DriveC2Ev,
+    _GLOBAL__I__ZN5ShootC2Ev,
+    _GLOBAL__I__ZN16ShootTargetTrussC2Ev,
+    _GLOBAL__I__ZN11ShooterGrabC2Ev,
+    _GLOBAL__I__ZN11ShooterIdleC2Ev,
+    _GLOBAL__I__ZN15ShooterRealeaseC2Ev,
+    _GLOBAL__I__ZN13ShooterSpinUpC2Ev,
+    _GLOBAL__I__ZN17ShooterTargetGoalC2Ev,
     _GLOBAL__I__ZN2OIC2Ev,
     _GLOBAL__I__ZN5Robot14driveSubsystemE,
     _GLOBAL__I__ZN8RobotMap27driveSubsystemleftRearDriveE,
+    _GLOBAL__I__ZN7BlockerC2Ev,
+    _GLOBAL__I__ZN6CameraC2Ev,
+    _GLOBAL__I__ZN9CollectorC2Ev,
     _GLOBAL__I__ZN14DriveSubsystemC2Ev,
+    _GLOBAL__I__ZN10ShooterArmC2Ev,
+    _GLOBAL__I__ZN13ShooterWheelsC2Ev,
     _GLOBAL__I__ZN12PrintCommandC2EPKc,
     _GLOBAL__I__ZN9Scheduler9_instanceE,
     _GLOBAL__I__ZN11WaitCommandC2Ed,
@@ -108,13 +174,57 @@ void (*_ctors[])() =
 
 void _GLOBAL__D__ZN17AutonomousCommandC2Ev();
 
+void _GLOBAL__D__ZN11BlockerIdleC2Ev();
+
+void _GLOBAL__D__ZN12BlockerLowerC2Ev();
+
+void _GLOBAL__D__ZN12BlockerRaiseC2Ev();
+
+void _GLOBAL__D__ZN13CollectorDownC2Ev();
+
+void _GLOBAL__D__ZN14CollectorEjectC2Ev();
+
+void _GLOBAL__D__ZN13CollectorIdleC2Ev();
+
+void _GLOBAL__D__ZN13CollectorLoadC2Ev();
+
+void _GLOBAL__D__ZN11CollectorUPC2Ev();
+
+void _GLOBAL__D__ZN13DetectHotGoalC2Ev();
+
+void _GLOBAL__D__ZN5DriveC2Ev();
+
+void _GLOBAL__D__ZN5ShootC2Ev();
+
+void _GLOBAL__D__ZN16ShootTargetTrussC2Ev();
+
+void _GLOBAL__D__ZN11ShooterGrabC2Ev();
+
+void _GLOBAL__D__ZN11ShooterIdleC2Ev();
+
+void _GLOBAL__D__ZN15ShooterRealeaseC2Ev();
+
+void _GLOBAL__D__ZN13ShooterSpinUpC2Ev();
+
+void _GLOBAL__D__ZN17ShooterTargetGoalC2Ev();
+
 void _GLOBAL__D__ZN2OIC2Ev();
 
 void _GLOBAL__D__ZN5Robot14driveSubsystemE();
 
 void _GLOBAL__D__ZN8RobotMap27driveSubsystemleftRearDriveE();
 
+void _GLOBAL__D__ZN7BlockerC2Ev();
+
+void _GLOBAL__D__ZN6CameraC2Ev();
+
+void _GLOBAL__D__ZN9CollectorC2Ev();
+
 void _GLOBAL__D__ZN14DriveSubsystemC2Ev();
+
+void _GLOBAL__D__ZN10ShooterArmC2Ev();
+
+void _GLOBAL__D__ZN13ShooterWheelsC2Ev();
 
 void _GLOBAL__D__ZN9Scheduler9_instanceE();
 
@@ -162,10 +272,32 @@ extern void (*_dtors[])();
 void (*_dtors[])() =
     {
     _GLOBAL__D__ZN17AutonomousCommandC2Ev,
+    _GLOBAL__D__ZN11BlockerIdleC2Ev,
+    _GLOBAL__D__ZN12BlockerLowerC2Ev,
+    _GLOBAL__D__ZN12BlockerRaiseC2Ev,
+    _GLOBAL__D__ZN13CollectorDownC2Ev,
+    _GLOBAL__D__ZN14CollectorEjectC2Ev,
+    _GLOBAL__D__ZN13CollectorIdleC2Ev,
+    _GLOBAL__D__ZN13CollectorLoadC2Ev,
+    _GLOBAL__D__ZN11CollectorUPC2Ev,
+    _GLOBAL__D__ZN13DetectHotGoalC2Ev,
+    _GLOBAL__D__ZN5DriveC2Ev,
+    _GLOBAL__D__ZN5ShootC2Ev,
+    _GLOBAL__D__ZN16ShootTargetTrussC2Ev,
+    _GLOBAL__D__ZN11ShooterGrabC2Ev,
+    _GLOBAL__D__ZN11ShooterIdleC2Ev,
+    _GLOBAL__D__ZN15ShooterRealeaseC2Ev,
+    _GLOBAL__D__ZN13ShooterSpinUpC2Ev,
+    _GLOBAL__D__ZN17ShooterTargetGoalC2Ev,
     _GLOBAL__D__ZN2OIC2Ev,
     _GLOBAL__D__ZN5Robot14driveSubsystemE,
     _GLOBAL__D__ZN8RobotMap27driveSubsystemleftRearDriveE,
+    _GLOBAL__D__ZN7BlockerC2Ev,
+    _GLOBAL__D__ZN6CameraC2Ev,
+    _GLOBAL__D__ZN9CollectorC2Ev,
     _GLOBAL__D__ZN14DriveSubsystemC2Ev,
+    _GLOBAL__D__ZN10ShooterArmC2Ev,
+    _GLOBAL__D__ZN13ShooterWheelsC2Ev,
     _GLOBAL__D__ZN9Scheduler9_instanceE,
     _GLOBAL__D_wpi_error_s_ModuleIndexOutOfRange,
     _GLOBAL__D__ZN17MotorSafetyHelper12m_headHelperE,
