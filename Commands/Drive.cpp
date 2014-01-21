@@ -17,11 +17,12 @@ Drive::Drive() {
 }
 // Called just before this Command runs the first time
 void Drive::Initialize() {
-	
 }
 // Called repeatedly when this Command is scheduled to run
 void Drive::Execute() {
-	
+float leftYValue=Robot::oi->getleftDriveStick()->GetY();	
+float rightYValue=Robot::oi->getrightDriveStick()->GetY();
+Robot::driveSubsystem->theDriveTrain->TankDrive(leftYValue, rightYValue);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool Drive::IsFinished() {

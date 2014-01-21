@@ -21,7 +21,7 @@ void CollectorUP::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void CollectorUP::Execute() {
-	
+	Robot::collector->collectorLifter->Set(DoubleSolenoid::kForward);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CollectorUP::IsFinished() {

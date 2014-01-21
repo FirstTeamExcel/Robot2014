@@ -21,7 +21,8 @@ void CollectorIdle::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void CollectorIdle::Execute() {
-	
+	Robot::collector->rollerMotor->Set(0);
+
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CollectorIdle::IsFinished() {

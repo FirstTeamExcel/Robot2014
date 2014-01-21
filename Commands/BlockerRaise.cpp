@@ -17,19 +17,26 @@ BlockerRaise::BlockerRaise() {
 }
 // Called just before this Command runs the first time
 void BlockerRaise::Initialize() {
-	
+	Robot::blocker->blockerWinch->Set(.6);
 }
 // Called repeatedly when this Command is scheduled to run
 void BlockerRaise::Execute() {
-	
+	if(Robot::blocker->raisedLimitSwitch->Get() != 1.0)
+	{
+		Robot::blocker->blockerWinch->Set(.6);
+	}
+	else
+	{
+		Robot::blocker->blockerWinch->Set(0.0);
+	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool BlockerRaise::IsFinished() {
-	return false;
+	return Robot::blocker->raisedLimitSwitch->Get() == 0.0;
 }
 // Called once after isFinished returns true
 void BlockerRaise::End() {
-	
+	Robot::blocker->blockerWinch->Set(0.0);
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
