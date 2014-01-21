@@ -27,5 +27,8 @@ class ShooterArm: public PIDSubsystem {
 	double ReturnPIDInput();
 	void UsePIDOutput(double output);
 	void InitDefaultCommand();
+	static const double TARGET = 1.0;
+	static const double TRUSS = 3.0;
+	static const double PASS = 0.0;
 };
 #endif

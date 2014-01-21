@@ -21,7 +21,7 @@ void ShootTargetTruss::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void ShootTargetTruss::Execute() {
-	
+	Robot::shooterArm->shooterArmMotor->Set(ShooterArm::TRUSS);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ShootTargetTruss::IsFinished() {

@@ -21,7 +21,8 @@ void ShooterSpinUp::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void ShooterSpinUp::Execute() {
-	
+	Robot::shooterWheels->leftWheelMotor->Set(1.0);
+	Robot::shooterWheels->rightWheelMotor->Set(1.0);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterSpinUp::IsFinished() {
