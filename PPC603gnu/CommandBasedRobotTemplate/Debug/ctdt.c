@@ -61,6 +61,8 @@ void _GLOBAL__I__ZN10ShooterArmC2Ev();
 
 void _GLOBAL__I__ZN13ShooterWheelsC2Ev();
 
+void _GLOBAL__I__ZN9JankyTaskC2EPKcj();
+
 void _GLOBAL__I__ZN12PrintCommandC2EPKc();
 
 void _GLOBAL__I__ZN9Scheduler9_instanceE();
@@ -143,6 +145,7 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN14DriveSubsystemC2Ev,
     _GLOBAL__I__ZN10ShooterArmC2Ev,
     _GLOBAL__I__ZN13ShooterWheelsC2Ev,
+    _GLOBAL__I__ZN9JankyTaskC2EPKcj,
     _GLOBAL__I__ZN12PrintCommandC2EPKc,
     _GLOBAL__I__ZN9Scheduler9_instanceE,
     _GLOBAL__I__ZN11WaitCommandC2Ed,
@@ -226,6 +229,8 @@ void _GLOBAL__D__ZN10ShooterArmC2Ev();
 
 void _GLOBAL__D__ZN13ShooterWheelsC2Ev();
 
+void _GLOBAL__D__ZN9JankyTaskC2EPKcj();
+
 void _GLOBAL__D__ZN9Scheduler9_instanceE();
 
 void _GLOBAL__D_wpi_error_s_ModuleIndexOutOfRange();
@@ -298,6 +303,7 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN14DriveSubsystemC2Ev,
     _GLOBAL__D__ZN10ShooterArmC2Ev,
     _GLOBAL__D__ZN13ShooterWheelsC2Ev,
+    _GLOBAL__D__ZN9JankyTaskC2EPKcj,
     _GLOBAL__D__ZN9Scheduler9_instanceE,
     _GLOBAL__D_wpi_error_s_ModuleIndexOutOfRange,
     _GLOBAL__D__ZN17MotorSafetyHelper12m_headHelperE,

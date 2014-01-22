@@ -29,3 +29,64 @@ void ShooterWheels::InitDefaultCommand() {
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
+
+void ShooterWheels::SetTargetRpm(float targetRpm, float bias)
+{
+	if(targetRpm == 0)
+	{
+		targetSPR_Right = 0;
+		targetSPR_Right = 0;
+		targetSPR_Right_UpperLimit = 0;
+		targetSPR_Left_UpperLimit = 0;
+	}
+	else
+	{ 
+		float rightTargetRpm;
+		float leftTargetRpm;
+		if (bias != 0.0)
+		{
+			rightTargetRpm = targetRpm * (1.0 + bias);
+			leftTargetRpm = targetRpm * (1.0 - bias);
+		}
+		else
+		{
+			rightTargetRpm = targetRpm;
+			leftTargetRpm = targetRpm;
+		}
+		if(rightTargetRpm > MAX_RPM)
+		{
+			rightTargetRpm = MAX_RPM;
+		}
+		if(leftTargetRpm > MAX_RPM)
+		{
+			leftTargetRpm = MAX_RPM;
+		}
+		targetSPR_Right = ((double)60.0) / ((double)rightTargetRpm);
+		targetSPR_Left = ((double)60.0) / ((double)leftTargetRpm);
+		targetSPR_Right_UpperLimit = (targetSPR_Right * (1.0 + SPEED_TOLERANCE));
+		targetSPR_Left_UpperLimit = (targetSPR_Left * (1.0 + SPEED_TOLERANCE));
+		targetSPR_Right_LowerLimit = (targetSPR_Right * (1.0 - SPEED_TOLERANCE));
+		targetSPR_Left_LowerLimit = (targetSPR_Left * (1.0 - SPEED_TOLERANCE));
+	}
+}
+
+void ShooterWheels::SetPower(float power)
+{
+	rightWheelMotor->Set(power);
+	leftWheelMotor->Set(power);
+}
+float ShooterWheels::GetRpm()
+{
+	rightCount.Get();
+	return leftCount.Get();
+}
+bool ShooterWheels::Fire(float delay)
+{
+	firingSolenoid->Set(DoubleSolenoid::kForward);
+	return true;
+}
+
+void ShooterWheels::Run()
+{
+	
+}
