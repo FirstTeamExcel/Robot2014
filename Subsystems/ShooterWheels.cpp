@@ -82,11 +82,70 @@ float ShooterWheels::GetRpm()
 }
 bool ShooterWheels::Fire(float delay)
 {
-	firingSolenoid->Set(DoubleSolenoid::kForward);
-	return true;
+	static Timer takeBackTimer;
+	static Timer shotTimer;
+	bool fired = false;
+	if ((IsUpToSpeed() == true) && (fired == false))
+		{
+			firingSolenoid->Set(DoubleSolenoid::kForward);
+			takeBackTimer.Reset();
+			takeBackTimer.Start();
+			return true;
+		}
+//	else if (fired == true)
+//		{
+//			firingSolenoid->Set(DoubleSolenoid::kReverse);
+//		}
+		return false;
 }
 
 void ShooterWheels::Run()
 {
-	
+	rightCurrentSpeed = rightCount.GetPeriod();
+	leftCurrentSpeed = leftCount.GetPeriod();
 }
+
+bool ShooterWheels::IsUpToSpeed()
+{
+	double rightSpeed = rightCurrentSpeed;
+	double leftSpeed = leftCurrentSpeed;
+	if ((rightSpeed >= targetSPR_Right_LowerLimit) && (rightSpeed <= targetSPR_Right_UpperLimit))
+		{
+			rightIsUpToSpeed = true;
+		}
+//	else if (rightSpeed < targetSPR_Right_LowerLimit)
+//		{
+//			rightIsUpToSpeed = false;
+//		}
+//	else if (rightSpeed > targetSPR_Right_UpperLimit)
+	else
+		{
+			rightIsUpToSpeed = false;
+		}
+	
+	if ((leftSpeed >= targetSPR_Left_LowerLimit) && (leftSpeed <= targetSPR_Left_UpperLimit))
+		{
+			leftIsUpToSpeed = true;
+		}
+//	else if (leftSpeed < targetSPR_Left_LowerLimit)
+//		{
+//			leftIsUpToSpeed = false;
+//			leftWheelMotor->Set(1.0);
+//		}
+//	else if (leftSpeed > targetSPR_Left_UpperLimit)
+//		{
+//			leftIsUpToSpeed = false;
+//			leftWheelMotor->Set(0.0);
+//		}
+	else
+	{
+		leftIsUpToSpeed = false;
+	}
+	bool IsUpToSpeed = false;
+	if ((rightIsUpToSpeed == true) && (leftIsUpToSpeed == true))
+	{
+		IsUpToSpeed = true;
+	}
+	return IsUpToSpeed;
+}
+

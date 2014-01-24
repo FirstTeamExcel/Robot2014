@@ -25,10 +25,14 @@ private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 	
+	bool leftIsUpToSpeed;
+	bool rightIsUpToSpeed;
 	float targetRpm;
 	float bias;
 	float power;
 	float delay;
+	volatile double rightCurrentSpeed;
+	volatile double leftCurrentSpeed;
 	double targetSPR_Right;
 	double targetSPR_Left;
 	double targetSPR_Right_UpperLimit;
