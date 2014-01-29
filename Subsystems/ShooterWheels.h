@@ -24,9 +24,12 @@ class ShooterWheels: public Subsystem, public JankyTask{
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
+
+	static const float TAKE_BACK_TIME = 0.4;
 	
 	bool leftIsUpToSpeed;
 	bool rightIsUpToSpeed;
+	bool takeBack;
 	float targetRpm;
 	float bias;
 	float power;

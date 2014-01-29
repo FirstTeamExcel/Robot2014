@@ -38,6 +38,8 @@ void ShooterWheels::SetTargetRpm(float targetRpm, float bias)
 		targetSPR_Right = 0;
 		targetSPR_Right_UpperLimit = 0;
 		targetSPR_Left_UpperLimit = 0;
+		targetSPR_Left_LowerLimit = 0;
+		targetSPR_Right_LowerLimit = 0;
 	}
 	else
 	{ 
@@ -53,14 +55,17 @@ void ShooterWheels::SetTargetRpm(float targetRpm, float bias)
 			rightTargetRpm = targetRpm;
 			leftTargetRpm = targetRpm;
 		}
+		
 		if(rightTargetRpm > MAX_RPM)
 		{
 			rightTargetRpm = MAX_RPM;
 		}
+		
 		if(leftTargetRpm > MAX_RPM)
 		{
 			leftTargetRpm = MAX_RPM;
 		}
+		
 		targetSPR_Right = ((double)60.0) / ((double)rightTargetRpm);
 		targetSPR_Left = ((double)60.0) / ((double)leftTargetRpm);
 		targetSPR_Right_UpperLimit = (targetSPR_Right * (1.0 + SPEED_TOLERANCE));
@@ -77,47 +82,110 @@ void ShooterWheels::SetPower(float power)
 }
 float ShooterWheels::GetRpm()
 {
-	rightCount.Get();
-	return leftCount.Get();
+//	rightCount.Get();
+//	return leftCount.Get();
 }
 bool ShooterWheels::Fire(float delay)
 {
 	static Timer takeBackTimer;
 	static Timer shotTimer;
-	bool fired = false;
-	if ((IsUpToSpeed() == true) && (fired == false))
+	static bool ready = true;
+	bool returnValue = false;
+	if ((IsUpToSpeed() == true) && (ready == true))
 		{
+			takeBack = true;
 			firingSolenoid->Set(DoubleSolenoid::kForward);
 			takeBackTimer.Reset();
 			takeBackTimer.Start();
+			shotTimer.Start();
+			shotTimer.Reset();
+			ready = false;
+			returnValue = true;
 			return true;
 		}
+	// This function takes the takeBack back, Jack
+	else if (shotTimer.Get() > delay)
+	{
+		shotTimer.Reset();
+		ready = true;
+		firingSolenoid->Set(DoubleSolenoid::kReverse);
+	}
+	else if(shotTimer.Get() == 0.0)
+	{
+		shotTimer.Start();
+	}
+	
+	if (takeBackTimer.Get() >= TAKE_BACK_TIME)
+	{
+		takeBack = false;
+	}
 //	else if (fired == true)
 //		{
 //			firingSolenoid->Set(DoubleSolenoid::kReverse);
 //		}
-		return false;
+		return returnValue;
 }
 
 void ShooterWheels::Run()
 {
+	static float lastRightMotorCommand;
+	static float lastLeftMotorCommand;
+	float newRightMotorCommand;
+	float newLeftMotorCommand;
 	rightCurrentSpeed = rightCount.GetPeriod();
 	leftCurrentSpeed = leftCount.GetPeriod();
+	
+	if (takeBack)
+		{
+			newRightMotorCommand = 0.8;
+			newLeftMotorCommand = 0.8;
+		}
+	else if (targetRpm == 0.0)
+		{
+			newRightMotorCommand = 0.0;
+			newLeftMotorCommand = 0.0;
+		}
+	//else
+		//if right > targetSPR_Right newRightMotorCommand = 1.0; greater than, because the period being greater means we are spinning too slow
+		//if left > targetSPR_Left newLeftMotorCommand = 1.0;
+	//Remove this:
+	if (( rightCurrentSpeed < targetRpm) && (leftCurrentSpeed < targetRpm))		
+		{
+			newRightMotorCommand = 1.0;
+			newLeftMotorCommand = 1.0;
+		}
+
+	//remove the else, we always want to update motor commands
+	else 
+		{
+				
+			if (lastRightMotorCommand != newRightMotorCommand)
+				{
+					rightWheelMotor->Set(newRightMotorCommand);
+					lastRightMotorCommand = newRightMotorCommand;
+				}
+	
+			if (lastLeftMotorCommand != newLeftMotorCommand)
+				{
+					leftWheelMotor->Set(newLeftMotorCommand);
+					lastLeftMotorCommand = newLeftMotorCommand;
+				}
+		}
 }
 
 bool ShooterWheels::IsUpToSpeed()
 {
+	//make sure we don't return true if the target is 0
+	if (targetSPR_Right == 0.0)
+	{
+		return false;
+	}
 	double rightSpeed = rightCurrentSpeed;
 	double leftSpeed = leftCurrentSpeed;
 	if ((rightSpeed >= targetSPR_Right_LowerLimit) && (rightSpeed <= targetSPR_Right_UpperLimit))
 		{
 			rightIsUpToSpeed = true;
 		}
-//	else if (rightSpeed < targetSPR_Right_LowerLimit)
-//		{
-//			rightIsUpToSpeed = false;
-//		}
-//	else if (rightSpeed > targetSPR_Right_UpperLimit)
 	else
 		{
 			rightIsUpToSpeed = false;
@@ -127,25 +195,21 @@ bool ShooterWheels::IsUpToSpeed()
 		{
 			leftIsUpToSpeed = true;
 		}
-//	else if (leftSpeed < targetSPR_Left_LowerLimit)
-//		{
-//			leftIsUpToSpeed = false;
-//			leftWheelMotor->Set(1.0);
-//		}
-//	else if (leftSpeed > targetSPR_Left_UpperLimit)
-//		{
-//			leftIsUpToSpeed = false;
-//			leftWheelMotor->Set(0.0);
-//		}
 	else
 	{
 		leftIsUpToSpeed = false;
 	}
-	bool IsUpToSpeed = false;
+	
+	bool atSpeed = false;
 	if ((rightIsUpToSpeed == true) && (leftIsUpToSpeed == true))
 	{
-		IsUpToSpeed = true;
+		atSpeed = true;
 	}
-	return IsUpToSpeed;
+	return atSpeed;
 }
 
+
+bool ShooterWheels::IsShotComplete()
+{
+	
+}
