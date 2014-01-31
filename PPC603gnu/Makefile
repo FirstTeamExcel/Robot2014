@@ -32,7 +32,7 @@ MODE_DIR := NonDebug
 endif
 OBJ_DIR := .
 WS_ROOT_DIR := C:/WindRiver/workspace
-PRJ_ROOT_DIR := $(WS_ROOT_DIR)/Robot2014
+PRJ_ROOT_DIR := C:/Users/Joe/Documents/GitHub/Robot2014
 
 
 
@@ -116,18 +116,6 @@ CommandBasedRobotTemplate/$(MODE_DIR)/% : CC_ARCH_SPEC = -mcpu=603 -mstrict-alig
 CommandBasedRobotTemplate/$(MODE_DIR)/% : LIBPATH = 
 CommandBasedRobotTemplate/$(MODE_DIR)/% : LIBS = 
 CommandBasedRobotTemplate/$(MODE_DIR)/% : OBJ_DIR := CommandBasedRobotTemplate/$(MODE_DIR)
-
-CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/com.windriver.ide.core/compilerInspection.o : $(PRJ_ROOT_DIR)/.metadata/.plugins/com.windriver.ide.core/compilerInspection.C $(FORCE_FILE_BUILD)
-	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
-
-
-CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/org.eclipse.cdt.make.core/specs.o : $(PRJ_ROOT_DIR)/.metadata/.plugins/org.eclipse.cdt.make.core/specs.c $(FORCE_FILE_BUILD)
-	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C-Compiler) $(CC_ARCH_SPEC) -ansi  -Wall  -MD -MP -mlongcall $(ADDED_CFLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
-
-
-CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/org.eclipse.cdt.make.core/specs.o : $(PRJ_ROOT_DIR)/.metadata/.plugins/org.eclipse.cdt.make.core/specs.cpp $(FORCE_FILE_BUILD)
-	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
-
 
 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/AutonomousCommand.o : $(PRJ_ROOT_DIR)/Commands/AutonomousCommand.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
@@ -241,10 +229,7 @@ CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Subsystems/ShooterWheels
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-OBJECTS_CommandBasedRobotTemplate = CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/com.windriver.ide.core/compilerInspection.o \
-	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/org.eclipse.cdt.make.core/specs.o \
-	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/org.eclipse.cdt.make.core/specs.o \
-	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/AutonomousCommand.o \
+OBJECTS_CommandBasedRobotTemplate = CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/AutonomousCommand.o \
 	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/AutonomousCommandGroup.o \
 	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/BlockerIdle.o \
 	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/BlockerLower.o \
@@ -315,18 +300,6 @@ CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/% : CC_ARCH_SPEC = -mcpu=603
 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/% : LIBPATH = 
 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/% : LIBS = 
 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/% : OBJ_DIR := CommandBassedRobotTemplate_partialImage/$(MODE_DIR)
-
-CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/com.windriver.ide.core/compilerInspection.o : $(PRJ_ROOT_DIR)/.metadata/.plugins/com.windriver.ide.core/compilerInspection.C $(FORCE_FILE_BUILD)
-	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
-
-
-CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/org.eclipse.cdt.make.core/specs.o : $(PRJ_ROOT_DIR)/.metadata/.plugins/org.eclipse.cdt.make.core/specs.c $(FORCE_FILE_BUILD)
-	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C-Compiler) $(CC_ARCH_SPEC) -ansi  -Wall  -MD -MP -mlongcall $(ADDED_CFLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
-
-
-CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/org.eclipse.cdt.make.core/specs.o : $(PRJ_ROOT_DIR)/.metadata/.plugins/org.eclipse.cdt.make.core/specs.cpp $(FORCE_FILE_BUILD)
-	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
-
 
 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/AutonomousCommand.o : $(PRJ_ROOT_DIR)/Commands/AutonomousCommand.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
@@ -440,10 +413,7 @@ CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Subsystems
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-OBJECTS_CommandBassedRobotTemplate_partialImage = CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/com.windriver.ide.core/compilerInspection.o \
-	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/org.eclipse.cdt.make.core/specs.o \
-	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/org.eclipse.cdt.make.core/specs.o \
-	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/AutonomousCommand.o \
+OBJECTS_CommandBassedRobotTemplate_partialImage = CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/AutonomousCommand.o \
 	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/AutonomousCommandGroup.o \
 	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/BlockerIdle.o \
 	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/BlockerLower.o \
@@ -484,8 +454,7 @@ CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/CommandBassedRobotTemplate_p
 
 force : 
 
-DEP_FILES := CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/com.windriver.ide.core/compilerInspection.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/org.eclipse.cdt.make.core/specs.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/org.eclipse.cdt.make.core/specs.d \
-	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/AutonomousCommand.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/AutonomousCommandGroup.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/BlockerIdle.d \
+DEP_FILES := CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/AutonomousCommand.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/AutonomousCommandGroup.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/BlockerIdle.d \
 	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/BlockerLower.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/BlockerRaise.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/CollectorDown.d \
 	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/CollectorEject.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/CollectorIdle.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/CollectorLoad.d \
 	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/CollectorUP.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/DetectHotGoal.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/Drive.d \
@@ -494,8 +463,7 @@ DEP_FILES := CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/.metadata/.
 	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Commands/ShooterTargetGoal.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/OI.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Robot.d \
 	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/RobotMap.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Subsystems/Blocker.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Subsystems/Camera.d \
 	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Subsystems/Collector.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Subsystems/DriveSubsystem.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Subsystems/ShooterArm.d \
-	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Subsystems/ShooterWheels.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/com.windriver.ide.core/compilerInspection.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/org.eclipse.cdt.make.core/specs.d \
-	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/.metadata/.plugins/org.eclipse.cdt.make.core/specs.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/AutonomousCommand.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/AutonomousCommandGroup.d \
+	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/Robot2014/Subsystems/ShooterWheels.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/AutonomousCommand.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/AutonomousCommandGroup.d \
 	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/BlockerIdle.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/BlockerLower.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/BlockerRaise.d \
 	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/CollectorDown.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/CollectorEject.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/CollectorIdle.d \
 	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/CollectorLoad.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/CollectorUP.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/DetectHotGoal.d \
