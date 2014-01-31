@@ -12,6 +12,7 @@
 #define FPGA_TIME_TO_MINUTES_FACTOR (60*1000*1000)
 #define MAX_RPM (4100)
 #define SPEED_TOLERANCE (0.1)
+#define BALL_ESCAPE_TIME (0.5)
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
 #include "../jankyTask.h"
@@ -30,6 +31,7 @@ private:
 	bool leftIsUpToSpeed;
 	bool rightIsUpToSpeed;
 	bool takeBack;
+	bool ready;
 	float targetRpm;
 	float bias;
 	float power;
@@ -42,6 +44,7 @@ private:
 	double targetSPR_Left_UpperLimit;
 	double targetSPR_Right_LowerLimit;
 	double targetSPR_Left_LowerLimit;
+	Timer shotTimer;
 	Counter rightCount;
 	Counter leftCount;
 //	DoubleSolenoid fireExtend;
@@ -59,7 +62,7 @@ public:
 	
 	void SetTargetRpm(float targetRpm, float bias);
 	void SetPower(float power);
-	float GetRpm();
+	void GetRpm(float& rightRpm, float& leftRpm);
 	bool Fire(float delay = 0);
 	bool IsShotComplete();
 	bool IsUpToSpeed();
