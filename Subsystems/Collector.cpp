@@ -30,17 +30,21 @@ void Collector::InitDefaultCommand() {
 
 void Collector::MoveCollector(bool extend)
 {
-	if (extend == true)
+	if (DOWN == true)
 	{
 		collectorLifter->Set(DoubleSolenoid::kForward);
 		timeTravel.Reset();
 		timeTravel.Start();
 	}
-	else
+	else if (UP == true)
 	{
 		collectorLifter->Set(DoubleSolenoid::kReverse);
 		timeTravel.Reset();
 		timeTravel.Start();
+	}
+	else
+	{
+		timeTravel.Get();
 	}
 }
 
@@ -66,9 +70,9 @@ Collector::CollectorState Collector::GetState()
 		return UP;
 	}
 	if ((timeTravel.Get() < TIME_TRAVELING_UP) && (collectorLifter->Get() == DoubleSolenoid::kReverse)) 
-			{
-				return TRAVELING_UP;
-			}
+	{
+		return TRAVELING_UP;
+	}
 	if ((timeTravel.Get() >= TIME_TRAVELING_DOWN) && (collectorLifter->Get() == DoubleSolenoid::kForward))
 	{
 		return DOWN;
