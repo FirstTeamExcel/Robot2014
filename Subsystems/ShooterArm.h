@@ -41,7 +41,6 @@ class ShooterArm: public PIDSubsystem {
 	float GetCurrentAngle();
 	bool IsOnTarget();
 	void SetTargetAngle(float);
-	float PIDOutputToMotorCommand(double);
 	
 };
 #endif
