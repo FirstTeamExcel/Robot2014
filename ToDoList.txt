@@ -1,0 +1,47 @@
+Change all motor controllers to talons
+Remove grabber, shooter grab/release
+Remove left/Right counters
+Remove DetectHotGoal command, this will be part of the TargetAutonomousCommand
+
+Commands:
+Rename AutonomousCommandGroup->SingleBallAutonomousCommand
+Add TwoBallAutonomousCommand
+Add ThreeBallAutonomousCommand
+
+Add ShooterArmTargetTruss, ShooterWheelsTargetTruss
+	Arm/Wheels: TargetLongGoal, TargetShortGoal, TargetAutonomous3,2,1,   (short != low goal, just means shorter shot)(auton 3/2/1 would be for 3 shooting positions)
+	ShooterArmAutoTarget, ShooterWheelsAutoTarget (both use the Camera subsystem)
+	ShooterArmTargetLoadPosition
+	ShooterArm/Wheels TargetEjectPosition
+	ShooterWheelsManualControl
+	ShooterArmTuningMode
+	ShooterArmTarget
+	
+Add EjectBall as a command group. (Uses ShooterWheels, ShooterArms, Collector)
+
+Add DriveTwoFeet routine (uses DriveStraight routine on drivetrain, which returns true when completed)
+Add Turn90Degrees and Turn180Degrees commands
+Add DriveStraightTuning and TurnToAngleTuning
+
+ShooterSpinUp should spin up to some nominal speed (like 4k rpm), not used for shooting
+
+
+Other stuff:
+In ShooterArm subsystem, PID to motor command function, instead of output * 1-cos(angle), use output - (output * cos(angle))
+Figure out if trig functions are intended for degrees or radians
+
+Camera::GetRange function?
+
+
+
+
+
+
+
+
+
+
+
+
+
+Add CheesyDrive routine
