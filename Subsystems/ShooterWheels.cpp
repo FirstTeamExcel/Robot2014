@@ -91,6 +91,8 @@ void ShooterWheels::GetRpm(float& rightRpm, float& leftRpm)
 bool ShooterWheels::Fire(float delay)
 {
 	static Timer takeBackTimer;
+	static Timer shotTimer;
+	static bool ready = true;
 	bool returnValue = false;
 	if ((IsUpToSpeed() == true) && (ready == true) && (shotTimer.Get() > BALL_ESCAPE_TIME))
 		{
@@ -98,6 +100,7 @@ bool ShooterWheels::Fire(float delay)
 			firingSolenoid->Set(DoubleSolenoid::kForward);
 			takeBackTimer.Reset();
 			takeBackTimer.Start();
+			shotTimer.Start();
 			shotTimer.Reset();
 			ready = false;
 			returnValue = true;
