@@ -33,6 +33,10 @@ Figure out if trig functions are intended for degrees or radians
 Camera::GetRange function?
 
 
+Tune the three PID systems (Arm, Turning, DriveStraight)
+Find our shot RPMs
+Test vision for hot goal
+
 
 
 
