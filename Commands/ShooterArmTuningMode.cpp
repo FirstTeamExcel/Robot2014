@@ -10,6 +10,7 @@
 
 
 #include "ShooterArmTuningMode.h"
+#include "../ShooterArmPositions.h"
 
 ShooterArmTuningMode::ShooterArmTuningMode() {
 	// Use requires() here to declare subsystem dependencies

@@ -10,6 +10,7 @@
 
 
 #include "ArmTargetShortGoal.h"
+#include "../ShooterArmPositions.h"
 
 ArmTargetShortGoal::ArmTargetShortGoal() {
 	// Use requires() here to declare subsystem dependencies

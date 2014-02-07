@@ -10,6 +10,7 @@
 
 
 #include "ShooterArmTargetEjectPosition.h"
+#include "../ShooterArmPositions.h"
 
 ShooterArmTargetEjectPosition::ShooterArmTargetEjectPosition() {
 	// Use requires() here to declare subsystem dependencies
@@ -25,12 +26,17 @@ void ShooterArmTargetEjectPosition::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void ShooterArmTargetEjectPosition::Execute() {
+	ShooterArm *arm = Robot::shooterArm;
+				
+				arm->SetTargetAngle(SHOOTER_ARM_TARGET_EJECT_POSITION);
 	
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterArmTargetEjectPosition::IsFinished() {
-	return false;
+	ShooterArm *arm = Robot::shooterArm;
+				
+				return arm->IsOnTarget();
 }
 
 // Called once after isFinished returns true

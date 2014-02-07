@@ -10,6 +10,7 @@
 
 
 #include "ShooterArmAutoTarget.h"
+#include "../ShooterArmPositions.h"
 
 ShooterArmAutoTarget::ShooterArmAutoTarget() {
 	// Use requires() here to declare subsystem dependencies

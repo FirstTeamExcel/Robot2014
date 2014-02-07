@@ -10,6 +10,7 @@
 
 
 #include "ShooterArmTargetTruss.h"
+#include "../ShooterArmPositions.h"
 
 ShooterArmTargetTruss::ShooterArmTargetTruss() {
 	// Use requires() here to declare subsystem dependencies
@@ -25,12 +26,17 @@ void ShooterArmTargetTruss::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void ShooterArmTargetTruss::Execute() {
-	
+	ShooterArm *arm = Robot::shooterArm;
+		
+		arm->SetTargetAngle(SHOOTER_ARM_TARGET_TRUSS);
+		
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterArmTargetTruss::IsFinished() {
-	return false;
+	ShooterArm *arm = Robot::shooterArm;
+		
+		return arm->IsOnTarget();
 }
 
 // Called once after isFinished returns true

@@ -8,6 +8,7 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 #include "ShooterIdle.h"
+#include "../ShooterArmPositions.h"
 ShooterIdle::ShooterIdle() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);

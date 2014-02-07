@@ -10,6 +10,7 @@
 
 
 #include "ArmTargetAutonomous2.h"
+#include "../ShooterArmPositions.h"
 
 ArmTargetAutonomous2::ArmTargetAutonomous2() {
 	// Use requires() here to declare subsystem dependencies
