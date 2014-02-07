@@ -9,8 +9,8 @@
 // it from being updated in th future.
 
 
-#ifndef SHOOTERREALEASE_H
-#define SHOOTERREALEASE_H
+#ifndef TURNTOANGLETURNING_H
+#define TURNTOANGLETURNING_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,9 +21,9 @@
  *
  * @author ExampleAuthor
  */
-class ShooterRealease: public Command {
+class TurnToAngleTurning: public Command {
 public:
-	ShooterRealease();
+	TurnToAngleTurning();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

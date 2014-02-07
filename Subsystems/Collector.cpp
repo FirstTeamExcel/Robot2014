@@ -27,7 +27,6 @@ void Collector::InitDefaultCommand() {
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-
 void Collector::MoveCollector(bool extend)
 {
 	if (DOWN == true)
@@ -47,22 +46,18 @@ void Collector::MoveCollector(bool extend)
 		timeTravel.Get();
 	}
 }
-
 void Collector::Pickup()
 {
 	rollerMotor->Set(1.0);
 }
-
 void Collector::Spit()
 {
 	rollerMotor->Set(-1.0);
 }
-
 void Collector::Idle()
 {
 	rollerMotor->Set(0.0);
 }
-
 Collector::CollectorState Collector::GetState()
 {
 	if ((timeTravel.Get() >= TIME_TRAVELING_UP) && (collectorLifter->Get() == DoubleSolenoid::kReverse))

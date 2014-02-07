@@ -30,11 +30,8 @@ public:
 	static Accelerometer* driveSubsystemdriveAccelerometer;
 	static AnalogChannel* shooterArmshooterArmPot;
 	static SpeedController* shooterArmshooterArmMotor;
-	static DoubleSolenoid* shooterArmGrabber;
 	static SpeedController* shooterWheelsrightWheelMotor;
 	static SpeedController* shooterWheelsleftWheelMotor;
-	static Encoder* shooterWheelsleftCounter;
-	static Encoder* shooterWheelsrightCounter;
 	static DoubleSolenoid* shooterWheelsFiringSolenoid;
 	static DoubleSolenoid* collectorcollectorLifter;
 	static SpeedController* collectorrollerMotor;

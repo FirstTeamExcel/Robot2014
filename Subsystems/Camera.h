@@ -24,7 +24,6 @@
 #define TAPE_WIDTH_LIMIT 50
 #define VERTICAL_SCORE_LIMIT 50
 #define LR_SCORE_LIMIT 50
-
 /**
  *
  *
@@ -46,7 +45,6 @@ public:
       goalLeft, 
       goalRight
     }hotGoalSide;
-
     
 	Camera();
 	void InitDefaultCommand();
@@ -64,7 +62,6 @@ public:
 	
 	//Stuff from VisionSample2014:
 private:
-
 	//Structure to represent the scores for the various tests used for target identification
 	struct Scores {
 		double rectangularity;
@@ -91,7 +88,6 @@ private:
 	bool scoreCompare(Scores scores, bool vertical);
 	
 	double scoreRectangularity(ParticleAnalysisReport *report);
-
 	double ratioToScore(double ratio);
 	
 	bool hotOrNot(TargetReport target);

@@ -9,8 +9,8 @@
 // it from being updated in th future.
 
 
-#ifndef SHOOTERGRAB_H
-#define SHOOTERGRAB_H
+#ifndef SHOOTERARMAUTOTARGET_H
+#define SHOOTERARMAUTOTARGET_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,9 +21,9 @@
  *
  * @author ExampleAuthor
  */
-class ShooterGrab: public Command {
+class ShooterArmAutoTarget: public Command {
 public:
-	ShooterGrab();
+	ShooterArmAutoTarget();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
