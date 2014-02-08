@@ -10,6 +10,10 @@
 
 
 #include "WheelTargetLongGoal.h"
+#include "../ShooterWheelsSpeeds.h"
+#include "../ShooterWheels.cpp"
+
+ShooterWheels *wheels = Robot::shooterWheels;  //should we have this here, or in the individual methods, like in ShooterArmTargetEject?
 
 WheelTargetLongGoal::WheelTargetLongGoal() {
 	// Use requires() here to declare subsystem dependencies
@@ -26,11 +30,13 @@ void WheelTargetLongGoal::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void WheelTargetLongGoal::Execute() {
 	
+	wheels->SetTargetRpm(TARGET_HIGH_GOAL_SPEED);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool WheelTargetLongGoal::IsFinished() {
-	return false;
+	
+	wheels->IsUpToSpeed();
 }
 
 // Called once after isFinished returns true

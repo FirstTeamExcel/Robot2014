@@ -10,6 +10,10 @@
 
 
 #include "ShooterWheelTargetLoadPosition.h"
+#include "../ShooterWheelsSpeeds.h"
+#include "../ShooterWheels.cpp"
+
+ShooterWheels *wheels = Robot::shooterWheels;  //should we have this here, or in the individual methods, like in ShooterArmTargetEject?
 
 ShooterWheelTargetLoadPosition::ShooterWheelTargetLoadPosition() {
 	// Use requires() here to declare subsystem dependencies
@@ -26,11 +30,14 @@ void ShooterWheelTargetLoadPosition::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ShooterWheelTargetLoadPosition::Execute() {
 	
+	wheels->SetTargetRpm(TARGET_LOAD_SPEED);
+	
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterWheelTargetLoadPosition::IsFinished() {
-	return false;
+	
+	wheels->IsUpToSpeed();
 }
 
 // Called once after isFinished returns true
