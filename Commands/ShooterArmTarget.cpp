@@ -21,22 +21,22 @@ ShooterArmTarget::ShooterArmTarget() {
 
 // Called just before this Command runs the first time
 void ShooterArmTarget::Initialize() {
-	ShooterArm *arm = Robot::shooterArm;
-					
-					arm->SetTargetAngle(SHOOTERARM_H);
 	
 }
 
 // Called repeatedly when this Command is scheduled to run
 void ShooterArmTarget::Execute() {
-	
+	ShooterArm *arm = Robot::shooterArm;
+						
+		arm->SetTargetAngle(SHOOTERARM_H);
+		
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterArmTarget::IsFinished() {
 	ShooterArm *arm = Robot::shooterArm;
 				
-				return arm->IsOnTarget();
+	return arm->IsOnTarget();
 }
 
 // Called once after isFinished returns true

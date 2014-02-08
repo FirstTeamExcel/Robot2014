@@ -26,12 +26,16 @@ void ArmTargetShortGoal::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void ArmTargetShortGoal::Execute() {
-	
+	ShooterArm *arm = Robot::shooterArm;
+					
+	arm->SetTargetAngle(ARM_TARGET_SHORT_GOAL);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool ArmTargetShortGoal::IsFinished() {
-	return false;
+	ShooterArm *arm = Robot::shooterArm;
+					
+	return arm->IsOnTarget();
 }
 
 // Called once after isFinished returns true
