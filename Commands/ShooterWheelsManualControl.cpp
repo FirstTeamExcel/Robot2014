@@ -10,6 +10,10 @@
 
 
 #include "ShooterWheelsManualControl.h"
+#include "../ShooterWheelsSpeeds.h"
+#include "../ShooterWheels.cpp"
+
+Joystick* opStick = Robot::OI->getoperatorStick;
 
 ShooterWheelsManualControl::ShooterWheelsManualControl() {
 	// Use requires() here to declare subsystem dependencies
@@ -26,11 +30,22 @@ void ShooterWheelsManualControl::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ShooterWheelsManualControl::Execute() {
 	
+	//Should we have a joystick button to toggle a "Manual Mode?" If off, the throttle can't control the wheels
+	
+	if ((opStick->GetThrottle()) && (ShootWheels::IsShotComplete))
+	float targetSpeed = (opStick->GetThrottle() + 1) * -0.5;
+	ShooterWheels::SetTargetRpm(targetSpeed);	//Include the bias? (in the SetTargetRpm method)
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterWheelsManualControl::IsFinished() {
-	return false;
+	if (opStick->GetThrottle() == 0.0)
+	{
+		return true;
+	}
+	else {
+		return false;	
+	}
 }
 
 // Called once after isFinished returns true
