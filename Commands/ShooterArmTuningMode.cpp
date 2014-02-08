@@ -26,12 +26,16 @@ void ShooterArmTuningMode::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void ShooterArmTuningMode::Execute() {
-	
+	ShooterArm *arm = Robot::shooterArm;
+			
+			arm->SetTargetAngle(SHOOTER_ARM_TUNING_MODE);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterArmTuningMode::IsFinished() {
-	return false;
+	ShooterArm *arm = Robot::shooterArm;
+			
+	return arm->IsOnTarget();
 }
 
 // Called once after isFinished returns true
