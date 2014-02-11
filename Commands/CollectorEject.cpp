@@ -8,6 +8,9 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 #include "CollectorEject.h"
+#include "../CollectorSpeedsAndPositions.h"
+#include "../Subsystems/Collector.h"
+
 CollectorEject::CollectorEject() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -17,15 +20,24 @@ CollectorEject::CollectorEject() {
 }
 // Called just before this Command runs the first time
 void CollectorEject::Initialize() {
-	
+	ejectTimer.Reset();
+	ejectTimer.Start();
 }
 // Called repeatedly when this Command is scheduled to run
 void CollectorEject::Execute() {
-	Robot::collector->rollerMotor->Set(-.1);
+	Robot::collector->Spit();
+	
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CollectorEject::IsFinished() {
-	return false;
+	if (ejectTimer.Get() > 2.0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 // Called once after isFinished returns true
 void CollectorEject::End() {
