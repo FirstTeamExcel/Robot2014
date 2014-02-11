@@ -8,6 +8,7 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 #include "ShooterArmDismount.h"
+#include "../ShooterArmPositions.h"
 ShooterArmDismount::ShooterArmDismount() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);

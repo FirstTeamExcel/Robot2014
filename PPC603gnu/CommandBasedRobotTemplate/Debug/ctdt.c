@@ -39,8 +39,6 @@ void _GLOBAL__I__ZN8Command1C2Ev();
 
 void _GLOBAL__I__ZN13DetectHotGoalC2Ev();
 
-void _GLOBAL__I__ZN5DriveC2Ev();
-
 void _GLOBAL__I__ZN19DriveStraightTuningC2Ev();
 
 void _GLOBAL__I__ZN12DriveTwoFeetC2Ev();
@@ -80,6 +78,8 @@ void _GLOBAL__I__ZN32ShooterWheelsTargetEjectPositionC2Ev();
 void _GLOBAL__I__ZN24ShooterWheelsTargetTrussC2Ev();
 
 void _GLOBAL__I__ZN23ShooterWheelsTuningModeC2Ev();
+
+void _GLOBAL__I__ZN27SingleBallAutonomousCommandC2Ev();
 
 void _GLOBAL__I__ZN26ThreeBallAutonomousCommandC2Ev();
 
@@ -192,7 +192,6 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN11CollectorUPC2Ev,
     _GLOBAL__I__ZN8Command1C2Ev,
     _GLOBAL__I__ZN13DetectHotGoalC2Ev,
-    _GLOBAL__I__ZN5DriveC2Ev,
     _GLOBAL__I__ZN19DriveStraightTuningC2Ev,
     _GLOBAL__I__ZN12DriveTwoFeetC2Ev,
     _GLOBAL__I__ZN5ShootC2Ev,
@@ -213,6 +212,7 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN32ShooterWheelsTargetEjectPositionC2Ev,
     _GLOBAL__I__ZN24ShooterWheelsTargetTrussC2Ev,
     _GLOBAL__I__ZN23ShooterWheelsTuningModeC2Ev,
+    _GLOBAL__I__ZN27SingleBallAutonomousCommandC2Ev,
     _GLOBAL__I__ZN26ThreeBallAutonomousCommandC2Ev,
     _GLOBAL__I__ZN14Turn180DegreesC2Ev,
     _GLOBAL__I__ZN13Turn90DegreesC2Ev,
@@ -294,8 +294,6 @@ void _GLOBAL__D__ZN8Command1C2Ev();
 
 void _GLOBAL__D__ZN13DetectHotGoalC2Ev();
 
-void _GLOBAL__D__ZN5DriveC2Ev();
-
 void _GLOBAL__D__ZN19DriveStraightTuningC2Ev();
 
 void _GLOBAL__D__ZN12DriveTwoFeetC2Ev();
@@ -335,6 +333,8 @@ void _GLOBAL__D__ZN32ShooterWheelsTargetEjectPositionC2Ev();
 void _GLOBAL__D__ZN24ShooterWheelsTargetTrussC2Ev();
 
 void _GLOBAL__D__ZN23ShooterWheelsTuningModeC2Ev();
+
+void _GLOBAL__D__ZN27SingleBallAutonomousCommandC2Ev();
 
 void _GLOBAL__D__ZN26ThreeBallAutonomousCommandC2Ev();
 
@@ -437,7 +437,6 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN11CollectorUPC2Ev,
     _GLOBAL__D__ZN8Command1C2Ev,
     _GLOBAL__D__ZN13DetectHotGoalC2Ev,
-    _GLOBAL__D__ZN5DriveC2Ev,
     _GLOBAL__D__ZN19DriveStraightTuningC2Ev,
     _GLOBAL__D__ZN12DriveTwoFeetC2Ev,
     _GLOBAL__D__ZN5ShootC2Ev,
@@ -458,6 +457,7 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN32ShooterWheelsTargetEjectPositionC2Ev,
     _GLOBAL__D__ZN24ShooterWheelsTargetTrussC2Ev,
     _GLOBAL__D__ZN23ShooterWheelsTuningModeC2Ev,
+    _GLOBAL__D__ZN27SingleBallAutonomousCommandC2Ev,
     _GLOBAL__D__ZN26ThreeBallAutonomousCommandC2Ev,
     _GLOBAL__D__ZN14Turn180DegreesC2Ev,
     _GLOBAL__D__ZN13Turn90DegreesC2Ev,
