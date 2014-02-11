@@ -13,12 +13,14 @@
 #include "CollectorEject.h"
 #include "CollectorIdle.h"
 #include "ShooterArmTargetEjectPosition.h"
+#include "ShooterWheelsTargetEjectPosition.h"
 
 #include "EjectBall.h"
 
 EjectBall::EjectBall() {
-	AddParallel(new CollectorDown());
-	AddSequential(new ShooterArmTargetEjectPosition);
+	AddSequential(new CollectorDown());
+	AddParallel(new ShooterWheelsTargetEjectPosition());
+	AddSequential(new ShooterArmTargetEjectPosition());
 	AddSequential(new CollectorEject());
 	AddSequential(new CollectorIdle());
 	// Add Commands here:
