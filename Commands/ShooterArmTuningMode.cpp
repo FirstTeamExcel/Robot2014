@@ -24,7 +24,7 @@ void ShooterArmTuningMode::Initialize() {
 void ShooterArmTuningMode::Execute() {
 	ShooterArm *arm = Robot::shooterArm;
 			
-			arm->SetTargetAngle(SHOOTER_ARM_TUNING_MODE);
+	arm->SetTargetAngle(SHOOTER_ARM_TUNING_MODE);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterArmTuningMode::IsFinished() {

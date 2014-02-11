@@ -24,14 +24,14 @@ void ShooterArmTargetLoadPosition::Initialize() {
 void ShooterArmTargetLoadPosition::Execute() {
 	ShooterArm *arm = Robot::shooterArm;
 			
-			arm->SetTargetAngle(SHOOTER_ARM_TARGET_LOAD_POSITION);
+	arm->SetTargetAngle(SHOOTER_ARM_TARGET_LOAD_POSITION);
 	
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterArmTargetLoadPosition::IsFinished() {
 	ShooterArm *arm = Robot::shooterArm;
 			
-			return arm->IsOnTarget();
+	return arm->IsOnTarget();
 }
 // Called once after isFinished returns true
 void ShooterArmTargetLoadPosition::End() {
