@@ -9,8 +9,7 @@
 // it from being updated in th future.
 #include "WheelTargetLongGoal.h"
 #include "../ShooterWheelsSpeeds.h"
-#include "../ShooterWheels.cpp"
-ShooterWheels *wheels = Robot::shooterWheels;  //should we have this here, or in the individual methods, like in ShooterArmTargetEject?
+#include "../Subsystems/ShooterWheels.h"
 WheelTargetLongGoal::WheelTargetLongGoal() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -24,13 +23,13 @@ void WheelTargetLongGoal::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void WheelTargetLongGoal::Execute() {
-	
-	wheels->SetTargetRpm(TARGET_HIGH_GOAL_SPEED);
+    ShooterWheels *wheels = Robot::shooterWheels; 
+	wheels->SetTargetRpm(TARGET_LONG_GOAL_SPEED);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool WheelTargetLongGoal::IsFinished() {
-	
-	wheels->IsUpToSpeed();
+    ShooterWheels *wheels = Robot::shooterWheels; 
+	return wheels->IsUpToSpeed();
 }
 // Called once after isFinished returns true
 void WheelTargetLongGoal::End() {

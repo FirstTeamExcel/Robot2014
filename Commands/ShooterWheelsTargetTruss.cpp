@@ -9,8 +9,7 @@
 // it from being updated in th future.
 #include "ShooterWheelsTargetTruss.h"
 #include "../ShooterWheelsSpeeds.h"
-#include "../ShooterWheels.cpp"
-ShooterWheels *wheels = Robot::shooterWheels;  //should we have this here, or in the individual methods, like in ShooterArmTargetEject?
+#include "../Subsystems/ShooterWheels.h"
 ShooterWheelsTargetTruss::ShooterWheelsTargetTruss() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -24,13 +23,13 @@ void ShooterWheelsTargetTruss::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void ShooterWheelsTargetTruss::Execute() {
-	
+    ShooterWheels *wheels = Robot::shooterWheels; 
 	wheels->SetTargetRpm(TARGET_TRUSS_SPEED);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterWheelsTargetTruss::IsFinished() {
-	
-	wheels->IsUpToSpeed();
+    ShooterWheels *wheels = Robot::shooterWheels; 
+	return wheels->IsUpToSpeed();
 }
 // Called once after isFinished returns true
 void ShooterWheelsTargetTruss::End() {

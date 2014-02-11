@@ -38,7 +38,7 @@ class ShooterArm: public PIDSubsystem {
 	
 	float GetCurrentAngle();
 	bool IsOnTarget();
-	void SetTargetAngle(float);
+	void SetTargetAngle(float tgtAngle);
 	
 };
 #endif

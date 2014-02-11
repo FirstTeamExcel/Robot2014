@@ -242,6 +242,10 @@ double Camera::scoreRectangularity(ParticleAnalysisReport *report)
 			return isHot;
 		}
 	
+//	Camera::hotGoalSide Camera::GetDistance()
+//	{
+//	    
+//	}
 	Camera::hotGoalSide Camera::DetectHotGoal()
 		{
 		hotGoalSide retValue = notDetected;		

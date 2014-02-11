@@ -28,7 +28,7 @@ void ShooterArmTarget::Initialize() {
 void ShooterArmTarget::Execute() {
 	ShooterArm *arm = Robot::shooterArm;
 						
-		arm->SetTargetAngle(SHOOTERARM_H);
+		arm->SetTargetAngle(SHOOTER_ARM_TARGET);
 		
 }
 

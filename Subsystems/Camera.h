@@ -55,7 +55,7 @@ public:
 	bool ScoreCompare();
 	double ScoreRectangularity();
 	double RatioToScore();
-	bool HotOrNot();
+	bool hotOrNot();
 	
 	hotGoalSide DetectHotGoal();
 	

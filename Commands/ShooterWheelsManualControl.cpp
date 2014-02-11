@@ -9,8 +9,8 @@
 // it from being updated in th future.
 #include "ShooterWheelsManualControl.h"
 #include "../ShooterWheelsSpeeds.h"
-#include "../ShooterWheels.cpp"
-Joystick* opStick = Robot::OI->getoperatorStick;
+#include "../Subsystems/ShooterWheels.h"
+
 ShooterWheelsManualControl::ShooterWheelsManualControl() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -26,20 +26,18 @@ void ShooterWheelsManualControl::Initialize() {
 void ShooterWheelsManualControl::Execute() {
 	
 	//Should we have a joystick button to toggle a "Manual Mode?" If off, the throttle can't control the wheels
-	
-	if ((opStick->GetThrottle()) && (ShootWheels::IsShotComplete))
-	float targetSpeed = (opStick->GetThrottle() + 1) * -0.5;
-	ShooterWheels::SetTargetRpm(targetSpeed);	//Include the bias? (in the SetTargetRpm method)
+
+    Joystick* opStick = Robot::oi->getoperatorStick();
+    
+	if ((opStick->GetThrottle()) && (Robot::shooterWheels->IsShotComplete()))
+	{
+        float targetSpeed = (opStick->GetThrottle() + 1) * -0.5;
+        Robot::shooterWheels->SetTargetRpm(targetSpeed);	//Include the bias? (in the SetTargetRpm method)
+	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterWheelsManualControl::IsFinished() {
-	if (opStick->GetThrottle() == 0.0)
-	{
-		return true;
-	}
-	else {
-		return false;	
-	}
+    return false;
 }
 // Called once after isFinished returns true
 void ShooterWheelsManualControl::End() {

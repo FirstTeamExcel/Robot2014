@@ -51,6 +51,8 @@ void _GLOBAL__I__ZN16ShootTargetTrussC2Ev();
 
 void _GLOBAL__I__ZN20ShooterArmAutoTargetC2Ev();
 
+void _GLOBAL__I__ZN18ShooterArmDismountC2Ev();
+
 void _GLOBAL__I__ZN16ShooterArmTargetC2Ev();
 
 void _GLOBAL__I__ZN29ShooterArmTargetEjectPositionC2Ev();
@@ -77,6 +79,8 @@ void _GLOBAL__I__ZN32ShooterWheelsTargetEjectPositionC2Ev();
 
 void _GLOBAL__I__ZN24ShooterWheelsTargetTrussC2Ev();
 
+void _GLOBAL__I__ZN23ShooterWheelsTuningModeC2Ev();
+
 void _GLOBAL__I__ZN26ThreeBallAutonomousCommandC2Ev();
 
 void _GLOBAL__I__ZN14Turn180DegreesC2Ev();
@@ -101,7 +105,7 @@ void _GLOBAL__I__ZN2OIC2Ev();
 
 void _GLOBAL__I__ZN5Robot14driveSubsystemE();
 
-void _GLOBAL__I__ZN8RobotMap27driveSubsystemleftRearDriveE();
+void _GLOBAL__I__ZN8RobotMap23driveSubsystemleftDriveE();
 
 void _GLOBAL__I__ZN7BlockerC2Ev();
 
@@ -194,6 +198,7 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN5ShootC2Ev,
     _GLOBAL__I__ZN16ShootTargetTrussC2Ev,
     _GLOBAL__I__ZN20ShooterArmAutoTargetC2Ev,
+    _GLOBAL__I__ZN18ShooterArmDismountC2Ev,
     _GLOBAL__I__ZN16ShooterArmTargetC2Ev,
     _GLOBAL__I__ZN29ShooterArmTargetEjectPositionC2Ev,
     _GLOBAL__I__ZN28ShooterArmTargetLoadPositionC2Ev,
@@ -207,6 +212,7 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN26ShooterWheelsManualControlC2Ev,
     _GLOBAL__I__ZN32ShooterWheelsTargetEjectPositionC2Ev,
     _GLOBAL__I__ZN24ShooterWheelsTargetTrussC2Ev,
+    _GLOBAL__I__ZN23ShooterWheelsTuningModeC2Ev,
     _GLOBAL__I__ZN26ThreeBallAutonomousCommandC2Ev,
     _GLOBAL__I__ZN14Turn180DegreesC2Ev,
     _GLOBAL__I__ZN13Turn90DegreesC2Ev,
@@ -219,7 +225,7 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN20WheelTargetShortGoalC2Ev,
     _GLOBAL__I__ZN2OIC2Ev,
     _GLOBAL__I__ZN5Robot14driveSubsystemE,
-    _GLOBAL__I__ZN8RobotMap27driveSubsystemleftRearDriveE,
+    _GLOBAL__I__ZN8RobotMap23driveSubsystemleftDriveE,
     _GLOBAL__I__ZN7BlockerC2Ev,
     _GLOBAL__I__ZN6CameraC2Ev,
     _GLOBAL__I__ZN9CollectorC2Ev,
@@ -300,6 +306,8 @@ void _GLOBAL__D__ZN16ShootTargetTrussC2Ev();
 
 void _GLOBAL__D__ZN20ShooterArmAutoTargetC2Ev();
 
+void _GLOBAL__D__ZN18ShooterArmDismountC2Ev();
+
 void _GLOBAL__D__ZN16ShooterArmTargetC2Ev();
 
 void _GLOBAL__D__ZN29ShooterArmTargetEjectPositionC2Ev();
@@ -326,6 +334,8 @@ void _GLOBAL__D__ZN32ShooterWheelsTargetEjectPositionC2Ev();
 
 void _GLOBAL__D__ZN24ShooterWheelsTargetTrussC2Ev();
 
+void _GLOBAL__D__ZN23ShooterWheelsTuningModeC2Ev();
+
 void _GLOBAL__D__ZN26ThreeBallAutonomousCommandC2Ev();
 
 void _GLOBAL__D__ZN14Turn180DegreesC2Ev();
@@ -350,7 +360,7 @@ void _GLOBAL__D__ZN2OIC2Ev();
 
 void _GLOBAL__D__ZN5Robot14driveSubsystemE();
 
-void _GLOBAL__D__ZN8RobotMap27driveSubsystemleftRearDriveE();
+void _GLOBAL__D__ZN8RobotMap23driveSubsystemleftDriveE();
 
 void _GLOBAL__D__ZN7BlockerC2Ev();
 
@@ -433,6 +443,7 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN5ShootC2Ev,
     _GLOBAL__D__ZN16ShootTargetTrussC2Ev,
     _GLOBAL__D__ZN20ShooterArmAutoTargetC2Ev,
+    _GLOBAL__D__ZN18ShooterArmDismountC2Ev,
     _GLOBAL__D__ZN16ShooterArmTargetC2Ev,
     _GLOBAL__D__ZN29ShooterArmTargetEjectPositionC2Ev,
     _GLOBAL__D__ZN28ShooterArmTargetLoadPositionC2Ev,
@@ -446,6 +457,7 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN26ShooterWheelsManualControlC2Ev,
     _GLOBAL__D__ZN32ShooterWheelsTargetEjectPositionC2Ev,
     _GLOBAL__D__ZN24ShooterWheelsTargetTrussC2Ev,
+    _GLOBAL__D__ZN23ShooterWheelsTuningModeC2Ev,
     _GLOBAL__D__ZN26ThreeBallAutonomousCommandC2Ev,
     _GLOBAL__D__ZN14Turn180DegreesC2Ev,
     _GLOBAL__D__ZN13Turn90DegreesC2Ev,
@@ -458,7 +470,7 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN20WheelTargetShortGoalC2Ev,
     _GLOBAL__D__ZN2OIC2Ev,
     _GLOBAL__D__ZN5Robot14driveSubsystemE,
-    _GLOBAL__D__ZN8RobotMap27driveSubsystemleftRearDriveE,
+    _GLOBAL__D__ZN8RobotMap23driveSubsystemleftDriveE,
     _GLOBAL__D__ZN7BlockerC2Ev,
     _GLOBAL__D__ZN6CameraC2Ev,
     _GLOBAL__D__ZN9CollectorC2Ev,

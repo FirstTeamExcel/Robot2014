@@ -35,7 +35,7 @@ public:
 	void Pickup();
 	void Spit();
 	void Idle();
-	typedef enum {UP,DOWN,TRAVELING_UP,TRAVELING_DOWN}CollectorState;
+	typedef enum {IDLE,UP,DOWN,TRAVELING_UP,TRAVELING_DOWN}CollectorState;
 	CollectorState GetState();
 };
 #endif
