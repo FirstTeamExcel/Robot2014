@@ -22,11 +22,15 @@ void ArmTargetAutonomous1::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void ArmTargetAutonomous1::Execute() {
-	
+	ShooterArm *arm = Robot::shooterArm;
+				
+	arm->SetTargetAngle(ARM_TARGET_AUTONOMOUS_1);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ArmTargetAutonomous1::IsFinished() {
-	return false;
+	ShooterArm *arm = Robot::shooterArm;
+				
+	return arm->IsOnTarget();
 }
 // Called once after isFinished returns true
 void ArmTargetAutonomous1::End() {

@@ -22,6 +22,8 @@
  * @author ExampleAuthor
  */
 class DriveTwoFeet: public Command {
+private:
+	bool _isFinished;
 public:
 	DriveTwoFeet();
 	virtual void Initialize();

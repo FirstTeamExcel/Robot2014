@@ -24,14 +24,14 @@ void ShooterArmTargetTruss::Initialize() {
 void ShooterArmTargetTruss::Execute() {
 	ShooterArm *arm = Robot::shooterArm;
 		
-		arm->SetTargetAngle(SHOOTER_ARM_TARGET_TRUSS);
+	arm->SetTargetAngle(SHOOTER_ARM_TARGET_TRUSS);
 		
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterArmTargetTruss::IsFinished() {
 	ShooterArm *arm = Robot::shooterArm;
 		
-		return arm->IsOnTarget();
+	return arm->IsOnTarget();
 }
 // Called once after isFinished returns true
 void ShooterArmTargetTruss::End() {
