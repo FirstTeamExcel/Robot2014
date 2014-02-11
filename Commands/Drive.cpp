@@ -8,7 +8,7 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 #include "Drive.h"
-#include "../Subsystems/driveSubsystem.cpp"
+#include "../Subsystems/driveSubsystem.h"
 
 Drive::Drive() {
 	// Use requires() here to declare subsystem dependencies
