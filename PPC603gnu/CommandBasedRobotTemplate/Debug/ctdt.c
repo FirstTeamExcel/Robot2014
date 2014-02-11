@@ -45,6 +45,8 @@ void _GLOBAL__I__ZN19DriveStraightTuningC2Ev();
 
 void _GLOBAL__I__ZN12DriveTwoFeetC2Ev();
 
+void _GLOBAL__I__ZN9EjectBallC2Ev();
+
 void _GLOBAL__I__ZN5ShootC2Ev();
 
 void _GLOBAL__I__ZN16ShootTargetTrussC2Ev();
@@ -197,6 +199,7 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN5DriveC2Ev,
     _GLOBAL__I__ZN19DriveStraightTuningC2Ev,
     _GLOBAL__I__ZN12DriveTwoFeetC2Ev,
+    _GLOBAL__I__ZN9EjectBallC2Ev,
     _GLOBAL__I__ZN5ShootC2Ev,
     _GLOBAL__I__ZN16ShootTargetTrussC2Ev,
     _GLOBAL__I__ZN20ShooterArmAutoTargetC2Ev,
@@ -302,6 +305,8 @@ void _GLOBAL__D__ZN5DriveC2Ev();
 void _GLOBAL__D__ZN19DriveStraightTuningC2Ev();
 
 void _GLOBAL__D__ZN12DriveTwoFeetC2Ev();
+
+void _GLOBAL__D__ZN9EjectBallC2Ev();
 
 void _GLOBAL__D__ZN5ShootC2Ev();
 
@@ -445,6 +450,7 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN5DriveC2Ev,
     _GLOBAL__D__ZN19DriveStraightTuningC2Ev,
     _GLOBAL__D__ZN12DriveTwoFeetC2Ev,
+    _GLOBAL__D__ZN9EjectBallC2Ev,
     _GLOBAL__D__ZN5ShootC2Ev,
     _GLOBAL__D__ZN16ShootTargetTrussC2Ev,
     _GLOBAL__D__ZN20ShooterArmAutoTargetC2Ev,

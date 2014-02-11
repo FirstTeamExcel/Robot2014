@@ -9,10 +9,18 @@
 // it from being updated in th future.
 
 
+#include "CollectorDown.h"
+#include "CollectorEject.h"
+#include "CollectorIdle.h"
+#include "ShooterArmTargetEjectPosition.h"
 
 #include "EjectBall.h"
 
 EjectBall::EjectBall() {
+	AddParallel(new CollectorDown());
+	AddSequential(new ShooterArmTargetEjectPosition);
+	AddSequential(new CollectorEject());
+	AddSequential(new CollectorIdle());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
