@@ -8,6 +8,9 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 #include "CollectorLoad.h"
+#include "../CollectorSpeedsAndPositions.h"
+#include "../Subsystems/Collector.h"
+
 CollectorLoad::CollectorLoad() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -17,15 +20,23 @@ CollectorLoad::CollectorLoad() {
 }
 // Called just before this Command runs the first time
 void CollectorLoad::Initialize() {
-	
+	loadTimer.Reset();
+	loadTimer.Start();
 }
 // Called repeatedly when this Command is scheduled to run
 void CollectorLoad::Execute() {
-	Robot::collector->rollerMotor->Set(.1);
+	Robot::collector->Pickup();
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CollectorLoad::IsFinished() {
-	return false;
+	if (loadTimer.Get() > 2.0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 // Called once after isFinished returns true
 void CollectorLoad::End() {

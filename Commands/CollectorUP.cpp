@@ -8,6 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 #include "CollectorUP.h"
+#include "../Subsystems/Collector.h"
+
 CollectorUP::CollectorUP() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -21,11 +23,11 @@ void CollectorUP::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void CollectorUP::Execute() {
-	Robot::collector->collectorLifter->Set(DoubleSolenoid::kForward);
+	Robot::collector->MoveCollector(true);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CollectorUP::IsFinished() {
-	return false;
+	return (Robot::collector->GetState() == Collector::UP);
 }
 // Called once after isFinished returns true
 void CollectorUP::End() {

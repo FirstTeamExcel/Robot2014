@@ -12,7 +12,6 @@
 #ifndef COLLECTORDOWN_H
 #define COLLECTORDOWN_H
 
-
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 
@@ -30,5 +29,6 @@ public:
 	virtual void End();
 	virtual void Interrupted();
 };
+
 
 #endif

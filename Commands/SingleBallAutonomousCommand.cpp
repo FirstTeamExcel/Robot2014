@@ -13,7 +13,8 @@
 #include "SingleBallAutonomousCommand.h"
 
 SingleBallAutonomousCommand::SingleBallAutonomousCommand() {
-	AddSequential(new DetectHotGoal());
+	AddSequential(new CollectorDown());
+	AddSequential(new ShooterArmDismount());
 	AddParallel(new ArmTargetAutonomous1());
 	AddSequential(new WheelTargetAutonomous1());
 	AddSequential(new Shoot());
