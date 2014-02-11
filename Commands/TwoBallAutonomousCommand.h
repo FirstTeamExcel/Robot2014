@@ -9,26 +9,21 @@
 // it from being updated in th future.
 
 
+
 #ifndef TWOBALLAUTONOMOUSCOMMAND_H
 #define TWOBALLAUTONOMOUSCOMMAND_H
 
-
-#include "Commands/Subsystem.h"
-#include "../Robot.h"
+#include "Commands/CommandGroup.h"
 
 /**
  *
  *
  * @author ExampleAuthor
  */
-class TwoBallAutonomousCommand: public Command {
-public:
+class TwoBallAutonomousCommand: public CommandGroup {
+public:	
 	TwoBallAutonomousCommand();
-	virtual void Initialize();
-	virtual void Execute();
-	virtual bool IsFinished();
-	virtual void End();
-	virtual void Interrupted();
 };
 
 #endif
+
