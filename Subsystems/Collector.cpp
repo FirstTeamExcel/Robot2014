@@ -76,4 +76,5 @@ Collector::CollectorState Collector::GetState()
 	{
 		return TRAVELING_DOWN;
 	}
+	return IDLE;
 }

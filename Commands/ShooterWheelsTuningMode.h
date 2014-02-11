@@ -9,8 +9,8 @@
 // it from being updated in th future.
 
 
-#ifndef DRIVETWOFEET_H
-#define DRIVETWOFEET_H
+#ifndef SHOOTERWHEELSTUNINGMODE_H
+#define SHOOTERWHEELSTUNINGMODE_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,11 +21,9 @@
  *
  * @author ExampleAuthor
  */
-class DriveTwoFeet: public Command {
-private:
-	bool _isFinished;
+class ShooterWheelsTuningMode: public Command {
 public:
-	DriveTwoFeet();
+	ShooterWheelsTuningMode();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

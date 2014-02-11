@@ -9,26 +9,21 @@
 // it from being updated in th future.
 
 
+
 #ifndef THREEBALLAUTONOMOUSCOMMAND_H
 #define THREEBALLAUTONOMOUSCOMMAND_H
 
-
-#include "Commands/Subsystem.h"
-#include "../Robot.h"
+#include "Commands/CommandGroup.h"
 
 /**
  *
  *
  * @author ExampleAuthor
  */
-class ThreeBallAutonomousCommand: public Command {
-public:
+class ThreeBallAutonomousCommand: public CommandGroup {
+public:	
 	ThreeBallAutonomousCommand();
-	virtual void Initialize();
-	virtual void Execute();
-	virtual bool IsFinished();
-	virtual void End();
-	virtual void Interrupted();
 };
 
 #endif
+

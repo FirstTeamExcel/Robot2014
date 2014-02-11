@@ -9,8 +9,9 @@
 // it from being updated in th future.
 #ifndef SHOOTERWHEELS_H
 #define SHOOTERWHEELS_H
+
 #define FPGA_TIME_TO_MINUTES_FACTOR (60*1000*1000)
-#define MAX_RPM (4100)
+//#define MAX_RPM (4100)
 #define SPEED_TOLERANCE (0.1)
 #define BALL_ESCAPE_TIME (0.5)
 #include "Commands/Subsystem.h"
@@ -57,7 +58,7 @@ public:
 	ShooterWheels();
 	void InitDefaultCommand();
 	
-	void SetTargetRpm(float targetRpm, float bias);
+	void SetTargetRpm(float targetRpm, float bias = 0.0);
 	void SetPower(float power);
 	void GetRpm(float& rightRpm, float& leftRpm);
 	bool Fire(float delay = 0);
