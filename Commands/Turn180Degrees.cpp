@@ -8,6 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 #include "Turn180Degrees.h"
+#include "../Subsystems/DriveSubsystem.h"
+
 Turn180Degrees::Turn180Degrees() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -17,21 +19,29 @@ Turn180Degrees::Turn180Degrees() {
 }
 // Called just before this Command runs the first time
 void Turn180Degrees::Initialize() {
-	
+	_isFinished = false;
 }
 // Called repeatedly when this Command is scheduled to run
 void Turn180Degrees::Execute() {
-	
+	DriveSubsystem *turn = Robot::driveSubsystem;
+		if (_isFinished == false)
+		{
+			_isFinished = turn->TurnToAngle(180);
+		}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool Turn180Degrees::IsFinished() {
-	return false;
+	
+	return _isFinished;
 }
 // Called once after isFinished returns true
 void Turn180Degrees::End() {
-	
+	DriveSubsystem *turn = Robot::driveSubsystem;
+	turn->Cancel();
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void Turn180Degrees::Interrupted() {
+	DriveSubsystem *turn = Robot::driveSubsystem;
+	turn->Cancel();
 }

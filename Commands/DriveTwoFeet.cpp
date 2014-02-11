@@ -21,7 +21,7 @@ DriveTwoFeet::DriveTwoFeet() {
 
 // Called just before this Command runs the first time
 void DriveTwoFeet::Initialize() {
-	
+	_isFinished = false;
 }
 
 // Called repeatedly when this Command is scheduled to run
