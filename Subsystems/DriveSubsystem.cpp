@@ -10,6 +10,10 @@
 #include "DriveSubsystem.h"
 #include "../Robotmap.h"
 #include "../Commands/Drive.h"
+volatile float _speed;
+volatile float _turn;
+void SetSpeed(float output);
+void SetTurn(float output);
 DriveSubsystem::DriveSubsystem() :
     Subsystem("DriveSubsystem"), driveOutput(), turnOutput(),
             turnToAngleOutput(RobotMap::driveSubsystemTheDriveTrain)
@@ -33,6 +37,14 @@ DriveSubsystem::DriveSubsystem() :
             DRIVE_DISTANCE_D, leftEncoder, &driveOutput);
     turnToAnglePID = new PIDController(TURN_ANGLE_P, TURN_ANGLE_I,
             TURN_ANGLE_D, driveGyro, &turnToAngleOutput);
+    driveOutput.SetOutputCallback(&SetSpeed);
+    turnOutput.SetOutputCallback(&SetTurn);
+    
+    LiveWindow *lw = LiveWindow::GetInstance();
+    lw->AddActuator("DriveSubsystem", "StraightPID", driveStraightPID);
+    lw->AddActuator("DriveSubsystem", "DistancePID", driveDistancePID);
+    lw->AddActuator("DriveSubsystem", "TurnPID", turnToAnglePID);
+        
 }
 void DriveSubsystem::InitDefaultCommand()
 {
@@ -74,6 +86,7 @@ bool DriveSubsystem::DriveStraight(float inchesToDrive)
         {
             driveDistancePID->Disable();
             driveStraightPID->Disable();
+            theDriveTrain->Drive(0.0, 0.0);
             retValue = true;
         }
     }
@@ -99,6 +112,7 @@ bool DriveSubsystem::TurnToAngle(float totalTurnAngle)
     {
         if (onTargetTimer.Get() == 0.4)
         {
+            theDriveTrain->Drive(0.0, 0.0);
             turnToAnglePID->Disable();
             retValue = true;
         }
@@ -112,7 +126,18 @@ bool DriveSubsystem::TurnToAngle(float totalTurnAngle)
 }
 void DriveSubsystem::Cancel()
 {
+    theDriveTrain->Drive(0.0, 0.0);
 	turnToAnglePID->Disable();
 	driveDistancePID->Disable();
 	driveStraightPID->Disable();
+}
+void SetTurn(float output)
+{
+    _turn = output;
+//    theDriveTrain->Drive(_speed,_turn);
+}
+void SetSpeed(float output)
+{
+    _speed = output;
+    Robot::driveSubsystem->theDriveTrain->Drive(_speed,_turn);
 }

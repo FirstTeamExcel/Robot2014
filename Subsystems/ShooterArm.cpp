@@ -89,7 +89,6 @@ float ShooterArm::PIDOutputToMotorCommand(double output) {
 	}
 	return 0.0;
 }
-
 ShooterArm::ShooterArmPosition ShooterArm::GetTargetPosition()
 {
 	return _targetPosition;

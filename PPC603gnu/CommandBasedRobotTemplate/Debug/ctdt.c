@@ -35,10 +35,6 @@ void _GLOBAL__I__ZN13CollectorLoadC2Ev();
 
 void _GLOBAL__I__ZN11CollectorUPC2Ev();
 
-void _GLOBAL__I__ZN8Command1C2Ev();
-
-void _GLOBAL__I__ZN13DetectHotGoalC2Ev();
-
 void _GLOBAL__I__ZN9DownShiftC2Ev();
 
 void _GLOBAL__I__ZN5DriveC2Ev();
@@ -121,11 +117,13 @@ void _GLOBAL__I__ZN6CameraC2Ev();
 
 void _GLOBAL__I__ZN9CollectorC2Ev();
 
-void _GLOBAL__I__ZN14DriveSubsystemC2Ev();
+void _GLOBAL__I__speed();
 
 void _GLOBAL__I__ZN8ShiftersC2Ev();
 
 void _GLOBAL__I__ZN10ShooterArmC2Ev();
+
+void _GLOBAL__I__ZN13ShooterPistonC2Ev();
 
 void _GLOBAL__I__ZN13ShooterWheelsC2Ev();
 
@@ -200,8 +198,6 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN13CollectorIdleC2Ev,
     _GLOBAL__I__ZN13CollectorLoadC2Ev,
     _GLOBAL__I__ZN11CollectorUPC2Ev,
-    _GLOBAL__I__ZN8Command1C2Ev,
-    _GLOBAL__I__ZN13DetectHotGoalC2Ev,
     _GLOBAL__I__ZN9DownShiftC2Ev,
     _GLOBAL__I__ZN5DriveC2Ev,
     _GLOBAL__I__ZN19DriveStraightTuningC2Ev,
@@ -243,9 +239,10 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN7BlockerC2Ev,
     _GLOBAL__I__ZN6CameraC2Ev,
     _GLOBAL__I__ZN9CollectorC2Ev,
-    _GLOBAL__I__ZN14DriveSubsystemC2Ev,
+    _GLOBAL__I__speed,
     _GLOBAL__I__ZN8ShiftersC2Ev,
     _GLOBAL__I__ZN10ShooterArmC2Ev,
+    _GLOBAL__I__ZN13ShooterPistonC2Ev,
     _GLOBAL__I__ZN13ShooterWheelsC2Ev,
     _GLOBAL__I__ZN9JankyTaskC2EPKcj,
     _GLOBAL__I__ZN12PrintCommandC2EPKc,
@@ -304,10 +301,6 @@ void _GLOBAL__D__ZN13CollectorIdleC2Ev();
 void _GLOBAL__D__ZN13CollectorLoadC2Ev();
 
 void _GLOBAL__D__ZN11CollectorUPC2Ev();
-
-void _GLOBAL__D__ZN8Command1C2Ev();
-
-void _GLOBAL__D__ZN13DetectHotGoalC2Ev();
 
 void _GLOBAL__D__ZN9DownShiftC2Ev();
 
@@ -391,11 +384,13 @@ void _GLOBAL__D__ZN6CameraC2Ev();
 
 void _GLOBAL__D__ZN9CollectorC2Ev();
 
-void _GLOBAL__D__ZN14DriveSubsystemC2Ev();
+void _GLOBAL__D__speed();
 
 void _GLOBAL__D__ZN8ShiftersC2Ev();
 
 void _GLOBAL__D__ZN10ShooterArmC2Ev();
+
+void _GLOBAL__D__ZN13ShooterPistonC2Ev();
 
 void _GLOBAL__D__ZN13ShooterWheelsC2Ev();
 
@@ -460,8 +455,6 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN13CollectorIdleC2Ev,
     _GLOBAL__D__ZN13CollectorLoadC2Ev,
     _GLOBAL__D__ZN11CollectorUPC2Ev,
-    _GLOBAL__D__ZN8Command1C2Ev,
-    _GLOBAL__D__ZN13DetectHotGoalC2Ev,
     _GLOBAL__D__ZN9DownShiftC2Ev,
     _GLOBAL__D__ZN5DriveC2Ev,
     _GLOBAL__D__ZN19DriveStraightTuningC2Ev,
@@ -503,9 +496,10 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN7BlockerC2Ev,
     _GLOBAL__D__ZN6CameraC2Ev,
     _GLOBAL__D__ZN9CollectorC2Ev,
-    _GLOBAL__D__ZN14DriveSubsystemC2Ev,
+    _GLOBAL__D__speed,
     _GLOBAL__D__ZN8ShiftersC2Ev,
     _GLOBAL__D__ZN10ShooterArmC2Ev,
+    _GLOBAL__D__ZN13ShooterPistonC2Ev,
     _GLOBAL__D__ZN13ShooterWheelsC2Ev,
     _GLOBAL__D__ZN9JankyTaskC2EPKcj,
     _GLOBAL__D__ZN9Scheduler9_instanceE,

@@ -26,12 +26,9 @@ void ShooterWheelsManualControl::Execute() {
 	
 	//Should we have a joystick button to toggle a "Manual Mode?" If off, the throttle can't control the wheels
     Joystick* opStick = Robot::oi->getoperatorStick();
-    
-	if ((opStick->GetThrottle()) && (Robot::shooterWheels->IsShotComplete()))
-	{
-        float targetSpeed = (opStick->GetThrottle() + 1) * -0.5;
-        Robot::shooterWheels->SetTargetRpm(targetSpeed);	//Include the bias? (in the SetTargetRpm method)
-	}
+
+    float targetSpeed = (opStick->GetThrottle() + 1) * -0.5;
+    Robot::shooterWheels->SetTargetRpm(targetSpeed);	//Include the bias? (in the SetTargetRpm method)
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterWheelsManualControl::IsFinished() {

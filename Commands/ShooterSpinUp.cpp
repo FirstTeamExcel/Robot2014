@@ -10,6 +10,7 @@
 #include "ShooterSpinUp.h"
 #include "../Subsystems/ShooterWheels.h"
 #include "../Subsystems/ShooterArm.h"
+#include "../ShooterWheelsSpeeds.h"
 ShooterSpinUp::ShooterSpinUp() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -23,7 +24,7 @@ void ShooterSpinUp::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void ShooterSpinUp::Execute() {
-	ShooterArm::ShooterArmPosition position = ShooterArm::GetTargetPosition();
+	ShooterArm::ShooterArmPosition position = Robot::shooterArm->GetTargetPosition();
 	switch(position)
 	{
 	case ShooterArm::LOAD:
@@ -51,7 +52,7 @@ void ShooterSpinUp::Execute() {
 		Robot::shooterWheels->SetTargetRpm(TARGET_AUTO_SPEED);
 		break;
 	default:
-		SetTargetAngle(SHOOTER_ARM_TARGET_LOAD_POSITION);
+        Robot::shooterWheels->SetTargetRpm(TARGET_AUTO_SPEED);
 		break;
 	}
 }

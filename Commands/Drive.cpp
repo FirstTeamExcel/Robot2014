@@ -18,6 +18,7 @@ Drive::Drive() {
 }
 // Called just before this Command runs the first time
 void Drive::Initialize() {
+    Robot::driveSubsystem->Cancel();
 }
 // Called repeatedly when this Command is scheduled to run
 void Drive::Execute() {
@@ -25,16 +26,9 @@ float leftYValue=Robot::oi->getleftDriveStick()->GetY();
 float rightYValue=Robot::oi->getrightDriveStick()->GetY();
 Robot::driveSubsystem->theDriveTrain->TankDrive(leftYValue, rightYValue);
 //Arcade-Drive code
-<<<<<<< HEAD
 //float rightYValue=Robot::oi->getrightDriveStick()->GetY();
 //float rightXValue=Robot::oi->getrightDriveStick()->GetX();
 //Robot::driveSubsystem->theDriveTrain->ArcadeDrive(rightYValue, rightXValue);
-
-=======
-//float yAxisValue=Robot::oi->getrightDriveStick()->GetY();
-//float xAxisValue=Robot::oi->getrightDriveStick()->GetX();
-//Robot::driveSubsystem->theDriveTrain->ArcadeDrive(yAxisValue, xAxisValue);
->>>>>>> 5cbe5b1bb02f8991544dc553df3b9c84d92f65e9
 //Cheesy Drive
 //float ohSoCheesy=Robot::oi->getrightDriveStick()->GetY();
 //float wowThatsCheesy=Robot::oi->getleftDriveStick()->GetX();
