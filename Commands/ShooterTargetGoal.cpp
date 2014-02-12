@@ -21,7 +21,6 @@ void ShooterTargetGoal::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void ShooterTargetGoal::Execute() {
-	Robot::shooterArm->shooterArmMotor->Set(ShooterArm::TARGET);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterTargetGoal::IsFinished() {

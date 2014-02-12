@@ -27,9 +27,9 @@ float rightYValue=Robot::oi->getrightDriveStick()->GetY();
 Robot::driveSubsystem->theDriveTrain->TankDrive(leftYValue, rightYValue);
 
 //Arcade-Drive code
-//float yAxisValue=Robot::oi->getrightDriveStick()->GetY();
-//float xAxisValue=Robot::oi->getrightDriveStick()->GetX();
-//Robot::driveSubsystem->theDriveTrain->ArcadeDrive(yAxisValue, xAxisValue);
+//float rightYValue=Robot::oi->getrightDriveStick()->GetY();
+//float rightXValue=Robot::oi->getrightDriveStick()->GetX();
+//Robot::driveSubsystem->theDriveTrain->ArcadeDrive(rightYValue, rightXValue);
 
 //Cheesy Drive
 //float ohSoCheesy=Robot::oi->getrightDriveStick()->GetY();
