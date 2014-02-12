@@ -9,7 +9,6 @@
 // it from being updated in th future.
 #include "CollectorUP.h"
 #include "../Subsystems/Collector.h"
-
 CollectorUP::CollectorUP() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);

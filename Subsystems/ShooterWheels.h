@@ -9,7 +9,6 @@
 // it from being updated in th future.
 #ifndef SHOOTERWHEELS_H
 #define SHOOTERWHEELS_H
-
 #define FPGA_TIME_TO_MINUTES_FACTOR (60*1000*1000)
 //#define MAX_RPM (4100)
 #define SPEED_TOLERANCE (0.1)

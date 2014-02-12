@@ -110,7 +110,6 @@ bool DriveSubsystem::TurnToAngle(float totalTurnAngle)
     }
     return retValue;
 }
-
 void DriveSubsystem::Cancel()
 {
 	turnToAnglePID->Disable();

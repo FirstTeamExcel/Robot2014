@@ -10,7 +10,6 @@
 #include "CollectorLoad.h"
 #include "../CollectorSpeedsAndPositions.h"
 #include "../Subsystems/Collector.h"
-
 CollectorLoad::CollectorLoad() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);

@@ -10,7 +10,6 @@
 #include "ShooterWheelTargetLoadPosition.h"
 #include "../ShooterWheelsSpeeds.h"
 #include "../Subsystems/ShooterWheels.h"
-
 ShooterWheelTargetLoadPosition::ShooterWheelTargetLoadPosition() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);

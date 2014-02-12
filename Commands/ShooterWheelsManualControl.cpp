@@ -10,7 +10,6 @@
 #include "ShooterWheelsManualControl.h"
 #include "../ShooterWheelsSpeeds.h"
 #include "../Subsystems/ShooterWheels.h"
-
 ShooterWheelsManualControl::ShooterWheelsManualControl() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -26,7 +25,6 @@ void ShooterWheelsManualControl::Initialize() {
 void ShooterWheelsManualControl::Execute() {
 	
 	//Should we have a joystick button to toggle a "Manual Mode?" If off, the throttle can't control the wheels
-
     Joystick* opStick = Robot::oi->getoperatorStick();
     
 	if ((opStick->GetThrottle()) && (Robot::shooterWheels->IsShotComplete()))

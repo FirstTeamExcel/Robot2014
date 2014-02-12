@@ -9,7 +9,6 @@
 // it from being updated in th future.
 #include "CollectorDown.h"
 #include "../Subsystems/Collector.h"
-
 CollectorDown::CollectorDown() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -19,7 +18,6 @@ CollectorDown::CollectorDown() {
 }
 // Called just before this Command runs the first time
 void CollectorDown::Initialize() {
-
 }
 // Called repeatedly when this Command is scheduled to run
 void CollectorDown::Execute() {
