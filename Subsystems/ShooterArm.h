@@ -41,7 +41,7 @@ class ShooterArm: public PIDSubsystem {
 	void SetTargetAngle(float tgtAngle);
 //	void SetTargetPosition(typedef enum position);
 	
-	typedef enum {LOAD,EJECT,LONG_GOAL,SHORT_GOAL,TRUSS}ShooterArmPosition;
+	typedef enum {LOAD,EJECT,LONG_GOAL,SHORT_GOAL,TRUSS,AUTONOMOUS_1,AUTONOMOUS_2,AUTONOMOUS_3}ShooterArmPosition;
 	ShooterArmPosition GetTargetPosition();
 	void SetTargetPosition(ShooterArmPosition position);
  private:

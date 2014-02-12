@@ -9,6 +9,7 @@
 // it from being updated in th future.
 #include "ArmTargetAutonomous2.h"
 #include "../ShooterArmPositions.h"
+#include "../Subsystems/ShooterArm.h"
 ArmTargetAutonomous2::ArmTargetAutonomous2() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -24,7 +25,7 @@ void ArmTargetAutonomous2::Initialize() {
 void ArmTargetAutonomous2::Execute() {
 	ShooterArm *arm = Robot::shooterArm;
 				
-	arm->SetTargetAngle(ARM_TARGET_AUTONOMOUS_2);
+	arm->SetTargetPosition(ShooterArm::AUTONOMOUS_2);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ArmTargetAutonomous2::IsFinished() {

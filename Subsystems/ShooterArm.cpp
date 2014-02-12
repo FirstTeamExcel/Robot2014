@@ -92,7 +92,7 @@ float ShooterArm::PIDOutputToMotorCommand(double output) {
 
 ShooterArm::ShooterArmPosition ShooterArm::GetTargetPosition()
 {
-	
+	return _targetPosition;
 }
 void ShooterArm::SetTargetPosition(ShooterArm::ShooterArmPosition position)
 {
@@ -113,6 +113,15 @@ void ShooterArm::SetTargetPosition(ShooterArm::ShooterArmPosition position)
 		break;
 	case ShooterArm::TRUSS:
 		SetTargetAngle(SHOOTER_ARM_TARGET_TRUSS);
+		break;
+	case ShooterArm::AUTONOMOUS_1:
+		SetTargetAngle(ARM_TARGET_AUTONOMOUS_1);
+		break;
+	case ShooterArm::AUTONOMOUS_2:
+		SetTargetAngle(ARM_TARGET_AUTONOMOUS_2);
+		break;
+	case ShooterArm::AUTONOMOUS_3:
+		SetTargetAngle(ARM_TARGET_AUTONOMOUS_3);
 		break;
 	default:
 		SetTargetAngle(SHOOTER_ARM_TARGET_LOAD_POSITION);
