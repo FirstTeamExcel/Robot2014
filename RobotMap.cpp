@@ -73,9 +73,10 @@ void RobotMap::init() {
 	lw->AddActuator("ShooterWheels", "leftWheelMotor", (Talon*) shooterWheelsleftWheelMotor);
 	
 	shooterWheelsFiringSolenoid = new DoubleSolenoid(1, 7, 8);      
+    lw->AddActuator("Collector", "lifter", (DoubleSolenoid*) shooterWheelsFiringSolenoid);
 	
-	
-	collectorcollectorLifter = new DoubleSolenoid(1, 1, 2);      
+	collectorcollectorLifter = new DoubleSolenoid(1, 1, 2);     
+    lw->AddActuator("Collector", "lifter", (DoubleSolenoid*) collectorcollectorLifter); 
 	
 	
 	collectorrollerMotor = new Talon(1, 8);
