@@ -10,7 +10,6 @@
 #include "CollectorEject.h"
 #include "../CollectorSpeedsAndPositions.h"
 #include "../Subsystems/Collector.h"
-
 CollectorEject::CollectorEject() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);

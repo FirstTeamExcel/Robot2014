@@ -9,7 +9,6 @@
 // it from being updated in th future.
 #include "Turn180Degrees.h"
 #include "../Subsystems/DriveSubsystem.h"
-
 Turn180Degrees::Turn180Degrees() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);

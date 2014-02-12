@@ -9,7 +9,6 @@
 // it from being updated in th future.
 #include "Drive.h"
 #include "../Subsystems/driveSubsystem.h"
-
 Drive::Drive() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -25,18 +24,15 @@ void Drive::Execute() {
 float leftYValue=Robot::oi->getleftDriveStick()->GetY();	
 float rightYValue=Robot::oi->getrightDriveStick()->GetY();
 Robot::driveSubsystem->theDriveTrain->TankDrive(leftYValue, rightYValue);
-
 //Arcade-Drive code
 //float yAxisValue=Robot::oi->getrightDriveStick()->GetY();
 //float xAxisValue=Robot::oi->getrightDriveStick()->GetX();
 //Robot::driveSubsystem->theDriveTrain->ArcadeDrive(yAxisValue, xAxisValue);
-
 //Cheesy Drive
 //float ohSoCheesy=Robot::oi->getrightDriveStick()->GetY();
 //float wowThatsCheesy=Robot::oi->getleftDriveStick()->GetX();
 //Robot::driveSubsystem->theDriveTrain->ArcadeDrive(ohSoCheesy, wowThatsCheesy);
 		
-
 }
 // Make this return true when this Command no longer needs to run execute()
 bool Drive::IsFinished() {
