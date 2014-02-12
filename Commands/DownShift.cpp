@@ -21,7 +21,8 @@ void DownShift::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void DownShift::Execute() {
-	
+	Shifters *shift = Robot::shifters;
+	shift->ShiftDown();
 }
 // Make this return true when this Command no longer needs to run execute()
 bool DownShift::IsFinished() {

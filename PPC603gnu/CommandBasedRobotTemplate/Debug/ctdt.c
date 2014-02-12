@@ -39,6 +39,8 @@ void _GLOBAL__I__ZN8Command1C2Ev();
 
 void _GLOBAL__I__ZN13DetectHotGoalC2Ev();
 
+void _GLOBAL__I__ZN9DownShiftC2Ev();
+
 void _GLOBAL__I__ZN5DriveC2Ev();
 
 void _GLOBAL__I__ZN19DriveStraightTuningC2Ev();
@@ -95,6 +97,8 @@ void _GLOBAL__I__ZN18TurnToAngleTurningC2Ev();
 
 void _GLOBAL__I__ZN24TwoBallAutonomousCommandC2Ev();
 
+void _GLOBAL__I__ZN7UpShiftC2Ev();
+
 void _GLOBAL__I__ZN22WheelTargetAutonomous1C2Ev();
 
 void _GLOBAL__I__ZN22WheelTargetAutonomous2C2Ev();
@@ -118,6 +122,8 @@ void _GLOBAL__I__ZN6CameraC2Ev();
 void _GLOBAL__I__ZN9CollectorC2Ev();
 
 void _GLOBAL__I__ZN14DriveSubsystemC2Ev();
+
+void _GLOBAL__I__ZN8ShiftersC2Ev();
 
 void _GLOBAL__I__ZN10ShooterArmC2Ev();
 
@@ -196,6 +202,7 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN11CollectorUPC2Ev,
     _GLOBAL__I__ZN8Command1C2Ev,
     _GLOBAL__I__ZN13DetectHotGoalC2Ev,
+    _GLOBAL__I__ZN9DownShiftC2Ev,
     _GLOBAL__I__ZN5DriveC2Ev,
     _GLOBAL__I__ZN19DriveStraightTuningC2Ev,
     _GLOBAL__I__ZN12DriveTwoFeetC2Ev,
@@ -224,6 +231,7 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN13Turn90DegreesC2Ev,
     _GLOBAL__I__ZN18TurnToAngleTurningC2Ev,
     _GLOBAL__I__ZN24TwoBallAutonomousCommandC2Ev,
+    _GLOBAL__I__ZN7UpShiftC2Ev,
     _GLOBAL__I__ZN22WheelTargetAutonomous1C2Ev,
     _GLOBAL__I__ZN22WheelTargetAutonomous2C2Ev,
     _GLOBAL__I__ZN22WheelTargetAutonomous3C2Ev,
@@ -236,6 +244,7 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN6CameraC2Ev,
     _GLOBAL__I__ZN9CollectorC2Ev,
     _GLOBAL__I__ZN14DriveSubsystemC2Ev,
+    _GLOBAL__I__ZN8ShiftersC2Ev,
     _GLOBAL__I__ZN10ShooterArmC2Ev,
     _GLOBAL__I__ZN13ShooterWheelsC2Ev,
     _GLOBAL__I__ZN9JankyTaskC2EPKcj,
@@ -300,6 +309,8 @@ void _GLOBAL__D__ZN8Command1C2Ev();
 
 void _GLOBAL__D__ZN13DetectHotGoalC2Ev();
 
+void _GLOBAL__D__ZN9DownShiftC2Ev();
+
 void _GLOBAL__D__ZN5DriveC2Ev();
 
 void _GLOBAL__D__ZN19DriveStraightTuningC2Ev();
@@ -356,6 +367,8 @@ void _GLOBAL__D__ZN18TurnToAngleTurningC2Ev();
 
 void _GLOBAL__D__ZN24TwoBallAutonomousCommandC2Ev();
 
+void _GLOBAL__D__ZN7UpShiftC2Ev();
+
 void _GLOBAL__D__ZN22WheelTargetAutonomous1C2Ev();
 
 void _GLOBAL__D__ZN22WheelTargetAutonomous2C2Ev();
@@ -379,6 +392,8 @@ void _GLOBAL__D__ZN6CameraC2Ev();
 void _GLOBAL__D__ZN9CollectorC2Ev();
 
 void _GLOBAL__D__ZN14DriveSubsystemC2Ev();
+
+void _GLOBAL__D__ZN8ShiftersC2Ev();
 
 void _GLOBAL__D__ZN10ShooterArmC2Ev();
 
@@ -447,6 +462,7 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN11CollectorUPC2Ev,
     _GLOBAL__D__ZN8Command1C2Ev,
     _GLOBAL__D__ZN13DetectHotGoalC2Ev,
+    _GLOBAL__D__ZN9DownShiftC2Ev,
     _GLOBAL__D__ZN5DriveC2Ev,
     _GLOBAL__D__ZN19DriveStraightTuningC2Ev,
     _GLOBAL__D__ZN12DriveTwoFeetC2Ev,
@@ -475,6 +491,7 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN13Turn90DegreesC2Ev,
     _GLOBAL__D__ZN18TurnToAngleTurningC2Ev,
     _GLOBAL__D__ZN24TwoBallAutonomousCommandC2Ev,
+    _GLOBAL__D__ZN7UpShiftC2Ev,
     _GLOBAL__D__ZN22WheelTargetAutonomous1C2Ev,
     _GLOBAL__D__ZN22WheelTargetAutonomous2C2Ev,
     _GLOBAL__D__ZN22WheelTargetAutonomous3C2Ev,
@@ -487,6 +504,7 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN6CameraC2Ev,
     _GLOBAL__D__ZN9CollectorC2Ev,
     _GLOBAL__D__ZN14DriveSubsystemC2Ev,
+    _GLOBAL__D__ZN8ShiftersC2Ev,
     _GLOBAL__D__ZN10ShooterArmC2Ev,
     _GLOBAL__D__ZN13ShooterWheelsC2Ev,
     _GLOBAL__D__ZN9JankyTaskC2EPKcj,
