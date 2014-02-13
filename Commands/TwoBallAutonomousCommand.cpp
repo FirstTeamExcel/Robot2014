@@ -9,28 +9,27 @@
 // it from being updated in th future.
 #include "CollectorDown.h"
 #include "ShooterArmDismount.h"
-#include "ArmTargetAutonomous1.h"
-#include "WheelTargetAutonomous1.h" 
+#include "TargetAutonomous1.h"
 #include "Shoot.h" 
 #include "ShooterIdle.h"
 #include "DriveTwoFeet.h"
-#include "ArmTargetAutonomous2.h"
-#include "WheelTargetAutonomous2.h"
-#include "ShooterArmTargetLoadPosition.h"
+#include "TargetAutonomous2.h"
+#include "TargetLoadPosition.h"
 #include "CollectorIdle.h"
 #include "CollectorLoad.h"
 #include "TwoBallAutonomousCommand.h"
+#include "ShooterSpinUp.h"
 TwoBallAutonomousCommand::TwoBallAutonomousCommand() {
 	AddSequential(new CollectorDown());
 	AddSequential(new ShooterArmDismount());
-	AddParallel(new ArmTargetAutonomous2());
-	AddSequential(new WheelTargetAutonomous2());
+	AddParallel(new TargetAutonomous2());
+	AddSequential(new ShooterSpinUp());
 	AddSequential(new Shoot());
 	AddSequential(new CollectorLoad());
-	AddSequential(new ShooterArmTargetLoadPosition());
-	AddParallel(new ArmTargetAutonomous1());
+	AddSequential(new TargetLoadPosition());
+	AddParallel(new TargetAutonomous1());
 	AddParallel(new CollectorIdle());
-	AddSequential(new WheelTargetAutonomous1());
+	AddSequential(new ShooterSpinUp());
 	AddSequential(new Shoot());
 	AddSequential(new DriveTwoFeet());
 	AddSequential(new DriveTwoFeet());

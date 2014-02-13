@@ -248,13 +248,12 @@ double Camera::scoreRectangularity(ParticleAnalysisReport *report)
 //	}
 	vector<ParticleAnalysisReport>* AnalyzeImage(RGBImage *image, BinaryImage *filteredImage)
 	{
-		ColorImage *image;
-		BinaryImage *thresholdImage = image->ThresholdHSV(threshold);
-		BinaryImage *convexHullIMage = thresholdImage->ConvexHull(false);
-		filteredImage = convexHullIMage->ParticleFilter(criteria, 1);
-		
-		vector<ParticleAnalysisReport>* reports = filteredImage->GetOrderedParticleAnalysisReports();
-		return reports;
+//		BinaryImage *thresholdImage = image->ThresholdHSV(threshold);
+//		BinaryImage *convexHullIMage = thresholdImage->ConvexHull(false);
+//		filteredImage = convexHullIMage->ParticleFilter(criteria, 1);
+//		
+//		vector<ParticleAnalysisReport>* reports = filteredImage->GetOrderedParticleAnalysisReports();
+//		return reports;
 	}
 	Camera::hotGoalSide Camera::DetectHotGoal()
 		{

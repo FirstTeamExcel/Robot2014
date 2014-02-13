@@ -7,15 +7,13 @@
 /*       -fdollars-in-identifiers flag.                   */
 
 
-void _GLOBAL__I__ZN20ArmTargetAutonomous1C2Ev();
+void _GLOBAL__I__ZN11ArcadeDriveC2Ev();
 
-void _GLOBAL__I__ZN20ArmTargetAutonomous2C2Ev();
+void _GLOBAL__I__ZN16ArmCatchPositionC2Ev();
 
-void _GLOBAL__I__ZN20ArmTargetAutonomous3C2Ev();
+void _GLOBAL__I__ZN14ArmSecureCatchC2Ev();
 
-void _GLOBAL__I__ZN17ArmTargetLongGoalC2Ev();
-
-void _GLOBAL__I__ZN18ArmTargetShortGoalC2Ev();
+void _GLOBAL__I__ZN10AutoTargetC2Ev();
 
 void _GLOBAL__I__ZN17AutonomousCommandC2Ev();
 
@@ -24,6 +22,8 @@ void _GLOBAL__I__ZN11BlockerIdleC2Ev();
 void _GLOBAL__I__ZN12BlockerLowerC2Ev();
 
 void _GLOBAL__I__ZN12BlockerRaiseC2Ev();
+
+void _GLOBAL__I__ZN11CheesyDriveC2Ev();
 
 void _GLOBAL__I__ZN13CollectorDownC2Ev();
 
@@ -47,19 +47,7 @@ void _GLOBAL__I__ZN9EjectBallC2Ev();
 
 void _GLOBAL__I__ZN5ShootC2Ev();
 
-void _GLOBAL__I__ZN16ShootTargetTrussC2Ev();
-
-void _GLOBAL__I__ZN20ShooterArmAutoTargetC2Ev();
-
 void _GLOBAL__I__ZN18ShooterArmDismountC2Ev();
-
-void _GLOBAL__I__ZN16ShooterArmTargetC2Ev();
-
-void _GLOBAL__I__ZN29ShooterArmTargetEjectPositionC2Ev();
-
-void _GLOBAL__I__ZN28ShooterArmTargetLoadPositionC2Ev();
-
-void _GLOBAL__I__ZN21ShooterArmTargetTrussC2Ev();
 
 void _GLOBAL__I__ZN20ShooterArmTuningModeC2Ev();
 
@@ -69,19 +57,27 @@ void _GLOBAL__I__ZN13ShooterSpinUpC2Ev();
 
 void _GLOBAL__I__ZN17ShooterTargetGoalC2Ev();
 
-void _GLOBAL__I__ZN30ShooterWheelTargetLoadPositionC2Ev();
-
 void _GLOBAL__I__ZN23ShooterWheelsAutoTargetC2Ev();
 
 void _GLOBAL__I__ZN26ShooterWheelsManualControlC2Ev();
 
-void _GLOBAL__I__ZN32ShooterWheelsTargetEjectPositionC2Ev();
-
-void _GLOBAL__I__ZN24ShooterWheelsTargetTrussC2Ev();
-
-void _GLOBAL__I__ZN23ShooterWheelsTuningModeC2Ev();
-
 void _GLOBAL__I__ZN27SingleBallAutonomousCommandC2Ev();
+
+void _GLOBAL__I__ZN17TargetAutonomous1C2Ev();
+
+void _GLOBAL__I__ZN17TargetAutonomous2C2Ev();
+
+void _GLOBAL__I__ZN17TargetAutonomous3C2Ev();
+
+void _GLOBAL__I__ZN19TargetEjectPositionC2Ev();
+
+void _GLOBAL__I__ZN18TargetLoadPositionC2Ev();
+
+void _GLOBAL__I__ZN14TargetLongGoalC2Ev();
+
+void _GLOBAL__I__ZN15TargetShortGoalC2Ev();
+
+void _GLOBAL__I__ZN11TargetTrussC2Ev();
 
 void _GLOBAL__I__ZN26ThreeBallAutonomousCommandC2Ev();
 
@@ -94,16 +90,6 @@ void _GLOBAL__I__ZN18TurnToAngleTurningC2Ev();
 void _GLOBAL__I__ZN24TwoBallAutonomousCommandC2Ev();
 
 void _GLOBAL__I__ZN7UpShiftC2Ev();
-
-void _GLOBAL__I__ZN22WheelTargetAutonomous1C2Ev();
-
-void _GLOBAL__I__ZN22WheelTargetAutonomous2C2Ev();
-
-void _GLOBAL__I__ZN22WheelTargetAutonomous3C2Ev();
-
-void _GLOBAL__I__ZN19WheelTargetLongGoalC2Ev();
-
-void _GLOBAL__I__ZN20WheelTargetShortGoalC2Ev();
 
 void _GLOBAL__I__ZN2OIC2Ev();
 
@@ -184,15 +170,15 @@ void _GLOBAL__I__ZN11StringArray19STRING_ARRAY_RAW_IDE();
 extern void (*_ctors[])();
 void (*_ctors[])() =
     {
-    _GLOBAL__I__ZN20ArmTargetAutonomous1C2Ev,
-    _GLOBAL__I__ZN20ArmTargetAutonomous2C2Ev,
-    _GLOBAL__I__ZN20ArmTargetAutonomous3C2Ev,
-    _GLOBAL__I__ZN17ArmTargetLongGoalC2Ev,
-    _GLOBAL__I__ZN18ArmTargetShortGoalC2Ev,
+    _GLOBAL__I__ZN11ArcadeDriveC2Ev,
+    _GLOBAL__I__ZN16ArmCatchPositionC2Ev,
+    _GLOBAL__I__ZN14ArmSecureCatchC2Ev,
+    _GLOBAL__I__ZN10AutoTargetC2Ev,
     _GLOBAL__I__ZN17AutonomousCommandC2Ev,
     _GLOBAL__I__ZN11BlockerIdleC2Ev,
     _GLOBAL__I__ZN12BlockerLowerC2Ev,
     _GLOBAL__I__ZN12BlockerRaiseC2Ev,
+    _GLOBAL__I__ZN11CheesyDriveC2Ev,
     _GLOBAL__I__ZN13CollectorDownC2Ev,
     _GLOBAL__I__ZN14CollectorEjectC2Ev,
     _GLOBAL__I__ZN13CollectorIdleC2Ev,
@@ -204,35 +190,28 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN12DriveTwoFeetC2Ev,
     _GLOBAL__I__ZN9EjectBallC2Ev,
     _GLOBAL__I__ZN5ShootC2Ev,
-    _GLOBAL__I__ZN16ShootTargetTrussC2Ev,
-    _GLOBAL__I__ZN20ShooterArmAutoTargetC2Ev,
     _GLOBAL__I__ZN18ShooterArmDismountC2Ev,
-    _GLOBAL__I__ZN16ShooterArmTargetC2Ev,
-    _GLOBAL__I__ZN29ShooterArmTargetEjectPositionC2Ev,
-    _GLOBAL__I__ZN28ShooterArmTargetLoadPositionC2Ev,
-    _GLOBAL__I__ZN21ShooterArmTargetTrussC2Ev,
     _GLOBAL__I__ZN20ShooterArmTuningModeC2Ev,
     _GLOBAL__I__ZN11ShooterIdleC2Ev,
     _GLOBAL__I__ZN13ShooterSpinUpC2Ev,
     _GLOBAL__I__ZN17ShooterTargetGoalC2Ev,
-    _GLOBAL__I__ZN30ShooterWheelTargetLoadPositionC2Ev,
     _GLOBAL__I__ZN23ShooterWheelsAutoTargetC2Ev,
     _GLOBAL__I__ZN26ShooterWheelsManualControlC2Ev,
-    _GLOBAL__I__ZN32ShooterWheelsTargetEjectPositionC2Ev,
-    _GLOBAL__I__ZN24ShooterWheelsTargetTrussC2Ev,
-    _GLOBAL__I__ZN23ShooterWheelsTuningModeC2Ev,
     _GLOBAL__I__ZN27SingleBallAutonomousCommandC2Ev,
+    _GLOBAL__I__ZN17TargetAutonomous1C2Ev,
+    _GLOBAL__I__ZN17TargetAutonomous2C2Ev,
+    _GLOBAL__I__ZN17TargetAutonomous3C2Ev,
+    _GLOBAL__I__ZN19TargetEjectPositionC2Ev,
+    _GLOBAL__I__ZN18TargetLoadPositionC2Ev,
+    _GLOBAL__I__ZN14TargetLongGoalC2Ev,
+    _GLOBAL__I__ZN15TargetShortGoalC2Ev,
+    _GLOBAL__I__ZN11TargetTrussC2Ev,
     _GLOBAL__I__ZN26ThreeBallAutonomousCommandC2Ev,
     _GLOBAL__I__ZN14Turn180DegreesC2Ev,
     _GLOBAL__I__ZN13Turn90DegreesC2Ev,
     _GLOBAL__I__ZN18TurnToAngleTurningC2Ev,
     _GLOBAL__I__ZN24TwoBallAutonomousCommandC2Ev,
     _GLOBAL__I__ZN7UpShiftC2Ev,
-    _GLOBAL__I__ZN22WheelTargetAutonomous1C2Ev,
-    _GLOBAL__I__ZN22WheelTargetAutonomous2C2Ev,
-    _GLOBAL__I__ZN22WheelTargetAutonomous3C2Ev,
-    _GLOBAL__I__ZN19WheelTargetLongGoalC2Ev,
-    _GLOBAL__I__ZN20WheelTargetShortGoalC2Ev,
     _GLOBAL__I__ZN2OIC2Ev,
     _GLOBAL__I__ZN5Robot14driveSubsystemE,
     _GLOBAL__I__ZN8RobotMap23driveSubsystemleftDriveE,
@@ -274,15 +253,13 @@ void (*_ctors[])() =
     0
     };
 
-void _GLOBAL__D__ZN20ArmTargetAutonomous1C2Ev();
+void _GLOBAL__D__ZN11ArcadeDriveC2Ev();
 
-void _GLOBAL__D__ZN20ArmTargetAutonomous2C2Ev();
+void _GLOBAL__D__ZN16ArmCatchPositionC2Ev();
 
-void _GLOBAL__D__ZN20ArmTargetAutonomous3C2Ev();
+void _GLOBAL__D__ZN14ArmSecureCatchC2Ev();
 
-void _GLOBAL__D__ZN17ArmTargetLongGoalC2Ev();
-
-void _GLOBAL__D__ZN18ArmTargetShortGoalC2Ev();
+void _GLOBAL__D__ZN10AutoTargetC2Ev();
 
 void _GLOBAL__D__ZN17AutonomousCommandC2Ev();
 
@@ -291,6 +268,8 @@ void _GLOBAL__D__ZN11BlockerIdleC2Ev();
 void _GLOBAL__D__ZN12BlockerLowerC2Ev();
 
 void _GLOBAL__D__ZN12BlockerRaiseC2Ev();
+
+void _GLOBAL__D__ZN11CheesyDriveC2Ev();
 
 void _GLOBAL__D__ZN13CollectorDownC2Ev();
 
@@ -314,19 +293,7 @@ void _GLOBAL__D__ZN9EjectBallC2Ev();
 
 void _GLOBAL__D__ZN5ShootC2Ev();
 
-void _GLOBAL__D__ZN16ShootTargetTrussC2Ev();
-
-void _GLOBAL__D__ZN20ShooterArmAutoTargetC2Ev();
-
 void _GLOBAL__D__ZN18ShooterArmDismountC2Ev();
-
-void _GLOBAL__D__ZN16ShooterArmTargetC2Ev();
-
-void _GLOBAL__D__ZN29ShooterArmTargetEjectPositionC2Ev();
-
-void _GLOBAL__D__ZN28ShooterArmTargetLoadPositionC2Ev();
-
-void _GLOBAL__D__ZN21ShooterArmTargetTrussC2Ev();
 
 void _GLOBAL__D__ZN20ShooterArmTuningModeC2Ev();
 
@@ -336,19 +303,27 @@ void _GLOBAL__D__ZN13ShooterSpinUpC2Ev();
 
 void _GLOBAL__D__ZN17ShooterTargetGoalC2Ev();
 
-void _GLOBAL__D__ZN30ShooterWheelTargetLoadPositionC2Ev();
-
 void _GLOBAL__D__ZN23ShooterWheelsAutoTargetC2Ev();
 
 void _GLOBAL__D__ZN26ShooterWheelsManualControlC2Ev();
 
-void _GLOBAL__D__ZN32ShooterWheelsTargetEjectPositionC2Ev();
-
-void _GLOBAL__D__ZN24ShooterWheelsTargetTrussC2Ev();
-
-void _GLOBAL__D__ZN23ShooterWheelsTuningModeC2Ev();
-
 void _GLOBAL__D__ZN27SingleBallAutonomousCommandC2Ev();
+
+void _GLOBAL__D__ZN17TargetAutonomous1C2Ev();
+
+void _GLOBAL__D__ZN17TargetAutonomous2C2Ev();
+
+void _GLOBAL__D__ZN17TargetAutonomous3C2Ev();
+
+void _GLOBAL__D__ZN19TargetEjectPositionC2Ev();
+
+void _GLOBAL__D__ZN18TargetLoadPositionC2Ev();
+
+void _GLOBAL__D__ZN14TargetLongGoalC2Ev();
+
+void _GLOBAL__D__ZN15TargetShortGoalC2Ev();
+
+void _GLOBAL__D__ZN11TargetTrussC2Ev();
 
 void _GLOBAL__D__ZN26ThreeBallAutonomousCommandC2Ev();
 
@@ -361,16 +336,6 @@ void _GLOBAL__D__ZN18TurnToAngleTurningC2Ev();
 void _GLOBAL__D__ZN24TwoBallAutonomousCommandC2Ev();
 
 void _GLOBAL__D__ZN7UpShiftC2Ev();
-
-void _GLOBAL__D__ZN22WheelTargetAutonomous1C2Ev();
-
-void _GLOBAL__D__ZN22WheelTargetAutonomous2C2Ev();
-
-void _GLOBAL__D__ZN22WheelTargetAutonomous3C2Ev();
-
-void _GLOBAL__D__ZN19WheelTargetLongGoalC2Ev();
-
-void _GLOBAL__D__ZN20WheelTargetShortGoalC2Ev();
 
 void _GLOBAL__D__ZN2OIC2Ev();
 
@@ -441,15 +406,15 @@ void _GLOBAL__D__ZN11StringArray19STRING_ARRAY_RAW_IDE();
 extern void (*_dtors[])();
 void (*_dtors[])() =
     {
-    _GLOBAL__D__ZN20ArmTargetAutonomous1C2Ev,
-    _GLOBAL__D__ZN20ArmTargetAutonomous2C2Ev,
-    _GLOBAL__D__ZN20ArmTargetAutonomous3C2Ev,
-    _GLOBAL__D__ZN17ArmTargetLongGoalC2Ev,
-    _GLOBAL__D__ZN18ArmTargetShortGoalC2Ev,
+    _GLOBAL__D__ZN11ArcadeDriveC2Ev,
+    _GLOBAL__D__ZN16ArmCatchPositionC2Ev,
+    _GLOBAL__D__ZN14ArmSecureCatchC2Ev,
+    _GLOBAL__D__ZN10AutoTargetC2Ev,
     _GLOBAL__D__ZN17AutonomousCommandC2Ev,
     _GLOBAL__D__ZN11BlockerIdleC2Ev,
     _GLOBAL__D__ZN12BlockerLowerC2Ev,
     _GLOBAL__D__ZN12BlockerRaiseC2Ev,
+    _GLOBAL__D__ZN11CheesyDriveC2Ev,
     _GLOBAL__D__ZN13CollectorDownC2Ev,
     _GLOBAL__D__ZN14CollectorEjectC2Ev,
     _GLOBAL__D__ZN13CollectorIdleC2Ev,
@@ -461,35 +426,28 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN12DriveTwoFeetC2Ev,
     _GLOBAL__D__ZN9EjectBallC2Ev,
     _GLOBAL__D__ZN5ShootC2Ev,
-    _GLOBAL__D__ZN16ShootTargetTrussC2Ev,
-    _GLOBAL__D__ZN20ShooterArmAutoTargetC2Ev,
     _GLOBAL__D__ZN18ShooterArmDismountC2Ev,
-    _GLOBAL__D__ZN16ShooterArmTargetC2Ev,
-    _GLOBAL__D__ZN29ShooterArmTargetEjectPositionC2Ev,
-    _GLOBAL__D__ZN28ShooterArmTargetLoadPositionC2Ev,
-    _GLOBAL__D__ZN21ShooterArmTargetTrussC2Ev,
     _GLOBAL__D__ZN20ShooterArmTuningModeC2Ev,
     _GLOBAL__D__ZN11ShooterIdleC2Ev,
     _GLOBAL__D__ZN13ShooterSpinUpC2Ev,
     _GLOBAL__D__ZN17ShooterTargetGoalC2Ev,
-    _GLOBAL__D__ZN30ShooterWheelTargetLoadPositionC2Ev,
     _GLOBAL__D__ZN23ShooterWheelsAutoTargetC2Ev,
     _GLOBAL__D__ZN26ShooterWheelsManualControlC2Ev,
-    _GLOBAL__D__ZN32ShooterWheelsTargetEjectPositionC2Ev,
-    _GLOBAL__D__ZN24ShooterWheelsTargetTrussC2Ev,
-    _GLOBAL__D__ZN23ShooterWheelsTuningModeC2Ev,
     _GLOBAL__D__ZN27SingleBallAutonomousCommandC2Ev,
+    _GLOBAL__D__ZN17TargetAutonomous1C2Ev,
+    _GLOBAL__D__ZN17TargetAutonomous2C2Ev,
+    _GLOBAL__D__ZN17TargetAutonomous3C2Ev,
+    _GLOBAL__D__ZN19TargetEjectPositionC2Ev,
+    _GLOBAL__D__ZN18TargetLoadPositionC2Ev,
+    _GLOBAL__D__ZN14TargetLongGoalC2Ev,
+    _GLOBAL__D__ZN15TargetShortGoalC2Ev,
+    _GLOBAL__D__ZN11TargetTrussC2Ev,
     _GLOBAL__D__ZN26ThreeBallAutonomousCommandC2Ev,
     _GLOBAL__D__ZN14Turn180DegreesC2Ev,
     _GLOBAL__D__ZN13Turn90DegreesC2Ev,
     _GLOBAL__D__ZN18TurnToAngleTurningC2Ev,
     _GLOBAL__D__ZN24TwoBallAutonomousCommandC2Ev,
     _GLOBAL__D__ZN7UpShiftC2Ev,
-    _GLOBAL__D__ZN22WheelTargetAutonomous1C2Ev,
-    _GLOBAL__D__ZN22WheelTargetAutonomous2C2Ev,
-    _GLOBAL__D__ZN22WheelTargetAutonomous3C2Ev,
-    _GLOBAL__D__ZN19WheelTargetLongGoalC2Ev,
-    _GLOBAL__D__ZN20WheelTargetShortGoalC2Ev,
     _GLOBAL__D__ZN2OIC2Ev,
     _GLOBAL__D__ZN5Robot14driveSubsystemE,
     _GLOBAL__D__ZN8RobotMap23driveSubsystemleftDriveE,

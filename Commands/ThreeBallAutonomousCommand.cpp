@@ -9,36 +9,34 @@
 // it from being updated in th future.
 #include "CollectorDown.h"
 #include "ShooterArmDismount.h"
-#include "ArmTargetAutonomous1.h"
-#include "WheelTargetAutonomous1.h" 
+#include "TargetAutonomous1.h"
 #include "Shoot.h" 
 #include "ShooterIdle.h"
 #include "DriveTwoFeet.h"
-#include "ArmTargetAutonomous2.h"
-#include "WheelTargetAutonomous2.h"
-#include "ShooterArmTargetLoadPosition.h"
+#include "TargetAutonomous2.h"
+#include "TargetLoadPosition.h"
 #include "CollectorIdle.h"
 #include "CollectorLoad.h"
-#include "ArmTargetAutonomous3.h"
-#include "WheelTargetAutonomous3.h"
+#include "TargetAutonomous3.h"
 #include "ThreeBallAutonomousCommand.h"
+#include "ShooterSpinUp.h"
 ThreeBallAutonomousCommand::ThreeBallAutonomousCommand() {
 	AddSequential(new CollectorDown());
 	AddSequential(new ShooterArmDismount());
-	AddParallel(new ArmTargetAutonomous3());
-	AddSequential(new WheelTargetAutonomous3());
+	AddParallel(new TargetAutonomous3());
+	AddSequential(new ShooterSpinUp());
 	AddSequential(new Shoot());
 	AddSequential(new CollectorLoad());
-	AddSequential(new ShooterArmTargetLoadPosition());
-	AddParallel(new ArmTargetAutonomous2());
-	AddSequential(new WheelTargetAutonomous2());
+	AddSequential(new TargetLoadPosition());
+	AddParallel(new TargetAutonomous2());
+	AddSequential(new ShooterSpinUp());
 	AddSequential(new Shoot());
 	AddSequential(new DriveTwoFeet());
 	AddSequential(new CollectorLoad());
-	AddSequential(new ShooterArmTargetLoadPosition());
-	AddParallel(new ArmTargetAutonomous1());
+	AddSequential(new TargetLoadPosition());
+	AddParallel(new TargetAutonomous1());
 	AddParallel(new CollectorIdle());
-	AddSequential(new WheelTargetAutonomous1());
+	AddSequential(new ShooterSpinUp());
 	AddSequential(new Shoot());
 	AddSequential(new DriveTwoFeet());
 	AddSequential(new DriveTwoFeet());
