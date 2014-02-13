@@ -253,7 +253,7 @@ Children:
           default: '1'
           name: Output Channel (PWM)
           validators: *id005
-          value: '5'
+          value: '3'
     Properties:
       D: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: D, validators: null,
         value: 0.0}
@@ -317,7 +317,7 @@ Children:
           default: '1'
           name: Output Channel (PWM)
           validators: *id005
-          value: '6'
+          value: '5'
     - Name: leftWheelMotor
       Base: Speed Controller
       Children: []
@@ -339,7 +339,7 @@ Children:
           default: '1'
           name: Output Channel (PWM)
           validators: *id005
-          value: '7'
+          value: '6'
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: ShooterIdle}
@@ -395,7 +395,7 @@ Children:
           default: '1'
           name: Output Channel (PWM)
           validators: *id005
-          value: '8'
+          value: '4'
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: CollectorIdle}

@@ -1,29 +1,83 @@
-Change all motor controllers to talons
-Remove grabber, shooter grab/release
-Remove left/Right counters
-Remove DetectHotGoal command, this will be part of the TargetAutonomousCommand
-
 Commands:
-Rename AutonomousCommandGroup->SingleBallAutonomousCommand
-Add TwoBallAutonomousCommand
-Add ThreeBallAutonomousCommand
-
-Add ShooterArmTargetTruss, ShooterWheelsTargetTruss
-	Arm/Wheels: TargetLongGoal, TargetShortGoal, TargetAutonomous3,2,1,   (short != low goal, just means shorter shot)(auton 3/2/1 would be for 3 shooting positions)
-	ShooterArmAutoTarget, ShooterWheelsAutoTarget (both use the Camera subsystem)
-	ShooterArmTargetLoadPosition
-	ShooterArm/Wheels TargetEjectPosition
-	ShooterWheelsManualControl
-	ShooterArmTuningMode
-	ShooterArmTarget
+Add
+	ArmCatchPosition
+	ArmSecureCatch
+	CheesyDrive //Copy code from Drive
+	ArcadeDrive //Copy code from Drive
+Remove 
+ 	ShooterArmTarget
+ 	ShootTargetTruss
+	ShooterWheelTargetLoadPosition
+	ShooterWheelsTargetEjectPosition
+	ShooterWheelsTargetTruss
+	ShooterWheelsTuningMode
+	WheelTargetAutonomous1
+	WheelTargetAutonomous2
+	WheelTargetAutonomous3
+	WheelTargetLongGoal
+	WheelTargetShortGoal
 	
-Add EjectBall as a command group. (Uses ShooterWheels, ShooterArms, Collector)
+Rename:
+	ShooterArmTarget... -> Target...
+	ArmTarget...	-> Target...
+	ShooterArmAutoTarget -> AutoTarget
+	
+	
 
-Add DriveTwoFeet routine (uses DriveStraight routine on drivetrain, which returns true when completed)
-Add Turn90Degrees and Turn180Degrees commands
-Add DriveStraightTuning and TurnToAngleTuning
 
-ShooterSpinUp should spin up to some nominal speed (like 4k rpm), not used for shooting
+
+In ShooterSpinUp
+	case ShooterArm::LOAD:
+		//Robot::shooterWheels->SetTargetRpm(TARGET_LOAD_SPEED);
+		Robot::shooterWheels->SetPower(-0.3);
+		break;
+
+
+
+
+Implement PowerMode in shooter:
+
+	volatile boolean _rpmControl;
+
+	ShooterWheels::SetPower(float power, float spin_up_delay)
+	{
+		_rpmControl = False;
+		spinUpTimer.Reset();
+		spinUpTimer.Start();
+		spinUpTimer.SetTimeout(spin_up_delay);
+		...
+	}
+	ShooterWheels.SetRpm(...)
+	{
+		_rpmControl = True;
+		...
+	}
+	void ShooterWheels::Run()
+	{
+		if (_rpmControl == False)
+			return;
+			
+		...
+	}
+	bool ShooterWheels::IsUpToSpeed()
+	{
+		bool atSpeed = false;
+		if (_rpmControl == false)
+		{
+			atSpeed = spinUpTimer.IsTimedOut();
+		}
+		else
+		{
+			...
+		}
+		return atSpeed;
+	}
+	
+
+
+
+
+
 
 
 Other stuff:
@@ -36,16 +90,3 @@ Camera::GetRange function?
 Tune the three PID systems (Arm, Turning, DriveStraight)
 Find our shot RPMs
 Test vision for hot goal
-
-
-
-
-
-
-
-
-
-
-
-
-Add CheesyDrive routine

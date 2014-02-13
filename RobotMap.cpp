@@ -64,19 +64,19 @@ void RobotMap::init() {
 	shooterArmshooterArmPot = new AnalogChannel(1, 3);
 	lw->AddSensor("ShooterArm", "shooterArmPot", shooterArmshooterArmPot);
 	
-	shooterArmshooterArmMotor = new Talon(1, 5);
+	shooterArmshooterArmMotor = new Talon(1, 3);
 	lw->AddActuator("ShooterArm", "shooterArmMotor", (Talon*) shooterArmshooterArmMotor);
 	
-	shooterWheelsrightWheelMotor = new Talon(1, 6);
+	shooterWheelsrightWheelMotor = new Talon(1, 5);
 	lw->AddActuator("ShooterWheels", "rightWheelMotor", (Talon*) shooterWheelsrightWheelMotor);
 	
-	shooterWheelsleftWheelMotor = new Talon(1, 7);
+	shooterWheelsleftWheelMotor = new Talon(1, 6);
 	lw->AddActuator("ShooterWheels", "leftWheelMotor", (Talon*) shooterWheelsleftWheelMotor);
 	
 	collectorcollectorLifter = new DoubleSolenoid(1, 1, 2);      
 	
 	
-	collectorrollerMotor = new Talon(1, 8);
+	collectorrollerMotor = new Talon(1, 4);
 	lw->AddActuator("Collector", "rollerMotor", (Talon*) collectorrollerMotor);
 	
 	blockerblockerWinch = new Talon(1, 9);
