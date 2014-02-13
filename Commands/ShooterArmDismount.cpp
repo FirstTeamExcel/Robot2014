@@ -22,9 +22,12 @@ void ShooterArmDismount::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void ShooterArmDismount::Execute() {
-	ShooterArm *arm = Robot::shooterArm;
-				
-	arm->SetTargetAngle(SHOOTER_ARM_DISMOUNT);
+	if (Robot::collector->DOWN)
+	{
+		ShooterArm *arm = Robot::shooterArm;
+					
+		arm->SetTargetAngle(SHOOTER_ARM_DISMOUNT);
+	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterArmDismount::IsFinished() {

@@ -22,9 +22,12 @@ void ShooterArmAutoTarget::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void ShooterArmAutoTarget::Execute() {
-	ShooterArm *arm = Robot::shooterArm;
+	if (Robot::collector->DOWN)
+	{
+		ShooterArm *arm = Robot::shooterArm;
 				
-	arm->SetTargetAngle(SHOOTER_ARM_AUTO_TARGET);
+		arm->SetTargetAngle(SHOOTER_ARM_AUTO_TARGET);
+	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterArmAutoTarget::IsFinished() {

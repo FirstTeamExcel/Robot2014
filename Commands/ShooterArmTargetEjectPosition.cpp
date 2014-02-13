@@ -23,10 +23,12 @@ void ShooterArmTargetEjectPosition::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void ShooterArmTargetEjectPosition::Execute() {
-	ShooterArm *arm = Robot::shooterArm;
-				
-	arm->SetTargetPosition(ShooterArm::EJECT);
-	
+	if (Robot::collector->DOWN)
+	{
+		ShooterArm *arm = Robot::shooterArm;
+					
+		arm->SetTargetPosition(ShooterArm::EJECT);
+	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterArmTargetEjectPosition::IsFinished() {
