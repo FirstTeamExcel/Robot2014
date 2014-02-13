@@ -29,7 +29,7 @@ void ShooterSpinUp::Execute() {
 	{
 	case ShooterArm::LOAD:
 		//Robot::shooterWheels->SetTargetRpm(TARGET_LOAD_SPEED);
-		Robot::shooterWheels->SetPower(-0.3);
+		Robot::shooterWheels->SetPower(-0.3, 0.2);
 		break;
 	case ShooterArm::EJECT:
 		Robot::shooterWheels->SetTargetRpm(TARGET_EJECT_SPEED);

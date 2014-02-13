@@ -170,3 +170,4 @@ ctdt.o
 *~
 Makefile
 *.out
+PPC603gnu/CommandBasedRobotTemplate/Debug/ctdt.c
