@@ -34,6 +34,7 @@ private:
 	float bias;
 	float power;
 //	float delay;
+	volatile bool _rpmControl;
 	volatile double rightCurrentSpeed;
 	volatile double leftCurrentSpeed;
 	double targetSPR_Right;
@@ -47,6 +48,8 @@ private:
 	Counter rightCount;
 	Counter leftCount;
     Timer takeBackTimer;
+    Timer spinUpTimer;
+    float _spin_up_delay;
 //	DoubleSolenoid fireExtend;
 //	DoubleSolenoid fireRetract;
 public:
@@ -58,7 +61,7 @@ public:
 	void InitDefaultCommand();
 	
 	void SetTargetRpm(float targetRpm, float bias = 0.0);
-	void SetPower(float power);
+	void SetPower(float power, float spin_up_delay);
 	void GetRpm(float& rightRpm, float& leftRpm);
 	bool IsUpToSpeed();
 	void StartTakeBack();

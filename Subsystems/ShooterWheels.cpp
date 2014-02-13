@@ -31,6 +31,7 @@ void ShooterWheels::InitDefaultCommand()
 // here. Call these from Commands.
 void ShooterWheels::SetTargetRpm(float targetRpm, float bias)
 {
+	_rpmControl = true;
     if (targetRpm == 0)
     {
         targetSPR_Right = 0;
@@ -84,8 +85,12 @@ void ShooterWheels::SetTargetRpm(float targetRpm, float bias)
         targetSPR_Left_LowerLimit = (targetSPR_Left * (1.0 - SPEED_TOLERANCE));
     }
 }
-void ShooterWheels::SetPower(float power)
+void ShooterWheels::SetPower(float power, float spin_up_delay)
 {
+	_rpmControl = false;
+	spinUpTimer.Reset();
+	spinUpTimer.Start();
+	_spin_up_delay = spin_up_delay;
     rightWheelMotor->Set(power);
     leftWheelMotor->Set(power);
 }
@@ -96,6 +101,11 @@ void ShooterWheels::GetRpm(float& rightRpm, float& leftRpm)
 }
 void ShooterWheels::Run()
 {
+	if (_rpmControl == false)
+	{
+		return;
+	}
+	
     static float lastRightMotorCommand;
     static float lastLeftMotorCommand;
     float newRightMotorCommand;
@@ -142,35 +152,43 @@ void ShooterWheels::Run()
 bool ShooterWheels::IsUpToSpeed()
 {
     //make sure we don't return true if the target is 0
-    if (targetSPR_Right == 0.0)
-    {
-        return false;
-    }
-    double rightSpeed = rightCurrentSpeed;
-    double leftSpeed = leftCurrentSpeed;
-    if ((rightSpeed >= targetSPR_Right_LowerLimit) && (rightSpeed
-            <= targetSPR_Right_UpperLimit))
-    {
-        rightIsUpToSpeed = true;
-    }
-    else
-    {
-        rightIsUpToSpeed = false;
-    }
-    if ((leftSpeed >= targetSPR_Left_LowerLimit) && (leftSpeed
-            <= targetSPR_Left_UpperLimit))
-    {
-        leftIsUpToSpeed = true;
-    }
-    else
-    {
-        leftIsUpToSpeed = false;
-    }
-    bool atSpeed = false;
-    if ((rightIsUpToSpeed == true) && (leftIsUpToSpeed == true))
-    {
-        atSpeed = true;
-    }
+	bool atSpeed= false;
+	if (_rpmControl == false)
+	{
+		atSpeed = spinUpTimer.HasPeriodPassed(_spin_up_delay);
+	}
+	else
+	{
+		if (targetSPR_Right == 0.0)
+		{
+			return false;
+		}
+		double rightSpeed = rightCurrentSpeed;
+		double leftSpeed = leftCurrentSpeed;
+		if ((rightSpeed >= targetSPR_Right_LowerLimit) && (rightSpeed
+				<= targetSPR_Right_UpperLimit))
+		{
+			rightIsUpToSpeed = true;
+		}
+		else
+		{
+			rightIsUpToSpeed = false;
+		}
+		if ((leftSpeed >= targetSPR_Left_LowerLimit) && (leftSpeed
+				<= targetSPR_Left_UpperLimit))
+		{
+			leftIsUpToSpeed = true;
+		}
+		else
+		{
+			leftIsUpToSpeed = false;
+		}
+		bool atSpeed = false;
+		if ((rightIsUpToSpeed == true) && (leftIsUpToSpeed == true))
+		{
+			atSpeed = true;
+		}
+	}
     return atSpeed;
 }
 void ShooterWheels::StartTakeBack()
