@@ -9,6 +9,7 @@
 // it from being updated in th future.
 #include "ArmTargetLongGoal.h"
 #include "../ShooterArmPositions.h"
+#include "../Subsystems/Collector.h"
 ArmTargetLongGoal::ArmTargetLongGoal() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -22,9 +23,12 @@ void ArmTargetLongGoal::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void ArmTargetLongGoal::Execute() {
-	ShooterArm *arm = Robot::shooterArm;
+	if (Robot::collector->DOWN)
+	{
+		ShooterArm *arm = Robot::shooterArm;
 						
-	arm->SetTargetAngle(ARM_TARGET_LONG_GOAL);
+		arm->SetTargetAngle(ARM_TARGET_LONG_GOAL);
+	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ArmTargetLongGoal::IsFinished() {

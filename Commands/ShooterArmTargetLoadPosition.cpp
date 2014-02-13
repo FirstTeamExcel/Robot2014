@@ -10,6 +10,7 @@
 #include "ShooterArmTargetLoadPosition.h"
 #include "../ShooterArmPositions.h"
 #include "../Subsystems/ShooterArm.h"
+#include "../Subsystems/Collector.h"
 ShooterArmTargetLoadPosition::ShooterArmTargetLoadPosition() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -23,9 +24,13 @@ void ShooterArmTargetLoadPosition::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void ShooterArmTargetLoadPosition::Execute() {
-	ShooterArm *arm = Robot::shooterArm;
-			
-	arm->SetTargetPosition(ShooterArm::LOAD);
+	if (Robot::collector->DOWN)
+	{
+		ShooterArm *arm = Robot::shooterArm;
+				
+		arm->SetTargetPosition(ShooterArm::LOAD);
+	}
+	
 	
 }
 // Make this return true when this Command no longer needs to run execute()
