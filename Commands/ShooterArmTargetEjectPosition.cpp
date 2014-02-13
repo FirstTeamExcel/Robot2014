@@ -10,6 +10,7 @@
 #include "ShooterArmTargetEjectPosition.h"
 #include "../ShooterArmPositions.h"
 #include "../Subsystems/ShooterArm.h"
+#include "../Subsystems/Collector.h"
 ShooterArmTargetEjectPosition::ShooterArmTargetEjectPosition() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
