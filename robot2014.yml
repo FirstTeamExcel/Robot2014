@@ -819,7 +819,7 @@ Children:
           name: Command
           type: Command
           validators: *id024
-          value: ArmTargetLongGoal
+          value: TargetLongGoal
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id025
           default: '1'
@@ -843,7 +843,7 @@ Children:
           name: Command
           type: Command
           validators: *id024
-          value: ArmTargetShortGoal
+          value: TargetShortGoal
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id025
           default: '1'
@@ -867,7 +867,7 @@ Children:
           name: Command
           type: Command
           validators: *id024
-          value: ShooterArmTargetTruss
+          value: TargetTruss
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id025
           default: '1'
@@ -891,7 +891,7 @@ Children:
           name: Command
           type: Command
           validators: *id024
-          value: ShooterArmTargetLoadPosition
+          value: TargetLoadPosition
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id025
           default: '1'
@@ -915,7 +915,7 @@ Children:
           name: Command
           type: Command
           validators: *id024
-          value: ShooterArmAutoTarget
+          value: AutoTarget
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id025
           default: '1'
@@ -997,14 +997,6 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: ShooterWheels}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: ShooterTargetGoal
-    Base: Command
-    Children: []
-    Properties:
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: ShooterArm}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
   - Name: SingleBallAutonomousCommand
     Base: Command Group
     Children: []
@@ -1075,7 +1067,7 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: None}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: ShooterArmTargetTruss
+  - Name: TargetTruss
     Base: Command
     Children: []
     Properties:
@@ -1083,7 +1075,7 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: ShooterArm}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: ArmTargetLongGoal
+  - Name: TargetLongGoal
     Base: Command
     Children: []
     Properties:
@@ -1091,7 +1083,7 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: ShooterArm}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: ArmTargetShortGoal
+  - Name: TargetShortGoal
     Base: Command
     Children: []
     Properties:
@@ -1099,7 +1091,7 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: ShooterArm}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: ArmTargetAutonomous1
+  - Name: TargetAutonomous1
     Base: Command
     Children: []
     Properties:
@@ -1107,7 +1099,7 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: ShooterArm}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: ArmTargetAutonomous2
+  - Name: TargetAutonomous2
     Base: Command
     Children: []
     Properties:
@@ -1115,7 +1107,7 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: ShooterArm}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: ArmTargetAutonomous3
+  - Name: TargetAutonomous3
     Base: Command
     Children: []
     Properties:
@@ -1123,7 +1115,7 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: ShooterArm}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: ShooterArmAutoTarget
+  - Name: AutoTarget
     Base: Command
     Children: []
     Properties:
@@ -1139,7 +1131,7 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: ShooterWheels}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: ShooterArmTargetLoadPosition
+  - Name: TargetLoadPosition
     Base: Command
     Children: []
     Properties:
@@ -1147,7 +1139,7 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: ShooterArm}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: ShooterArmTargetEjectPosition
+  - Name: TargetEjectPosition
     Base: Command
     Children: []
     Properties:

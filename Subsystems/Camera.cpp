@@ -246,7 +246,6 @@ double Camera::scoreRectangularity(ParticleAnalysisReport *report)
 //	{
 //	    
 //	}
-
 	vector<ParticleAnalysisReport>* AnalyzeImage(RGBImage *image, BinaryImage *filteredImage)
 	{
 		ColorImage *image;

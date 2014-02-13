@@ -13,11 +13,7 @@
 #include "Commands/ArcadeDrive.h"
 #include "Commands/ArmCatchPosition.h"
 #include "Commands/ArmSecureCatch.h"
-#include "Commands/ArmTargetAutonomous1.h"
-#include "Commands/ArmTargetAutonomous2.h"
-#include "Commands/ArmTargetAutonomous3.h"
-#include "Commands/ArmTargetLongGoal.h"
-#include "Commands/ArmTargetShortGoal.h"
+#include "Commands/AutoTarget.h"
 #include "Commands/AutonomousCommand.h"
 #include "Commands/BlockerIdle.h"
 #include "Commands/BlockerLower.h"
@@ -34,18 +30,21 @@
 #include "Commands/DriveTwoFeet.h"
 #include "Commands/EjectBall.h"
 #include "Commands/Shoot.h"
-#include "Commands/ShooterArmAutoTarget.h"
 #include "Commands/ShooterArmDismount.h"
-#include "Commands/ShooterArmTargetEjectPosition.h"
-#include "Commands/ShooterArmTargetLoadPosition.h"
-#include "Commands/ShooterArmTargetTruss.h"
 #include "Commands/ShooterArmTuningMode.h"
 #include "Commands/ShooterIdle.h"
 #include "Commands/ShooterSpinUp.h"
-#include "Commands/ShooterTargetGoal.h"
 #include "Commands/ShooterWheelsAutoTarget.h"
 #include "Commands/ShooterWheelsManualControl.h"
 #include "Commands/SingleBallAutonomousCommand.h"
+#include "Commands/TargetAutonomous1.h"
+#include "Commands/TargetAutonomous2.h"
+#include "Commands/TargetAutonomous3.h"
+#include "Commands/TargetEjectPosition.h"
+#include "Commands/TargetLoadPosition.h"
+#include "Commands/TargetLongGoal.h"
+#include "Commands/TargetShortGoal.h"
+#include "Commands/TargetTruss.h"
 #include "Commands/ThreeBallAutonomousCommand.h"
 #include "Commands/Turn180Degrees.h"
 #include "Commands/Turn90Degrees.h"
@@ -59,15 +58,15 @@ OI::OI() {
 	operatorStick = new Joystick(3);
 	
 	autoTarget = new JoystickButton(operatorStick, 8);
-	autoTarget->WhileHeld(new ShooterArmAutoTarget());
+	autoTarget->WhileHeld(new AutoTarget());
 	targetLoadPosition = new JoystickButton(operatorStick, 11);
-	targetLoadPosition->WhenPressed(new ShooterArmTargetLoadPosition());
+	targetLoadPosition->WhenPressed(new TargetLoadPosition());
 	targetTruss = new JoystickButton(operatorStick, 9);
-	targetTruss->WhenPressed(new ShooterArmTargetTruss());
+	targetTruss->WhenPressed(new TargetTruss());
 	targetShortShot = new JoystickButton(operatorStick, 10);
-	targetShortShot->WhenPressed(new ArmTargetShortGoal());
+	targetShortShot->WhenPressed(new TargetShortGoal());
 	targetLongShot = new JoystickButton(operatorStick, 7);
-	targetLongShot->WhenPressed(new ArmTargetLongGoal());
+	targetLongShot->WhenPressed(new TargetLongGoal());
 	alsoEject = new JoystickButton(operatorStick, 12);
 	alsoEject->WhileHeld(new EjectBall());
 	alsoCollectorUp = new JoystickButton(operatorStick, 5);
@@ -103,7 +102,6 @@ OI::OI() {
 	SmartDashboard::PutData("CollectorDown", new CollectorDown());
 	SmartDashboard::PutData("CollectorEject", new CollectorEject());
 	SmartDashboard::PutData("ShooterSpinUp", new ShooterSpinUp());
-	SmartDashboard::PutData("ShooterTargetGoal", new ShooterTargetGoal());
 	SmartDashboard::PutData("SingleBallAutonomousCommand", new SingleBallAutonomousCommand());
 	SmartDashboard::PutData("Drive", new Drive());
 	SmartDashboard::PutData("ShooterIdle", new ShooterIdle());
@@ -113,16 +111,16 @@ OI::OI() {
 	SmartDashboard::PutData("BlockerIdle", new BlockerIdle());
 	SmartDashboard::PutData("TwoBallAutonomousCommand", new TwoBallAutonomousCommand());
 	SmartDashboard::PutData("ThreeBallAutonomousCommand", new ThreeBallAutonomousCommand());
-	SmartDashboard::PutData("ShooterArmTargetTruss", new ShooterArmTargetTruss());
-	SmartDashboard::PutData("ArmTargetLongGoal", new ArmTargetLongGoal());
-	SmartDashboard::PutData("ArmTargetShortGoal", new ArmTargetShortGoal());
-	SmartDashboard::PutData("ArmTargetAutonomous1", new ArmTargetAutonomous1());
-	SmartDashboard::PutData("ArmTargetAutonomous2", new ArmTargetAutonomous2());
-	SmartDashboard::PutData("ArmTargetAutonomous3", new ArmTargetAutonomous3());
-	SmartDashboard::PutData("ShooterArmAutoTarget", new ShooterArmAutoTarget());
+	SmartDashboard::PutData("TargetTruss", new TargetTruss());
+	SmartDashboard::PutData("TargetLongGoal", new TargetLongGoal());
+	SmartDashboard::PutData("TargetShortGoal", new TargetShortGoal());
+	SmartDashboard::PutData("TargetAutonomous1", new TargetAutonomous1());
+	SmartDashboard::PutData("TargetAutonomous2", new TargetAutonomous2());
+	SmartDashboard::PutData("TargetAutonomous3", new TargetAutonomous3());
+	SmartDashboard::PutData("AutoTarget", new AutoTarget());
 	SmartDashboard::PutData("ShooterWheelsAutoTarget", new ShooterWheelsAutoTarget());
-	SmartDashboard::PutData("ShooterArmTargetLoadPosition", new ShooterArmTargetLoadPosition());
-	SmartDashboard::PutData("ShooterArmTargetEjectPosition", new ShooterArmTargetEjectPosition());
+	SmartDashboard::PutData("TargetLoadPosition", new TargetLoadPosition());
+	SmartDashboard::PutData("TargetEjectPosition", new TargetEjectPosition());
 	SmartDashboard::PutData("ShooterWheelsManualControl", new ShooterWheelsManualControl());
 	SmartDashboard::PutData("ShooterArmTuningMode", new ShooterArmTuningMode());
 	SmartDashboard::PutData("EjectBall", new EjectBall());
