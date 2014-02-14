@@ -11,7 +11,17 @@
 #define SHOOTERARM_H
 #include "Commands/PIDSubsystem.h"
 #include "WPILib.h"
-#define VOLTAGE_TO_DEGREES(volts) (volts*(5/360))
+
+//Determine these values (note, the spaces here are important)
+#define VOLTAGE_AT_MIN_ANGLE (0.0)
+#define VOLTAGE_AT_MAX_ANGLE (5.0)
+#define VOLTAGE_RANGE (VOLTAGE_AT_MAX_ANGLE - VOLTAGE_AT_MIN_ANGLE)
+#define DEGREES_ROTATION (340.0)
+#define VOLTAGE_SCALAR (DEGREES_ROTATION / VOLTAGE_RANGE)   //DegreesPerVolt
+#define VOLTAGE_AT_ZERO_DEGREES 1.0
+#define VOLTAGE_TO_DEGREES(volts) ((volts - VOLTAGE_AT_ZERO_DEGREES) * VOLTAGE_SCALAR) //Volts * DegreesPerVolt = Degrees
+//^^This is a macro, parenthesis immediately after the define allow you to pass a value into the macro and use it
+
 /**
  *
  *
@@ -21,6 +31,7 @@ class ShooterArm: public PIDSubsystem {
 	
  private:
 	float targetAngle;
+	float _maxFeedForward;
 	float PIDOutputToMotorCommand(double);
 	
  public:

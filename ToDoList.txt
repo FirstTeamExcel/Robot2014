@@ -1,77 +1,18 @@
-Commands:
-Add
-	ArmCatchPosition
-	ArmSecureCatch
-	CheesyDrive //Copy code from Drive
-	ArcadeDrive //Copy code from Drive
-Remove 
- 	ShooterArmTarget
- 	ShootTargetTruss
-	ShooterWheelTargetLoadPosition
-	ShooterWheelsTargetEjectPosition
-	ShooterWheelsTargetTruss
-	ShooterWheelsTuningMode
-	WheelTargetAutonomous1
-	WheelTargetAutonomous2
-	WheelTargetAutonomous3
-	WheelTargetLongGoal
-	WheelTargetShortGoal
-	
-Rename:
-	ShooterArmTarget... -> Target...
-	ArmTarget...	-> Target...
-	ShooterArmAutoTarget -> AutoTarget
-	
-	
 
+Code TO DO List:
+Update analog pins (1=Potentiometer, 2 = gyro, 3 = accellerometer)
+Add the DetectHotGoal command back into robot builder, this should call DetectHotGoal in execute, then set _done to true, IsFinished should return _done
+Tweak shooter arm control loop
+Add a PoweredShot command
+In ShooterWheelsSpinUp, 
+	Add code to read the operator joystick x axis (range is -1 to 1), 
+	Scale the x axis down to +- MAX_BIAS parameter (which should be added to ShooterWheelsSpeeds.h, set the value to 0.2)
+	Get the +- sign on the bias correct (a positive bias spins the right wheel faster, throwing the ball left)
+	Feed the bias into the target RPM function for the Teleop shots
 
-
-In ShooterSpinUp
-	case ShooterArm::LOAD:
-		//Robot::shooterWheels->SetTargetRpm(TARGET_LOAD_SPEED);
-		Robot::shooterWheels->SetPower(-0.3);
-		break;
-
-
-
-
-Implement PowerMode in shooter:
-
-	volatile boolean _rpmControl;
-
-	ShooterWheels::SetPower(float power, float spin_up_delay)
-	{
-		_rpmControl = False;
-		spinUpTimer.Reset();
-		spinUpTimer.Start();
-		spinUpTimer.SetTimeout(spin_up_delay);
-		...
-	}
-	ShooterWheels.SetRpm(...)
-	{
-		_rpmControl = True;
-		...
-	}
-	void ShooterWheels::Run()
-	{
-		if (_rpmControl == False)
-			return;
-			
-		...
-	}
-	bool ShooterWheels::IsUpToSpeed()
-	{
-		bool atSpeed = false;
-		if (_rpmControl == false)
-		{
-			atSpeed = spinUpTimer.IsTimedOut();
-		}
-		else
-		{
-			...
-		}
-		return atSpeed;
-	}
+In Camera.cpp when we detect the hot goal, save the value to a class variable 
+	add a Getter function for it, 
+	initialize the value to notDetected in the constructor
 	
 
 
@@ -80,6 +21,14 @@ Implement PowerMode in shooter:
 
 
 
+Do the math for camera view: 
+	(Field Layout: http://www.usfirst.org/sites/default/files/uploadedFiles/Robotics_Programs/FRC/Game_and_Season__Info/2014/FE-00037_RevA.pdf)
+	The camera has a 67deg horizontal field of view (33.5deg in either direction)
+	The field is 24 ft. 8 in. wide, the hot goal tape is 1 ft. 11.5 in. wide, and is 3.75" from the edge of the field.
+	Our autonomous starting position is between 216" and 324"
+	Can we see the entire hot goal tape from the center of the field?
+	How far left, right, or back would we need to move to see it?
+	
 Other stuff:
 In ShooterArm subsystem, PID to motor command function, instead of output * 1-cos(angle), use output - (output * cos(angle))
 Figure out if trig functions are intended for degrees or radians

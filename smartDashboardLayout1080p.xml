@@ -1,5 +1,50 @@
 <xml version="1.0">
 <dashboard>
+	<widget field="TargetTruss" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="218" y="707"/>
+	</widget>
+	<widget field="TargetShortGoal" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="218" y="671"/>
+	</widget>
+	<widget field="TargetLongGoal" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="268" y="635"/>
+	</widget>
+	<widget field="TargetLoadPosition" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="268" y="599"/>
+	</widget>
+	<widget field="TargetEjectPosition" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="259" y="563"/>
+	</widget>
+	<widget field="TargetAutonomous3" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="972"/>
+	</widget>
+	<widget field="TargetAutonomous2" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="936"/>
+	</widget>
+	<widget field="TargetAutonomous1" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="900"/>
+	</widget>
+	<widget field="CompressorStop" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="864"/>
+	</widget>
+	<widget field="CompressorStart" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="828"/>
+	</widget>
+	<widget field="CheesyDrive" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="792"/>
+	</widget>
+	<widget field="AutoTarget" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="756"/>
+	</widget>
+	<widget field="ArmSecureCatch" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="375" y="799"/>
+	</widget>
+	<widget field="ArmCatchPosition" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="335" y="905"/>
+	</widget>
+	<widget field="ArcadeDrive" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="442" y="848"/>
+	</widget>
 	<widget field="Right RPM" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="218" y="540"/>
 	</widget>
@@ -152,38 +197,8 @@
 	</widget>
 </dashboard>
 <live-window>
-	<widget field="Ungrouped" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
-		<widget field="AnalogChannel[2,1]" type="Analog Input" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
-			<location x="6" y="18"/>
-			<height>22</height>
-			<width>116</width>
-		</widget>
-		<widget field="AnalogChannel[1,1]" type="Analog Input" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
-			<location x="6" y="40"/>
-			<height>22</height>
-			<width>116</width>
-		</widget>
-		<widget field="AnalogChannel[8,1]" type="Analog Input" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
-			<location x="6" y="62"/>
-			<height>22</height>
-			<width>116</width>
-		</widget>
-		<location x="322" y="0"/>
-		<width>128</width>
-		<height>91</height>
-	</widget>
-	<widget field="ShooterPiston" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
-		<widget field="piston" type="Double Solenoid" class="edu.wpi.first.smartdashboard.livewindow.elements.RelayController">
-			<location x="6" y="18"/>
-			<height>22</height>
-			<width>110</width>
-		</widget>
-		<location x="104" y="464"/>
-		<width>122</width>
-		<height>47</height>
-	</widget>
 	<widget field="Shifter" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
-		<widget field="piston" type="Double Solenoid" class="edu.wpi.first.smartdashboard.livewindow.elements.RelayController">
+		<widget field="piston" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.RelayController">
 			<location x="6" y="18"/>
 			<height>22</height>
 			<width>110</width>
@@ -192,25 +207,15 @@
 		<width>122</width>
 		<height>47</height>
 	</widget>
-	<widget field="ShooterArm" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
-		<widget field="shooterArmMotor" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SpeedController">
+	<widget field="ShooterPiston" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
+		<widget field="piston" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.RelayController">
 			<location x="6" y="18"/>
-			<height>51</height>
-			<width>309</width>
-		</widget>
-		<widget field="shooterArmPot" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
-			<location x="6" y="69"/>
 			<height>22</height>
-			<width>309</width>
+			<width>110</width>
 		</widget>
-		<widget field="PIDSubsystem Controller" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
-			<location x="6" y="91"/>
-			<height>150</height>
-			<width>309</width>
-		</widget>
-		<location x="770" y="389"/>
-		<width>321</width>
-		<height>248</height>
+		<location x="104" y="464"/>
+		<width>122</width>
+		<height>47</height>
 	</widget>
 	<widget field="DriveSubsystem" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
 		<widget field="leftDrive" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SpeedController">
@@ -238,22 +243,22 @@
 			<height>106</height>
 			<width>309</width>
 		</widget>
-		<widget field="StraightPID" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
+		<widget field="StraightPID" type="Table" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
 			<location x="6" y="482"/>
 			<height>150</height>
 			<width>309</width>
 		</widget>
-		<widget field="DistancePID" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
+		<widget field="DistancePID" type="Table" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
 			<location x="6" y="632"/>
 			<height>150</height>
 			<width>309</width>
 		</widget>
-		<widget field="TurnPID" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
+		<widget field="TurnPID" type="Table" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
 			<location x="6" y="782"/>
 			<height>150</height>
 			<width>309</width>
 		</widget>
-		<widget field="driveAccelerometer" type="Accelerometer" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+		<widget field="driveAccelerometer" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
 			<location x="6" y="932"/>
 			<height>22</height>
 			<width>309</width>
@@ -261,6 +266,26 @@
 		<location x="1393" y="52"/>
 		<width>321</width>
 		<height>961</height>
+	</widget>
+	<widget field="ShooterArm" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
+		<widget field="shooterArmMotor" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SpeedController">
+			<location x="6" y="18"/>
+			<height>51</height>
+			<width>309</width>
+		</widget>
+		<widget field="shooterArmPot" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+			<location x="6" y="69"/>
+			<height>22</height>
+			<width>309</width>
+		</widget>
+		<widget field="PIDSubsystem Controller" type="Table" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
+			<location x="6" y="91"/>
+			<height>150</height>
+			<width>309</width>
+		</widget>
+		<location x="770" y="389"/>
+		<width>321</width>
+		<height>248</height>
 	</widget>
 	<widget field="ShooterWheels" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
 		<widget field="rightWheelMotor" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SpeedController">
@@ -276,6 +301,31 @@
 		<location x="183" y="144"/>
 		<width>321</width>
 		<height>127</height>
+	</widget>
+	<widget field="Ungrouped" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
+		<widget field="AnalogChannel[2,1]" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+			<location x="6" y="18"/>
+			<height>22</height>
+			<width>153</width>
+		</widget>
+		<widget field="AnalogChannel[1,1]" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+			<location x="6" y="40"/>
+			<height>22</height>
+			<width>153</width>
+		</widget>
+		<widget field="AnalogChannel[8,1]" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+			<location x="6" y="62"/>
+			<height>22</height>
+			<width>153</width>
+		</widget>
+		<widget field="Relay[1,1]" type="Relay" class="edu.wpi.first.smartdashboard.livewindow.elements.RelayController">
+			<location x="6" y="84"/>
+			<height>22</height>
+			<width>153</width>
+		</widget>
+		<location x="322" y="0"/>
+		<width>165</width>
+		<height>113</height>
 	</widget>
 	<widget field="Blocker" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
 		<widget field="blockerWinch" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SpeedController">
@@ -293,7 +343,7 @@
 			<height>51</height>
 			<width>309</width>
 		</widget>
-		<widget field="Lifter" type="Double Solenoid" class="edu.wpi.first.smartdashboard.livewindow.elements.RelayController">
+		<widget field="Lifter" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.RelayController">
 			<location x="6" y="69"/>
 			<height>22</height>
 			<width>309</width>
