@@ -189,26 +189,6 @@ Children:
           default: '1'
           name: Input Channel (Analog)
           validators: [AnalogInput]
-          value: '1'
-    - Name: driveAccelerometer
-      Base: Accelerometer
-      Children: []
-      Properties:
-        Zero G Volts: !!robotbuilder.data.properties.DoubleProperty {default: 2.5,
-          name: Zero G Volts, validators: null, value: 2.5}
-        Volts Per G: !!robotbuilder.data.properties.DoubleProperty {default: '1',
-          name: Volts Per G, validators: null, value: 1.0}
-        Input Module (Analog): !!robotbuilder.data.properties.ChoicesProperty
-          choices: ['1', '2']
-          default: '1'
-          name: Input Module (Analog)
-          validators: [AnalogInput]
-          value: '1'
-        Input Channel (Analog): !!robotbuilder.data.properties.ChoicesProperty
-          choices: ['1', '2', '3', '4', '5', '6', '7', '8']
-          default: '1'
-          name: Input Channel (Analog)
-          validators: [AnalogInput]
           value: '2'
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
@@ -231,7 +211,7 @@ Children:
           default: '1'
           name: Input Channel (Analog)
           validators: [AnalogInput]
-          value: '3'
+          value: '1'
     - Name: shooterArmMotor
       Base: Speed Controller
       Children: []
@@ -1314,6 +1294,22 @@ Children:
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: CompressorSubsystem}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: DetectHotGoal
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Camera}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: PoweredShot
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: ShooterWheels}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
   Properties: {}

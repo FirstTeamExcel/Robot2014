@@ -16,7 +16,6 @@ RobotDrive* RobotMap::driveSubsystemTheDriveTrain = NULL;
 Encoder* RobotMap::driveSubsystemleftEncoder = NULL;
 Encoder* RobotMap::driveSubsystemrightEncoder = NULL;
 Gyro* RobotMap::driveSubsystemdriveGyro = NULL;
-Accelerometer* RobotMap::driveSubsystemdriveAccelerometer = NULL;
 AnalogChannel* RobotMap::shooterArmshooterArmPot = NULL;
 SpeedController* RobotMap::shooterArmshooterArmMotor = NULL;
 SpeedController* RobotMap::shooterWheelsrightWheelMotor = NULL;
@@ -55,14 +54,10 @@ void RobotMap::init() {
 	driveSubsystemrightEncoder->SetDistancePerPulse(0.05026548245743669);
         driveSubsystemrightEncoder->SetPIDSourceParameter(Encoder::kDistance);
         driveSubsystemrightEncoder->Start();
-	driveSubsystemdriveGyro = new Gyro(1, 1);
+	driveSubsystemdriveGyro = new Gyro(1, 2);
 	lw->AddSensor("DriveSubsystem", "driveGyro", driveSubsystemdriveGyro);
 	driveSubsystemdriveGyro->SetSensitivity(0.007);
-	driveSubsystemdriveAccelerometer = new Accelerometer(1, 2);
-	lw->AddSensor("DriveSubsystem", "driveAccelerometer", driveSubsystemdriveAccelerometer);
-	driveSubsystemdriveAccelerometer->SetSensitivity(1.0);
-        driveSubsystemdriveAccelerometer->SetZero(2.5);
-	shooterArmshooterArmPot = new AnalogChannel(1, 3);
+	shooterArmshooterArmPot = new AnalogChannel(1, 1);
 	lw->AddSensor("ShooterArm", "shooterArmPot", shooterArmshooterArmPot);
 	
 	shooterArmshooterArmMotor = new Talon(1, 3);

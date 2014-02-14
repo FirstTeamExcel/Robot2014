@@ -25,7 +25,6 @@ public:
 	static Encoder* driveSubsystemleftEncoder;
 	static Encoder* driveSubsystemrightEncoder;
 	static Gyro* driveSubsystemdriveGyro;
-	static Accelerometer* driveSubsystemdriveAccelerometer;
 	static AnalogChannel* shooterArmshooterArmPot;
 	static SpeedController* shooterArmshooterArmMotor;
 	static SpeedController* shooterWheelsrightWheelMotor;
