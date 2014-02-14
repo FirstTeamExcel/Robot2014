@@ -53,7 +53,7 @@ double ShooterArm::ReturnPIDInput()
     if (_maxFeedForward != 0.0)
     {
         //Use the current angle and the maxFeedForward setting to scale to a new feed forward command based on the current angle
-        newFeedForward = _maxFeedForward * cos(angle);
+        newFeedForward = _maxFeedForward - (_maxFeedForward * cos(angle));
     }
     //If the feed forward value changed, then set it (if SetF takes a lot of processing, this will be more efficient)
     if (previousScaledFeedForward != newFeedForward)

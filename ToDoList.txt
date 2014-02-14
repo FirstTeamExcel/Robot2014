@@ -1,18 +1,18 @@
 
 Code TO DO List:
-Update analog pins (1=Potentiometer, 2 = gyro, 3 = accellerometer)
-Add the DetectHotGoal command back into robot builder, this should call DetectHotGoal in execute, then set _done to true, IsFinished should return _done
++ Update analog pins (1=Potentiometer, 2 = gyro, 3 = accellerometer)
++ Add the DetectHotGoal command back into robot builder, this should call DetectHotGoal in execute, then set _done to true, IsFinished should return _done
 Tweak shooter arm control loop
-Add a PoweredShot command
++ Add a PoweredShot command
 In ShooterWheelsSpinUp, 
-	Add code to read the operator joystick x axis (range is -1 to 1), 
-	Scale the x axis down to +- MAX_BIAS parameter (which should be added to ShooterWheelsSpeeds.h, set the value to 0.2)
-	Get the +- sign on the bias correct (a positive bias spins the right wheel faster, throwing the ball left)
-	Feed the bias into the target RPM function for the Teleop shots
+	(+) Add code to read the operator joystick x axis (range is -1 to 1), 
+	(+) Scale the x axis down to +- MAX_BIAS parameter (which should be added to ShooterWheelsSpeeds.h, set the value to 0.2)
+	(+) Get the +- sign on the bias correct (a positive bias spins the right wheel faster, throwing the ball left)
+	(+)Feed the bias into the target RPM function for the Teleop shots
 
-In Camera.cpp when we detect the hot goal, save the value to a class variable 
-	add a Getter function for it, 
-	initialize the value to notDetected in the constructor
+ + In Camera.cpp when we detect the hot goal, save the value to a class variable 
+	+ add a Getter function for it, 
+	+ initialize the value to notDetected in the constructor
 	
 
 
@@ -30,7 +30,7 @@ Do the math for camera view:
 	How far left, right, or back would we need to move to see it?
 	
 Other stuff:
-In ShooterArm subsystem, PID to motor command function, instead of output * 1-cos(angle), use output - (output * cos(angle))
++ In ShooterArm subsystem, PID to motor command function, instead of output * 1-cos(angle), use output - (output * cos(angle))
 Figure out if trig functions are intended for degrees or radians
 
 Camera::GetRange function?

@@ -22,6 +22,8 @@
  * @author ExampleAuthor
  */
 class DetectHotGoal: public Command {
+private:
+    bool _done;
 public:
 	DetectHotGoal();
 	virtual void Initialize();

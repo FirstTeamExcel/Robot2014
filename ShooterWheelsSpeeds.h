@@ -23,4 +23,8 @@
 
 #define TARGET_AUTO_SPEED (0.8)
 
+#define MAX_BIAS (0.2)
+
+
+
 #endif //SHOOTERWHEELS_SPEEDS_H

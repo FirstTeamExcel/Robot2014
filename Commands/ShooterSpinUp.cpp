@@ -25,6 +25,7 @@ void ShooterSpinUp::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ShooterSpinUp::Execute() {
 	ShooterArm::ShooterArmPosition position = Robot::shooterArm->GetTargetPosition();
+	float rightXValue=Robot::oi->getoperatorStick()->GetX();
 	switch(position)
 	{
 	case ShooterArm::LOAD:
