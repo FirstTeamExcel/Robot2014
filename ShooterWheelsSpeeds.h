@@ -21,6 +21,6 @@
 #define MAX_BIAS (0.2)
 #define TAKE_BACK_TIME (0.4)
 #define TAKE_BACK_POWER (0.8)
-
+#define AUTONOMOUS_BIAS (0.1)
 
 #endif //SHOOTERWHEELS_SPEEDS_H

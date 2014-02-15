@@ -22,6 +22,13 @@
  * @author ExampleAuthor
  */
 class ShooterArmTuningMode: public Command {
+private:
+    float _p;
+    float _i;
+    float _d;
+    float _f;
+    float _angle;
+    bool _enabled;
 public:
 	ShooterArmTuningMode();
 	virtual void Initialize();

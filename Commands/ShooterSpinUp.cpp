@@ -25,7 +25,27 @@ void ShooterSpinUp::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ShooterSpinUp::Execute() {
 	ShooterArm::ShooterArmPosition position = Robot::shooterArm->GetTargetPosition();
-	float rightXValue=Robot::oi->getoperatorStick()->GetX();
+	float bias = 0.0;
+
+//    if (Robot::theRobot->IsAutonomous())
+//    {
+//        if (Robot::camera->GetHotGoal())
+//        {
+//            bias = AUTONOMOUS_BIAS;
+//        }
+//        else
+//        {
+//            bias = -AUTONOMOUS_BIAS;            
+//        }
+//    }
+//    else
+    {
+        float stickXValue = Robot::oi->getoperatorStick()->GetX();
+        bias = stickXValue / MAX_BIAS;
+    }
+	
+	
+	
 	switch(position)
 	{
 	case ShooterArm::LOAD:
@@ -36,22 +56,22 @@ void ShooterSpinUp::Execute() {
         Robot::shooterWheels->SetPower(TARGET_EJECT_POWER, 0.1);
 		break;
 	case ShooterArm::LONG_GOAL:
-		Robot::shooterWheels->SetTargetRpm(TARGET_LONG_GOAL_SPEED);
+		Robot::shooterWheels->SetTargetRpm(TARGET_LONG_GOAL_SPEED,bias);
 		break;
 	case ShooterArm::SHORT_GOAL:
-		Robot::shooterWheels->SetTargetRpm(TARGET_SHORT_GOAL_SPEED);
+		Robot::shooterWheels->SetTargetRpm(TARGET_SHORT_GOAL_SPEED,bias);
 		break;
 	case ShooterArm::TRUSS:
-		Robot::shooterWheels->SetTargetRpm(TARGET_TRUSS_SPEED);
+		Robot::shooterWheels->SetTargetRpm(TARGET_TRUSS_SPEED,bias);
 		break;
 	case ShooterArm::AUTONOMOUS_1:
-		Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_1_SPEED);
+        Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_1_SPEED,bias);
 		break;
 	case ShooterArm::AUTONOMOUS_2:
-		Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_2_SPEED);
+		Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_2_SPEED, bias);
 		break;
 	case ShooterArm::AUTONOMOUS_3:
-		Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_3_SPEED);
+		Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_3_SPEED, bias);
 		break;
 	default:
         Robot::shooterWheels->SetTargetRpm(0.0);

@@ -16,9 +16,14 @@
 #define VOLTAGE_AT_MAX_ANGLE (0.0)
 #define VOLTAGE_RANGE (VOLTAGE_AT_MAX_ANGLE - VOLTAGE_AT_MIN_ANGLE)
 #define DEGREES_ROTATION (340.0)
-#define VOLTAGE_SCALAR (DEGREES_ROTATION / VOLTAGE_RANGE)   //DegreesPerVolt
+#define RADIANS_ROTATION (DEGREES_ROTATION * (3.1415926 / 180))
+#define DEG_VOLTAGE_SCALAR (DEGREES_ROTATION / VOLTAGE_RANGE)   //DegreesPerVolt
+#define RAD_VOLTAGE_SCALAR (RADIANS_ROTATION / VOLTAGE_RANGE)   //DegreesPerVolt
+#define VOLTAGE_DEG_SCALAR (VOLTAGE_RANGE / DEGREES_ROTATION)
 #define VOLTAGE_AT_ZERO_DEGREES 3.985
-#define VOLTAGE_TO_DEGREES(volts) ((volts - VOLTAGE_AT_ZERO_DEGREES) * VOLTAGE_SCALAR) //Volts * DegreesPerVolt = Degrees
+#define VOLTAGE_TO_DEGREES(volts) ((volts - VOLTAGE_AT_ZERO_DEGREES) * DEG_VOLTAGE_SCALAR) //Volts * DegreesPerVolt = Degrees
+#define VOLTAGE_TO_RADIANS(volts) ((volts - VOLTAGE_AT_ZERO_DEGREES) * RAD_VOLTAGE_SCALAR)
+#define DEGREES_TO_VOLTAGE(degrees) ((degrees * VOLTAGE_DEG_SCALAR) + VOLTAGE_AT_ZERO_DEGREES)
 //^^This is a macro, parenthesis immediately after the define allow you to pass a value into the macro and use it
 /**
  *
@@ -46,13 +51,17 @@ class ShooterArm: public PIDSubsystem {
 //	static const double PASS = 0.0;
 	
 	float GetCurrentAngle();
+	float GetCurrentRadians();
 	bool IsOnTarget();
 	void SetTargetAngle(float tgtAngle);
+	void SetPIDF(float p, float i, float d, float f);
 //	void SetTargetPosition(typedef enum position);
 	
 	typedef enum {LOAD,EJECT,LONG_GOAL,SHORT_GOAL,TRUSS,AUTONOMOUS_1,AUTONOMOUS_2,AUTONOMOUS_3}ShooterArmPosition;
 	ShooterArmPosition GetTargetPosition();
 	void SetTargetPosition(ShooterArmPosition position);
+	
+	PIDController* GetThePIDController(){return GetPIDController();}
  private:
 	ShooterArmPosition _targetPosition;
 };

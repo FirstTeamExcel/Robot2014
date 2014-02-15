@@ -29,6 +29,8 @@ public:
 	static SpeedController* shooterArmshooterArmMotor;
 	static SpeedController* shooterWheelsrightWheelMotor;
 	static SpeedController* shooterWheelsleftWheelMotor;
+	static DigitalInput* shooterWheelsleftWheelDigitalInput;
+	static DigitalInput* shooterWheelsrightWheelDigitalInput;
 	static DoubleSolenoid* collectorcollectorLifter;
 	static SpeedController* collectorrollerMotor;
 	static SpeedController* blockerblockerWinch;

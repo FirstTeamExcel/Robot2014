@@ -25,17 +25,11 @@ void Shifters::InitDefaultCommand() {
 }
 void Shifters::ShiftDown()
 {
-	if(shiftSolenoid->Get() == DoubleSolenoid::kForward)
-	{
-		shiftSolenoid->Set(DoubleSolenoid::kReverse);
-	}
+    shiftSolenoid->Set(DoubleSolenoid::kReverse);
 }
 void Shifters::ShiftUp()
 {
-	if(shiftSolenoid->Get() == DoubleSolenoid::kReverse)
-	{
-		shiftSolenoid->Set(DoubleSolenoid::kForward);
-	}
+    shiftSolenoid->Set(DoubleSolenoid::kForward);
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

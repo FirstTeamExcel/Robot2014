@@ -20,6 +20,8 @@ AnalogChannel* RobotMap::shooterArmshooterArmPot = NULL;
 SpeedController* RobotMap::shooterArmshooterArmMotor = NULL;
 SpeedController* RobotMap::shooterWheelsrightWheelMotor = NULL;
 SpeedController* RobotMap::shooterWheelsleftWheelMotor = NULL;
+DigitalInput* RobotMap::shooterWheelsleftWheelDigitalInput = NULL;
+DigitalInput* RobotMap::shooterWheelsrightWheelDigitalInput = NULL;
 DoubleSolenoid* RobotMap::collectorcollectorLifter = NULL;
 SpeedController* RobotMap::collectorrollerMotor = NULL;
 SpeedController* RobotMap::blockerblockerWinch = NULL;
@@ -69,6 +71,12 @@ void RobotMap::init() {
 	
 	shooterWheelsleftWheelMotor = new Talon(1, 5);
 	lw->AddActuator("ShooterWheels", "leftWheelMotor", (Talon*) shooterWheelsleftWheelMotor);
+	
+	shooterWheelsleftWheelDigitalInput = new DigitalInput(1, 7);
+	lw->AddSensor("ShooterWheels", "leftWheelDigitalInput", shooterWheelsleftWheelDigitalInput);
+	
+	shooterWheelsrightWheelDigitalInput = new DigitalInput(1, 6);
+	lw->AddSensor("ShooterWheels", "rightWheelDigitalInput", shooterWheelsrightWheelDigitalInput);
 	
 	collectorcollectorLifter = new DoubleSolenoid(1, 3, 4);      
 	
