@@ -80,6 +80,7 @@ void Robot::TeleopPeriodic()
     SmartDashboard::PutNumber("Right RPM",leftRPM);
     SmartDashboard::PutNumber("Right RPM",rightRPM);
     SmartDashboard::PutNumber("Arm Angle", shooterArm->GetCurrentAngle());
+    SmartDashboard::PutNumber("Arm Angle", RobotMap::shiftersshiftSolenoid->Get());
 }
 void Robot::TestPeriodic()
 {
@@ -89,18 +90,15 @@ void Robot::TestPeriodic()
     SmartDashboard::PutNumber("Right RPM",leftRPM);
     SmartDashboard::PutNumber("Right RPM",rightRPM);
     SmartDashboard::PutNumber("Arm Angle", shooterArm->GetCurrentAngle());
+    SmartDashboard::PutNumber("Arm Voltage", RobotMap::shiftersshiftSolenoid->Get());
 }
-
 void Robot::DisabledInit()
 {
-
 }
-
 void Robot::DisabledPeriodic()
 {
     SmartDashboard::PutNumber("Arm Angle", shooterArm->GetCurrentAngle());
-    
+    SmartDashboard::PutNumber("Arm Voltage", RobotMap::shiftersshiftSolenoid->Get());
 }
-
 START_ROBOT_CLASS(Robot)
 ;

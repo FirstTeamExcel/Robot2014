@@ -11,8 +11,6 @@
 #define SHOOTERWHEELS_H
 #define FPGA_TIME_TO_MINUTES_FACTOR (60*1000*1000)
 //#define MAX_RPM (4100)
-#define SPEED_TOLERANCE (0.1)
-#define BALL_ESCAPE_TIME (0.5)
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
 #include "../jankyTask.h"
@@ -25,8 +23,6 @@ class ShooterWheels: public Subsystem, public JankyTask{
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
-	static const float TAKE_BACK_TIME = 0.4;
-	static const float TAKE_BACK_POWER = 0.8;
 	bool leftIsUpToSpeed;
 	bool rightIsUpToSpeed;
 	bool takeBack;

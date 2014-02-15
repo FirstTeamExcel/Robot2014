@@ -248,23 +248,23 @@ double Camera::scoreRectangularity(ParticleAnalysisReport *report)
 //	{
 //	    
 //	}
-	vector<ParticleAnalysisReport>* AnalyzeImage(RGBImage *image, BinaryImage *filteredImage)
-	{
-		BinaryImage *thresholdImage = image->ThresholdHSV(threshold);
-		BinaryImage *convexHullIMage = thresholdImage->ConvexHull(false);
-		filteredImage = convexHullIMage->ParticleFilter(criteria, 1);
-		
-		vector<ParticleAnalysisReport>* reports = filteredImage->GetOrderedParticleAnalysisReports();
-		return reports;
-	}
-
+	
+//	vector<ParticleAnalysisReport>* AnalyzeImage(RGBImage *image, BinaryImage *filteredImage)
+//	{
+//		BinaryImage *thresholdImage = image->ThresholdHSV(threshold);
+//		BinaryImage *convexHullIMage = thresholdImage->ConvexHull(false);
+//		filteredImage = convexHullIMage->ParticleFilter(criteria, 1);
+//		
+//		vector<ParticleAnalysisReport>* reports = filteredImage->GetOrderedParticleAnalysisReports();
+//		return reports;
+//	}
 	Camera::hotGoalSide Camera::DetectHotGoal()
 		{
 		hotGoalSide retValue = notDetected;		
 		RGBImage *image;
 		BinaryImage *filteredImage;
 		camera->GetImage(image);
-		vector<ParticleAnalysisReport>* reports = AnalyzeImage(image, filteredImage);
+		vector<ParticleAnalysisReport>* reports  ;//AnalyzeImage(image, filteredImage);
 		
 		Scores *scores;
 		TargetReport bestTarget;
@@ -274,7 +274,7 @@ double Camera::scoreRectangularity(ParticleAnalysisReport *report)
 		Threshold threshold(105, 137, 230, 255, 133, 183);	//HSV threshold criteria, ranges are in that order ie. Hue is 60-100
 		ParticleFilterCriteria2 criteria[] = {
 				{IMAQ_MT_AREA, AREA_MINIMUM, 65535, false, false}
-		};												//Particle filter criteria, used to filter out small particles
+		   };												//Particle filter criteria, used to filter out small particles
 		
 		verticalTargetCount = horizontalTargetCount = 0;
 					//Iterate through each particle, scoring it and determining whether it is a target or not
@@ -364,3 +364,8 @@ double Camera::scoreRectangularity(ParticleAnalysisReport *report)
 					return retValue;
 		}	
 		
+bool Camera::GetHotGoal(hotGoalSide retValue)
+{
+    //retValue.Get();
+    return retValue;
+}

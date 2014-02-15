@@ -30,10 +30,10 @@ void ShooterSpinUp::Execute() {
 	{
 	case ShooterArm::LOAD:
 		//Robot::shooterWheels->SetTargetRpm(TARGET_LOAD_SPEED);
-		Robot::shooterWheels->SetPower(-0.3, 0.2);
+		Robot::shooterWheels->SetPower(TARGET_LOAD_POWER, 0.2);
 		break;
 	case ShooterArm::EJECT:
-		Robot::shooterWheels->SetTargetRpm(TARGET_EJECT_SPEED);
+        Robot::shooterWheels->SetPower(TARGET_EJECT_POWER, 0.1);
 		break;
 	case ShooterArm::LONG_GOAL:
 		Robot::shooterWheels->SetTargetRpm(TARGET_LONG_GOAL_SPEED);
@@ -45,16 +45,16 @@ void ShooterSpinUp::Execute() {
 		Robot::shooterWheels->SetTargetRpm(TARGET_TRUSS_SPEED);
 		break;
 	case ShooterArm::AUTONOMOUS_1:
-		Robot::shooterWheels->SetTargetRpm(TARGET_AUTO_SPEED);
+		Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_1_SPEED);
 		break;
 	case ShooterArm::AUTONOMOUS_2:
-		Robot::shooterWheels->SetTargetRpm(TARGET_AUTO_SPEED);
+		Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_2_SPEED);
 		break;
 	case ShooterArm::AUTONOMOUS_3:
-		Robot::shooterWheels->SetTargetRpm(TARGET_AUTO_SPEED);
+		Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_3_SPEED);
 		break;
 	default:
-        Robot::shooterWheels->SetTargetRpm(TARGET_AUTO_SPEED);
+        Robot::shooterWheels->SetTargetRpm(0.0);
 		break;
 	}
 }

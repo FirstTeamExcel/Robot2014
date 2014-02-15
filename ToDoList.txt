@@ -1,5 +1,15 @@
+Wiring TODO list:
+Make split PWMs for all speed controllers
+Reverse PWMs for ARM and collector
+Wire Gyro/Accel
+Order parts for hall sensors
+Make Split 2xPWMs 
+Install 2xVictors
+
+
 
 Code TO DO List:
+Add i2c accelerometer 
 + Update analog pins (1=Potentiometer, 2 = gyro, 3 = accellerometer)
 + Add the DetectHotGoal command back into robot builder, this should call DetectHotGoal in execute, then set _done to true, IsFinished should return _done
 Tweak shooter arm control loop

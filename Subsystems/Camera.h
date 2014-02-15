@@ -33,7 +33,7 @@ class Camera: public Subsystem {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
-	vector<ParticleAnalysisReport>* AnalyzeImage(RGBImage *image, BinaryImage *filteredImage);
+//	vector<ParticleAnalysisReport>* AnalyzeImage(RGBImage *image, BinaryImage *filteredImage);
 	
 	AxisCamera *camera;
 public:
@@ -56,6 +56,7 @@ public:
 	double ScoreRectangularity();
 	double RatioToScore();
 	bool hotOrNot();
+	bool GetHotGoal(hotGoalSide retValue);
 	
 	hotGoalSide DetectHotGoal();
 	

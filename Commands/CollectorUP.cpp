@@ -22,7 +22,14 @@ void CollectorUP::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void CollectorUP::Execute() {
-	Robot::collector->MoveCollector(true);
+    if (Robot:: shooterArm->LONG_GOAL || Robot:: shooterArm->LOAD || Robot:: shooterArm->EJECT)
+    {
+        Robot::collector->MoveCollector(false);
+    }
+	else
+	{
+	        Robot::collector->MoveCollector(true);
+	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CollectorUP::IsFinished() {
