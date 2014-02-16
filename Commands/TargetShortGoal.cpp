@@ -24,7 +24,7 @@ void TargetShortGoal::Initialize() {
 void TargetShortGoal::Execute() {
 	ShooterArm *arm = Robot::shooterArm;
 					
-	arm->SetTargetAngle(ARM_TARGET_SHORT_GOAL);
+	arm->SetTargetPosition(ShooterArm::SHORT_GOAL);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool TargetShortGoal::IsFinished() {

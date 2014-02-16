@@ -22,14 +22,10 @@ void CollectorUP::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void CollectorUP::Execute() {
-    if (Robot:: shooterArm->LONG_GOAL || Robot:: shooterArm->LOAD || Robot:: shooterArm->EJECT)
+    if (Robot::shooterArm->GetCurrentAngle() >= 59.5)
     {
-        Robot::collector->MoveCollector(false);
+        Robot::collector->MoveCollector(true);
     }
-	else
-	{
-	        Robot::collector->MoveCollector(true);
-	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CollectorUP::IsFinished() {

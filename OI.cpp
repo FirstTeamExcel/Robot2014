@@ -75,12 +75,12 @@ OI::OI() {
 	targetLongShot->WhenPressed(new TargetLongGoal());
 	alsoEject = new JoystickButton(operatorStick, 12);
 	alsoEject->WhileHeld(new EjectBall());
-	alsoCollectorUp = new JoystickButton(operatorStick, 5);
-	alsoCollectorUp->WhenPressed(new CollectorUP());
 	alsoCollectorDown = new JoystickButton(operatorStick, 3);
 	alsoCollectorDown->WhenPressed(new CollectorDown());
+	alsoCollectorUp = new JoystickButton(operatorStick, 5);
+	alsoCollectorUp->WhenPressed(new CollectorUP());
 	alsoSpinUp = new JoystickButton(operatorStick, 2);
-	alsoSpinUp->WhileHeld(new ShooterSpinUp());
+	alsoSpinUp->WhileHeld(new PoweredShot());
 	alsoShootBall = new JoystickButton(operatorStick, 1);
 	alsoShootBall->WhileHeld(new Shoot());
 	rightDriveStick = new Joystick(2);

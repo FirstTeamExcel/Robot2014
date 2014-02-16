@@ -21,7 +21,7 @@ void CollectorDown::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void CollectorDown::Execute() {
-	Robot::collector->MoveCollector(true);
+	Robot::collector->MoveCollector(false);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CollectorDown::IsFinished() {

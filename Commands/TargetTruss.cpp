@@ -25,7 +25,7 @@ void TargetTruss::Initialize() {
 void TargetTruss::Execute() {
 	ShooterArm *arm = Robot::shooterArm;
 		
-	arm->SetTargetAngle(ShooterArm::TRUSS);
+	arm->SetTargetPosition(ShooterArm::TRUSS);
 		
 }
 // Make this return true when this Command no longer needs to run execute()

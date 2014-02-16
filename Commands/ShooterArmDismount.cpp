@@ -27,7 +27,7 @@ void ShooterArmDismount::Execute() {
 	{
 		ShooterArm *arm = Robot::shooterArm;
 					
-		arm->SetTargetAngle(SHOOTER_ARM_DISMOUNT);
+		arm->SetTargetPosition(ShooterArm::TRUSS);
 	}
 }
 // Make this return true when this Command no longer needs to run execute()

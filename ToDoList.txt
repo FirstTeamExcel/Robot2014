@@ -1,3 +1,17 @@
+2/15/14:
+Remove EjectBall position and eject ball stuff
+In ShooterSpinUp, change the LoadPosition so that it ejects the ball (sets EjectPower) 
+In Fire, if the collector is in eject position, also call collector spit
+Fix the collector
+
+
+
+
+
+
+
+2/13/14:
+
 Wiring TODO list:
 Make split PWMs for all speed controllers
 Reverse PWMs for ARM and collector

@@ -27,7 +27,7 @@ void TargetLongGoal::Execute() {
 	{
 		ShooterArm *arm = Robot::shooterArm;
 						
-		arm->SetTargetAngle(ARM_TARGET_LONG_GOAL);
+		arm->SetTargetPosition(ShooterArm::LONG_GOAL);
 	}
 }
 // Make this return true when this Command no longer needs to run execute()

@@ -88,14 +88,15 @@ void ShooterArm::InitDefaultCommand()
 }
 void ShooterArm::SetTargetAngle(float tgtAngle)
 {
-    Enable();
     GetPIDController()->SetSetpoint(DEGREES_TO_VOLTAGE(tgtAngle));
+    Enable();
 }
 void ShooterArm::SetPIDF(float p, float i, float d, float f)
 {
-    _maxFeedForward = 0.0;
-    float newFeedForward = 0.0;//_maxFeedForward * cos(GetCurrentRadians());
-    GetPIDController()->SetPID(p,i,d, newFeedForward);
+    //_maxFeedForward = 0.0;
+    //float newFeedForward = 0.0;//_maxFeedForward * cos(GetCurrentRadians());
+    //GetPIDController()->SetPID(p,i,d, newFeedForward);
+    GetPIDController()->SetPID(p,i,d);
 }
 bool ShooterArm::IsOnTarget()
 {
