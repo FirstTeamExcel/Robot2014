@@ -24,15 +24,7 @@ void Drive::Initialize() {
 void Drive::Execute() {
 float leftYValue=Robot::oi->getleftDriveStick()->GetY();	
 float rightYValue=Robot::oi->getrightDriveStick()->GetY();
-Robot::driveSubsystem->theDriveTrain->TankDrive(leftYValue, rightYValue);
-//Arcade-Drive code
-//float rightYValue=Robot::oi->getrightDriveStick()->GetY();
-//float rightXValue=Robot::oi->getrightDriveStick()->GetX();
-//Robot::driveSubsystem->theDriveTrain->ArcadeDrive(rightYValue, rightXValue);
-//Cheesy Drive
-//float ohSoCheesy=Robot::oi->getrightDriveStick()->GetY();
-//float wowThatsCheesy=Robot::oi->getleftDriveStick()->GetX();
-//Robot::driveSubsystem->theDriveTrain->ArcadeDrive(ohSoCheesy, wowThatsCheesy);
+Robot::driveSubsystem->theDriveTrain->TankDrive(-leftYValue, -rightYValue);
 		
 }
 // Make this return true when this Command no longer needs to run execute()

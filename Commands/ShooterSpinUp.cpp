@@ -26,7 +26,6 @@ void ShooterSpinUp::Initialize() {
 void ShooterSpinUp::Execute() {
 	ShooterArm::ShooterArmPosition position = Robot::shooterArm->GetTargetPosition();
 	float bias = 0.0;
-
 //    if (Robot::theRobot->IsAutonomous())
 //    {
 //        if (Robot::camera->GetHotGoal())

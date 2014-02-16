@@ -17,10 +17,10 @@
 #include "EjectBall.h"
 
 EjectBall::EjectBall() {
-	AddSequential(new CollectorDown());
-	AddSequential(new TargetEjectPosition());
-	AddSequential(new CollectorEject());
-	AddSequential(new CollectorIdle());
+//	AddSequential(new CollectorDown());
+//	AddSequential(new TargetEjectPosition());
+//	AddSequential(new CollectorEject());
+//	AddSequential(new CollectorIdle());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());

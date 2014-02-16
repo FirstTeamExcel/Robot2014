@@ -46,7 +46,7 @@ void RobotMap::init() {
         driveSubsystemTheDriveTrain->SetExpiration(0.1);
         driveSubsystemTheDriveTrain->SetSensitivity(0.5);
         driveSubsystemTheDriveTrain->SetMaxOutput(1.0);
-        driveSubsystemTheDriveTrain->SetInvertedMotor(RobotDrive::kRearLeftMotor, true);        
+        
 	driveSubsystemleftEncoder = new Encoder(1, 2, 1, 3, false, Encoder::k4X);
 	lw->AddSensor("DriveSubsystem", "leftEncoder", driveSubsystemleftEncoder);
 	driveSubsystemleftEncoder->SetDistancePerPulse(0.05026548245743669);
@@ -66,10 +66,10 @@ void RobotMap::init() {
 	shooterArmshooterArmMotor = new Talon(1, 4);
 	lw->AddActuator("ShooterArm", "shooterArmMotor", (Talon*) shooterArmshooterArmMotor);
 	
-	shooterWheelsrightWheelMotor = new Talon(1, 3);
+	shooterWheelsrightWheelMotor = new Talon(1, 5);
 	lw->AddActuator("ShooterWheels", "rightWheelMotor", (Talon*) shooterWheelsrightWheelMotor);
 	
-	shooterWheelsleftWheelMotor = new Talon(1, 5);
+	shooterWheelsleftWheelMotor = new Talon(1, 3);
 	lw->AddActuator("ShooterWheels", "leftWheelMotor", (Talon*) shooterWheelsleftWheelMotor);
 	
 	shooterWheelsleftWheelDigitalInput = new DigitalInput(1, 7);
@@ -78,7 +78,7 @@ void RobotMap::init() {
 	shooterWheelsrightWheelDigitalInput = new DigitalInput(1, 6);
 	lw->AddSensor("ShooterWheels", "rightWheelDigitalInput", shooterWheelsrightWheelDigitalInput);
 	
-	collectorcollectorLifter = new DoubleSolenoid(1, 3, 4);      
+	collectorcollectorLifter = new DoubleSolenoid(1, 5, 6);      
 	
 	
 	collectorrollerMotor = new Talon(1, 6);
@@ -93,7 +93,7 @@ void RobotMap::init() {
 	shiftersshiftSolenoid = new DoubleSolenoid(1, 1, 2);      
 	
 	
-	shooterPistonFiringSolenoid = new DoubleSolenoid(1, 5, 6);      
+	shooterPistonFiringSolenoid = new DoubleSolenoid(1, 3, 4);      
 	
 	
 	compressorSubsystemTheCompressor = new Compressor(1, 1, 1, 1);

@@ -22,6 +22,8 @@
  * @author ExampleAuthor
  */
 class Shoot: public Command {
+private:
+    bool _fired;
 public:
 	Shoot();
 	virtual void Initialize();

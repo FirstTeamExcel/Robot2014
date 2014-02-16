@@ -93,10 +93,11 @@ void ShooterWheels::SetTargetRpm(float targetRpm, float bias)
 void ShooterWheels::SetPower(float power, float spin_up_delay)
 {
 	_rpmControl = false;
-	spinUpTimer.Reset();
-	spinUpTimer.Start();
+    spinUpTimer.Reset();
+    spinUpTimer.Start();
+    
 	_spin_up_delay = spin_up_delay;
-    rightWheelMotor->Set(power);
+    rightWheelMotor->Set(-power);
     leftWheelMotor->Set(power);
 }
 void ShooterWheels::GetRpm(float& rightRpm, float& leftRpm)
@@ -106,15 +107,17 @@ void ShooterWheels::GetRpm(float& rightRpm, float& leftRpm)
 }
 void ShooterWheels::Run()
 {
-	if (_rpmControl == false)
-	{
-		return;
-	}
-	
     static float lastRightMotorCommand;
     static float lastLeftMotorCommand;
     float newRightMotorCommand;
     float newLeftMotorCommand;
+	if (_rpmControl == false)
+	{
+        lastRightMotorCommand = 0.1;
+        lastLeftMotorCommand = 0.1;
+		return;
+	}
+	
     rightCurrentSpeed = rightCount->GetPeriod();
     leftCurrentSpeed = leftCount->GetPeriod();
     
@@ -145,7 +148,7 @@ void ShooterWheels::Run()
     }
     if (lastRightMotorCommand != newRightMotorCommand)
     {
-        rightWheelMotor->Set(newRightMotorCommand);
+        rightWheelMotor->Set(-newRightMotorCommand);
         lastRightMotorCommand = newRightMotorCommand;
     }
     if (lastLeftMotorCommand != newLeftMotorCommand)

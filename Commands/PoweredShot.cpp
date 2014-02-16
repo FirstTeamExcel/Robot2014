@@ -17,11 +17,10 @@ PoweredShot::PoweredShot() {
 }
 // Called just before this Command runs the first time
 void PoweredShot::Initialize() {
-	
+    Robot::shooterWheels->SetPower(1.0,1.5);
 }
 // Called repeatedly when this Command is scheduled to run
 void PoweredShot::Execute() {
-	
 }
 // Make this return true when this Command no longer needs to run execute()
 bool PoweredShot::IsFinished() {
