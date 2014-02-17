@@ -24,8 +24,12 @@
 class ShooterArmTuningMode: public Command {
 private:
     float _p;
-    float _i;
-    float _d;
+    float _i1;
+    float _i2;
+    float _tol1;
+    float _tol2;
+    float _d1;
+    float _d2;
     float _f;
     float _angle;
     bool _enabled;
