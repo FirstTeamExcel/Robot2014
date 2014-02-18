@@ -20,9 +20,9 @@
 #include "TargetAutonomous3.h"
 #include "ThreeBallAutonomousCommand.h"
 #include "ShooterSpinUp.h"
+
 ThreeBallAutonomousCommand::ThreeBallAutonomousCommand() {
 	AddSequential(new CollectorDown());
-	AddSequential(new ShooterArmDismount());
 	AddParallel(new TargetAutonomous3());
 	AddSequential(new ShooterSpinUp());
 	AddSequential(new Shoot());

@@ -19,7 +19,6 @@
 
 SingleBallAutonomousCommand::SingleBallAutonomousCommand() {
 	AddSequential(new CollectorDown());
-	AddSequential(new ShooterArmDismount());
 	AddParallel(new TargetAutonomous1());
 	AddSequential(new ShooterSpinUp());
 	AddSequential(new Shoot());

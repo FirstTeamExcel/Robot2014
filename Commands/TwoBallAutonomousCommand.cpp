@@ -19,9 +19,9 @@
 #include "CollectorLoad.h"
 #include "TwoBallAutonomousCommand.h"
 #include "ShooterSpinUp.h"
+
 TwoBallAutonomousCommand::TwoBallAutonomousCommand() {
 	AddSequential(new CollectorDown());
-	AddSequential(new ShooterArmDismount());
 	AddParallel(new TargetAutonomous2());
 	AddSequential(new ShooterSpinUp());
 	AddSequential(new Shoot());
