@@ -35,6 +35,7 @@ public:
     typedef enum {LOAD,EJECT,LONG_GOAL,SHORT_GOAL,TRUSS,AUTONOMOUS_1,AUTONOMOUS_2,AUTONOMOUS_3}ShooterArmPosition;
  private:
 	float targetAngle;
+	float _bothStage_P;
     float _stage_1_I;
     float _stage_2_I;
     float _stage_1_D;
@@ -63,6 +64,7 @@ public:
 	bool IsOnTarget(){return _onStage2 && OnTarget();}
 	void SetTargetAngle(float tgtAngle);
 	void TestPID(float setpoint,float p, float stage1I, float stage2I, float stage1D,float stage2D, float stage1Tol, float stage2Tol);
+	void ShooterArm::ResetPID();
 //	void SetTargetPosition(typedef enum position);
 	
 	
