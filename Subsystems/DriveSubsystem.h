@@ -65,5 +65,6 @@ public:
 	bool DriveStraight(float inchesToDrive);
 	bool TurnToAngle(float totalTurnAngle);
 	void Cancel();
+	void FunWithTimers();
 };
 #endif

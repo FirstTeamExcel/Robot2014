@@ -140,3 +140,19 @@ void SetSpeed(float output)
     _speed = output;
     Robot::driveSubsystem->theDriveTrain->Drive(_speed,_turn);
 }
+
+void FunWithTimers()
+{
+	Timer driveTimer;
+	float driveTime = driveTimer.Get();
+	driveTimer.Reset();
+	driveTimer.Start();
+	if (driveTime < 2.0)
+	{
+		Robot::driveSubsystem->theDriveTrain->Drive(0.5,0.0);
+	}
+	else
+	{
+		Robot::driveSubsystem->theDriveTrain->Drive(0.0,0.0);
+	}
+}
