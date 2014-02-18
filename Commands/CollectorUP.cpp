@@ -24,7 +24,7 @@ void CollectorUP::Initialize() {
 void CollectorUP::Execute() {
     if (Robot::shooterArm->GetCurrentAngle() >= 59.5)
     {
-        Robot::collector->MoveCollector(true);
+        Robot::collector->MoveCollector(false);
     }
 }
 // Make this return true when this Command no longer needs to run execute()
