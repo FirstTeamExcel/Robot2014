@@ -87,3 +87,9 @@ Collector::CollectorState Collector::GetState()
 	}
 	return IDLE;
 }
+
+void Collector::Collect()
+{
+	collectorLifter->Set(DoubleSolenoid::kForward);
+	rollerMotor->Set(-0.3);
+}

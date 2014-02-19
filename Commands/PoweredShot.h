@@ -22,8 +22,11 @@
  * @author ExampleAuthor
  */
 class PoweredShot: public Command {
+private:
+	float _power;
+	float _delay;
 public:
-	PoweredShot();
+	PoweredShot(float power = 1.0, float delay = 1.5);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

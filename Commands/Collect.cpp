@@ -10,6 +10,7 @@
 
 
 #include "Collect.h"
+#include "../Subsystems/Collector.h"
 
 Collect::Collect() {
 	// Use requires() here to declare subsystem dependencies
@@ -26,7 +27,7 @@ void Collect::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void Collect::Execute() {
-	
+	Robot::collector->Collect();
 }
 
 // Make this return true when this Command no longer needs to run execute()

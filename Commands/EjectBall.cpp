@@ -13,14 +13,29 @@
 #include "CollectorEject.h"
 #include "CollectorIdle.h"
 #include "TargetEjectPosition.h"
+#include "TargetLongGoal.h"
+#include "Shoot.h"
+#include "PoweredShot.h"
 
 #include "EjectBall.h"
 
 EjectBall::EjectBall() {
-//	AddSequential(new CollectorDown());
-//	AddSequential(new TargetEjectPosition());
-//	AddSequential(new CollectorEject());
-//	AddSequential(new CollectorIdle());
+	//Method 1
+	AddSequential(new CollectorDown());
+	AddSequential(new TargetEjectPosition());
+	AddSequential(new CollectorEject());
+	AddSequential(new PoweredShot(0.3,1.5));
+	AddSequential(new Shoot());
+	AddSequential(new CollectorIdle());
+	
+	//Method 2
+	//AddSequential(new CollectorDown());
+	//AddParallel(new PoweredShot(0.2,1.5));
+	//AddSequential(new TargetLongGoal());
+	//AddSequential(new Shoot());
+	
+	
+	
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
