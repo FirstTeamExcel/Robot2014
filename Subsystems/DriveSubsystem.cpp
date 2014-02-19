@@ -140,7 +140,6 @@ void SetSpeed(float output)
     _speed = output;
     Robot::driveSubsystem->theDriveTrain->Drive(_speed,_turn);
 }
-
 void FunWithTimers()
 {
 	Timer driveTimer;
