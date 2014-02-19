@@ -22,7 +22,7 @@ void CollectorUP::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void CollectorUP::Execute() {
-    if (Robot::shooterArm->GetCurrentAngle() >= 59.5)
+    if (Robot::shooterArm->GetCurrentAngle() >= 57.5)
     {
         Robot::collector->MoveCollector(false);
     }

@@ -24,7 +24,7 @@ EjectBall::EjectBall() {
 	AddSequential(new CollectorDown());
 	AddSequential(new TargetEjectPosition());
 	AddSequential(new CollectorEject());
-	AddSequential(new PoweredShot(0.3,1.5));
+	AddSequential(new PoweredShot(0.5,0.5));
 	AddSequential(new Shoot());
 	AddSequential(new CollectorIdle());
 	

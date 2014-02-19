@@ -23,6 +23,7 @@ ShooterWheels::ShooterWheels() :
 	
 	leftCount = new Counter(leftWheelDigitalInput);
 	rightCount = new Counter(rightWheelDigitalInput);
+	Run();
 }
 void ShooterWheels::InitDefaultCommand()
 {
@@ -97,8 +98,8 @@ void ShooterWheels::SetPower(float power, float spin_up_delay)
     spinUpTimer.Start();
     
 	_spin_up_delay = spin_up_delay;
-    rightWheelMotor->Set(-power);
-    leftWheelMotor->Set(power);
+    rightWheelMotor->Set(power);
+    leftWheelMotor->Set(-power);
 }
 void ShooterWheels::GetRpm(float& rightRpm, float& leftRpm)
 {
@@ -148,12 +149,12 @@ void ShooterWheels::Run()
     }
     if (lastRightMotorCommand != newRightMotorCommand)
     {
-        rightWheelMotor->Set(-newRightMotorCommand);
+        rightWheelMotor->Set(newRightMotorCommand);
         lastRightMotorCommand = newRightMotorCommand;
     }
     if (lastLeftMotorCommand != newLeftMotorCommand)
     {
-        leftWheelMotor->Set(newLeftMotorCommand);
+        leftWheelMotor->Set(-newLeftMotorCommand);
         lastLeftMotorCommand = newLeftMotorCommand;
     }
 }

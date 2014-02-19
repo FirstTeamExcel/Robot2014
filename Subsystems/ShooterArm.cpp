@@ -96,12 +96,12 @@ void ShooterArm::SetTargetPosition(ShooterArm::ShooterArmPosition position)
         case ShooterArm::LONG_GOAL:
             SetTargetAngle(ARM_TARGET_LONG_GOAL);
             _stage_1_tolerance = 20;
-            _stage_2_tolerance = 3;
+            _stage_2_tolerance = 6;
             break;
         case ShooterArm::SHORT_GOAL:
             SetTargetAngle(ARM_TARGET_SHORT_GOAL);
             _stage_1_tolerance = 10;
-            _stage_2_tolerance = 3;
+            _stage_2_tolerance = 6;
             break;
         case ShooterArm::TRUSS:
             SetTargetAngle(SHOOTER_ARM_TARGET_TRUSS);
@@ -111,17 +111,17 @@ void ShooterArm::SetTargetPosition(ShooterArm::ShooterArmPosition position)
         case ShooterArm::AUTONOMOUS_1:
             SetTargetAngle(ARM_TARGET_AUTONOMOUS_1);
             _stage_1_tolerance = 10;
-            _stage_2_tolerance = 3;
+            _stage_2_tolerance = 6;
             break;
         case ShooterArm::AUTONOMOUS_2:
             SetTargetAngle(ARM_TARGET_AUTONOMOUS_2);
             _stage_1_tolerance = 10;
-            _stage_2_tolerance = 3;
+            _stage_2_tolerance = 6;
             break;
         case ShooterArm::AUTONOMOUS_3:
             SetTargetAngle(ARM_TARGET_AUTONOMOUS_3);
             _stage_1_tolerance = 10;
-            _stage_2_tolerance = 3;
+            _stage_2_tolerance = 6;
             break;
         default:
             SetTargetAngle(SHOOTER_ARM_TARGET_LOAD_POSITION);
@@ -131,9 +131,9 @@ void ShooterArm::SetTargetPosition(ShooterArm::ShooterArmPosition position)
 void ShooterArm::ResetPID()
 {
     _bothStage_P = 0.850;
-    _stage_1_I = 0.0;
+    _stage_1_I = 0.04;
     _stage_2_I = 0.14;
-    _stage_1_D = 0.4;
+    _stage_1_D = 0.5;
     _stage_2_D = 4.3;
     _stage_1_tolerance = 10.0;
     _stage_2_tolerance = 3.0;

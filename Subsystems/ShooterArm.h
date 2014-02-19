@@ -61,7 +61,7 @@ public:
 	float GetCurrentAngle(){return (VOLTAGE_TO_DEGREES(shooterArmPot->GetAverageVoltage()));}
 	float GetCurrentRadians(){return (VOLTAGE_TO_RADIANS(shooterArmPot->GetAverageVoltage()));}
     bool IsStage2(){return _onStage2;}
-	bool IsOnTarget(){return _onStage2 && OnTarget();}
+	bool IsOnTarget(){return (_onStage2 && OnTarget());}
 	void SetTargetAngle(float tgtAngle);
 	void TestPID(float setpoint,float p, float stage1I, float stage2I, float stage1D,float stage2D, float stage1Tol, float stage2Tol);
 	void ShooterArm::ResetPID();

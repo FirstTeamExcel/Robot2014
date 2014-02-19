@@ -22,6 +22,15 @@
  * @author ExampleAuthor
  */
 class DriveStraightTuning: public Command {
+private:
+    float _drive_p;
+    float _drive_i;
+    float _drive_d;
+    float _straight_p;
+    float _straight_i;
+    float _straight_d;
+    float _distance;
+    bool _enabled;
 public:
 	DriveStraightTuning();
 	virtual void Initialize();

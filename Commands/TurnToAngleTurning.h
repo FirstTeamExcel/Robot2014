@@ -22,6 +22,12 @@
  * @author ExampleAuthor
  */
 class TurnToAngleTurning: public Command {
+private:
+    float _p;
+    float _i;
+    float _d;
+    float _angle;
+    bool _enabled;
 public:
 	TurnToAngleTurning();
 	virtual void Initialize();

@@ -32,16 +32,19 @@ void ShooterPiston::InitDefaultCommand() {
 bool ShooterPiston::Fire(float delay)
 {
     bool returnValue = false;
-    if ((Robot::shooterWheels->IsUpToSpeed() == true) && (ready == true) && (shotTimer.HasPeriodPassed(delay) ))
+    if (//(Robot::shooterWheels->IsUpToSpeed() == true) &&
+        (ready == true) && (shotTimer.HasPeriodPassed(delay)))
     {
         Robot::shooterWheels->StartTakeBack();
         firingSolenoid->Set(DoubleSolenoid::kReverse);
         shotTimer.Reset();
         ready = false;
         returnValue = true;
-        return true;
     }
-    
+    else
+    {
+        Idle();
+    }
     return returnValue;
 }
 bool ShooterPiston::IsShotComplete()

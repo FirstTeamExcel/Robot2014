@@ -9,8 +9,8 @@
 // it from being updated in th future.
 
 
-#ifndef POWEREDSHOT_H
-#define POWEREDSHOT_H
+#ifndef TARGETMANUAL_H
+#define TARGETMANUAL_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,12 +21,9 @@
  *
  * @author ExampleAuthor
  */
-class PoweredShot: public Command {
-private:
-	float _power;
-	float _delay;
+class TargetManual: public Command {
 public:
-	PoweredShot(float power = 1.0, float delay = 1.0);
+	TargetManual();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

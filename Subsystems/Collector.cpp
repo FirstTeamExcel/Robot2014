@@ -51,14 +51,14 @@ void Collector::MoveCollector(bool extend)
 }
 void Collector::Pickup()
 {
-    rollerMotor->Set(-0.3);
+    rollerMotor->Set(-1.0);
 //    if (GetState() == DOWN)
 //    else
 //        rollerMotor->Set(0.0);
 }
 void Collector::Spit()
 {
-    rollerMotor->Set(0.3);
+    rollerMotor->Set(1.0);
 //    if (GetState() == DOWN)
 //    else
 //        rollerMotor->Set(0.0);
@@ -86,10 +86,4 @@ Collector::CollectorState Collector::GetState()
 		return TRAVELING_DOWN;
 	}
 	return IDLE;
-}
-
-void Collector::Collect()
-{
-	collectorLifter->Set(DoubleSolenoid::kForward);
-	rollerMotor->Set(-0.3);
 }
