@@ -23,32 +23,42 @@ DriveTwoSeconds::DriveTwoSeconds() {
 
 // Called just before this Command runs the first time
 void DriveTwoSeconds::Initialize() {
+	driveTimer.Reset();
+	driveTimer.Start(); //Start the timer
 }
 
 // Called repeatedly when this Command is scheduled to run
 void DriveTwoSeconds::Execute() {
+		//Drive
+	if (driveTimer.Get() < 2.0)
 	{
-	if (_isFinished = false)
-		{
-			Robot::driveSubsystem->FunWithTimers();
-			_isFinished = true;
-		}
+	    Robot::driveSubsystem->theDriveTrain->Drive(0.5,0.0);
 	}
+	else
+	{
+		Robot::driveSubsystem->theDriveTrain->Drive(0.0,0.0);
+	}
+	//	if (_isFinished = false)
+//		{
+//			Robot::driveSubsystem->FunWithTimers();
+//			_isFinished = true;
+//		}
 	
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool DriveTwoSeconds::IsFinished() {
+	driveTimer.Get();
 	return _isFinished;
 }
 
 // Called once after isFinished returns true
 void DriveTwoSeconds::End() {
-	
+	Robot::driveSubsystem->theDriveTrain->Drive(0.0,0.0);//Stop the driving
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void DriveTwoSeconds::Interrupted() {
-
+	Robot::driveSubsystem->theDriveTrain->Drive(0.0,0.0);//Stop the driving
 }

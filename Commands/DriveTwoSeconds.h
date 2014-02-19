@@ -24,6 +24,7 @@
 class DriveTwoSeconds: public Command {
 private:
 	bool _isFinished;
+	Timer driveTimer;
 public:
 	DriveTwoSeconds();
 	virtual void Initialize();
