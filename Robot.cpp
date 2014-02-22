@@ -72,26 +72,25 @@ void Robot::TeleopInit()
     // continue until interrupted by another command, remove
     // this line or comment it out.
     autonomousCommand->Cancel();
+    shooterWheels->SetPower(0.0, 0.0);
 }
 void Robot::TeleopPeriodic()
 {
     Scheduler::GetInstance()->Run();
     float leftRPM, rightRPM;
     shooterWheels->GetRpm(rightRPM,leftRPM);
-    SmartDashboard::PutNumber("Right RPM",leftRPM);
+    SmartDashboard::PutNumber("Left RPM",leftRPM);
     SmartDashboard::PutNumber("Right RPM",rightRPM);
     SmartDashboard::PutNumber("Arm Angle", shooterArm->GetCurrentAngle());
-    SmartDashboard::PutNumber("Arm Angle", RobotMap::shiftersshiftSolenoid->Get());
 }
 void Robot::TestPeriodic()
 {
     lw->Run();
     float leftRPM, rightRPM;
     shooterWheels->GetRpm(rightRPM,leftRPM);
-    SmartDashboard::PutNumber("Right RPM",leftRPM);
+    SmartDashboard::PutNumber("Left RPM",leftRPM);
     SmartDashboard::PutNumber("Right RPM",rightRPM);
     SmartDashboard::PutNumber("Arm Angle", shooterArm->GetCurrentAngle());
-    SmartDashboard::PutNumber("Arm Voltage", RobotMap::shiftersshiftSolenoid->Get());
 }
 void Robot::DisabledInit()
 {
@@ -99,8 +98,11 @@ void Robot::DisabledInit()
 }
 void Robot::DisabledPeriodic()
 {
+    float leftRPM, rightRPM;
+    shooterWheels->GetRpm(rightRPM,leftRPM);
+    SmartDashboard::PutNumber("Left RPM",leftRPM);
+    SmartDashboard::PutNumber("Right RPM",rightRPM);
     SmartDashboard::PutNumber("Arm Angle", shooterArm->GetCurrentAngle());
-    SmartDashboard::PutNumber("Arm Voltage", RobotMap::shiftersshiftSolenoid->Get());
 }
 START_ROBOT_CLASS(Robot)
 ;

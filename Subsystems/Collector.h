@@ -11,8 +11,8 @@
 #define COLLECTOR_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
-#define TIME_TRAVELING_UP 1.0
-#define TIME_TRAVELING_DOWN 1.0
+#define TIME_TRAVELING_UP 0.5
+#define TIME_TRAVELING_DOWN 0.3
 /**
  *
  *

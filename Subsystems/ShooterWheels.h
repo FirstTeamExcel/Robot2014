@@ -23,10 +23,11 @@ class ShooterWheels: public Subsystem, public JankyTask{
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
+    
 	bool leftIsUpToSpeed;
 	bool rightIsUpToSpeed;
 	bool takeBack;
-	float targetRpm;
+	float _targetRpm;
 	float bias;
 	float power;
 //	float delay;

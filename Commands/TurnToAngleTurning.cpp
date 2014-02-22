@@ -21,9 +21,6 @@ TurnToAngleTurning::TurnToAngleTurning() {
     _i = turn->GetI();
     _d = turn->GetD();
     
-    SmartDashboard::PutNumber("Turn P",_p);
-    SmartDashboard::PutNumber("Turn i",_i);
-    SmartDashboard::PutNumber("Turn d",_d);
 }
 // Called just before this Command runs the first time
 void TurnToAngleTurning::Initialize() {
@@ -33,6 +30,9 @@ void TurnToAngleTurning::Initialize() {
     
     SmartDashboard::PutNumber("Turn Angle",_angle);
     SmartDashboard::PutBoolean("Enable", _enabled);
+    SmartDashboard::PutNumber("Turn P",_p);
+    SmartDashboard::PutNumber("Turn i",_i);
+    SmartDashboard::PutNumber("Turn d",_d);
 }
 // Called repeatedly when this Command is scheduled to run
 void TurnToAngleTurning::Execute() {

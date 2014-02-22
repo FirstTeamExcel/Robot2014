@@ -12,17 +12,17 @@
 #include "ShooterArmDismount.h"
 #include "TargetAutonomous1.h"
 #include "Shoot.h" 
-#include "ShooterIdle.h"
 #include "DriveTwoFeet.h"
-#include "ShooterSpinUp.h"
 #include "SingleBallAutonomousCommand.h"
+#include "ShooterSetRpm.h"
+#include "../ShooterWheelsSpeeds.h"
 
 SingleBallAutonomousCommand::SingleBallAutonomousCommand() {
 	AddSequential(new CollectorDown());
 	AddParallel(new TargetAutonomous1());
-	AddSequential(new ShooterSpinUp());
+	AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_1_SPEED));
 	AddSequential(new Shoot());
-	AddParallel(new ShooterIdle());
+    AddSequential(new ShooterSetRpm(0.0));
 	AddSequential(new DriveTwoFeet());
 	AddSequential(new DriveTwoFeet());
 	

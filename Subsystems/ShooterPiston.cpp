@@ -29,11 +29,13 @@ void ShooterPiston::InitDefaultCommand() {
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-bool ShooterPiston::Fire(float delay)
+bool ShooterPiston::Fire()
 {
     bool returnValue = false;
-    if (//(Robot::shooterWheels->IsUpToSpeed() == true) &&
-        (ready == true) && (shotTimer.HasPeriodPassed(delay)))
+    
+    if ((Robot::shooterWheels->IsUpToSpeed() == true) &&
+        (Robot::shooterArm->IsOnTarget() == true) &&
+        (ready == true) && (shotTimer.HasPeriodPassed(PISTON_RETRACT_TIME)))
     {
         Robot::shooterWheels->StartTakeBack();
         firingSolenoid->Set(DoubleSolenoid::kReverse);

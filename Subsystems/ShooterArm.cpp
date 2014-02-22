@@ -81,27 +81,25 @@ void ShooterArm::TestPID(float setpoint,float p, float stage1I, float stage2I, f
 void ShooterArm::SetTargetPosition(ShooterArm::ShooterArmPosition position)
 {
     _targetPosition = position;
+    _stage_1_tolerance = 10;
     switch (_targetPosition)
     {
         case ShooterArm::LOAD:
             SetTargetAngle(SHOOTER_ARM_TARGET_LOAD_POSITION);
-            _stage_1_tolerance = 20;
-            _stage_2_tolerance = 10;
+            _stage_2_tolerance = 6;
             break;
         case ShooterArm::EJECT:
             SetTargetAngle(SHOOTER_ARM_TARGET_EJECT_POSITION);
-            _stage_1_tolerance = 20;
-            _stage_2_tolerance = 10;
+            _stage_2_tolerance = 6;
             break;
         case ShooterArm::LONG_GOAL:
             SetTargetAngle(ARM_TARGET_LONG_GOAL);
-            _stage_1_tolerance = 20;
-            _stage_2_tolerance = 6;
+            _stage_2_tolerance = 2;
             break;
         case ShooterArm::SHORT_GOAL:
             SetTargetAngle(ARM_TARGET_SHORT_GOAL);
             _stage_1_tolerance = 10;
-            _stage_2_tolerance = 6;
+            _stage_2_tolerance = 2;
             break;
         case ShooterArm::TRUSS:
             SetTargetAngle(SHOOTER_ARM_TARGET_TRUSS);
@@ -111,17 +109,17 @@ void ShooterArm::SetTargetPosition(ShooterArm::ShooterArmPosition position)
         case ShooterArm::AUTONOMOUS_1:
             SetTargetAngle(ARM_TARGET_AUTONOMOUS_1);
             _stage_1_tolerance = 10;
-            _stage_2_tolerance = 6;
+            _stage_2_tolerance = 3;
             break;
         case ShooterArm::AUTONOMOUS_2:
             SetTargetAngle(ARM_TARGET_AUTONOMOUS_2);
             _stage_1_tolerance = 10;
-            _stage_2_tolerance = 6;
+            _stage_2_tolerance = 3;
             break;
         case ShooterArm::AUTONOMOUS_3:
             SetTargetAngle(ARM_TARGET_AUTONOMOUS_3);
             _stage_1_tolerance = 10;
-            _stage_2_tolerance = 6;
+            _stage_2_tolerance = 3;
             break;
         default:
             SetTargetAngle(SHOOTER_ARM_TARGET_LOAD_POSITION);

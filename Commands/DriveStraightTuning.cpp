@@ -26,12 +26,6 @@ DriveStraightTuning::DriveStraightTuning() {
     _straight_i = straight->GetI();
     _straight_d = straight->GetD();
     _distance = 0.0;    
-    SmartDashboard::PutNumber("Drive P",_drive_p);
-    SmartDashboard::PutNumber("Drive i",_drive_i);
-    SmartDashboard::PutNumber("Drive d",_drive_d);
-    SmartDashboard::PutNumber("Straight P",_straight_p);
-    SmartDashboard::PutNumber("Straight i",_straight_i);
-    SmartDashboard::PutNumber("Straight d",_straight_d);
 }
 // Called just before this Command runs the first time
 void DriveStraightTuning::Initialize() {
@@ -43,6 +37,12 @@ void DriveStraightTuning::Initialize() {
         
     SmartDashboard::PutNumber("Distance",_distance);
     SmartDashboard::PutBoolean("Enable", _enabled);
+    SmartDashboard::PutNumber("Drive P",_drive_p);
+    SmartDashboard::PutNumber("Drive i",_drive_i);
+    SmartDashboard::PutNumber("Drive d",_drive_d);
+    SmartDashboard::PutNumber("Straight P",_straight_p);
+    SmartDashboard::PutNumber("Straight i",_straight_i);
+    SmartDashboard::PutNumber("Straight d",_straight_d);
 }
 // Called repeatedly when this Command is scheduled to run
 void DriveStraightTuning::Execute() {

@@ -11,7 +11,6 @@
 #include "ShooterArmDismount.h"
 #include "TargetAutonomous1.h"
 #include "Shoot.h" 
-#include "ShooterIdle.h"
 #include "DriveTwoFeet.h"
 #include "TargetAutonomous2.h"
 #include "TargetLoadPosition.h"
@@ -19,24 +18,26 @@
 #include "CollectorLoad.h"
 #include "TargetAutonomous3.h"
 #include "ThreeBallAutonomousCommand.h"
-#include "ShooterSpinUp.h"
+#include "ShooterSetRpm.h"
+#include "../ShooterWheelsSpeeds.h"
 ThreeBallAutonomousCommand::ThreeBallAutonomousCommand() {
 	AddSequential(new CollectorDown());
 	AddParallel(new TargetAutonomous3());
-	AddSequential(new ShooterSpinUp());
+    AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_3_SPEED));
 	AddSequential(new Shoot());
-	AddSequential(new CollectorLoad());
+	AddSequential(new CollectorLoad(), 2.0);
 	AddSequential(new TargetLoadPosition());
 	AddParallel(new TargetAutonomous2());
-	AddSequential(new ShooterSpinUp());
+    AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_2_SPEED));
 	AddSequential(new Shoot());
+	AddParallel(new CollectorLoad(), 2.0);
 	AddSequential(new DriveTwoFeet());
-	AddSequential(new CollectorLoad());
 	AddSequential(new TargetLoadPosition());
 	AddParallel(new TargetAutonomous1());
 	AddParallel(new CollectorIdle());
-	AddSequential(new ShooterSpinUp());
+    AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_1_SPEED));
 	AddSequential(new Shoot());
+    AddSequential(new ShooterSetRpm(0.0));
 	AddSequential(new DriveTwoFeet());
 	AddSequential(new DriveTwoFeet());
 	

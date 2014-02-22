@@ -19,14 +19,12 @@ ShooterArmTuningMode::ShooterArmTuningMode() {
 	_p = arm->GetThePIDController()->GetP();
 	_i2 = arm->GetThePIDController()->GetI();
 	_d2 = arm->GetThePIDController()->GetD();
+	_i1 = 0.0;
+	_d1 = 0.0;
+	_tol1 = 10.0;
+	_tol2 = 3.0;
+	
 	//_f = arm->GetThePIDController()->GetF();
-    SmartDashboard::PutNumber("P",_p);
-    SmartDashboard::PutNumber("D1",0);
-    SmartDashboard::PutNumber("I1",0);
-    SmartDashboard::PutNumber("D2",_d2);
-    SmartDashboard::PutNumber("I2",_i2);
-    SmartDashboard::PutNumber("Tol1",_tol1);
-    SmartDashboard::PutNumber("Tol2",_tol2);
 }
 // Called just before this Command runs the first time
 void ShooterArmTuningMode::Initialize() {
@@ -34,6 +32,13 @@ void ShooterArmTuningMode::Initialize() {
     _enabled = false;
     SmartDashboard::PutNumber("Angle",_angle);
     SmartDashboard::PutBoolean("Enable", _enabled);
+    SmartDashboard::PutNumber("P",_p);
+    SmartDashboard::PutNumber("D1",_d1);
+    SmartDashboard::PutNumber("I1",_i1);
+    SmartDashboard::PutNumber("D2",_d2);
+    SmartDashboard::PutNumber("I2",_i2);
+    SmartDashboard::PutNumber("Tol1",_tol1);
+    SmartDashboard::PutNumber("Tol2",_tol2);
 }
 // Called repeatedly when this Command is scheduled to run
 void ShooterArmTuningMode::Execute() {
