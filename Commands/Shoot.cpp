@@ -22,7 +22,10 @@ void Shoot::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void Shoot::Execute() {
-	_fired |= Robot::shooterPiston->Fire();
+    if (_fired == false)
+        _fired = Robot::shooterPiston->Fire();
+    else
+        Robot::shooterPiston->Idle();
 }
 // Make this return true when this Command no longer needs to run execute()
 bool Shoot::IsFinished() {
