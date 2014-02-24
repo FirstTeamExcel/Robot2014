@@ -125,6 +125,7 @@ void ShooterArm::SetTargetPosition(ShooterArm::ShooterArmPosition position)
 }
 void ShooterArm::ResetPID()
 {
+    GetPIDController()->Reset();
     _bothStage_P = 0.850;
     _stage_1_I = 0.0;
     _stage_2_I = 0.14;
