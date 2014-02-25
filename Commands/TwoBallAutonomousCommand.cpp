@@ -12,6 +12,7 @@
 #include "TargetAutonomous1.h"
 #include "Shoot.h" 
 #include "DriveTwoFeet.h"
+#include "DriveTwoSeconds.h"
 #include "TargetAutonomous2.h"
 #include "TargetLoadPosition.h"
 #include "CollectorIdle.h"
@@ -31,6 +32,8 @@ TwoBallAutonomousCommand::TwoBallAutonomousCommand() {
     AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_1_SPEED));
 	AddSequential(new Shoot());
     AddSequential(new ShooterSetRpm(0.0));
-	AddSequential(new DriveTwoFeet());
-	AddSequential(new DriveTwoFeet());
+    AddSequential(new DriveTwoSeconds());
+    AddSequential(new DriveTwoSeconds());
+//    AddSequential(new DriveTwoFeet());
+//    AddSequential(new DriveTwoFeet());
 }
