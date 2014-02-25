@@ -22,6 +22,8 @@
  * @author ExampleAuthor
  */
 class TargetLongGoal: public Command {
+private:
+    bool _set;
 public:
 	TargetLongGoal();
 	virtual void Initialize();

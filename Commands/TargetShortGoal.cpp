@@ -18,19 +18,23 @@ TargetShortGoal::TargetShortGoal() {
 }
 // Called just before this Command runs the first time
 void TargetShortGoal::Initialize() {
-	
+	_set = false;
 }
 // Called repeatedly when this Command is scheduled to run
 void TargetShortGoal::Execute() {
-	ShooterArm *arm = Robot::shooterArm;
-					
-	arm->SetTargetPosition(ShooterArm::SHORT_GOAL);
+    if (_set == false)
+    {
+        ShooterArm *arm = Robot::shooterArm;
+                        
+        arm->SetTargetPosition(ShooterArm::SHORT_GOAL);
+        _set = true;
+    }
 }
 // Make this return true when this Command no longer needs to run execute()
 bool TargetShortGoal::IsFinished() {
 	ShooterArm *arm = Robot::shooterArm;
 					
-	return arm->IsOnTarget();
+	return _set && arm->IsOnTarget();
 }
 // Called once after isFinished returns true
 void TargetShortGoal::End() {

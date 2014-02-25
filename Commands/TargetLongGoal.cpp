@@ -19,22 +19,23 @@ TargetLongGoal::TargetLongGoal() {
 }
 // Called just before this Command runs the first time
 void TargetLongGoal::Initialize() {
-	
+	_set = false;
 }
 // Called repeatedly when this Command is scheduled to run
 void TargetLongGoal::Execute() {
-	if (Robot::collector->DOWN)
-	{
-		ShooterArm *arm = Robot::shooterArm;
-						
-		arm->SetTargetPosition(ShooterArm::LONG_GOAL);
+    if ((Robot::collector->GetState() == Collector::DOWN) && (_set == false)) 
+    {
+            ShooterArm *arm = Robot::shooterArm;
+                            
+            arm->SetTargetPosition(ShooterArm::LONG_GOAL);
+            _set = true;
 	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool TargetLongGoal::IsFinished() {
 	ShooterArm *arm = Robot::shooterArm;
 					
-	return arm->IsOnTarget();
+	return _set && arm->IsOnTarget();
 }
 // Called once after isFinished returns true
 void TargetLongGoal::End() {

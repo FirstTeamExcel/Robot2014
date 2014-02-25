@@ -22,6 +22,8 @@
  * @author ExampleAuthor
  */
 class TargetAutonomous2: public Command {
+private:
+    bool _set;
 public:
 	TargetAutonomous2();
 	virtual void Initialize();

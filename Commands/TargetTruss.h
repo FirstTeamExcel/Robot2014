@@ -22,6 +22,8 @@
  * @author ExampleAuthor
  */
 class TargetTruss: public Command {
+private:
+    bool _set;
 public:
 	TargetTruss();
 	virtual void Initialize();

@@ -19,20 +19,24 @@ TargetTruss::TargetTruss() {
 }
 // Called just before this Command runs the first time
 void TargetTruss::Initialize() {
-	
+	_set = false;
 }
 // Called repeatedly when this Command is scheduled to run
 void TargetTruss::Execute() {
-	ShooterArm *arm = Robot::shooterArm;
-		
-	arm->SetTargetPosition(ShooterArm::TRUSS);
+    if (_set == false)
+    {
+        ShooterArm *arm = Robot::shooterArm;
+            
+        arm->SetTargetPosition(ShooterArm::TRUSS);
+        _set = true;
+    }
 		
 }
 // Make this return true when this Command no longer needs to run execute()
 bool TargetTruss::IsFinished() {
 	ShooterArm *arm = Robot::shooterArm;
 		
-	return arm->IsOnTarget();
+	return _set && arm->IsOnTarget();
 }
 // Called once after isFinished returns true
 void TargetTruss::End() {

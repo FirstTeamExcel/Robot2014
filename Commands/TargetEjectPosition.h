@@ -22,6 +22,8 @@
  * @author ExampleAuthor
  */
 class TargetEjectPosition: public Command {
+private:
+    bool _set;
 public:
 	TargetEjectPosition();
 	virtual void Initialize();

@@ -19,19 +19,24 @@ TargetAutonomous1::TargetAutonomous1() {
 }
 // Called just before this Command runs the first time
 void TargetAutonomous1::Initialize() {
-	
+	_set = false;
 }
 // Called repeatedly when this Command is scheduled to run
 void TargetAutonomous1::Execute() {
-	ShooterArm *arm = Robot::shooterArm;
-				
-	arm->SetTargetPosition(ShooterArm::AUTONOMOUS_1);
+    
+    if (_set == false)
+    {
+        ShooterArm *arm = Robot::shooterArm;
+                    
+        arm->SetTargetPosition(ShooterArm::AUTONOMOUS_1);
+        _set = true;
+    }
 }
 // Make this return true when this Command no longer needs to run execute()
 bool TargetAutonomous1::IsFinished() {
 	ShooterArm *arm = Robot::shooterArm;
 				
-	return arm->IsOnTarget();
+	return _set && arm->IsOnTarget();
 }
 // Called once after isFinished returns true
 void TargetAutonomous1::End() {

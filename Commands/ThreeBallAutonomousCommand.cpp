@@ -23,26 +23,27 @@
 ThreeBallAutonomousCommand::ThreeBallAutonomousCommand() {
 	AddSequential(new CollectorDown());
 	//Collector acquire, turn on rollers slowly
-	AddParallel(new TargetAutonomous3());
-    AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_3_SPEED));
-	AddSequential(new Shoot());
-	AddSequential(new CollectorLoad(), 2.0);//Shorter if acquire works
+	AddSequential(new TargetAutonomous3());
+    //AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_3_SPEED));
+	//AddSequential(new Shoot());
+	//AddSequential(new CollectorLoad(), 2.0);//Shorter if acquire works
 	//Drive forward slowly for remainder of auton
 	//Collector acquire
 	AddSequential(new TargetLoadPosition());
-	AddParallel(new TargetAutonomous2());
-    AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_2_SPEED));
-	AddSequential(new Shoot());
-	AddParallel(new CollectorLoad(), 2.0);//Shorter if we acquired the ball
-	AddSequential(new DriveTwoFeet());//Unneccessary if we were driving
+	AddSequential(new TargetAutonomous2());
+    //AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_2_SPEED));
+	//AddSequential(new Shoot());
+	//AddParallel(new CollectorLoad(), 2.0);//Shorter if we acquired the ball
+	//AddSequential(new DriveTwoFeet());//Unneccessary if we were driving
 	AddSequential(new TargetLoadPosition());
-	AddParallel(new TargetAutonomous1());
-	AddParallel(new CollectorIdle());
-    AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_1_SPEED));
-	AddSequential(new Shoot());
-    AddSequential(new ShooterSetRpm(0.0));
-	AddSequential(new DriveTwoFeet());
-	AddSequential(new DriveTwoFeet());
+    AddSequential(new TargetAutonomous1());
+    AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_3_SPEED));
+	//AddSequential(new CollectorIdle());
+    //AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_1_SPEED));
+	//AddSequential(new Shoot());
+    //AddSequential(new ShooterSetRpm(0.0));
+//	AddSequential(new DriveTwoFeet());
+//	AddSequential(new DriveTwoFeet());
 	
 	
 }

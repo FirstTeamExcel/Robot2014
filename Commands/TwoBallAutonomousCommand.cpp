@@ -22,15 +22,15 @@
 #include "../ShooterWheelsSpeeds.h"
 TwoBallAutonomousCommand::TwoBallAutonomousCommand() {
 	AddSequential(new CollectorDown());
-	AddParallel(new TargetAutonomous2());
-    AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_2_SPEED));
-	AddSequential(new Shoot());
-	AddSequential(new CollectorLoad(), 2.0);
-	AddSequential(new TargetLoadPosition());
+	AddParallel(new TargetAutonomous2());//1.2s
+    AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_2_SPEED));//1.5s
+	AddSequential(new Shoot());//2.2s
+	AddSequential(new CollectorLoad(), 2.0);//4.2s
+	AddSequential(new TargetLoadPosition());//4.7s
 	AddParallel(new TargetAutonomous1());
 	AddParallel(new CollectorIdle());
-    AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_1_SPEED));
-	AddSequential(new Shoot());
+    AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_1_SPEED));//6.2s
+	AddSequential(new Shoot());//6.9s
     AddSequential(new ShooterSetRpm(0.0));
     AddSequential(new DriveTwoSeconds());
     AddSequential(new DriveTwoSeconds());

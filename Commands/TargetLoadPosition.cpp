@@ -20,15 +20,17 @@ TargetLoadPosition::TargetLoadPosition() {
 }
 // Called just before this Command runs the first time
 void TargetLoadPosition::Initialize() {
-	
+
+    _set = false;
 }
 // Called repeatedly when this Command is scheduled to run
 void TargetLoadPosition::Execute() {
-	if (Robot::collector->DOWN)
+	if ((Robot::collector->GetState() == Collector::DOWN) && (_set == false)) 
 	{
 		ShooterArm *arm = Robot::shooterArm;
 				
 		arm->SetTargetPosition(ShooterArm::LOAD);
+		_set = true;
 	}
 	
 	
@@ -37,7 +39,7 @@ void TargetLoadPosition::Execute() {
 bool TargetLoadPosition::IsFinished() {
 	ShooterArm *arm = Robot::shooterArm;
 			
-	return arm->IsOnTarget();
+	return _set && arm->IsOnTarget();
 }
 // Called once after isFinished returns true
 void TargetLoadPosition::End() {
