@@ -103,6 +103,25 @@ void Robot::DisabledPeriodic()
     SmartDashboard::PutNumber("Left RPM",leftRPM);
     SmartDashboard::PutNumber("Right RPM",rightRPM);
     SmartDashboard::PutNumber("Arm Angle", shooterArm->GetCurrentAngle());
+//    SmartDashboard::PutNumber("Goal Distance", camera->DetectDistance());
+//    string side = "";
+//    switch(camera->DetectHotGoal())
+//    {
+//        case Camera::notDetected:
+//            side = "Not Detected";
+//            break;
+//        case Camera::goalLeft:
+//            side = "Left";
+//            break;
+//        case Camera::goalRight:
+//            side = "Right";
+//            break;
+//        case Camera::neverLooked:
+//            side = "Can't Be Bothered";
+//            break;
+//    }
+//    SmartDashboard::PutString("Goal Side", side);
+    
 }
 START_ROBOT_CLASS(Robot)
 ;
