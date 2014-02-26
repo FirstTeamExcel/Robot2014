@@ -20,7 +20,6 @@ TargetLoadPosition::TargetLoadPosition() {
 }
 // Called just before this Command runs the first time
 void TargetLoadPosition::Initialize() {
-
     _set = false;
 }
 // Called repeatedly when this Command is scheduled to run

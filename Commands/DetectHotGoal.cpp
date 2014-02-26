@@ -25,8 +25,8 @@ void DetectHotGoal::Execute() {
 	Camera *camera = Robot::camera;
 	if (_done = false)
 	{
-	    camera->DetectHotGoal();
-	    _done = true;
+	    if (camera->GetHotGoal() != Camera::neverLooked)
+	        _done = true;
 	}
     
 	
