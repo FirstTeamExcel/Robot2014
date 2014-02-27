@@ -20,6 +20,8 @@
 #include "Commands/BlockerLower.h"
 #include "Commands/BlockerRaise.h"
 #include "Commands/CameraTuning.h"
+#include "Commands/CatchClose.h"
+#include "Commands/CatchOpen.h"
 #include "Commands/CheesyDrive.h"
 #include "Commands/Collect.h"
 #include "Commands/CollectorDown.h"
@@ -35,6 +37,7 @@
 #include "Commands/DriveStraightTuning.h"
 #include "Commands/DriveTwoFeet.h"
 #include "Commands/EjectBall.h"
+#include "Commands/LoadBall.h"
 #include "Commands/PoweredShot.h"
 #include "Commands/Shoot.h"
 #include "Commands/ShooterArmDismount.h"
@@ -46,6 +49,7 @@
 #include "Commands/ShooterWheelsAutoTarget.h"
 #include "Commands/ShotTuning.h"
 #include "Commands/SingleBallAutonomousCommand.h"
+#include "Commands/StartingPosition.h"
 #include "Commands/TargetAutonomous1.h"
 #include "Commands/TargetAutonomous2.h"
 #include "Commands/TargetAutonomous3.h"
@@ -53,6 +57,7 @@
 #include "Commands/TargetLoadPosition.h"
 #include "Commands/TargetLongGoal.h"
 #include "Commands/TargetShortGoal.h"
+#include "Commands/TargetStartPosition.h"
 #include "Commands/TargetTruss.h"
 #include "Commands/ThreeBallAutonomousCommand.h"
 #include "Commands/Turn180Degrees.h"
@@ -97,60 +102,72 @@ OI::OI() {
 	eject = new JoystickButton(leftDriveStick, 5);
 	eject->WhileHeld(new EjectBall());
 	spinUp = new JoystickButton(leftDriveStick, 2);
-	spinUp->WhileHeld(new PoweredShot());
+	spinUp->WhileHeld(new ShooterSpinUp());
 	shootBall = new JoystickButton(leftDriveStick, 1);
 	shootBall->WhileHeld(new Shoot());
      
         // SmartDashboard Buttons
-	SmartDashboard::PutData("Autonomous Command", new AutonomousCommand());
-	SmartDashboard::PutData("SingleBallAutonomousCommand", new SingleBallAutonomousCommand());
-	SmartDashboard::PutData("TwoBallAutonomousCommand", new TwoBallAutonomousCommand());
-	SmartDashboard::PutData("ThreeBallAutonomousCommand", new ThreeBallAutonomousCommand());
-	SmartDashboard::PutData("CollectorIdle", new CollectorIdle());
-	SmartDashboard::PutData("CollectorUP", new CollectorUP());
-	SmartDashboard::PutData("CollectorLoad", new CollectorLoad());
-	SmartDashboard::PutData("CollectorDown", new CollectorDown());
-	SmartDashboard::PutData("CollectorEject", new CollectorEject());
-	SmartDashboard::PutData("Collect", new Collect());
-	SmartDashboard::PutData("ShooterIdle", new ShooterIdle());
-	SmartDashboard::PutData("PoweredShot", new PoweredShot());
-	SmartDashboard::PutData("ShooterSpinUp", new ShooterSpinUp());
-	SmartDashboard::PutData("ShooterWheelsAutoTarget", new ShooterWheelsAutoTarget());
-	SmartDashboard::PutData("ShooterPistonIdle", new ShooterPistonIdle());
-	SmartDashboard::PutData("Shoot", new Shoot());
-	SmartDashboard::PutData("BlockerRaise", new BlockerRaise());
-	SmartDashboard::PutData("BlockerLower", new BlockerLower());
-	SmartDashboard::PutData("BlockerIdle", new BlockerIdle());
-	SmartDashboard::PutData("TargetTruss", new TargetTruss());
-	SmartDashboard::PutData("TargetLongGoal", new TargetLongGoal());
-	SmartDashboard::PutData("TargetShortGoal", new TargetShortGoal());
-	SmartDashboard::PutData("TargetAutonomous1", new TargetAutonomous1());
-	SmartDashboard::PutData("TargetAutonomous2", new TargetAutonomous2());
-	SmartDashboard::PutData("TargetAutonomous3", new TargetAutonomous3());
-	SmartDashboard::PutData("ShooterArmDismount", new ShooterArmDismount());
-	SmartDashboard::PutData("ArmSecureCatch", new ArmSecureCatch());
-	SmartDashboard::PutData("AutoTarget", new AutoTarget());
-	SmartDashboard::PutData("TargetLoadPosition", new TargetLoadPosition());
-	SmartDashboard::PutData("TargetEjectPosition", new TargetEjectPosition());
-	SmartDashboard::PutData("ShooterArmTuningMode", new ShooterArmTuningMode());
-	SmartDashboard::PutData("ArmCatchPosition", new ArmCatchPosition());
-	SmartDashboard::PutData("EjectBall", new EjectBall());
-	SmartDashboard::PutData("DriveTwoFeet", new DriveTwoFeet());
-	SmartDashboard::PutData("Drive", new Drive());
-	SmartDashboard::PutData("Turn90Degrees", new Turn90Degrees());
-	SmartDashboard::PutData("Turn180Degrees", new Turn180Degrees());
-	SmartDashboard::PutData("DriveStraightTuning", new DriveStraightTuning());
-	SmartDashboard::PutData("TurnToAngleTurning", new TurnToAngleTurning());
-	SmartDashboard::PutData("DownShift", new DownShift());
-	SmartDashboard::PutData("UpShift", new UpShift());
-	SmartDashboard::PutData("CheesyDrive", new CheesyDrive());
-	SmartDashboard::PutData("ArcadeDrive", new ArcadeDrive());
-	SmartDashboard::PutData("CompressorStart", new CompressorStart());
-	SmartDashboard::PutData("CompressorStop", new CompressorStop());
-	SmartDashboard::PutData("DetectHotGoal", new DetectHotGoal());
-	SmartDashboard::PutData("ShotTuning", new ShotTuning());
-	SmartDashboard::PutData("CameraTuning", new CameraTuning());
+    SmartDashboard::PutData("DetectHotGoal", new DetectHotGoal());;
+    SmartDashboard::PutData("TargetAutonomous1", new TargetAutonomous1());
+    SmartDashboard::PutData("TargetAutonomous2", new TargetAutonomous2());
+    SmartDashboard::PutData("TargetAutonomous3", new TargetAutonomous3());
+    SmartDashboard::PutData("AutoTarget", new AutoTarget());
+    SmartDashboard::PutData("ShooterArmTuningMode", new ShooterArmTuningMode());
+    SmartDashboard::PutData("DriveStraightTuning", new DriveStraightTuning());
+    SmartDashboard::PutData("TurnToAngleTurning", new TurnToAngleTurning());
+    SmartDashboard::PutData("StartingPosition", new StartingPosition());
+    SmartDashboard::PutData("CameraTuning", new CameraTuning());
+    SmartDashboard::PutData("ShotTuning", new ShotTuning());
     // END AUTOGENERATED CODE, SOURCE=ROBOTBUILDER ID=CONSTRUCTORS
+	
+#ifdef VERBOSE_DASHBOARD
+    SmartDashboard::PutData("Autonomous Command", new AutonomousCommand());
+    SmartDashboard::PutData("SingleBallAutonomousCommand", new SingleBallAutonomousCommand());
+    SmartDashboard::PutData("TwoBallAutonomousCommand", new TwoBallAutonomousCommand());
+    SmartDashboard::PutData("ThreeBallAutonomousCommand", new ThreeBallAutonomousCommand());
+    SmartDashboard::PutData("CollectorIdle", new CollectorIdle());
+    SmartDashboard::PutData("CollectorUP", new CollectorUP());
+    SmartDashboard::PutData("CollectorLoad", new CollectorLoad());
+    SmartDashboard::PutData("CollectorDown", new CollectorDown());
+    SmartDashboard::PutData("CollectorEject", new CollectorEject());
+    SmartDashboard::PutData("Collect", new Collect());
+    SmartDashboard::PutData("ShooterIdle", new ShooterIdle());
+    SmartDashboard::PutData("PoweredShot", new PoweredShot());
+    SmartDashboard::PutData("ShooterSpinUp", new ShooterSpinUp());
+    SmartDashboard::PutData("ShooterWheelsAutoTarget", new ShooterWheelsAutoTarget());
+    SmartDashboard::PutData("ShooterPistonIdle", new ShooterPistonIdle());
+    SmartDashboard::PutData("Shoot", new Shoot());
+    SmartDashboard::PutData("BlockerRaise", new BlockerRaise());
+    SmartDashboard::PutData("BlockerLower", new BlockerLower());
+    SmartDashboard::PutData("BlockerIdle", new BlockerIdle());
+    SmartDashboard::PutData("TargetTruss", new TargetTruss());
+    SmartDashboard::PutData("TargetLongGoal", new TargetLongGoal());
+    SmartDashboard::PutData("TargetShortGoal", new TargetShortGoal());
+    SmartDashboard::PutData("ShooterArmDismount", new ShooterArmDismount());
+    SmartDashboard::PutData("ArmSecureCatch", new ArmSecureCatch());
+    SmartDashboard::PutData("TargetLoadPosition", new TargetLoadPosition());
+    SmartDashboard::PutData("TargetEjectPosition", new TargetEjectPosition());
+    SmartDashboard::PutData("ArmCatchPosition", new ArmCatchPosition());
+    SmartDashboard::PutData("EjectBall", new EjectBall());
+    SmartDashboard::PutData("DriveTwoFeet", new DriveTwoFeet());
+    SmartDashboard::PutData("Drive", new Drive());
+    SmartDashboard::PutData("Turn90Degrees", new Turn90Degrees());
+    SmartDashboard::PutData("Turn180Degrees", new Turn180Degrees());
+    SmartDashboard::PutData("DownShift", new DownShift());
+    SmartDashboard::PutData("UpShift", new UpShift());
+    SmartDashboard::PutData("CheesyDrive", new CheesyDrive());
+    SmartDashboard::PutData("ArcadeDrive", new ArcadeDrive());
+    SmartDashboard::PutData("CompressorStart", new CompressorStart());
+    SmartDashboard::PutData("CompressorStop", new CompressorStop());
+    SmartDashboard::PutData("LoadBall", new LoadBall());
+    SmartDashboard::PutData("TargetStartPosition", new TargetStartPosition());
+    SmartDashboard::PutData("CatchClose", new CatchClose());
+    SmartDashboard::PutData("CatchOpen", new CatchOpen());
+#endif
+    spinChooser = new SendableChooser();
+    spinChooser->AddDefault("Speed Control", new ShooterSpinUp());
+    spinChooser->AddObject("Full Power",  new PoweredShot());
+    SmartDashboard::PutData("Wheel Mode:", spinChooser);
 }
 // BEGIN AUTOGENERATED CODE, SOURCE=ROBOTBUILDER ID=FUNCTIONS
 Joystick* OI::getoperatorStick() {
@@ -163,3 +180,13 @@ Joystick* OI::getleftDriveStick() {
 	return leftDriveStick;
 }
     // END AUTOGENERATED CODE, SOURCE=ROBOTBUILDER ID=FUNCTIONS
+void OI::UpdateShotType()
+{
+    static Command *prevSelection;
+    Command *selection = (Command *) spinChooser->GetSelected();
+    if (prevSelection != selection)
+    {
+        spinUp->WhileHeld(selection);
+        prevSelection = selection;
+    }    
+}

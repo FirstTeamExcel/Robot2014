@@ -27,8 +27,26 @@ void DetectHotGoal::Execute() {
 	{
 	    if (camera->GetHotGoal() != Camera::neverLooked)
 	        _done = true;
+	    
 	}
-    
+	
+    string side = "";
+    switch(camera->DetectHotGoal())
+    {
+        case Camera::notDetected:
+            side = "Not Detected";
+            break;
+        case Camera::goalLeft:
+            side = "Left";
+            break;
+        case Camera::goalRight:
+            side = "Right";
+            break;
+        case Camera::neverLooked:
+            side = "Can't Be Bothered";
+            break;
+    }
+    SmartDashboard::PutString("Goal Side", side);
 	
 }
 // Make this return true when this Command no longer needs to run execute()

@@ -8,27 +8,17 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 
+#include "LoadBall.h"
 #include "CollectorDown.h"
-#include "ShooterArmDismount.h"
-#include "TargetAutonomous1.h"
-#include "Shoot.h" 
-#include "DriveTwoFeet.h"
-#include "DriveTwoSeconds.h"
-#include "SingleBallAutonomousCommand.h"
-#include "ShooterSetRpm.h"
-#include "../ShooterWheelsSpeeds.h"
+#include "TargetLoadPosition.h"
+#include "Collect.h"
+#include "ShooterSpinUp.h"
 
-SingleBallAutonomousCommand::SingleBallAutonomousCommand() {
-	AddSequential(new CollectorDown());
-	AddParallel(new TargetAutonomous1());
-	AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_1_SPEED));
-	AddSequential(new Shoot());
-    AddSequential(new ShooterSetRpm(0.0));
-    AddSequential(new DriveTwoSeconds());
-    AddSequential(new DriveTwoSeconds());
-//	AddSequential(new DriveTwoFeet());
-//	AddSequential(new DriveTwoFeet());
-	
+LoadBall::LoadBall() {
+    AddSequential(new CollectorDown());
+    AddSequential(new TargetLoadPosition());
+    AddParallel(new Collect());
+    AddParallel(new ShooterSpinUp());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());

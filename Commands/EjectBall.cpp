@@ -15,18 +15,16 @@
 #include "TargetEjectPosition.h"
 #include "TargetLongGoal.h"
 #include "Shoot.h"
-#include "PoweredShot.h"
+#include "ShooterSpinUp.h"
 
 #include "EjectBall.h"
 
 EjectBall::EjectBall() {
 	//Method 1
 	AddSequential(new CollectorDown());
-	AddSequential(new TargetEjectPosition());
-	AddSequential(new CollectorEject());
-	AddSequential(new PoweredShot(0.5,0.5));
-	AddSequential(new Shoot());
-	AddSequential(new CollectorIdle());
+	AddParallel(new TargetEjectPosition());
+	AddParallel(new CollectorEject());
+	AddParallel(new ShooterSpinUp());
 	
 	//Method 2
 	//AddSequential(new CollectorDown());

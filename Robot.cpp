@@ -54,6 +54,9 @@ void Robot::RobotInit()
     autoChooser->AddObject("Two Ball Auton", new TwoBallAutonomousCommand());
     autoChooser->AddObject("Three Ball Auton", new ThreeBallAutonomousCommand());
     SmartDashboard::PutData("Autonomous Mode:", autoChooser);
+    
+    SmartDashboard::PutNumber("Goal Distance", 0.0);
+    SmartDashboard::PutString("Goal Side", "Taco Bell");
 }
 void Robot::AutonomousInit()
 {
@@ -63,6 +66,7 @@ void Robot::AutonomousInit()
 }
 void Robot::AutonomousPeriodic()
 {
+    oi->UpdateShotType();
     Scheduler::GetInstance()->Run();
 }
 void Robot::TeleopInit()
@@ -76,6 +80,7 @@ void Robot::TeleopInit()
 }
 void Robot::TeleopPeriodic()
 {
+    oi->UpdateShotType();
     Scheduler::GetInstance()->Run();
     float leftRPM, rightRPM;
     shooterWheels->GetRpm(rightRPM,leftRPM);
@@ -91,34 +96,34 @@ void Robot::TestPeriodic()
     SmartDashboard::PutNumber("Left RPM",leftRPM);
     SmartDashboard::PutNumber("Right RPM",rightRPM);
     SmartDashboard::PutNumber("Arm Angle", shooterArm->GetCurrentAngle());
-
-    static Timer imageTimer;
     
-    if (imageTimer.Get() != 0.0)
-        imageTimer.Start();
-    
-    if (imageTimer.HasPeriodPassed(1.0))
-    {
-        imageTimer.Reset();
-        SmartDashboard::PutNumber("Goal Distance", camera->DetectDistance());
-        string side = "";
-        switch(camera->DetectHotGoal())
-        {
-            case Camera::notDetected:
-                side = "Not Detected";
-                break;
-            case Camera::goalLeft:
-                side = "Left";
-                break;
-            case Camera::goalRight:
-                side = "Right";
-                break;
-            case Camera::neverLooked:
-                side = "Can't Be Bothered";
-                break;
-        }
-        SmartDashboard::PutString("Goal Side", side);
-    }
+//    static Timer imageTimer;
+//    
+//    if (imageTimer.Get() == 0.0)
+//        imageTimer.Start();
+//    
+//    if (imageTimer.HasPeriodPassed(1.0))
+//    {
+//        imageTimer.Reset();
+//        SmartDashboard::PutNumber("Goal Distance", camera->DetectDistance());
+//        string side = "";
+//        switch(camera->DetectHotGoal())
+//        {
+//            case Camera::notDetected:
+//                side = "Not Detected";
+//                break;
+//            case Camera::goalLeft:
+//                side = "Left";
+//                break;
+//            case Camera::goalRight:
+//                side = "Right";
+//                break;
+//            case Camera::neverLooked:
+//                side = "Can't Be Bothered";
+//                break;
+//        }
+//        SmartDashboard::PutString("Goal Side", side);
+//    }
 }
 void Robot::DisabledInit()
 {
@@ -132,35 +137,33 @@ void Robot::DisabledPeriodic()
     SmartDashboard::PutNumber("Left RPM",leftRPM);
     SmartDashboard::PutNumber("Right RPM",rightRPM);
     SmartDashboard::PutNumber("Arm Angle", shooterArm->GetCurrentAngle());
-
-    static Timer imageTimer;
-    
-    if (imageTimer.Get() != 0.0)
-        imageTimer.Start();
-    
-    if (imageTimer.HasPeriodPassed(1.0))
-    {
-        imageTimer.Reset();
-        SmartDashboard::PutNumber("Goal Distance", camera->DetectDistance());
-        string side = "";
-        switch(camera->DetectHotGoal())
-        {
-            case Camera::notDetected:
-                side = "Not Detected";
-                break;
-            case Camera::goalLeft:
-                side = "Left";
-                break;
-            case Camera::goalRight:
-                side = "Right";
-                break;
-            case Camera::neverLooked:
-                side = "Can't Be Bothered";
-                break;
-        }
-        SmartDashboard::PutString("Goal Side", side);
-    }
-
+//    static Timer imageTimer;
+//    
+//    if (imageTimer.Get() == 0.0)
+//        imageTimer.Start();
+//    
+//    if (imageTimer.HasPeriodPassed(1.0))
+//    {
+//        imageTimer.Reset();
+//        //SmartDashboard::PutNumber("Goal Distance", camera->DetectDistance());
+//        string side = "";
+//        switch(camera->DetectHotGoal())
+//        {
+//            case Camera::notDetected:
+//                side = "Not Detected";
+//                break;
+//            case Camera::goalLeft:
+//                side = "Left";
+//                break;
+//            case Camera::goalRight:
+//                side = "Right";
+//                break;
+//            case Camera::neverLooked:
+//                side = "Can't Be Bothered";
+//                break;
+//        }
+//        SmartDashboard::PutString("Goal Side", side);
+//    }
 }
 START_ROBOT_CLASS(Robot)
 ;

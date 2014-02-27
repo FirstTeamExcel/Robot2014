@@ -17,7 +17,6 @@ CameraTuning::CameraTuning() {
 }
 // Called just before this Command runs the first time
 void CameraTuning::Initialize() {
-
     Robot::camera->SaveImages("test",false);
 }
 // Called repeatedly when this Command is scheduled to run

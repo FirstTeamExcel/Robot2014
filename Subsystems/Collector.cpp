@@ -51,14 +51,14 @@ void Collector::MoveCollector(bool extend)
 }
 void Collector::Pickup()
 {
-    rollerMotor->Set(-1.0);
+    rollerMotor->Set(-0.6);
 //    if (GetState() == DOWN)
 //    else
 //        rollerMotor->Set(0.0);
 }
 void Collector::Spit()
 {
-    rollerMotor->Set(1.0);
+    rollerMotor->Set(0.6);
 //    if (GetState() == DOWN)
 //    else
 //        rollerMotor->Set(0.0);

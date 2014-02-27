@@ -38,7 +38,6 @@ void Camera::InitDefaultCommand()
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-
 void Camera::WriteConfig()
 {
     camera->WriteBrightness(5);
@@ -49,7 +48,6 @@ void Camera::WriteConfig()
     camera->WriteResolution(AxisCamera::kResolution_320x240);
     camera->WriteWhiteBalance(AxisCamera::kWhiteBalance_FixedFlourescent1);
 }
-
 void Camera::EnableDistanceChecking()
 {
     Start();
@@ -169,15 +167,15 @@ Camera::hotGoalSide Camera::DetectHotGoal()
     camera->GetImage(image);
     if ((image == (RGBImage *)0) || (image->GetWidth() == 0) || (image->GetHeight() == 0))
     {
-        if (image != (RGBImage *)0)
-            delete image;
+//        if (image != (RGBImage *)0)
+//            delete image;
             
         return neverLooked;
     }
     
     vector<ParticleAnalysisReport>* reports =
             AnalyzeImage(image, filteredImage);
-    delete image;
+    //delete image;
     
     Scores *scores;
     TargetReport bestTarget;
@@ -303,11 +301,11 @@ Camera::hotGoalSide Camera::DetectHotGoal()
                 _detectedSide = notDetected;
             }
         }
-        delete scores;
+        //delete scores;
     }
-    delete filteredImage;
+    //delete filteredImage;
 //    reports->clear();?
-    delete reports;
+    //delete reports;
     return _detectedSide;
 }
 Camera::hotGoalSide Camera::GetHotGoal()
@@ -351,10 +349,10 @@ bool Camera::SaveImages(const char *baseName, bool verticalOnly)
 //    filteredImage->Write(fileName);
     filteredImage->Write("test_filter.bmp");
     
-//    delete filteredImage;
-//    delete convexHullImage;
-//    delete thresholdImage;
-//    delete image;
+    delete filteredImage;
+    delete convexHullImage;
+    delete thresholdImage;
+    delete image;
     return true;
 }
 bool Camera::SaveImages(const char *baseName, Threshold& th, ParticleFilterCriteria2 *cr, int criteriaCount)

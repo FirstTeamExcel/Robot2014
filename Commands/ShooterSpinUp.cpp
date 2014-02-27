@@ -38,10 +38,10 @@ void ShooterSpinUp::Execute() {
 //        }
 //    }
 //    else
-    {
-        float stickXValue = Robot::oi->getoperatorStick()->GetX();
-        bias = stickXValue / MAX_BIAS;
-    }
+//    {
+//        float stickXValue = Robot::oi->getoperatorStick()->GetX();
+//        bias = stickXValue / MAX_BIAS;
+//    }
 	
 	
 	
@@ -49,10 +49,10 @@ void ShooterSpinUp::Execute() {
 	{
 	case ShooterArm::LOAD:
 		//Robot::shooterWheels->SetTargetRpm(TARGET_LOAD_SPEED);
-		Robot::shooterWheels->SetPower(TARGET_LOAD_POWER, 0.2);
+		Robot::shooterWheels->SetPower(TARGET_LOAD_POWER, -0.5);
 		break;
 	case ShooterArm::EJECT:
-        Robot::shooterWheels->SetPower(TARGET_EJECT_POWER, 0.1);
+        Robot::shooterWheels->SetPower(TARGET_EJECT_POWER, 0.5);
 		break;
 	case ShooterArm::LONG_GOAL:
 		Robot::shooterWheels->SetTargetRpm(TARGET_LONG_GOAL_SPEED,bias);

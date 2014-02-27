@@ -24,6 +24,8 @@
 #define VOLTAGE_TO_DEGREES(volts) ((volts - VOLTAGE_AT_ZERO_DEGREES) * DEG_VOLTAGE_SCALAR) //Volts * DegreesPerVolt = Degrees
 #define VOLTAGE_TO_RADIANS(volts) ((volts - VOLTAGE_AT_ZERO_DEGREES) * RAD_VOLTAGE_SCALAR)
 #define DEGREES_TO_VOLTAGE(degrees) ((degrees * VOLTAGE_DEG_SCALAR) + VOLTAGE_AT_ZERO_DEGREES)
+
+#define DEGREES_DEADZONE 0.5
 //^^This is a macro, parenthesis immediately after the define allow you to pass a value into the macro and use it
 /**
  *
@@ -43,6 +45,7 @@ public:
     float _stage_1_tolerance;
     float _stage_2_tolerance;
     bool _onStage2;
+    bool _onStage3;
     ShooterArmPosition _targetPosition;
 	
  public:

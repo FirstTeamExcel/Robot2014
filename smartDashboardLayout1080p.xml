@@ -1,171 +1,168 @@
 <xml version="1.0">
 <dashboard>
-	<widget field="CameraTuning" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="421" y="578"/>
+	<widget field="Goal Side" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="543" y="128"/>
 	</widget>
-	<widget field="TargetManual" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="421" y="542"/>
-	</widget>
-	<widget field="Step" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="397" y="381"/>
-	</widget>
-	<widget field="ShooterWheelsManualControl" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="399" y="180"/>
-	</widget>
-	<widget field="Command Group 2" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="621" y="108"/>
-	</widget>
-	<widget field="Command Group 1" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="621" y="72"/>
-	</widget>
-	<widget field="GoToAngle" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.CheckBox">
-		<location x="588" y="449"/>
-	</widget>
-	<widget field="Fire" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.CheckBox">
-		<location x="568" y="516"/>
-	</widget>
-	<widget field="SpinUp" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.CheckBox">
-		<location x="581" y="476"/>
-	</widget>
-	<widget field="ShotBias" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="409" y="496"/>
-	</widget>
-	<widget field="ShotRpm" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="409" y="473"/>
-	</widget>
-	<widget field="ShotAngle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="409" y="450"/>
+	<widget field="Goal Distance" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="526" y="105"/>
 	</widget>
 	<widget field="Arm Angle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="403" y="358"/>
+		<location x="517" y="82"/>
 	</widget>
 	<widget field="Right RPM" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="403" y="335"/>
+		<location x="517" y="59"/>
 	</widget>
 	<widget field="Left RPM" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="413" y="312"/>
-	</widget>
-	<widget field="Autonomous Mode:" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
-		<location x="397" y="216"/>
-	</widget>
-	<widget field="ShotTuning" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="446" y="413"/>
-	</widget>
-	<widget field="DetectHotGoal" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="425" y="144"/>
-	</widget>
-	<widget field="CompressorStop" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="621" y="36"/>
-	</widget>
-	<widget field="CompressorStart" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="621" y="0"/>
-	</widget>
-	<widget field="ArcadeDrive" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="218" y="720"/>
-	</widget>
-	<widget field="CheesyDrive" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="218" y="684"/>
+		<location x="517" y="36"/>
 	</widget>
 	<widget field="UpShift" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="218" y="648"/>
+		<location x="161" y="288"/>
 	</widget>
-	<widget field="DownShift" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="218" y="612"/>
+	<widget field="TwoBallAutonomousCommand" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="517" y="0"/>
 	</widget>
 	<widget field="TurnToAngleTurning" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="218" y="576"/>
-	</widget>
-	<widget field="DriveStraightTuning" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="218" y="540"/>
-	</widget>
-	<widget field="Turn180Degrees" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="218" y="504"/>
+		<location x="319" y="720"/>
 	</widget>
 	<widget field="Turn90Degrees" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="236" y="468"/>
+		<location x="319" y="684"/>
 	</widget>
-	<widget field="Drive" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="218" y="432"/>
+	<widget field="Turn180Degrees" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="319" y="648"/>
 	</widget>
-	<widget field="DriveTwoFeet" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="218" y="396"/>
-	</widget>
-	<widget field="EjectBall" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="218" y="360"/>
-	</widget>
-	<widget field="ArmCatchPosition" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="218" y="324"/>
-	</widget>
-	<widget field="ShooterArmTuningMode" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="397" y="0"/>
-	</widget>
-	<widget field="TargetEjectPosition" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="218" y="288"/>
-	</widget>
-	<widget field="TargetLoadPosition" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="218" y="252"/>
-	</widget>
-	<widget field="AutoTarget" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="218" y="216"/>
-	</widget>
-	<widget field="ArmSecureCatch" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="218" y="180"/>
-	</widget>
-	<widget field="ShooterArmDismount" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="218" y="144"/>
-	</widget>
-	<widget field="TargetAutonomous3" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="268" y="108"/>
-	</widget>
-	<widget field="TargetAutonomous2" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="259" y="72"/>
-	</widget>
-	<widget field="TargetAutonomous1" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="269" y="36"/>
-	</widget>
-	<widget field="TargetShortGoal" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="218" y="0"/>
-	</widget>
-	<widget field="TargetLongGoal" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="720"/>
+	<widget field="ThreeBallAutonomousCommand" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="319" y="612"/>
 	</widget>
 	<widget field="TargetTruss" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="684"/>
+		<location x="319" y="576"/>
 	</widget>
-	<widget field="BlockerIdle" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="648"/>
+	<widget field="TargetShortGoal" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="319" y="540"/>
 	</widget>
-	<widget field="BlockerLower" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="612"/>
+	<widget field="TargetLongGoal" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="319" y="504"/>
 	</widget>
-	<widget field="BlockerRaise" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="576"/>
+	<widget field="TargetLoadPosition" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="319" y="468"/>
 	</widget>
-	<widget field="Shoot" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="540"/>
+	<widget field="TargetEjectPosition" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="319" y="432"/>
 	</widget>
-	<widget field="ShooterPistonIdle" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="504"/>
+	<widget field="TargetAutonomous3" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="319" y="396"/>
+	</widget>
+	<widget field="TargetAutonomous2" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="319" y="360"/>
+	</widget>
+	<widget field="TargetAutonomous1" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="319" y="324"/>
+	</widget>
+	<widget field="SingleBallAutonomousCommand" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="319" y="288"/>
+	</widget>
+	<widget field="ShotTuning" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="154" y="252"/>
 	</widget>
 	<widget field="ShooterWheelsAutoTarget" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="468"/>
+		<location x="319" y="252"/>
 	</widget>
 	<widget field="ShooterSpinUp" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="432"/>
+		<location x="319" y="216"/>
 	</widget>
-	<widget field="PoweredShot" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="396"/>
+	<widget field="ShooterPistonIdle" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="319" y="180"/>
 	</widget>
 	<widget field="ShooterIdle" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="360"/>
+		<location x="154" y="216"/>
 	</widget>
-	<widget field="Collect" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="324"/>
+	<widget field="ShooterArmTuningMode" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="319" y="144"/>
+	</widget>
+	<widget field="ShooterArmDismount" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="319" y="108"/>
+	</widget>
+	<widget field="Shoot" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="154" y="180"/>
+	</widget>
+	<widget field="PoweredShot" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="319" y="72"/>
+	</widget>
+	<widget field="EjectBall" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="154" y="108"/>
+	</widget>
+	<widget field="DriveTwoFeet" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="328" y="36"/>
+	</widget>
+	<widget field="DriveStraightTuning" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="319" y="0"/>
+	</widget>
+	<widget field="Drive" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="181" y="72"/>
+	</widget>
+	<widget field="DownShift" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="185" y="36"/>
+	</widget>
+	<widget field="DetectHotGoal" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="154" y="0"/>
+	</widget>
+	<widget field="CompressorStop" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="708"/>
+	</widget>
+	<widget field="CompressorStart" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="672"/>
+	</widget>
+	<widget field="CollectorUP" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="636"/>
+	</widget>
+	<widget field="CollectorLoad" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="600"/>
+	</widget>
+	<widget field="CollectorIdle" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="564"/>
 	</widget>
 	<widget field="CollectorEject" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="288"/>
+		<location x="0" y="528"/>
 	</widget>
 	<widget field="CollectorDown" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="252"/>
+		<location x="0" y="492"/>
 	</widget>
-	<widget field="CollectorLoad" type="Comman
+	<widget field="Collect" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="456"/>
+	</widget>
+	<widget field="CheesyDrive" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="420"/>
+	</widget>
+	<widget field="CameraTuning" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="384"/>
+	</widget>
+	<widget field="BlockerRaise" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="348"/>
+	</widget>
+	<widget field="BlockerLower" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="312"/>
+	</widget>
+	<widget field="BlockerIdle" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="276"/>
+	</widget>
+	<widget field="Autonomous Mode:" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="0" y="180"/>
+	</widget>
+	<widget field="Autonomous Command" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="144"/>
+	</widget>
+	<widget field="AutoTarget" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="108"/>
+	</widget>
+	<widget field="ArmSecureCatch" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="72"/>
+	</widget>
+	<widget field="ArmCatchPosition" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="36"/>
+	</widget>
+	<widget field="ArcadeDrive" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="0"/>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+</xml>
