@@ -22,6 +22,8 @@
  * @author ExampleAuthor
  */
 class TargetStartPosition: public Command {
+private:
+    bool _set;
 public:
 	TargetStartPosition();
 	virtual void Initialize();

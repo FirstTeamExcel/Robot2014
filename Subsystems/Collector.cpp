@@ -58,7 +58,7 @@ void Collector::Pickup()
 }
 void Collector::Spit()
 {
-    rollerMotor->Set(0.6);
+    rollerMotor->Set(0.7);
 //    if (GetState() == DOWN)
 //    else
 //        rollerMotor->Set(0.0);

@@ -79,7 +79,7 @@ OI::OI() {
 	catcherOpen = new JoystickButton(operatorStick, 6);
 	catcherOpen->WhenPressed(new CatchOpen());
 	targetLoadPosition = new JoystickButton(operatorStick, 11);
-	targetLoadPosition->WhenPressed(new TargetLoadPosition());
+	targetLoadPosition->WhileHeld(new LoadBallCommand());
 	targetTruss = new JoystickButton(operatorStick, 9);
 	targetTruss->WhenPressed(new TargetTruss());
 	targetShortShot = new JoystickButton(operatorStick, 10);
@@ -88,10 +88,10 @@ OI::OI() {
 	targetLongShot->WhenPressed(new TargetLongGoal());
 	alsoEject = new JoystickButton(operatorStick, 12);
 	alsoEject->WhileHeld(new EjectBallCommand());
-	alsoCollectorDown = new JoystickButton(operatorStick, 3);
-	alsoCollectorDown->WhileHeld(new LoadBallCommand());
 	alsoCollectorUp = new JoystickButton(operatorStick, 5);
 	alsoCollectorUp->WhenPressed(new CollectorUP());
+	alsoCollectorDown = new JoystickButton(operatorStick, 3);
+	alsoCollectorDown->WhileHeld(new LoadBallCommand());
 	alsoSpinUp = new JoystickButton(operatorStick, 2);
 	alsoSpinUp->WhileHeld(new ShooterSpinUp());
 	alsoShootBall = new JoystickButton(operatorStick, 1);
@@ -99,15 +99,15 @@ OI::OI() {
 	rightDriveStick = new Joystick(2);
 	
 	collectorUp = new JoystickButton(rightDriveStick, 3);
-	collectorUp->WhenPressed(new CollectorUP());
+	collectorUp->WhileHeld(new CollectorUP());
 	collectorDown = new JoystickButton(rightDriveStick, 2);
-	collectorDown->WhileHeld(new LoadBall());
+	collectorDown->WhileHeld(new Collect());
 	shiftDown = new JoystickButton(rightDriveStick, 1);
 	shiftDown->WhileHeld(new DownShift());
 	leftDriveStick = new Joystick(1);
 	
 	eject = new JoystickButton(leftDriveStick, 5);
-	eject->WhileHeld(new EjectBall());
+	eject->WhileHeld(new EjectBallCommand());
 	spinUp = new JoystickButton(leftDriveStick, 2);
 	spinUp->WhileHeld(new ShooterSpinUp());
 	shootBall = new JoystickButton(leftDriveStick, 1);

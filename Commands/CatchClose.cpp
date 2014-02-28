@@ -20,7 +20,7 @@ CatchClose::CatchClose() {
     if (Robot::shooterArm->GetTargetPosition() == ShooterArm::CATCH)
     {
         AddParallel(new TargetStartPosition());
-        AddParallel(new CollectorUP());
+        AddSequential(new CollectorUP());
     }
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());

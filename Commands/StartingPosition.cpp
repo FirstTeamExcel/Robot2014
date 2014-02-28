@@ -11,8 +11,13 @@
 
 
 #include "StartingPosition.h"
+#include "TargetStartPosition.h"
+#include "CollectorUP.h"
 
 StartingPosition::StartingPosition() {
+    AddParallel(new TargetStartPosition());
+    AddSequential(new CollectorUP());
+    
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());

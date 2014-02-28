@@ -123,6 +123,7 @@ void ShooterArm::SetTargetPosition(ShooterArm::ShooterArmPosition position)
             case ShooterArm::CATCH:
                 _stage_2_tolerance = 6;
                 SetTargetAngle(SHOOTER_ARM_TARGET_CATCH);
+                break;
             case ShooterArm::AUTONOMOUS_1:
                 _stage_2_tolerance = 3;
                 SetTargetAngle(ARM_TARGET_AUTONOMOUS_1);

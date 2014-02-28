@@ -33,7 +33,7 @@ void EjectBallCommand::Execute() {
     {
         Robot::shooterArm->SetTargetPosition(ShooterArm::EJECT);
     }
-    else if ((Robot::shooterArm->GetTargetPosition() != ShooterArm::EJECT) && (Robot::shooterArm->IsOnTarget()))
+    else if ((Robot::shooterArm->GetTargetPosition() == ShooterArm::EJECT) && (Robot::shooterArm->IsOnTarget()))
     {
         Robot::collector->Spit();
         Robot::shooterWheels->SetPower(TARGET_EJECT_POWER);

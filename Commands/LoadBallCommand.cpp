@@ -33,7 +33,7 @@ void LoadBallCommand::Execute() {
     {
         Robot::shooterArm->SetTargetPosition(ShooterArm::LOAD);
     }
-    else if ((Robot::shooterArm->GetTargetPosition() != ShooterArm::LOAD) && (Robot::shooterArm->IsOnTarget()))
+    else if ((Robot::shooterArm->GetTargetPosition() == ShooterArm::LOAD) && (Robot::shooterArm->IsOnTarget()))
     {
         Robot::collector->Pickup();
         Robot::shooterWheels->SetPower(TARGET_LOAD_POWER);

@@ -16,7 +16,7 @@
 
 CatchOpen::CatchOpen() {
     AddParallel(new TargetCatch());
-    AddParallel(new CollectorDown());
+    AddSequential(new CollectorDown());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());

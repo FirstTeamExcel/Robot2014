@@ -27,7 +27,6 @@ void TargetCatch::Execute() {
     if (_set == false) 
     {
         ShooterArm *arm = Robot::shooterArm;
-                    
         arm->SetTargetPosition(ShooterArm::CATCH);
         _set = true;
 	}
