@@ -11,8 +11,12 @@
 
 
 #include "CatchOpen.h"
+#include "TargetCatch.h"
+#include "CollectorDown.h"
 
 CatchOpen::CatchOpen() {
+    AddParallel(new TargetCatch());
+    AddParallel(new CollectorDown());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());

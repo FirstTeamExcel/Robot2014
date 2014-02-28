@@ -18,8 +18,8 @@ Encoder* RobotMap::driveSubsystemrightEncoder = NULL;
 Gyro* RobotMap::driveSubsystemdriveGyro = NULL;
 AnalogChannel* RobotMap::shooterArmshooterArmPot = NULL;
 SpeedController* RobotMap::shooterArmshooterArmMotor = NULL;
-SpeedController* RobotMap::shooterWheelsrightWheelMotor = NULL;
 SpeedController* RobotMap::shooterWheelsleftWheelMotor = NULL;
+SpeedController* RobotMap::shooterWheelsrightWheelMotor = NULL;
 DigitalInput* RobotMap::shooterWheelsleftWheelDigitalInput = NULL;
 DigitalInput* RobotMap::shooterWheelsrightWheelDigitalInput = NULL;
 DoubleSolenoid* RobotMap::collectorcollectorLifter = NULL;
@@ -66,11 +66,11 @@ void RobotMap::init() {
 	shooterArmshooterArmMotor = new Talon(1, 4);
 	lw->AddActuator("ShooterArm", "shooterArmMotor", (Talon*) shooterArmshooterArmMotor);
 	
-	shooterWheelsrightWheelMotor = new Talon(1, 5);
-	lw->AddActuator("ShooterWheels", "rightWheelMotor", (Talon*) shooterWheelsrightWheelMotor);
-	
 	shooterWheelsleftWheelMotor = new Talon(1, 3);
 	lw->AddActuator("ShooterWheels", "leftWheelMotor", (Talon*) shooterWheelsleftWheelMotor);
+	
+	shooterWheelsrightWheelMotor = new Talon(1, 5);
+	lw->AddActuator("ShooterWheels", "rightWheelMotor", (Talon*) shooterWheelsrightWheelMotor);
 	
 	shooterWheelsleftWheelDigitalInput = new DigitalInput(1, 7);
 	lw->AddSensor("ShooterWheels", "leftWheelDigitalInput", shooterWheelsleftWheelDigitalInput);

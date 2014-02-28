@@ -11,8 +11,17 @@
 
 
 #include "CatchClose.h"
+#include "../Robot.h"
+#include "TargetStartPosition.h"
+#include "CollectorUP.h"
 
 CatchClose::CatchClose() {
+
+    if (Robot::shooterArm->GetTargetPosition() == ShooterArm::CATCH)
+    {
+        AddParallel(new TargetStartPosition());
+        AddParallel(new CollectorUP());
+    }
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());

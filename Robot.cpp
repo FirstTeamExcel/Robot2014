@@ -76,7 +76,7 @@ void Robot::TeleopInit()
     // continue until interrupted by another command, remove
     // this line or comment it out.
     autonomousCommand->Cancel();
-    shooterWheels->SetPower(0.0, 0.0);
+    shooterWheels->SetPower(0.0);
 }
 void Robot::TeleopPeriodic()
 {

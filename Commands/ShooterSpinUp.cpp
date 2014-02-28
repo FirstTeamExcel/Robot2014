@@ -25,52 +25,33 @@ void ShooterSpinUp::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ShooterSpinUp::Execute() {
 	ShooterArm::ShooterArmPosition position = Robot::shooterArm->GetTargetPosition();
-	float bias = 0.0;
-//    if (Robot::theRobot->IsAutonomous())
-//    {
-//        if (Robot::camera->GetHotGoal())
-//        {
-//            bias = AUTONOMOUS_BIAS;
-//        }
-//        else
-//        {
-//            bias = -AUTONOMOUS_BIAS;            
-//        }
-//    }
-//    else
-//    {
-//        float stickXValue = Robot::oi->getoperatorStick()->GetX();
-//        bias = stickXValue / MAX_BIAS;
-//    }
-	
-	
 	
 	switch(position)
 	{
 	case ShooterArm::LOAD:
 		//Robot::shooterWheels->SetTargetRpm(TARGET_LOAD_SPEED);
-		Robot::shooterWheels->SetPower(TARGET_LOAD_POWER, -0.5);
+		Robot::shooterWheels->SetPower(TARGET_LOAD_POWER);
 		break;
 	case ShooterArm::EJECT:
-        Robot::shooterWheels->SetPower(TARGET_EJECT_POWER, 0.5);
+        Robot::shooterWheels->SetPower(TARGET_EJECT_POWER);
 		break;
 	case ShooterArm::LONG_GOAL:
-		Robot::shooterWheels->SetTargetRpm(TARGET_LONG_GOAL_SPEED,bias);
+		Robot::shooterWheels->SetTargetRpm(TARGET_LONG_GOAL_SPEED);
 		break;
 	case ShooterArm::SHORT_GOAL:
-		Robot::shooterWheels->SetTargetRpm(TARGET_SHORT_GOAL_SPEED,bias);
+		Robot::shooterWheels->SetTargetRpm(TARGET_SHORT_GOAL_SPEED);
 		break;
 	case ShooterArm::TRUSS:
-		Robot::shooterWheels->SetTargetRpm(TARGET_TRUSS_SPEED,bias);
+		Robot::shooterWheels->SetTargetRpm(TARGET_TRUSS_SPEED);
 		break;
 	case ShooterArm::AUTONOMOUS_1:
-        Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_1_SPEED,bias);
+        Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_1_SPEED);
 		break;
 	case ShooterArm::AUTONOMOUS_2:
-		Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_2_SPEED, bias);
+		Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_2_SPEED);
 		break;
 	case ShooterArm::AUTONOMOUS_3:
-		Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_3_SPEED, bias);
+		Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_3_SPEED);
 		break;
 	default:
         Robot::shooterWheels->SetTargetRpm(0.0);
@@ -83,7 +64,7 @@ bool ShooterSpinUp::IsFinished() {
 }
 // Called once after isFinished returns true
 void ShooterSpinUp::End() {
-	Robot::shooterWheels->SetPower(0.0,0.0);
+	Robot::shooterWheels->SetPower(0.0);
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run

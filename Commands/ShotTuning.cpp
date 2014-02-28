@@ -64,11 +64,11 @@ void ShotTuning::Execute() {
     
     if (_spinUp)
     {
-        wheels->SetTargetRpm(_targetRpm,_bias);
+        wheels->SetTargetRpm(_targetRpm);
     }
     else
     {
-        wheels->SetTargetRpm(0.0,0.0);
+        wheels->SetTargetRpm(0.0);
     }
     
     if (_fire)
@@ -94,7 +94,7 @@ void ShotTuning::End() {
     ShooterPiston *piston = Robot::shooterPiston;
     piston->Idle();
     arm->Disable();
-    wheels->SetPower(0.0,0.0);
+    wheels->SetPower(0.0);
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run

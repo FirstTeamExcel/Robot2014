@@ -11,10 +11,9 @@
 #include "../Robotmap.h"
 #include "../Math.h"
 #include "stdio.h"
-Threshold threshold(105, 137, 230, 255, 133, 183); //HSV threshold criteria, ranges are in that order ie. Hue is 60-100
+Threshold *threshold;//(105, 137, 230, 255, 133, 183); //HSV threshold criteria, ranges are in that order ie. Hue is 60-100
 ParticleFilterCriteria2 criteria[] =
-    {
-        { IMAQ_MT_AREA, AREA_MINIMUM, 65535, false, false } }; //Particle filter criteria, used to filter out small particles
+    { { IMAQ_MT_AREA, AREA_MINIMUM, 65535, false, false } }; //Particle filter criteria, used to filter out small particles
 ParticleFilterCriteria2 vertCriteria[] =
     {
             { IMAQ_MT_AREA, AREA_MINIMUM, 65535, false, false } ,
@@ -27,7 +26,7 @@ Camera::Camera() :
     _detectedSide = neverLooked;
     camera = &AxisCamera::GetInstance("10.24.74.11");
             
-    
+    threshold = new Threshold(105, 137, 230, 255, 133, 183);
 }
 void Camera::InitDefaultCommand()
 {
@@ -72,8 +71,7 @@ float Camera::GetDistance()
 vector<ParticleAnalysisReport>* AnalyzeImage(RGBImage *image,
         BinaryImage *filteredImage, bool verticalOnly = false)
 {
-    
-    BinaryImage *thresholdImage = image->ThresholdHSV(threshold);
+    BinaryImage *thresholdImage = image->ThresholdHSV(*threshold);
     BinaryImage *convexHullImage = thresholdImage->ConvexHull(false);
     if (verticalOnly == true)
         filteredImage = convexHullImage->ParticleFilter(vertCriteria, 2);
@@ -333,7 +331,7 @@ bool Camera::SaveImages(const char *baseName, bool verticalOnly)
 //    sprintf(fileName, "%s_raw.bmp", baseName);
 //    image->Write(fileName);
     image->Write("test_raw.bmp");
-    BinaryImage *thresholdImage = image->ThresholdHSV(threshold);
+    BinaryImage *thresholdImage = image->ThresholdHSV(*threshold);
     
 //    sprintf(fileName, "%s_thresh.bmp", baseName);
 //    thresholdImage->Write(fileName);
