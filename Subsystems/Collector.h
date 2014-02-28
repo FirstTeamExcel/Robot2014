@@ -32,8 +32,8 @@ public:
 	Collector();
 	void InitDefaultCommand();
 	void MoveCollector(bool extend);
-	void Pickup();
-	void Spit();
+	void Pickup(float speed = 0.6);//The function takes the abs value of speed and applies the proper sign
+	void Spit(float speed = 0.7);//The function takes the abs value of speed and applies the proper sign
 	void Idle();
 	typedef enum {IDLE,UP,DOWN,TRAVELING_UP,TRAVELING_DOWN}CollectorState;
 	CollectorState GetState();
