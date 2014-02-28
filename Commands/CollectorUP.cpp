@@ -20,17 +20,24 @@ CollectorUP::CollectorUP() {
 void CollectorUP::Initialize() {
 	
 }
+
 // Called repeatedly when this Command is scheduled to run
 void CollectorUP::Execute() {
-    if (Robot::shooterArm->GetCurrentAngle() >= 57.5)
+    if ((Robot::shooterArm->GetCurrentAngle() >= 57.5) && (Robot::shooterArm->GetTargetAngle() >= 57.5))
     {
         Robot::collector->MoveCollector(false);
     }
+    else if (Robot::shooterArm->GetTargetAngle() < 57.5)
+    {
+        Robot::shooterArm->SetTargetPosition(ShooterArm::TRUSS);
+    }
 }
+
 // Make this return true when this Command no longer needs to run execute()
 bool CollectorUP::IsFinished() {
 	return (Robot::collector->GetState() == Collector::UP);
 }
+
 // Called once after isFinished returns true
 void CollectorUP::End() {
 	

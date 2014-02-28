@@ -53,7 +53,7 @@ void ShotTuning::Execute() {
     
     if ((_goToAngle == true) && (prevGoToAngle == false)) 
     {
-        arm->SetTargetAngle(_angle);
+        arm->SetAngle(_angle);
         prevGoToAngle = true;
     }
     else if (_goToAngle == false)

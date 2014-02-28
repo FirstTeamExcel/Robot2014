@@ -60,6 +60,7 @@ void Robot::RobotInit()
 }
 void Robot::AutonomousInit()
 {
+    driveSubsystem->theDriveTrain->SetSafetyEnabled(false);
     autonomousCommand = (Command *) autoChooser->GetSelected();
     if (autonomousCommand != NULL)
         autonomousCommand->Start();
@@ -71,6 +72,8 @@ void Robot::AutonomousPeriodic()
 }
 void Robot::TeleopInit()
 {
+    driveSubsystem->theDriveTrain->SetSafetyEnabled(true);
+    driveSubsystem->theDriveTrain->SetExpiration(0.5);
     // This makes sure that the autonomous stops running when
     // teleop starts running. If you want the autonomous to 
     // continue until interrupted by another command, remove

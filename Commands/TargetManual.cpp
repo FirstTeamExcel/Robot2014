@@ -25,7 +25,7 @@ void TargetManual::Execute() {
        
     float throttle = Robot::oi->getoperatorStick()->GetThrottle() + 1 * -0.5;
     float angle = 10.0 + throttle * 110.0;
-    arm->SetTargetAngle(angle);
+    arm->SetAngle(angle);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool TargetManual::IsFinished() {

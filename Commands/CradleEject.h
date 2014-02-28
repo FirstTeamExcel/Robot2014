@@ -9,30 +9,20 @@
 // it from being updated in th future.
 
 
-#ifndef COLLECTORLOAD_H
-#define COLLECTORLOAD_H
 
+#ifndef CRADLEEJECT_H
+#define CRADLEEJECT_H
 
-#include "Commands/Subsystem.h"
-#include "../Robot.h"
+#include "Commands/CommandGroup.h"
 
 /**
  *
  *
  * @author ExampleAuthor
  */
-class CollectorLoad: public Command {
-private:
-    float _power;
-public:
-	CollectorLoad(float power = 0.0);
-	virtual void Initialize();
-	virtual void Execute();
-	virtual bool IsFinished();
-	virtual void End();
-	virtual void Interrupted();
-private:
-	Timer loadTimer;
+class CradleEject: public CommandGroup {
+public:	
+	CradleEject();
 };
 
 #endif

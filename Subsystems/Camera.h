@@ -62,8 +62,8 @@ public:
 	Camera();
 	void InitDefaultCommand();
 	void WriteConfig();
-	
-    float Camera::GetDistance();
+	void TakePicture( const char *fileName);
+    float GetDistance();
     void EnableDistanceChecking();
     void DisableDistanceChecking();
 	float DetectDistance();

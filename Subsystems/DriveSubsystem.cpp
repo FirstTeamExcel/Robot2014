@@ -10,8 +10,8 @@
 #include "DriveSubsystem.h"
 #include "../Robotmap.h"
 #include "../Commands/CheesyDrive.h"
-volatile float _speed;
-volatile float _turn;
+volatile float _speed = 0.0;
+volatile float _turn = 0.0;
 void SetSpeed(float output);
 void SetTurn(float output);
 DriveSubsystem::DriveSubsystem() :

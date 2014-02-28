@@ -10,15 +10,9 @@
 
 
 
-#include "CatchClose.h"
-#include "../Robot.h"
-#include "TargetStartPosition.h"
-#include "CollectorUP.h"
+#include "CradleEject.h"
 
-CatchClose::CatchClose() {
-
-        AddParallel(new TargetStartPosition());
-        AddSequential(new CollectorUP());
+CradleEject::CradleEject() {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());

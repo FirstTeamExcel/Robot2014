@@ -43,7 +43,7 @@ void RobotMap::init() {
 	driveSubsystemTheDriveTrain = new RobotDrive(driveSubsystemleftDrive, driveSubsystemrightDrive);
 	
 	driveSubsystemTheDriveTrain->SetSafetyEnabled(true);
-        driveSubsystemTheDriveTrain->SetExpiration(0.1);
+        driveSubsystemTheDriveTrain->SetExpiration(0.3);
         driveSubsystemTheDriveTrain->SetSensitivity(0.5);
         driveSubsystemTheDriveTrain->SetMaxOutput(1.0);
         
@@ -81,8 +81,8 @@ void RobotMap::init() {
 	collectorcollectorLifter = new DoubleSolenoid(1, 5, 6);      
 	
 	
-	collectorrollerMotor = new Talon(1, 6);
-	lw->AddActuator("Collector", "rollerMotor", (Talon*) collectorrollerMotor);
+	collectorrollerMotor = new Victor(1, 6);
+	lw->AddActuator("Collector", "rollerMotor", (Victor*) collectorrollerMotor);
 	
 	blockerblockerWinch = new Talon(1, 9);
 	lw->AddActuator("Blocker", "blockerWinch", (Talon*) blockerblockerWinch);

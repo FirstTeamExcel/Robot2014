@@ -28,7 +28,6 @@ private:
 	bool rightIsUpToSpeed;
 	bool takeBack;
 	float _targetRpm;
-	float bias;
 	float power;
 //	float delay;
 	volatile bool _rpmControl;

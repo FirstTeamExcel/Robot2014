@@ -13,9 +13,10 @@
 #include "TurtleStance.h"
 #include "CollectorUP.h"
 #include "TargetTruss.h"
+#include "DownShift.h"
 
 TurtleStance::TurtleStance() {
-    AddSequential (new TargetTruss());
+    AddParallel(new DownShift());
     AddSequential (new CollectorUP());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());

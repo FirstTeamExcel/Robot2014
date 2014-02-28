@@ -27,7 +27,7 @@ void TargetStartPosition::Execute() {
     if (_set == false) 
     {
         ShooterArm *arm = Robot::shooterArm;
-        arm->SetTargetAngle(ARM_START_POSITION);
+        arm->SetAngle(ARM_START_POSITION);
         _set = true;
     }
 }

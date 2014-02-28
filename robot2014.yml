@@ -81,7 +81,7 @@ Children:
         Right Motor Inverted: !!robotbuilder.data.properties.BooleanProperty {default: false,
           name: Right Motor Inverted, validators: null, value: false}
         Safety Expiration Time: !!robotbuilder.data.properties.DoubleProperty {default: 0.1,
-          name: Safety Expiration Time, validators: null, value: 0.1}
+          name: Safety Expiration Time, validators: null, value: 0.3}
     - Name: leftEncoder
       Base: Quadrature Encoder
       Children: []
@@ -402,7 +402,7 @@ Children:
           default: Victor
           name: Type
           validators: null
-          value: Talon
+          value: Victor
         Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
           choices: *id004
           default: '1'
@@ -681,7 +681,7 @@ Children:
           name: Command
           type: Command
           validators: *id028
-          value: DownShift
+          value: TurtleStance
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id029
           default: '1'
@@ -1471,6 +1471,18 @@ Children:
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: ShooterArm}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: false}
+  - Name: CradleEject
+    Base: Command Group
+    Children: []
+    Properties:
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: false}
+  - Name: TurtleStance
+    Base: Command Group
+    Children: []
+    Properties:
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
   Properties: {}

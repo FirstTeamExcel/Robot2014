@@ -15,8 +15,11 @@
 #include "DriveTwoSeconds.h"
 #include "TargetAutonomous2.h"
 #include "TargetLoadPosition.h"
+#include "TargetTruss.h"
 #include "CollectorIdle.h"
 #include "CollectorLoad.h"
+#include "CollectorUP.h"
+#include "CollectorDown.h"
 #include "TwoBallAutonomousCommand.h"
 #include "ShooterSetRpm.h"
 #include "LoadBallCommand.h"
@@ -26,12 +29,16 @@ TwoBallAutonomousCommand::TwoBallAutonomousCommand() {
 	AddParallel(new TargetAutonomous2());//1.2s
     AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_2_SPEED));//1.5s
 	AddSequential(new Shoot());//2.2s
-	AddSequential(new LoadBallCommand(),2.0);
-//	AddSequential(new CollectorLoad(), 2.0);//4.2s
-//	AddSequential(new TargetLoadPosition());//4.7s
-	AddParallel(new TargetAutonomous1());
+    AddParallel(new TargetTruss());
+    AddParallel(new ShooterSetRpm(0.0));
+//	AddSequential(new LoadBallCommand(),2.0);
+	AddSequential(new CollectorLoad(1.0), 1.5);//4.2s
+	AddSequential(new CollectorUP());
+	AddSequential(new CollectorDown());
+	AddSequential(new TargetLoadPosition());//4.7s
 	AddParallel(new CollectorIdle());
-    AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_1_SPEED));//6.2s
+    AddParallel(new ShooterSetRpm(TARGET_AUTONOMOUS_2_SPEED));//6.2s
+	AddSequential(new TargetAutonomous2());
 	AddSequential(new Shoot());//6.9s
     AddSequential(new ShooterSetRpm(0.0));
     AddSequential(new DriveTwoSeconds());
