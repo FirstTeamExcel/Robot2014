@@ -42,12 +42,14 @@ public:
         {
             ArmTargetPosition::Execute();
         }
-//        else
-//        {
-//            Command *cmd = Robot::collector->GetCurrentCommand();
-//            if (cmd != (Command *)0)
-//                cmd->Cancel();
-//        }
+        else if (Robot::collector->GetState() != Collector::TRAVELING_DOWN)
+        {
+            Command *cmd = Robot::collector->GetCurrentCommand();
+            if (cmd != (Command *)0)
+                cmd->Cancel();
+            
+            Robot::collector->MoveCollector(true);
+        }
     }
     
 };

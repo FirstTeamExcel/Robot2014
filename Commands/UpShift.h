@@ -33,7 +33,7 @@ public:
 	virtual void End();
 	virtual void Interrupted();
 	
-	static void SetDelay(float delay);
+	static void SetDelay(float delay){UpShift::_delay = delay;}
 };
 
 #endif
