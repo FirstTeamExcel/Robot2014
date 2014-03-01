@@ -9,7 +9,6 @@
 // it from being updated in th future.
 #include "UpShift.h"
 static float _delay = 0.0;
-
 UpShift::UpShift() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -43,7 +42,6 @@ void UpShift::End() {
 void UpShift::Interrupted() {
 	End();
 }
-
 void UpShift::SetDelay(float delay)
 {
     _delay = delay;

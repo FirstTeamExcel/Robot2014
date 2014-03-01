@@ -113,7 +113,7 @@ void ShooterArm::SetTargetPosition(ShooterArm::ShooterArmPosition position)
                 SetTargetAngle(SHOOTER_ARM_TARGET_LOAD_POSITION);
                 break;
             case ShooterArm::EJECT:
-                _stage_2_tolerance = 6;
+                _stage_2_tolerance = 3;
                 SetTargetAngle(SHOOTER_ARM_TARGET_EJECT_POSITION);
                 break;
             case ShooterArm::LONG_GOAL:
@@ -125,7 +125,7 @@ void ShooterArm::SetTargetPosition(ShooterArm::ShooterArmPosition position)
                 SetTargetAngle(ARM_TARGET_SHORT_GOAL);
                 break;
             case ShooterArm::TRUSS:
-                _stage_2_tolerance = 6;
+                _stage_2_tolerance = 3;
                 SetTargetAngle(SHOOTER_ARM_TARGET_TRUSS);
                 break;
             case ShooterArm::CATCH:

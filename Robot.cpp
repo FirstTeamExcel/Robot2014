@@ -139,16 +139,16 @@ void Robot::DisabledPeriodic()
     SmartDashboard::PutNumber("Right RPM",rightRPM);
     SmartDashboard::PutNumber("Arm Angle", shooterArm->GetCurrentAngle());
     
-    static bool camPushed = false;
-    Joystick *op = oi->getoperatorStick();
-    if (op->GetRawButton(1) && (camPushed == false))
-    {
-        camera->SaveImages("hsl_test",false);
-    }
-    else
-    {
-        camPushed = false;
-    }
+//    static bool camPushed = false;
+//    Joystick *op = oi->getoperatorStick();
+//    if (op->GetRawButton(1) && (camPushed == false))
+//    {
+//        camera->SaveImages("hsl_test",false);
+//    }
+//    else
+//    {
+//        camPushed = false;
+//    }
     
     
 //    static Timer imageTimer;

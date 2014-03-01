@@ -102,7 +102,7 @@ OI::OI() {
 	spinUp = new JoystickButton(leftDriveStick, 2);
 	spinUp->WhileHeld(new ShooterSpinUp());
 	shootBall = new JoystickButton(leftDriveStick, 1);
-	shootBall->WhileHeld(new ForceShot());
+	shootBall->WhileHeld(new Shoot());
      
         // SmartDashboard Buttons
 	SmartDashboard::PutData("Collect", new Collect());
