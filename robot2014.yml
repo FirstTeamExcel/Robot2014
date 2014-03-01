@@ -781,7 +781,7 @@ Children:
           name: When to Run
           validators: null
           value: whileHeld
-    - Name: Also Collector Up
+    - Name: CradleEjectButton
       Base: Joystick Button
       Children: []
       Properties:
@@ -790,7 +790,7 @@ Children:
           name: Command
           type: Command
           validators: *id028
-          value: CollectorUP
+          value: CradleEject
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id029
           default: '1'
@@ -804,8 +804,8 @@ Children:
           default: whileHeld
           name: When to Run
           validators: null
-          value: whenPressed
-    - Name: Also Eject
+          value: whileHeld
+    - Name: TossBall
       Base: Joystick Button
       Children: []
       Properties:

@@ -20,8 +20,8 @@ private:
 	JoystickButton* targetTruss;
 	JoystickButton* targetShortShot;
 	JoystickButton* targetLongShot;
-	JoystickButton* alsoEject;
-	JoystickButton* alsoCollectorUp;
+	JoystickButton* tossBall;
+	JoystickButton* cradleEjectButton;
 	JoystickButton* alsoCollectorDown;
 	JoystickButton* forceShotButton;
 	JoystickButton* alsoShootBall;

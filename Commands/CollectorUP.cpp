@@ -28,6 +28,9 @@ void CollectorUP::Execute() {
     }
     else if (Robot::shooterArm->GetTargetAngle() < 57.5)
     {
+        Command *cmd = Robot::collector->GetCurrentCommand();
+        if (cmd != (Command *)0)
+            cmd->Cancel();
         Robot::shooterArm->SetTargetPosition(ShooterArm::TRUSS);
     }
 }

@@ -22,6 +22,9 @@
  * @author ExampleAuthor
  */
 class UpShift: public Command {
+private:
+    static float _delay;
+    Timer _upShiftTimer;
 public:
 	UpShift();
 	virtual void Initialize();
@@ -29,6 +32,8 @@ public:
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
+	
+	static void SetDelay(float delay);
 };
 
 #endif

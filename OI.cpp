@@ -77,10 +77,10 @@ OI::OI() {
 	targetShortShot->WhileHeld(new SpinShortGoal());
 	targetLongShot = new JoystickButton(operatorStick, 7);
 	targetLongShot->WhileHeld(new SpinLongGoal());
-	alsoEject = new JoystickButton(operatorStick, 12);
-	alsoEject->WhileHeld(new EjectBallCommand());
-	alsoCollectorUp = new JoystickButton(operatorStick, 5);
-	alsoCollectorUp->WhenPressed(new CollectorUP());
+	tossBall = new JoystickButton(operatorStick, 12);
+	tossBall->WhileHeld(new EjectBallCommand());
+	cradleEjectButton = new JoystickButton(operatorStick, 5);
+	cradleEjectButton->WhileHeld(new CradleEject());
 	alsoCollectorDown = new JoystickButton(operatorStick, 3);
 	alsoCollectorDown->WhileHeld(new LoadBallCommand());
 	forceShotButton = new JoystickButton(operatorStick, 2);

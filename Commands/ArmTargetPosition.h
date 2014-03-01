@@ -42,6 +42,12 @@ public:
         {
             ArmTargetPosition::Execute();
         }
+//        else
+//        {
+//            Command *cmd = Robot::collector->GetCurrentCommand();
+//            if (cmd != (Command *)0)
+//                cmd->Cancel();
+//        }
     }
     
 };
