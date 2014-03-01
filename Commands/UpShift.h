@@ -23,7 +23,6 @@
  */
 class UpShift: public Command {
 private:
-    static float _delay;
     Timer _upShiftTimer;
 public:
 	UpShift();
@@ -33,7 +32,7 @@ public:
 	virtual void End();
 	virtual void Interrupted();
 	
-	static void SetDelay(float delay){UpShift::_delay = delay;}
+	static void SetDelay(float delay);
 };
 
 #endif
