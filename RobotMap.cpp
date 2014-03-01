@@ -13,9 +13,6 @@
 SpeedController* RobotMap::driveSubsystemleftDrive = NULL;
 SpeedController* RobotMap::driveSubsystemrightDrive = NULL;
 RobotDrive* RobotMap::driveSubsystemTheDriveTrain = NULL;
-Encoder* RobotMap::driveSubsystemleftEncoder = NULL;
-Encoder* RobotMap::driveSubsystemrightEncoder = NULL;
-Gyro* RobotMap::driveSubsystemdriveGyro = NULL;
 AnalogChannel* RobotMap::shooterArmshooterArmPot = NULL;
 SpeedController* RobotMap::shooterArmshooterArmMotor = NULL;
 SpeedController* RobotMap::shooterWheelsleftWheelMotor = NULL;
@@ -45,19 +42,6 @@ void RobotMap::init() {
         driveSubsystemTheDriveTrain->SetSensitivity(0.5);
         driveSubsystemTheDriveTrain->SetMaxOutput(1.0);
         
-	driveSubsystemleftEncoder = new Encoder(1, 2, 1, 3, false, Encoder::k4X);
-	lw->AddSensor("DriveSubsystem", "leftEncoder", driveSubsystemleftEncoder);
-	driveSubsystemleftEncoder->SetDistancePerPulse(0.05026548245743669);
-        driveSubsystemleftEncoder->SetPIDSourceParameter(Encoder::kDistance);
-        driveSubsystemleftEncoder->Start();
-	driveSubsystemrightEncoder = new Encoder(1, 4, 1, 5, false, Encoder::k4X);
-	lw->AddSensor("DriveSubsystem", "rightEncoder", driveSubsystemrightEncoder);
-	driveSubsystemrightEncoder->SetDistancePerPulse(0.05026548245743669);
-        driveSubsystemrightEncoder->SetPIDSourceParameter(Encoder::kDistance);
-        driveSubsystemrightEncoder->Start();
-	driveSubsystemdriveGyro = new Gyro(1, 2);
-	lw->AddSensor("DriveSubsystem", "driveGyro", driveSubsystemdriveGyro);
-	driveSubsystemdriveGyro->SetSensitivity(0.007);
 	shooterArmshooterArmPot = new AnalogChannel(1, 1);
 	lw->AddSensor("ShooterArm", "shooterArmPot", shooterArmshooterArmPot);
 	
