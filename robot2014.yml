@@ -553,7 +553,7 @@ Children:
           name: Command
           type: Command
           validators: &id028 [TypeDropdownSelected]
-          value: Shoot
+          value: ForceShot
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: &id029 ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11',
             '12']
