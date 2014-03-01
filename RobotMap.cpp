@@ -24,8 +24,6 @@ DigitalInput* RobotMap::shooterWheelsleftWheelDigitalInput = NULL;
 DigitalInput* RobotMap::shooterWheelsrightWheelDigitalInput = NULL;
 DoubleSolenoid* RobotMap::collectorcollectorLifter = NULL;
 SpeedController* RobotMap::collectorrollerMotor = NULL;
-SpeedController* RobotMap::blockerblockerWinch = NULL;
-DigitalInput* RobotMap::blockerraisedLimitSwitch = NULL;
 DoubleSolenoid* RobotMap::shiftersshiftSolenoid = NULL;
 DoubleSolenoid* RobotMap::shooterPistonFiringSolenoid = NULL;
 Compressor* RobotMap::compressorSubsystemTheCompressor = NULL;
@@ -83,12 +81,6 @@ void RobotMap::init() {
 	
 	collectorrollerMotor = new Victor(1, 6);
 	lw->AddActuator("Collector", "rollerMotor", (Victor*) collectorrollerMotor);
-	
-	blockerblockerWinch = new Talon(1, 9);
-	lw->AddActuator("Blocker", "blockerWinch", (Talon*) blockerblockerWinch);
-	
-	blockerraisedLimitSwitch = new DigitalInput(1, 9);
-	lw->AddSensor("Blocker", "raisedLimitSwitch", blockerraisedLimitSwitch);
 	
 	shiftersshiftSolenoid = new DoubleSolenoid(1, 1, 2);      
 	

@@ -9,8 +9,8 @@
 // it from being updated in th future.
 
 #include "CollectorDown.h"
-#include "ShooterArmDismount.h"
-#include "TargetAutonomous1.h"
+
+#include "ArmTargetPosition.h"
 #include "Shoot.h" 
 #include "DriveTwoFeet.h"
 #include "DriveTwoSeconds.h"

@@ -9,28 +9,20 @@
 // it from being updated in th future.
 
 
-#ifndef TARGETTRUSS_H
-#define TARGETTRUSS_H
 
+#ifndef SPINTRUSS_H
+#define SPINTRUSS_H
 
-#include "Commands/Subsystem.h"
-#include "../Robot.h"
+#include "Commands/CommandGroup.h"
 
 /**
  *
  *
  * @author ExampleAuthor
  */
-class TargetTruss: public Command {
-private:
-    bool _set;
-public:
-	TargetTruss();
-	virtual void Initialize();
-	virtual void Execute();
-	virtual bool IsFinished();
-	virtual void End();
-	virtual void Interrupted();
+class SpinTruss: public CommandGroup {
+public:	
+	SpinTruss();
 };
 
 #endif

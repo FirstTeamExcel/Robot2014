@@ -23,7 +23,7 @@ private:
 	JoystickButton* alsoEject;
 	JoystickButton* alsoCollectorUp;
 	JoystickButton* alsoCollectorDown;
-	JoystickButton* alsoSpinUp;
+	JoystickButton* forceShotButton;
 	JoystickButton* alsoShootBall;
 	Joystick* rightDriveStick;
 	JoystickButton* collectorUp;

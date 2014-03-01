@@ -9,8 +9,8 @@
 // it from being updated in th future.
 
 
-#ifndef TARGETEJECTPOSITION_H
-#define TARGETEJECTPOSITION_H
+#ifndef FORCESHOT_H
+#define FORCESHOT_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,11 +21,9 @@
  *
  * @author ExampleAuthor
  */
-class TargetEjectPosition: public Command {
-private:
-    bool _set;
+class ForceShot: public Command {
 public:
-	TargetEjectPosition();
+	ForceShot();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

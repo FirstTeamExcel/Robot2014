@@ -9,31 +9,14 @@
 // it from being updated in th future.
 
 
-#include "CollectorDown.h"
-#include "CollectorEject.h"
-#include "CollectorIdle.h"
-#include "TargetEjectPosition.h"
-#include "TargetLongGoal.h"
-#include "Shoot.h"
+
+#include "SpinLongGoal.h"
+#include "ArmTargetPosition.h"
 #include "ShooterSpinUp.h"
 
-#include "EjectBall.h"
-
-EjectBall::EjectBall() {
-	//Method 1
-	AddSequential(new CollectorDown());
-	AddParallel(new TargetEjectPosition());
-	AddParallel(new CollectorEject());
-	AddParallel(new ShooterSpinUp());
-	
-	//Method 2
-	//AddSequential(new CollectorDown());
-	//AddParallel(new PoweredShot(0.2,1.5));
-	//AddSequential(new TargetLongGoal());
-	//AddSequential(new Shoot());
-	
-	
-	
+SpinLongGoal::SpinLongGoal() {
+    AddSequential(new TargetLongGoal(), 1.0);
+    AddSequential(new ShooterSpinUp());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());

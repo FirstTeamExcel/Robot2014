@@ -9,28 +9,20 @@
 // it from being updated in th future.
 
 
-#ifndef TARGETAUTONOMOUS3_H
-#define TARGETAUTONOMOUS3_H
 
+#ifndef SPINSHORTGOAL_H
+#define SPINSHORTGOAL_H
 
-#include "Commands/Subsystem.h"
-#include "../Robot.h"
+#include "Commands/CommandGroup.h"
 
 /**
  *
  *
  * @author ExampleAuthor
  */
-class TargetAutonomous3: public Command {
-private:
-    bool _set;
-public:
-	TargetAutonomous3();
-	virtual void Initialize();
-	virtual void Execute();
-	virtual bool IsFinished();
-	virtual void End();
-	virtual void Interrupted();
+class SpinShortGoal: public CommandGroup {
+public:	
+	SpinShortGoal();
 };
 
 #endif
