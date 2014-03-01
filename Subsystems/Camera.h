@@ -74,7 +74,6 @@ public:
 	
 	bool SaveImages(const char *baseName, bool verticalOnly);
 	bool SaveImages(const char *baseName, Threshold& th, ParticleFilterCriteria2 *cr, int criteriaCount);
-	bool SaveImages(const char *baseName, bool verticalOnly, bool useHSV);
 	//Stuff from VisionSample2014:
 private:
 	AxisCamera *GetCamera();
