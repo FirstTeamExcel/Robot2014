@@ -11,7 +11,7 @@
 
 
 #include "CatchOpen.h"
-#include "TargetCatch.h"
+#include "ArmTargetPosition.h"
 #include "CollectorDown.h"
 
 CatchOpen::CatchOpen() {

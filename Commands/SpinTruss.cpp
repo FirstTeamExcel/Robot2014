@@ -8,17 +8,16 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 
-#include "LoadBall.h"
-#include "CollectorDown.h"
-#include "TargetLoadPosition.h"
-#include "Collect.h"
+
+
+#include "SpinTruss.h"
+#include "ArmTargetPosition.h"
 #include "ShooterSpinUp.h"
 
-LoadBall::LoadBall() {
-    AddSequential(new CollectorDown());
-    AddSequential(new TargetLoadPosition());
-    AddParallel(new Collect());
-    AddParallel(new ShooterSpinUp());
+SpinTruss::SpinTruss() {
+
+    AddSequential(new TargetTruss(), 1.0);
+    AddSequential(new ShooterSpinUp());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
@@ -35,5 +34,4 @@ LoadBall::LoadBall() {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
-
 }

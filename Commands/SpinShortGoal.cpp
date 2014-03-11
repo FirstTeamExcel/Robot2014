@@ -10,14 +10,13 @@
 
 
 
-#include "TurtleStance.h"
-#include "CollectorUP.h"
+#include "SpinShortGoal.h"
 #include "ArmTargetPosition.h"
-#include "DownShift.h"
+#include "ShooterSpinUp.h"
 
-TurtleStance::TurtleStance() {
-    AddParallel(new DownShift());
-    AddSequential (new CollectorUP());
+SpinShortGoal::SpinShortGoal() {
+    AddSequential(new TargetShortGoal(), 1.0);
+    AddSequential(new ShooterSpinUp());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());

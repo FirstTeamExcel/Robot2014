@@ -40,9 +40,10 @@ bool CollectorEject::IsFinished() {
 }
 // Called once after isFinished returns true
 void CollectorEject::End() {
-	
+	Robot::collector->Idle();
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void CollectorEject::Interrupted() {
+    End();
 }

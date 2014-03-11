@@ -11,8 +11,12 @@
 
 
 #include "CradleEject.h"
+#include "CollectorUP.h"
+#include "CollectorEject.h"
 
 CradleEject::CradleEject() {
+    AddSequential(new CollectorUP());
+    AddSequential(new CollectorEject());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());

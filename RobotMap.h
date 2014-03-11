@@ -30,8 +30,6 @@ public:
 	static DigitalInput* shooterWheelsrightWheelDigitalInput;
 	static DoubleSolenoid* collectorcollectorLifter;
 	static SpeedController* collectorrollerMotor;
-	static SpeedController* blockerblockerWinch;
-	static DigitalInput* blockerraisedLimitSwitch;
 	static DoubleSolenoid* shiftersshiftSolenoid;
 	static DoubleSolenoid* shooterPistonFiringSolenoid;
 	static Compressor* compressorSubsystemTheCompressor;

@@ -16,7 +16,6 @@ DriveSubsystem* Robot::driveSubsystem = 0;
 ShooterArm* Robot::shooterArm = 0;
 ShooterWheels* Robot::shooterWheels = 0;
 Collector* Robot::collector = 0;
-Blocker* Robot::blocker = 0;
 Camera* Robot::camera = 0;
 Shifters* Robot::shifters = 0;
 ShooterPiston* Robot::shooterPiston = 0;
@@ -32,7 +31,6 @@ void Robot::RobotInit()
 	shooterArm = new ShooterArm();
 	shooterWheels = new ShooterWheels();
 	collector = new Collector();
-	blocker = new Blocker();
 	camera = new Camera();
 	shifters = new Shifters();
 	shooterPiston = new ShooterPiston();
@@ -144,16 +142,12 @@ void Robot::DisabledPeriodic()
     SmartDashboard::PutNumber("Left RPM",leftRPM);
     SmartDashboard::PutNumber("Right RPM",rightRPM);
     SmartDashboard::PutNumber("Arm Angle", shooterArm->GetCurrentAngle());
-//    
+    
 //    static bool camPushed = false;
 //    Joystick *op = oi->getoperatorStick();
 //    if (op->GetRawButton(1) && (camPushed == false))
 //    {
 //        camera->SaveImages("hsl_test",false);
-//    }
-//    else if (op->GetRawButton(2) && (camPushed == false))
-//    {
-//        camera->SaveImages("hsv_test",false,true);
 //    }
 //    else
 //    {

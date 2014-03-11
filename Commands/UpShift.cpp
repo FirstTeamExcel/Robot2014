@@ -8,6 +8,7 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 #include "UpShift.h"
+static float _delay = 0.0;
 UpShift::UpShift() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -17,12 +18,16 @@ UpShift::UpShift() {
 }
 // Called just before this Command runs the first time
 void UpShift::Initialize() {
-	
+    _upShiftTimer.Start();
+    _upShiftTimer.Reset();
 }
 // Called repeatedly when this Command is scheduled to run
 void UpShift::Execute() {
 	Shifters *shift = Robot::shifters;
-	shift->ShiftUp();
+	if (_upShiftTimer.HasPeriodPassed(_delay))
+	{
+	    shift->ShiftUp();
+	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool UpShift::IsFinished() {
@@ -30,10 +35,14 @@ bool UpShift::IsFinished() {
 }
 // Called once after isFinished returns true
 void UpShift::End() {
-	
+	_delay = 0.0;
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void UpShift::Interrupted() {
-	
+	End();
+}
+void UpShift::SetDelay(float delay)
+{
+    _delay = delay;
 }

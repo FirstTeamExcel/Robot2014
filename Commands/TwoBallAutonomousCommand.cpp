@@ -8,14 +8,10 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 #include "CollectorDown.h"
-#include "ShooterArmDismount.h"
-#include "TargetAutonomous1.h"
 #include "Shoot.h" 
 #include "DriveTwoFeet.h"
 #include "DriveTwoSeconds.h"
-#include "TargetAutonomous2.h"
-#include "TargetLoadPosition.h"
-#include "TargetTruss.h"
+#include "ArmTargetPosition.h"
 #include "CollectorIdle.h"
 #include "CollectorLoad.h"
 #include "CollectorUP.h"
@@ -24,25 +20,26 @@
 #include "ShooterSetRpm.h"
 #include "LoadBallCommand.h"
 #include "../ShooterWheelsSpeeds.h"
-TwoBallAutonomousCommand::TwoBallAutonomousCommand() {
-	AddSequential(new CollectorDown());
-	AddParallel(new TargetAutonomous2());//1.2s
+TwoBallAutonomousCommand::TwoBallAutonomousCommand()
+{
+    AddSequential(new CollectorDown());
+    AddParallel(new TargetAutonomous2());//1.2s
     AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_2_SPEED));//1.5s
-	AddSequential(new Shoot());//2.2s
+    AddSequential(new Shoot());//2.2s
     AddParallel(new TargetTruss());
     AddParallel(new ShooterSetRpm(0.0));
-//	AddSequential(new LoadBallCommand(),2.0);
-	AddSequential(new CollectorLoad(1.0), 1.5);//4.2s
-	AddSequential(new CollectorUP());
-	AddSequential(new CollectorDown());
-	AddSequential(new TargetLoadPosition());//4.7s
-	AddParallel(new CollectorIdle());
+    //	AddSequential(new LoadBallCommand(),2.0);
+    AddSequential(new CollectorLoad(1.0), 2.0);//4.2s
+    AddSequential(new CollectorUP());
+    AddSequential(new CollectorDown());
+    AddSequential(new TargetLoadPosition());//4.7s
+    AddParallel(new CollectorIdle());
     AddParallel(new ShooterSetRpm(TARGET_AUTONOMOUS_2_SPEED));//6.2s
-	AddSequential(new TargetAutonomous2());
-	AddSequential(new Shoot());//6.9s
+    AddSequential(new TargetAutonomous2());
+    AddSequential(new Shoot());//6.9s
     AddSequential(new ShooterSetRpm(0.0));
     AddSequential(new DriveTwoSeconds());
     AddSequential(new DriveTwoSeconds());
-//    AddSequential(new DriveTwoFeet());
-//    AddSequential(new DriveTwoFeet());
+    //    AddSequential(new DriveTwoFeet());
+    //    AddSequential(new DriveTwoFeet());
 }

@@ -8,15 +8,11 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 #include "CollectorDown.h"
-#include "ShooterArmDismount.h"
-#include "TargetAutonomous1.h"
+#include "ArmTargetPosition.h"
 #include "Shoot.h" 
 #include "DriveTwoFeet.h"
-#include "TargetAutonomous2.h"
-#include "TargetLoadPosition.h"
 #include "CollectorIdle.h"
 #include "CollectorLoad.h"
-#include "TargetAutonomous3.h"
 #include "ThreeBallAutonomousCommand.h"
 #include "ShooterSetRpm.h"
 #include "../ShooterWheelsSpeeds.h"
