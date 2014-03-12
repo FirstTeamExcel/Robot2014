@@ -56,6 +56,7 @@ void Robot::RobotInit()
     
     SmartDashboard::PutNumber("Goal Distance", 0.0);
     SmartDashboard::PutString("Goal Side", "Taco Bell");
+    
 }
 void Robot::AutonomousInit()
 {
@@ -92,48 +93,16 @@ void Robot::TeleopPeriodic()
     SmartDashboard::PutNumber("Left RPM",leftRPM);
     SmartDashboard::PutNumber("Right RPM",rightRPM);
     SmartDashboard::PutNumber("Arm Angle", shooterArm->GetCurrentAngle());
-}
-void Robot::TestPeriodic()
-{
-    lw->Run();
-    float leftRPM, rightRPM;
-    shooterWheels->GetRpm(rightRPM,leftRPM);
-    SmartDashboard::PutNumber("Left RPM",leftRPM);
-    SmartDashboard::PutNumber("Right RPM",rightRPM);
-    SmartDashboard::PutNumber("Arm Angle", shooterArm->GetCurrentAngle());
     
-//    static Timer imageTimer;
-//    
-//    if (imageTimer.Get() == 0.0)
-//        imageTimer.Start();
-//    
-//    if (imageTimer.HasPeriodPassed(1.0))
-//    {
-//        imageTimer.Reset();
-//        SmartDashboard::PutNumber("Goal Distance", camera->DetectDistance());
-//        string side = "";
-//        switch(camera->DetectHotGoal())
-//        {
-//            case Camera::notDetected:
-//                side = "Not Detected";
-//                break;
-//            case Camera::goalLeft:
-//                side = "Left";
-//                break;
-//            case Camera::goalRight:
-//                side = "Right";
-//                break;
-//            case Camera::neverLooked:
-//                side = "Can't Be Bothered";
-//                break;
-//        }
-//        SmartDashboard::PutString("Goal Side", side);
-//    }
 }
+
 void Robot::DisabledInit()
 {
     shooterArm->Disable();
+    camera->ResetHotGoal();
+    camera->ConnectCamera();
 }
+
 void Robot::DisabledPeriodic()
 {
     float leftRPM, rightRPM;
@@ -143,45 +112,48 @@ void Robot::DisabledPeriodic()
     SmartDashboard::PutNumber("Right RPM",rightRPM);
     SmartDashboard::PutNumber("Arm Angle", shooterArm->GetCurrentAngle());
     
-//    static bool camPushed = false;
-//    Joystick *op = oi->getoperatorStick();
-//    if (op->GetRawButton(1) && (camPushed == false))
-//    {
-//        camera->SaveImages("hsl_test",false);
-//    }
-//    else
-//    {
-//        camPushed = false;
-//    }
-    
-    
-//    static Timer imageTimer;
-//    
-//    if (imageTimer.Get() == 0.0)
-//        imageTimer.Start();
-//    
-//    if (imageTimer.HasPeriodPassed(1.0))
-//    {
-//        imageTimer.Reset();
-//        //SmartDashboard::PutNumber("Goal Distance", camera->DetectDistance());
-//        string side = "";
-//        switch(camera->DetectHotGoal())
-//        {
-//            case Camera::notDetected:
-//                side = "Not Detected";
-//                break;
-//            case Camera::goalLeft:
-//                side = "Left";
-//                break;
-//            case Camera::goalRight:
-//                side = "Right";
-//                break;
-//            case Camera::neverLooked:
-//                side = "Can't Be Bothered";
-//                break;
-//        }
-//        SmartDashboard::PutString("Goal Side", side);
-//    }
+    static bool camPushed = false;
+    Joystick *op = oi->getoperatorStick();
+    if (op->GetRawButton(1) && (camPushed == false))
+    {
+        camera->SaveImages("hsl_test",false);
+        camPushed = true;
+    }
+    else if (op->GetRawButton(3) && (camPushed == false))
+    {
+        string side = "";
+        switch(camera->DetectHotGoal())
+        {
+            case Camera::notDetected:
+                side = "Not Detected";
+                break;
+            case Camera::goalLeft:
+                side = "Left";
+                break;
+            case Camera::goalRight:
+                side = "Right";
+                break;
+            case Camera::neverLooked:
+                side = "Can't Be Bothered";
+                break;
+        }
+        SmartDashboard::PutString("Goal Side", side);
+        camPushed = true;
+    }
+    else if (op->GetRawButton(5) && (camPushed == false))
+    {
+        SmartDashboard::PutNumber("Goal Distance", camera->DetectDistance());
+        camPushed = true;
+    }
+    else if ((op->GetRawButton(1) || op->GetRawButton(3) || op->GetRawButton(5)) == false)
+    {
+        camPushed = false;
+    }
+}
+
+void Robot::TestPeriodic()
+{
+    lw->Run();
 }
 START_ROBOT_CLASS(Robot)
 ;
