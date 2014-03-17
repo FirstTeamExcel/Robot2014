@@ -10,13 +10,12 @@
 
 
 
-#include "SpinTruss.h"
+#include "SpinToss.h"
 #include "ArmTargetPosition.h"
 #include "ShooterSpinUp.h"
 
-SpinTruss::SpinTruss() {
-
-    AddParallel(new TargetTruss(), 1.0);
+SpinToss::SpinToss() {
+    AddParallel(new TargetEjectPosition());
     AddSequential(new ShooterSpinUp());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());

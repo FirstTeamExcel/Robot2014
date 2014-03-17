@@ -9,26 +9,14 @@
 // it from being updated in th future.
 
 
-#ifndef SHOOTERWHEELSAUTOTARGET_H
-#define SHOOTERWHEELSAUTOTARGET_H
+
+#include "SpinLoad.h"
+#include "ArmTargetPosition.h"
+#include "ShooterSpinUp.h"
 
 
-#include "Commands/Subsystem.h"
-#include "../Robot.h"
+SpinLoad::SpinLoad() {
 
-/**
- *
- *
- * @author ExampleAuthor
- */
-class ShooterWheelsAutoTarget: public Command {
-public:
-	ShooterWheelsAutoTarget();
-	virtual void Initialize();
-	virtual void Execute();
-	virtual bool IsFinished();
-	virtual void End();
-	virtual void Interrupted();
-};
-
-#endif
+    AddParallel(new TargetLoadPosition());
+    AddSequential(new ShooterSpinUp());
+}

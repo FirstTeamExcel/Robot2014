@@ -15,7 +15,7 @@
 #include "ShooterSpinUp.h"
 
 SpinShortGoal::SpinShortGoal() {
-    AddSequential(new TargetShortGoal(), 1.0);
+    AddParallel(new TargetShortGoal(), 1.0);
     AddSequential(new ShooterSpinUp());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());

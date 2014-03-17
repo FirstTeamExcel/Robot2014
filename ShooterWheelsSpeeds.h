@@ -13,11 +13,11 @@
 #define TARGET_TRUSS_SPEED (2200)
 
 #define TARGET_EJECT_POWER (0.5)
-#define TARGET_LOAD_POWER (-0.8)
+#define TARGET_LOAD_POWER (-0.2)
 
+#define TAKE_BACK_POWER (1.0)
 
 #define TAKE_BACK_TIME (0.4)
-#define TAKE_BACK_POWER (1.0)
 
 //Firing  Parameters
 #define BALL_ESCAPE_TIME (TAKE_BACK_TIME)  //How long the piston remains extended when fired

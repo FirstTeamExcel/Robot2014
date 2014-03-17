@@ -1,3 +1,11 @@
+3/13/14:
+Flipper Code
+Fixed Shot range lights
+Logitech f310
+Potential code for different PID values going upward
+Auto Arm and Speed control 
+
+
 2/15/14:
 Remove EjectBall position and eject ball stuff
 In ShooterSpinUp, change the LoadPosition so that it ejects the ball (sets EjectPower) 

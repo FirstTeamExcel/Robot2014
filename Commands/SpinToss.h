@@ -9,27 +9,20 @@
 // it from being updated in th future.
 
 
-#ifndef SHOOTERTARGETGOAL_H
-#define SHOOTERTARGETGOAL_H
 
+#ifndef SPINTOSS_H
+#define SPINTOSS_H
 
-#include "Commands/Subsystem.h"
-#include "../Robot.h"
+#include "Commands/CommandGroup.h"
 
 /**
  *
  *
  * @author ExampleAuthor
  */
-class ShooterTargetGoal: public Command {
-public:
-	ShooterTargetGoal();
-	virtual void Initialize();
-	virtual void Execute();
-	virtual bool IsFinished();
-	virtual void End();
-	virtual void Interrupted();
-
+class SpinToss: public CommandGroup {
+public:	
+	SpinToss();
 };
 
 #endif

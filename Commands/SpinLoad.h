@@ -10,11 +10,19 @@
 
 
 
-#include "SpinLongGoal.h"
-#include "ArmTargetPosition.h"
-#include "ShooterSpinUp.h"
+#ifndef SPINLOAD_H
+#define SPINLOAD_H
 
-SpinLongGoal::SpinLongGoal() {
-    AddParallel(new TargetLongGoal());
-    AddSequential(new ShooterSpinUp());
-}
+#include "Commands/CommandGroup.h"
+
+/**
+ *
+ *
+ * @author ExampleAuthor
+ */
+class SpinLoad: public CommandGroup {
+public:	
+	SpinLoad();
+};
+
+#endif

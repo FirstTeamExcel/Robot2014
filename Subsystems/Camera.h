@@ -31,13 +31,12 @@
 //Low Resolution
 #define Y_IMAGE_RES 240
 #define X_IMAGE_RES 320
-#define AREA_MINIMUM 37
-#define HEIGHT_MINIMUM 15
 #define X_VIEW_ANGLE 67
 #define X_DEGREES_PER_PIXEL (X_VIEW_ANGLE / X_IMAGE_RES)
+#define AREA_MINIMUM 60
+#define HEIGHT_MINIMUM 20
+#define THRESHOLD_HSV 70, 155, 200, 255, 32, 210
 /**
- *
- *
  * @author ExampleAuthor
  */
 class Camera: public Subsystem, public JankyTask {

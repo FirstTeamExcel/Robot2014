@@ -865,6 +865,30 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
+    - Name: AutoTargetButton
+      Base: Joystick Button
+      Children: []
+      Properties:
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id018
+          value: AutoTarget
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id019
+          default: '1'
+          name: Button
+          validators: null
+          value: '8'
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: operatorStick}
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id020
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whileHeld
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: *id021
@@ -979,14 +1003,6 @@ Children:
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
   - Name: ShooterSpinUp
-    Base: Command
-    Children: []
-    Properties:
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: ShooterWheels}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: false}
-  - Name: ShooterWheelsAutoTarget
     Base: Command
     Children: []
     Properties:
@@ -1218,6 +1234,18 @@ Children:
     Properties:
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
+  - Name: SpinLoad
+    Base: Command Group
+    Children: []
+    Properties:
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: false}
+  - Name: SpinToss
+    Base: Command Group
+    Children: []
+    Properties:
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
   - Name: ForceShot
     Base: Command
     Children: []
