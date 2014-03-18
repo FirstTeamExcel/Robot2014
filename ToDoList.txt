@@ -5,6 +5,13 @@ Logitech f310
 Potential code for different PID values going upward
 Auto Arm and Speed control 
 
+Here is a summary of the flipper logic:
+
+    When we begin collecting or ejecting with the collector, the flippers will lower (if it isn't already down)
+    While we are collecting, when the ball hits the switch the flipper will come up (any other time, the switch would be completely ignored, it's only while we are collecting that we read it at all)
+    When we set the arm to load position, the flipper will come up (if it isn't already up)
+    Starting position will lift the flipper up
+
 
 2/15/14:
 Remove EjectBall position and eject ball stuff
