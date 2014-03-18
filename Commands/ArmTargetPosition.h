@@ -48,7 +48,7 @@ public:
             if (cmd != (Command *)0)
                 cmd->Cancel();
             
-            Robot::collector->MoveCollector(true);
+            Robot::collector->SetCollectorPosition(true);
         }
     }
     

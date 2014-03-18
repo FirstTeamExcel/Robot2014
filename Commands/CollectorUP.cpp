@@ -24,7 +24,7 @@ void CollectorUP::Initialize() {
 void CollectorUP::Execute() {
     if ((Robot::shooterArm->GetCurrentAngle() >= 57.5) && (Robot::shooterArm->GetTargetAngle() >= 57.5))
     {
-        Robot::collector->MoveCollector(false);
+        Robot::collector->SetCollectorPosition(false);
     }
     else if (Robot::shooterArm->GetTargetAngle() < 57.5)
     {

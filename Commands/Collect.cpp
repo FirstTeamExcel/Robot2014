@@ -23,7 +23,7 @@ void Collect::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void Collect::Execute() {
     Collector *col = Robot::collector;
-    col->MoveCollector(true);
+    col->SetCollectorPosition(true);
     col->Pickup();
 }
 // Make this return true when this Command no longer needs to run execute()

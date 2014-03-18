@@ -27,7 +27,7 @@ void EjectBallCommand::Initialize() {
 void EjectBallCommand::Execute() {
     if (Robot::collector->GetState() != Collector::DOWN)
     {
-        Robot::collector->MoveCollector(true);
+        Robot::collector->SetCollectorPosition(true);
     }
     else if ((Robot::collector->GetState() == Collector::DOWN) && (Robot::shooterArm->GetTargetPosition() != ShooterArm::EJECT))
     {

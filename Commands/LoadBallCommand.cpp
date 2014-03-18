@@ -27,7 +27,7 @@ void LoadBallCommand::Initialize() {
 void LoadBallCommand::Execute() {
     if (Robot::collector->GetState() != Collector::DOWN)
     {
-        Robot::collector->MoveCollector(true);
+        Robot::collector->SetCollectorPosition(true);
     }
     else if ((Robot::collector->GetState() == Collector::DOWN) && (Robot::shooterArm->GetTargetPosition() != ShooterArm::LOAD))
     {
