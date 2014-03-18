@@ -30,6 +30,9 @@ public:
 	static DigitalInput* shooterWheelsrightWheelDigitalInput;
 	static DoubleSolenoid* collectorcollectorLifter;
 	static SpeedController* collectorrollerMotor;
+	static DoubleSolenoid* collectorflipperSolenoid;
+	static DigitalInput* collectorflipperSwitch;
+	static Relay* camerarangeGoodLEDs;
 	static DoubleSolenoid* shiftersshiftSolenoid;
 	static DoubleSolenoid* shooterPistonFiringSolenoid;
 	static Compressor* compressorSubsystemTheCompressor;

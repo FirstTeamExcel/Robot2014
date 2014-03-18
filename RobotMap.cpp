@@ -21,6 +21,9 @@ DigitalInput* RobotMap::shooterWheelsleftWheelDigitalInput = NULL;
 DigitalInput* RobotMap::shooterWheelsrightWheelDigitalInput = NULL;
 DoubleSolenoid* RobotMap::collectorcollectorLifter = NULL;
 SpeedController* RobotMap::collectorrollerMotor = NULL;
+DoubleSolenoid* RobotMap::collectorflipperSolenoid = NULL;
+DigitalInput* RobotMap::collectorflipperSwitch = NULL;
+Relay* RobotMap::camerarangeGoodLEDs = NULL;
 DoubleSolenoid* RobotMap::shiftersshiftSolenoid = NULL;
 DoubleSolenoid* RobotMap::shooterPistonFiringSolenoid = NULL;
 Compressor* RobotMap::compressorSubsystemTheCompressor = NULL;
@@ -65,6 +68,15 @@ void RobotMap::init() {
 	
 	collectorrollerMotor = new Victor(1, 6);
 	lw->AddActuator("Collector", "rollerMotor", (Victor*) collectorrollerMotor);
+	
+	collectorflipperSolenoid = new DoubleSolenoid(1, 7, 8);      
+	
+	
+	collectorflipperSwitch = new DigitalInput(1, 2);
+	lw->AddSensor("Collector", "flipperSwitch", collectorflipperSwitch);
+	
+	camerarangeGoodLEDs = new Relay(1, 2);
+	lw->AddActuator("Camera", "rangeGoodLEDs", camerarangeGoodLEDs);
 	
 	shiftersshiftSolenoid = new DoubleSolenoid(1, 1, 2);      
 	
