@@ -61,8 +61,8 @@ void Camera::Run(void)
     if (camera->IsFreshImage())
     {
         float distance = DetectDistance();
-        if (distance > 0.0)
-            _distance = distance;
+		_distance = distance;
+        UpdateRangeLEDs(distance);
     }
 }
 float Camera::DetectDistance()
@@ -642,3 +642,23 @@ double Camera::centerXToScore(ParticleAnalysisReport *report)
     printf("centerX = %f\n",centerXScore);
     return centerXScore;
 }
+
+void Camera::SetIdealRange(float min_distance, float max_distance)
+{
+	_maxShootingDistance = max_distance;
+	_minShootingDistance = min_distance;
+}
+
+void Camera::UpdateRangeLEDs(float _distance)
+{
+	
+	if (_distance <= _maxShootingDistance && _distance >= _minShootingDistance)
+	{
+		rangeGoodLEDs->Set(Relay::kForward);
+	}
+	else
+	{
+		rangeGoodLEDs->Set(Relay::kReverse);
+	}
+}
+
