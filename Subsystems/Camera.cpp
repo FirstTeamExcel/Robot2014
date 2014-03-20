@@ -642,13 +642,11 @@ double Camera::centerXToScore(ParticleAnalysisReport *report)
     printf("centerX = %f\n",centerXScore);
     return centerXScore;
 }
-
 void Camera::SetIdealRange(float min_distance, float max_distance)
 {
 	_maxShootingDistance = max_distance;
 	_minShootingDistance = min_distance;
 }
-
 void Camera::UpdateRangeLEDs(float _distance)
 {
 	
@@ -661,4 +659,3 @@ void Camera::UpdateRangeLEDs(float _distance)
 		rangeGoodLEDs->Set(Relay::kReverse);
 	}
 }
-
