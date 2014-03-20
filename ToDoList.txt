@@ -1,3 +1,9 @@
+3/20/14
+Add CollectThenFlip which puts the flipper down when the command starts, and back up when it ends
+Add CollectUntilTrigger which puts the flipper down when the command starts, and ends the command when it is triggered. Flipper should be up at the end, 
+Add Gyro and encoders back to drivetrain
+DriveTwoBall
+
 3/13/14:
 Flipper Code
 Fixed Shot range lights
