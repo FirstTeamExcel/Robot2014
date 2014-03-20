@@ -2,6 +2,7 @@
 Flipper Code
 Fixed Shot range lights
 Logitech f310
+Remove image printf's
 Potential code for different PID values going upward
 Auto Arm and Speed control 
 

@@ -399,25 +399,25 @@ bool Camera::SaveImages(const char *baseName, bool verticalOnly)
     sprintf(fileName, "%s_raw.bmp", baseName);
     image->Write(fileName);
 //    image->Write("test_raw.bmp");
-//    BinaryImage *hslImage = image->ThresholdHSL(90, 115,30, 255, 70, 255);
-//    
-//    
-//    sprintf(fileName, "%s_thresh_hsl.bmp", baseName);
-//    thresholdImage->Write(fileName);
-////    hslImage->Write("test_thresh_hsl.bmp");
-//    
-//    convexHullImage = hslImage->ConvexHull(false);
-//    if (verticalOnly == true)
-//        filteredImage = convexHullImage->ParticleFilter(vertCriteria, 2);
-//    else
-//        filteredImage = convexHullImage->ParticleFilter(criteria, 1);
-//    
-//    sprintf(fileName, "%s_filter_hsl.bmp", baseName);
-//    filteredImage->Write(fileName);
-////    filteredImage->Write("test_filter_hsl.bmp");
-//    delete hslImage;
-//    delete filteredImage;
-//    delete convexHullImage;
+    BinaryImage *hslImage = image->ThresholdHSL(90, 115,30, 255, 70, 255);
+    
+    
+    sprintf(fileName, "%s_thresh_hsl.bmp", baseName);
+    hslImage->Write(fileName);
+//    hslImage->Write("test_thresh_hsl.bmp");
+    
+    convexHullImage = hslImage->ConvexHull(false);
+    if (verticalOnly == true)
+        filteredImage = convexHullImage->ParticleFilter(vertCriteria, 2);
+    else
+        filteredImage = convexHullImage->ParticleFilter(criteria, 1);
+    
+    sprintf(fileName, "%s_filter_hsl.bmp", baseName);
+    filteredImage->Write(fileName);
+//    filteredImage->Write("test_filter_hsl.bmp");
+    delete hslImage;
+    delete filteredImage;
+    delete convexHullImage;
     
     BinaryImage *hsvImage = image->ThresholdHSV(threshold);
     sprintf(fileName, "%s_filter_hsv.bmp", baseName);
@@ -438,6 +438,7 @@ bool Camera::SaveImages(const char *baseName, bool verticalOnly)
     delete image;
     return true;
 }
+
 bool Camera::SaveImages(const char *baseName, Threshold& th, ParticleFilterCriteria2 *cr, int criteriaCount)
 {
     char fileName[40];

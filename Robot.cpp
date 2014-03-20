@@ -113,9 +113,27 @@ void Robot::DisabledPeriodic()
     
     static bool camPushed = false;
     Joystick *op = oi->getoperatorStick();
+    
+    DriverStation *ds = DriverStation::GetInstance();
+    static short prevButtonMap = 0;
+    short buttonMap = ds->GetStickButtons(3);
+    if (buttonMap != prevButtonMap)
+    {
+        printf("Button map %d",buttonMap);
+
+        for (int i = 0; i < 16; i++)
+        {
+            if (op->GetRawButton(i))
+            {
+                    printf("button %d pressed", i);
+            }
+        }
+        prevButtonMap = buttonMap;
+    }
+    
     if (op->GetRawButton(1) && (camPushed == false))
     {
-        camera->SaveImages("hsl_test",false);
+        camera->SaveImages("test",false);
         camPushed = true;
     }
     else if (op->GetRawButton(3) && (camPushed == false))
