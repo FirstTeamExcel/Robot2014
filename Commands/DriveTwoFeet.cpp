@@ -23,11 +23,11 @@ void DriveTwoFeet::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void DriveTwoFeet::Execute() {
-	DriveSubsystem *drive = Robot::driveSubsystem;
-		if (_isFinished == false)
-		{
-			_isFinished = drive->DriveStraight(24.0);
-		}
+//	DriveSubsystem *drive = Robot::driveSubsystem;
+//		if (_isFinished == false)
+//		{
+//			_isFinished = drive->DriveStraight(24.0);
+//		}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool DriveTwoFeet::IsFinished() {
