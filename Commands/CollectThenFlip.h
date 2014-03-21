@@ -22,8 +22,10 @@
  * @author ExampleAuthor
  */
 class CollectThenFlip: public Command {
+private:
+	float _power;
 public:
-	CollectThenFlip();
+	CollectThenFlip(float power = 0.0);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
