@@ -25,19 +25,26 @@ DriveTwoSeconds::DriveTwoSeconds() {
 void DriveTwoSeconds::Initialize() {
 	driveTimer.Reset();
 	driveTimer.Start(); //Start the timer
+	Robot::driveSubsystem->driveGyro->Reset();
 }
 
 // Called repeatedly when this Command is scheduled to run
 void DriveTwoSeconds::Execute() {
 		//Drive
+	
+	
 	if (driveTimer.Get() < 2.0)
 	{
-	    Robot::driveSubsystem->theDriveTrain->Drive(0.5,0.0);
+	    Robot::driveSubsystem->DriveStraight(0.5);
+	    
+	    
 	}
 	else
 	{
 		Robot::driveSubsystem->theDriveTrain->Drive(0.0,0.0);
 	}
+	
+	
 	//	if (_isFinished = false)
 //		{
 //			Robot::driveSubsystem->FunWithTimers();

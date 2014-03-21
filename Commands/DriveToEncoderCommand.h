@@ -22,8 +22,10 @@
  * @author ExampleAuthor
  */
 class DriveToEncoderCommand: public Command {
+private:
+	float _stopEncoderCount;
 public:
-	DriveToEncoderCommand();
+	DriveToEncoderCommand(int encoderCount);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
