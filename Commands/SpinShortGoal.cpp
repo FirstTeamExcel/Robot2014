@@ -16,7 +16,9 @@
 
 SpinShortGoal::SpinShortGoal() {
     AddParallel(new TargetShortGoal(), 1.0);
+    AddParallel(new CollectorUP());
     AddSequential(new ShooterSpinUp());
+    
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
