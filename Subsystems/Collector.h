@@ -11,8 +11,10 @@
 #define COLLECTOR_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
-#define TIME_TRAVELING_UP 0.5
-#define TIME_TRAVELING_DOWN 0.3
+#define COLLECTOR_TIME_TRAVELING_UP 0.5
+#define COLLECTOR_TIME_TRAVELING_DOWN 0.3
+#define FLIPPER_TIME_TRAVELING_UP 0.2
+#define FLIPPER_TIME_TRAVELING_DOWN 0.2
 /**
  *
  *
@@ -40,7 +42,8 @@ public:
 	void Idle();
 	typedef enum {IDLE,UP,DOWN,TRAVELING_UP,TRAVELING_DOWN}CollectorState;
 	CollectorState GetState();
-	bool SetFlipperBool();
+	typedef enum {F_IDLE,F_UP,F_DOWN,F_TRAVELING_UP,F_TRAVELING_DOWN}FlipperState;
+	FlipperState GetFlipperState();
 //	void HandleSwitchInterrupt(uint32_t interruptAssertedMask, void *param);
 };
 #endif
