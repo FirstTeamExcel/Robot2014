@@ -26,7 +26,15 @@ void CheesyDrive::Execute() {
     float ohSoCheesy=Robot::oi->getrightDriveStick()->GetY();
     float wowThatsCheesy=Robot::oi->getleftDriveStick()->GetX();
     Robot::driveSubsystem->theDriveTrain->ArcadeDrive(-ohSoCheesy, wowThatsCheesy);
-	
+    
+//    float twist = logitechF310temp.GetTwist();//this should be the right stick forward/back
+//    float x = logitechF310temp.GetX();
+//    float y = logitechF310temp.GetY();
+//    float z = logitechF310temp.GetZ();
+//    printf("x: %f\ty: %f\tz: %f\n",x,y,z);
+    
+    
+//    Robot::driveSubsystem->theDriveTrain->ArcadeDrive(-logitechF310temp.GetY(),logitechF310temp.GetZ());
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CheesyDrive::IsFinished() {
@@ -39,4 +47,28 @@ void CheesyDrive::End() {
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void CheesyDrive::Interrupted() {
+}
+
+float CheesyDrive::GetThrottle()
+{
+    if (Robot::oi->IsDriverUsingController())
+    {
+        return -(Robot::oi->getdriveController()->GetY());
+    }
+    else
+    {
+        return -(Robot::oi->getrightDriveStick()->GetY());
+    }
+}
+
+float CheesyDrive::GetSteering()
+{
+    if (Robot::oi->IsDriverUsingController())
+    {
+        return Robot::oi->getdriveController()->GetZ();
+    }
+    else
+    {
+        return Robot::oi->getleftDriveStick()->GetX();
+    }
 }

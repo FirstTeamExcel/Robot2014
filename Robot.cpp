@@ -120,7 +120,6 @@ void Robot::DisabledPeriodic()
     if (buttonMap != prevButtonMap)
     {
         printf("Button map %d",buttonMap);
-
         for (int i = 0; i < 16; i++)
         {
             if (op->GetRawButton(i))

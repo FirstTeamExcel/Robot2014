@@ -1,3 +1,14 @@
+Short shot should also lift collector
+Implement inverted cheesy
+Reenable low gear while spin up; add a toggle so that the low gear button becomes a high gear button
+Add collector spit/collect button to the drive controls b and y
+DriveToEncoder needs to use abs(sensorCount) rather than the raw value, this way the direction doesn't matter
+CollectThenFlip should check the trigger in execute and end, if the trigger is never hit don't lift the flipper 'isHit = flipperTrigger.Get()' 'if (isHit) flipper.Set(up)'
+Implement ManualRollerControl, which should lower the flipper, then read the operator joystick to control rollers, this can serve as a manual flipper down button as well
+Implement ManualFlipperUp command, which is pretty self explanitory.
+CollectUntilTrigger should inherit CollectThenFlip, and should override IsFinished to check hasTriggered; and should unconditionally raise the flipper in the interrupt routine.
+
+
 3/20/14
 Add CollectThenFlip which puts the flipper down when the command starts, and back up when it ends
 Add CollectUntilTrigger which puts the flipper down when the command starts, and ends the command when it is triggered. Flipper should be up at the end, 

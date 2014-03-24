@@ -9,8 +9,8 @@
 // it from being updated in th future.
 
 
-#ifndef CHEESYDRIVE_H
-#define CHEESYDRIVE_H
+#ifndef MANUALROLLERCONTROL_H
+#define MANUALROLLERCONTROL_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,19 +21,14 @@
  *
  * @author ExampleAuthor
  */
-class CheesyDrive: public Command {
+class ManualRollerControl: public Command {
 public:
-	CheesyDrive();
+	ManualRollerControl();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
-	
-	
-	virtual float GetThrottle();
-	virtual float GetSteering();
-	
 };
 
 #endif

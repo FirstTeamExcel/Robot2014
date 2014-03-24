@@ -76,7 +76,7 @@ float Camera::DetectDistance()
     {
         return -1.0;
     }
-    printf("distance image found \n");    
+    //printf("distance image found \n");    
     //Filter the image
     filteredImage = FilterImage(image, true);
     //Delete the ColorImage from memory, we only need the filtered image now
@@ -101,7 +101,7 @@ float Camera::DetectDistance()
     int bestTargetIndex = -1;   //Initialize this to -1, because the 0'th particle could be the best
     double bestTargetScore = 0;
     double distance = 0.0;
-    printf("Report count: %d\n",reports->size());
+    //printf("Report count: %d\n",reports->size());
     
     //Check to see if any particles were found
     if (reports->size() > 0)
@@ -115,7 +115,7 @@ float Camera::DetectDistance()
             //If the report is not null, analyze it
             if (report != (void *)0)
             {
-                printf("scoring particle %d\n",i);
+                //printf("scoring particle %d\n",i);
                 //Compute a score to indicate how rectangular the particle is
                 scores[i].rectangularity = scoreRectangularity(report);
                 //Compute a score on how close we are to the ideal aspect ratio for a vertical target
@@ -127,8 +127,8 @@ float Camera::DetectDistance()
                 //Add the scores
                 double totalScore = scores[i].aspectRatioVertical + scores[i].rectangularity + centerednessScore;
                 
-                printf("particle: %d is a Horizontal Target centerX: %d centerY: %d \n", i, report->center_mass_x, report->center_mass_y);
-                printf("Scores rect: %f ARvert: %f \n", scores[i].rectangularity, scores[i].aspectRatioVertical);
+                //printf("particle: %d is a Horizontal Target centerX: %d centerY: %d \n", i, report->center_mass_x, report->center_mass_y);
+                //printf("Scores rect: %f ARvert: %f \n", scores[i].rectangularity, scores[i].aspectRatioVertical);
     
                 //Check to see if this particle's score is the best one so far (find the best particle that looks like the vertical target)
                 if ((totalScore > bestTargetScore) && (scoreCompare(scores[i], true)))
@@ -151,15 +151,15 @@ float Camera::DetectDistance()
             //                         \ |
             //                          \|  <- visionTargetAngle
             //                           0 <- camera, facing directly ahead of the robot
-            printf("compute distance\n");
+            //printf("compute distance\n");
             
             //Compute the distance between the camera and the vision target
             double visionTargetDistance = computeDistance(filteredImage,&(reports->at(bestTargetIndex))); //Hypotenuse of our triangle
-            printf("computed distance:%f\n",visionTargetDistance);
+            //printf("computed distance:%f\n",visionTargetDistance);
             
             //Compute the angle of the vision target from the center of the camera
             double visionTargetAngle = computeAngle(&(reports->at(bestTargetIndex)));
-            printf("computed angle:%f\n",visionTargetAngle);
+            //printf("computed angle:%f\n",visionTargetAngle);
             
             //Using the distance and angle to the vision target, we can compute the distance to the wall
             distance = cos(visionTargetAngle * (PI/180)) * visionTargetDistance;//Compute the distance 
@@ -171,7 +171,7 @@ float Camera::DetectDistance()
     //reports->clear();//If we have memory leaks, this will be the first thing to try, but the destructor SHOULD take care of the contents
     delete reports;
     
-    printf("Detected Distance: %f \n",distance);
+    //printf("Detected Distance: %f \n",distance);
     return distance;
 }
  
@@ -187,7 +187,7 @@ Camera::hotGoalSide Camera::DetectHotGoal()
         return neverLooked;
     }
     
-    printf("hot image found \n");
+    //printf("hot image found \n");
     //Filter the image
     filteredImage = FilterImage(image);   
     //Delete the ColorImage from memory, we only need the filtered image now
@@ -212,7 +212,7 @@ Camera::hotGoalSide Camera::DetectHotGoal()
     int horizontalTargets[MAX_PARTICLES];
     int verticalTargetCount = 0;
     int horizontalTargetCount = 0;
-    printf("Report count: %d\n",reports->size());
+    //printf("Report count: %d\n",reports->size());
     //Check to see if any particles were found
     if (reports->size() > 0)
     {
@@ -237,7 +237,7 @@ Camera::hotGoalSide Camera::DetectHotGoal()
             //Check if the particle is a horizontal target
             if (scoreCompare(scores[i], false))
             {
-                printf("particle: %d is a Horizontal Target centerX: %d centerY: %d \n", i, report->center_mass_x, report->center_mass_y);
+//                printf("particle: %d is a Horizontal Target centerX: %d centerY: %d \n", i, report->center_mass_x, report->center_mass_y);
                 
                 //Save the index of this particle report/score as a horizontal target; increment the horizontal target count to keep track of how many we have found
                 horizontalTargets[horizontalTargetCount++] = i;
@@ -245,17 +245,17 @@ Camera::hotGoalSide Camera::DetectHotGoal()
             //Else, Check if the particle is a vertical target
             else if (scoreCompare(scores[i], true))
             {
-                printf("particle: %d is a Vertical Target centerX: %d centerY: %d \n", i, report->center_mass_x, report->center_mass_y);
+//                printf("particle: %d is a Vertical Target centerX: %d centerY: %d \n", i, report->center_mass_x, report->center_mass_y);
                 //Save the index of this particle report/score as a vertical target; increment the vertical target count to keep track of how many we have found
                 verticalTargets[verticalTargetCount++] = i;
             }
             //Else, not a target at all, its index isn't saved as a target
             else
             {
-                printf("particle: %d is not a Target centerX: %d centerY: %d \n", i, report->center_mass_x, report->center_mass_y);
+//                printf("particle: %d is not a Target centerX: %d centerY: %d \n", i, report->center_mass_x, report->center_mass_y);
             }
-            printf("Scores rect: %f ARvert: %f \n", scores[i].rectangularity, scores[i].aspectRatioVertical);
-            printf("ARhoriz: %f \n", scores[i].aspectRatioHorizontal);
+//            printf("Scores rect: %f ARvert: %f \n", scores[i].rectangularity, scores[i].aspectRatioVertical);
+//            printf("ARhoriz: %f \n", scores[i].aspectRatioHorizontal);
         }
         
         //Zero out scores and set verticalIndex to first target in case there are no horizontal targets
@@ -381,10 +381,10 @@ Camera::hotGoalSide Camera::DetectHotGoal()
     //reports->clear();//If we have memory leaks, this will be the first thing to try, but the destructor SHOULD take care of the contents
     delete reports;
     
-    printf("Detected Side: %d",_detectedSide);
+//    printf("Detected Side: %d",_detectedSide);
     return _detectedSide;
 }
-bool Camera::SaveImages(const char *baseName, bool verticalOnly)
+bool Camera::SaveImages(const char *baseName, bool verticalOnly, bool rawOnly)
 {
     char fileName[40];
     BinaryImage *filteredImage;
@@ -398,47 +398,57 @@ bool Camera::SaveImages(const char *baseName, bool verticalOnly)
     }    
     sprintf(fileName, "%s_raw.bmp", baseName);
     image->Write(fileName);
+    
+    if (rawOnly)
+    {
+        delete image;
+        return true;
+    }
 //    image->Write("test_raw.bmp");
-    BinaryImage *hslImage = image->ThresholdHSL(90, 115,30, 255, 70, 255);
-    
-    
-    sprintf(fileName, "%s_thresh_hsl.bmp", baseName);
-    hslImage->Write(fileName);
-//    hslImage->Write("test_thresh_hsl.bmp");
-    
-    convexHullImage = hslImage->ConvexHull(false);
-    if (verticalOnly == true)
-        filteredImage = convexHullImage->ParticleFilter(vertCriteria, 2);
-    else
-        filteredImage = convexHullImage->ParticleFilter(criteria, 1);
-    
-    sprintf(fileName, "%s_filter_hsl.bmp", baseName);
-    filteredImage->Write(fileName);
-//    filteredImage->Write("test_filter_hsl.bmp");
-    delete hslImage;
-    delete filteredImage;
-    delete convexHullImage;
-    
+//    BinaryImage *hslImage = image->ThresholdHSL(90, 115,30, 255, 70, 255);
+//
+//    printf("%d\n",i++);
+//    
+//    sprintf(fileName, "%s_thresh_hsl.bmp", baseName);
+//    hslImage->Write(fileName);
+//    printf("%d\n",i++);
+////    hslImage->Write("test_thresh_hsl.bmp");
+//    
+//    convexHullImage = hslImage->ConvexHull(false);
+//    printf("%d\n",i++);
+//    delete hslImage;
+//    printf("%d\n",i++);
+//    if (verticalOnly == true)
+//        filteredImage = convexHullImage->ParticleFilter(vertCriteria, 2);
+//    else
+//        filteredImage = convexHullImage->ParticleFilter(criteria, 1);
+//
+//    printf("%d\n",i++);
+//    delete convexHullImage;
+//    printf("%d\n",i++);
+//    sprintf(fileName, "%s_filter_hsl.bmp", baseName);
+//    filteredImage->Write(fileName);
+////    filteredImage->Write("test_filter_hsl.bmp");
+//    delete filteredImage;
     BinaryImage *hsvImage = image->ThresholdHSV(threshold);
-    sprintf(fileName, "%s_filter_hsv.bmp", baseName);
+    sprintf(fileName, "%s_thresh_hsv.bmp", baseName);
     filteredImage->Write(fileName);
 //    hsvImage->Write("test_thresh_hsv.bmp");
     convexHullImage = hsvImage->ConvexHull(false);
+    delete hsvImage;
     if (verticalOnly == true)
         filteredImage = convexHullImage->ParticleFilter(vertCriteria, 2);
     else
         filteredImage = convexHullImage->ParticleFilter(criteria, 1);
     
+    delete convexHullImage;
     sprintf(fileName, "%s_filter_hsv.bmp", baseName);
     filteredImage->Write(fileName);
 //    filteredImage->Write("test_filter_hsv.bmp");
     delete filteredImage;
-    delete convexHullImage;
-    delete hsvImage;
     delete image;
     return true;
 }
-
 bool Camera::SaveImages(const char *baseName, Threshold& th, ParticleFilterCriteria2 *cr, int criteriaCount)
 {
     char fileName[40];

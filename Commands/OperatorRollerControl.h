@@ -9,31 +9,20 @@
 // it from being updated in th future.
 
 
-#ifndef CHEESYDRIVE_H
-#define CHEESYDRIVE_H
 
+#ifndef OPERATORROLLERCONTROL_H
+#define OPERATORROLLERCONTROL_H
 
-#include "Commands/Subsystem.h"
-#include "../Robot.h"
+#include "Commands/CommandGroup.h"
 
 /**
  *
  *
  * @author ExampleAuthor
  */
-class CheesyDrive: public Command {
-public:
-	CheesyDrive();
-	virtual void Initialize();
-	virtual void Execute();
-	virtual bool IsFinished();
-	virtual void End();
-	virtual void Interrupted();
-	
-	
-	virtual float GetThrottle();
-	virtual float GetSteering();
-	
+class OperatorRollerControl: public CommandGroup {
+public:	
+	OperatorRollerControl();
 };
 
 #endif
