@@ -15,13 +15,15 @@
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
+#include "CollectThenFlip.h"
+
 
 /**
  *
  *
  * @author ExampleAuthor
  */
-class CollectUntilTrigger: public Command {
+class CollectUntilTrigger : public CollectThenFlip{
 public:
 	CollectUntilTrigger();
 	virtual void Initialize();

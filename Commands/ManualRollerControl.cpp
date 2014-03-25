@@ -21,7 +21,7 @@ ManualRollerControl::ManualRollerControl() {
 
 // Called just before this Command runs the first time
 void ManualRollerControl::Initialize() {
-	
+	Robot::collector->SetFlipperPosition(true);
 }
 
 // Called repeatedly when this Command is scheduled to run
