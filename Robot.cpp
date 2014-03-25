@@ -101,6 +101,7 @@ void Robot::DisabledInit()
     shooterArm->Disable();
     camera->ResetHotGoal();
     camera->ConnectCamera();
+    camera->EnableDistanceChecking();
 }
 void Robot::DisabledPeriodic()
 {
@@ -110,6 +111,7 @@ void Robot::DisabledPeriodic()
     SmartDashboard::PutNumber("Left RPM",leftRPM);
     SmartDashboard::PutNumber("Right RPM",rightRPM);
     SmartDashboard::PutNumber("Arm Angle", shooterArm->GetCurrentAngle());
+    SmartDashboard::PutNumber("Goal Distance", camera->GetDistance());
     
     static bool camPushed = false;
     Joystick *op = oi->getoperatorStick();
@@ -158,7 +160,6 @@ void Robot::DisabledPeriodic()
     }
     else if (op->GetRawButton(5) && (camPushed == false))
     {
-        SmartDashboard::PutNumber("Goal Distance", camera->DetectDistance());
         camPushed = true;
     }
     else if ((op->GetRawButton(1) || op->GetRawButton(3) || op->GetRawButton(5)) == false)

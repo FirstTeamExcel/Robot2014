@@ -36,8 +36,10 @@ void DriveToEncoderCommand::Execute() {
 }
 // Make this return true when this Command no longer needs to run execute()
 bool DriveToEncoderCommand::IsFinished() {
-	//return true if encoder counts of the encoder are greater than encoderCount passed into the constructor 
-	if ((Robot::driveSubsystem->rightEncoder->Get() > _stopEncoderCount) && (Robot::driveSubsystem->leftEncoder->Get() > _stopEncoderCount))
+	//return true if encoder counts of the encoder are greater than encoderCount passed into the constructor
+    int32_t left = abs(Robot::driveSubsystem->leftEncoder->Get());
+    int32_t right = abs(Robot::driveSubsystem->rightEncoder->Get() );
+	if ((right > _stopEncoderCount) && (left > _stopEncoderCount))
 	{
 		return true;
 	}

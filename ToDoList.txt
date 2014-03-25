@@ -1,3 +1,7 @@
+Add UpShift/DownShift buttons to Driver 11 and 12 buttons (back and start, double check) make them when-pressed
+
+
+
 Short shot should also lift collector
 Implement inverted cheesy
 Reenable low gear while spin up; add a toggle so that the low gear button becomes a high gear button

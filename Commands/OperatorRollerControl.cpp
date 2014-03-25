@@ -11,8 +11,12 @@
 
 
 #include "OperatorRollerControl.h"
+#include "ManualFlipperDown.h"
+#include "ManualRollerControl.h"
 
 OperatorRollerControl::OperatorRollerControl() {
+    AddSequential(new ManualFlipperDown());
+    AddSequential(new ManualRollerControl());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
