@@ -21,14 +21,12 @@
  *
  * @author ExampleAuthor
  */
-class InvertedCheesy: public Command {
+class InvertedCheesy: public CheesyDrive {
 public:
 	InvertedCheesy();
-	virtual void Initialize();
-	virtual void Execute();
-	virtual bool IsFinished();
-	virtual void End();
-	virtual void Interrupted();
+	virtual float GetThrottle();
+	virtual float GetSteering();
+	
 };
 
 #endif
