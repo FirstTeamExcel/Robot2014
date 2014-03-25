@@ -31,6 +31,12 @@ void CollectThenFlip::Execute() {
 	    {
 	        Robot::collector->Pickup();
 	    }
+	
+	bool unflappable = Robot::collector->flipperSwitch->Get();
+	if (unflappable)
+	{
+		Robot::collector->SetFlipperPosition(false);
+	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CollectThenFlip::IsFinished() {
