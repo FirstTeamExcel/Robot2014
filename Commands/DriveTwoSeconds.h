@@ -23,10 +23,10 @@
  */
 class DriveTwoSeconds: public Command {
 private:
-	bool _isFinished;
+	float _driveTime;
 	Timer driveTimer;
 public:
-	DriveTwoSeconds();
+	DriveTwoSeconds(float time = 2.0);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

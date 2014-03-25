@@ -27,6 +27,10 @@ void ManualRollerControl::Execute() {
 	{
 	    Robot::collector->rollerMotor->Set(y);
 	}
+	else
+	{
+	    Robot::collector->rollerMotor->Set(0.0);	    
+	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ManualRollerControl::IsFinished() {

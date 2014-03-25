@@ -13,8 +13,10 @@
 #include "CradleEject.h"
 #include "CollectorUP.h"
 #include "CollectorEject.h"
+#include "ManualFlipperDown.h"
 
 CradleEject::CradleEject() {
+    AddParallel(new ManualFlipperDown());
     AddSequential(new CollectorUP());
     AddSequential(new CollectorEject());
 	// Add Commands here:

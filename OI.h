@@ -24,7 +24,6 @@ private:
 	JoystickButton* ballShoot;
 	JoystickButton* downCollector;
 	JoystickButton* upCollector;
-	JoystickButton* downShift;
 	Joystick* operatorStick;
 	JoystickButton* autoTargetButton;
 	JoystickButton* catcherClose;
@@ -34,8 +33,8 @@ private:
 	JoystickButton* targetShortShot;
 	JoystickButton* targetLongShot;
 	JoystickButton* tossBall;
-	JoystickButton* cradleEjectButton;
-	JoystickButton* alsoCollectorDown;
+	JoystickButton* rollerControl;
+	JoystickButton* flipperUp;
 	JoystickButton* forceShotButton;
 	JoystickButton* alsoShootBall;
 	Joystick* rightDriveStick;

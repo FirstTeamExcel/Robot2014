@@ -54,9 +54,12 @@ void ShooterSpinUp::Execute() {
 	case ShooterArm::AUTONOMOUS_2:
 		Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_2_SPEED);
 		break;
-	case ShooterArm::AUTONOMOUS_3:
-		Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_3_SPEED);
-		break;
+    case ShooterArm::AUTONOMOUS_3:
+        Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_3_SPEED);
+        break;
+    case ShooterArm::AUTONOMOUS_CLOSE:
+        Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_CLOSE_SPEED);
+        break;
 	default:
         Robot::shooterWheels->SetTargetRpm(0.0);
 		break;

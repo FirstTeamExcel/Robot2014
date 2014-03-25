@@ -66,6 +66,10 @@ class TargetAutonomous3: public ArmTargetCollectorRestrictedPosition {
 public:
     TargetAutonomous3():ArmTargetCollectorRestrictedPosition(ShooterArm::AUTONOMOUS_3){}
 };
+class TargetAutonomousClose: public ArmTargetCollectorRestrictedPosition {
+public:
+    TargetAutonomousClose():ArmTargetCollectorRestrictedPosition(ShooterArm::AUTONOMOUS_3){}
+};
 class TargetTruss: public ArmTargetPosition {
 public:
     TargetTruss():ArmTargetPosition(ShooterArm::TRUSS){}
@@ -86,7 +90,7 @@ class TargetLongGoal: public ArmTargetCollectorRestrictedPosition {
 public:
     TargetLongGoal():ArmTargetCollectorRestrictedPosition(ShooterArm::LONG_GOAL){}
 };
-class TargetShortGoal: public ArmTargetCollectorRestrictedPosition {
+class TargetShortGoal: public ArmTargetPosition {
 public:
     TargetShortGoal():ArmTargetPosition(ShooterArm::SHORT_GOAL){}
 };

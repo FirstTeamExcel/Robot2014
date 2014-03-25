@@ -15,15 +15,16 @@
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
+#include "CollectorLoad.h"
 
 /**
  *
  *
  * @author ExampleAuthor
  */
-class Collect: public Command {
+class Collect: public CollectorLoad {
 public:
-	Collect();
+	Collect(float power = 0.0);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

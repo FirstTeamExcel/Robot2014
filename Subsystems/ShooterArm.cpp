@@ -147,6 +147,10 @@ void ShooterArm::SetTargetPosition(ShooterArm::ShooterArmPosition position)
                 _stage_2_tolerance = 1.0;
                 SetTargetAngle(ARM_TARGET_AUTONOMOUS_3);
                 break;
+            case ShooterArm::AUTONOMOUS_CLOSE:
+                _stage_2_tolerance = 1.0;
+                SetTargetAngle(ARM_TARGET_AUTONOMOUS_CLOSE);
+                break;
             default:
                 SetTargetAngle(ARM_TARGET_LONG_GOAL);
                 break;

@@ -15,15 +15,15 @@
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
-
+#include "Collect.h"
 /**
  *
  *
  * @author ExampleAuthor
  */
-class CollectThenFlip: public Command {
+class CollectThenFlip: public Collect {
 private:
-	float _power;
+	bool _wasTriggered;
 public:
 	CollectThenFlip(float power = 0.0);
 	virtual void Initialize();

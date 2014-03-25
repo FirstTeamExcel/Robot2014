@@ -33,7 +33,7 @@
  */
 class ShooterArm: public PIDSubsystem {
 public:
-    typedef enum {LOAD,EJECT,LONG_GOAL,SHORT_GOAL,TRUSS,AUTONOMOUS_1,AUTONOMOUS_2,AUTONOMOUS_3, CATCH, CUSTOM}ShooterArmPosition;
+    typedef enum {LOAD,EJECT,LONG_GOAL,SHORT_GOAL,TRUSS,AUTONOMOUS_1,AUTONOMOUS_2,AUTONOMOUS_3,AUTONOMOUS_CLOSE, CATCH, CUSTOM}ShooterArmPosition;
  private:
 	float _targetAngle;
 	float _bothStage_P;

@@ -11,22 +11,27 @@
 
 
 #include "DriveTwoBall.h"
+#include "CollectorDown.h"
+#include "Shoot.h" 
+#include "DriveTwoFeet.h"
+#include "DriveTwoSeconds.h"
+#include "ArmTargetPosition.h"
+#include "CollectUntilTrigger.h"
+#include "ShooterSetRpm.h"
+#include "LoadBallCommand.h"
+#include "../ShooterWheelsSpeeds.h"
 
 DriveTwoBall::DriveTwoBall() {
-	// Add Commands here:
-	// e.g. AddSequential(new Command1());
-	//      AddSequential(new Command2());
-	// these will run in order.
-
-	// To run multiple commands at the same time,
-	// use AddParallel()
-	// e.g. AddParallel(new Command1());
-	//      AddSequential(new Command2());
-	// Command1 and Command2 will run in parallel.
-
-	// A command group will require all of the subsystems that each member
-	// would require.
-	// e.g. if Command1 requires chassis, and Command2 requires arm,
-	// a CommandGroup containing them would require both the chassis and the
-	// arm.
+    AddParallel(new CollectorDown());
+    AddParallel(new TargetAutonomousClose());//1.2s
+    AddSequential(new DriveTwoSeconds(2.0));
+    AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_CLOSE_SPEED));//1.5s
+    AddSequential(new Shoot());//2.2s
+    AddParallel(new ShooterSetRpm(0.0));
+    AddParallel(new TargetTruss());
+    AddSequential(new CollectUntilTrigger(), 2.0);
+    AddSequential(new TargetLoadPosition());//4.7s
+    AddParallel(new TargetAutonomousClose());//1.2s
+    AddSequential(new Shoot());//6.9s
+    AddSequential(new ShooterSetRpm(0.0));
 }

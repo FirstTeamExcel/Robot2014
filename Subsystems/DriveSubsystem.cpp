@@ -62,7 +62,7 @@ void DriveSubsystem::DriveStraight(float speedToDrive)
 	static bool hasError = false;
 	float gyro_angle = driveGyro->GetAngle();
 	float autonSpeedCorrect = 0;
-	if ((gyro_angle > 90.0) || (gyro_angle < -90.0) || (gyroOffTargetTimer->Get() > 1.0))
+	if ((gyro_angle > 90.0) || (gyro_angle < -90.0) || (gyroOffTargetTimer.Get() > 1.0))
 	{
 		gyro_angle = 0.0;
 		if (hasError == false)
@@ -73,11 +73,11 @@ void DriveSubsystem::DriveStraight(float speedToDrive)
 	}
 	else if ((gyro_angle > 30.0) || (gyro_angle < -30.0))
 	{
-		gyroOffTargetTimer->Start();
+		gyroOffTargetTimer.Start();
 	}
 	else
 	{
-		gyroOffTargetTimer->Reset();
+		gyroOffTargetTimer.Reset();
 	}
 	
 	float autonTurnAmount = gyro_angle / 50.0f;
