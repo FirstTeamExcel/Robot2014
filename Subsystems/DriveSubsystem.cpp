@@ -90,7 +90,7 @@ void DriveSubsystem::DriveStraight(float speedToDrive)
 
 
 
-	Robot::driveSubsystem->DriveStraight(speedToDrive + autonSpeedCorrect, -autonTurnAmount);
+	theDriveTrain->Drive(speedToDrive + autonSpeedCorrect, -autonTurnAmount);
 	
 	
 	
