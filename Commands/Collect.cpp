@@ -20,12 +20,15 @@ Collect::Collect(float power):CollectorLoad(power) {
 void Collect::Initialize() {
     Collector *col = Robot::collector;
     CollectorLoad::Initialize();
-    col->SetFlipperPosition(true);
     col->SetCollectorPosition(true);
 }
 // Called repeatedly when this Command is scheduled to run
 void Collect::Execute() {
     Collector *col = Robot::collector;
+    if (col->GetState() == Collector::DOWN)
+    {
+        col->SetFlipperPosition(true);
+    }
     if (col->GetFlipperState() == Collector::F_DOWN)
     {
         CollectorLoad::Execute();

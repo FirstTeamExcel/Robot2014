@@ -23,9 +23,7 @@ void CheesyDrive::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void CheesyDrive::Execute() {
     //Cheesy Drive
-    float ohSoCheesy=Robot::oi->getrightDriveStick()->GetY();
-    float wowThatsCheesy=Robot::oi->getleftDriveStick()->GetX();
-    Robot::driveSubsystem->theDriveTrain->ArcadeDrive(-ohSoCheesy, wowThatsCheesy);
+    Robot::driveSubsystem->theDriveTrain->ArcadeDrive(GetThrottle(),GetSteering());
     
 //    float twist = logitechF310temp.GetTwist();//this should be the right stick forward/back
 //    float x = logitechF310temp.GetX();

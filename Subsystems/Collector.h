@@ -44,5 +44,6 @@ public:
 	CollectorState GetState();
 	typedef enum {F_IDLE,F_UP,F_DOWN,F_TRAVELING_UP,F_TRAVELING_DOWN}FlipperState;
 	FlipperState GetFlipperState();
+	bool SwitchHit();
 };
 #endif

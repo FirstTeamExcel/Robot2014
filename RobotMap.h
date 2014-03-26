@@ -27,6 +27,7 @@ public:
 	static Gyro* driveSubsystemdriveGyro;
 	static AnalogChannel* shooterArmshooterArmPot;
 	static SpeedController* shooterArmshooterArmMotor;
+	static AnalogChannel* shooterArmVoltageMonitor;
 	static SpeedController* shooterWheelsleftWheelMotor;
 	static SpeedController* shooterWheelsrightWheelMotor;
 	static DigitalInput* shooterWheelsleftWheelDigitalInput;

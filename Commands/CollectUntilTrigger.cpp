@@ -21,7 +21,7 @@ CollectUntilTrigger::CollectUntilTrigger():CollectThenFlip() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool CollectUntilTrigger::IsFinished() {
-	return (Robot::collector->flipperSwitch->Get());
+	return (Robot::collector->SwitchHit());
 }
 
 // Called once after isFinished returns true

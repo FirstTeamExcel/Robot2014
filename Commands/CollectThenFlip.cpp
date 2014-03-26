@@ -18,13 +18,14 @@ CollectThenFlip::CollectThenFlip(float power): Collect(power) {
 }
 // Called just before this Command runs the first time
 void CollectThenFlip::Initialize() {
+    _wasTriggered = false;
     Collect::Initialize();
     
     
 }
 // Called repeatedly when this Command is scheduled to run
 void CollectThenFlip::Execute() {
-    _wasTriggered |= Robot::collector->flipperSwitch->Get();
+    _wasTriggered |= Robot::collector->SwitchHit();
     Collect::Execute();
 }
 // Make this return true when this Command no longer needs to run execute()
@@ -33,7 +34,7 @@ bool CollectThenFlip::IsFinished() {
 }
 // Called once after isFinished returns true
 void CollectThenFlip::End() {
-    _wasTriggered |= Robot::collector->flipperSwitch->Get();
+    _wasTriggered |= Robot::collector->SwitchHit();
     if (_wasTriggered)
     {
         Robot::collector->SetFlipperPosition(false);

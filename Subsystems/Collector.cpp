@@ -136,4 +136,9 @@ Collector::FlipperState Collector::GetFlipperState()
 	}
 	return F_IDLE;
 }
+bool Collector::SwitchHit()
+{
+    //return flipperSwitch->Get();
+    return false;
+}
 // RobotBuilder Version: 1.0

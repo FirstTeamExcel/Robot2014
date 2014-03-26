@@ -1,5 +1,8 @@
-Add UpShift/DownShift buttons to Driver 11 and 12 buttons (back and start, double check) make them when-pressed
-
+Lift shooter during collect?
+Enable upshift after spin up
+Disable PID when voltage is too low
+Add printfs to Fire to determine failure modes
+Reduce D on PID when moving up
 
 
 Short shot should also lift collector

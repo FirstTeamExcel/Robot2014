@@ -13,10 +13,12 @@
 #include "SpinLoad.h"
 #include "ArmTargetPosition.h"
 #include "ShooterSpinUp.h"
+#include "ManualFlipperUp.h"
 
 
 SpinLoad::SpinLoad() {
 
+    AddSequential(new ManualFlipperUp());
     AddParallel(new TargetLoadPosition());
     AddSequential(new ShooterSpinUp());
 }

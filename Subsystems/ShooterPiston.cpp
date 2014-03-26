@@ -33,10 +33,10 @@ void ShooterPiston::InitDefaultCommand() {
 bool ShooterPiston::Fire()
 {
     bool returnValue = false;
-    
-    if ((Robot::shooterWheels->IsUpToSpeed() == true) &&
-        (Robot::shooterArm->IsOnTarget() == true) &&
-        (ready == true) && (shotTimer.HasPeriodPassed(PISTON_RETRACT_TIME)))
+    bool upToSpeed = Robot::shooterWheels->IsUpToSpeed();
+    bool onTarget = Robot::shooterArm->IsOnTarget();
+    bool retracted = ready && shotTimer.HasPeriodPassed(PISTON_RETRACT_TIME);
+    if (upToSpeed && onTarget && retracted)
     {
         Robot::shooterWheels->StartTakeBack();
         firingSolenoid->Set(DoubleSolenoid::kReverse);
@@ -46,6 +46,7 @@ bool ShooterPiston::Fire()
     }
     else
     {
+        printf("At Speed: %d\tOnTarget: %d\tRetracted: %d\t", upToSpeed,onTarget,retracted);
         Idle();
     }
     return returnValue;
