@@ -827,7 +827,7 @@ Children:
           name: Command
           type: Command
           validators: *id028
-          value: LoadBallCommand
+          value: CollectorLoad
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id029
           default: '1'
@@ -875,7 +875,7 @@ Children:
           name: Command
           type: Command
           validators: *id028
-          value: EjectBallCommand
+          value: SpinToss
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id029
           default: '1'
@@ -1236,6 +1236,102 @@ Children:
           name: When to Run
           validators: null
           value: whileHeld
+    - Name: Collector Spit
+      Base: Joystick Button
+      Children: []
+      Properties:
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id028
+          value: CradleEject
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id029
+          default: '1'
+          name: Button
+          validators: null
+          value: '3'
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: driveController}
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id030
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whileHeld
+    - Name: Collector Intake
+      Base: Joystick Button
+      Children: []
+      Properties:
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id028
+          value: CollectorLoad
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id029
+          default: '1'
+          name: Button
+          validators: null
+          value: '2'
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: driveController}
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id030
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whileHeld
+    - Name: ShiftUpButton
+      Base: Joystick Button
+      Children: []
+      Properties:
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id028
+          value: UpShift
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id029
+          default: '1'
+          name: Button
+          validators: null
+          value: '12'
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: driveController}
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id030
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whenPressed
+    - Name: ShiftDownButton
+      Base: Joystick Button
+      Children: []
+      Properties:
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id028
+          value: DownShift
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id029
+          default: '1'
+          name: Button
+          validators: null
+          value: '11'
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: driveController}
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id030
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whenPressed
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: *id031

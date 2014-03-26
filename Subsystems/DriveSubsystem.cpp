@@ -83,13 +83,8 @@ void DriveSubsystem::DriveStraight(float speedToDrive)
 	float autonTurnAmount = gyro_angle / 50.0f;
 			if (autonTurnAmount > 0.2) autonTurnAmount = 0.2;
 			if (autonTurnAmount < -0.2) autonTurnAmount = -0.2;
-
 			autonSpeedCorrect = (autonTurnAmount) * AUTON_SPEED_CORRECT_FACTOR;
 			if (autonSpeedCorrect < 0.0) autonSpeedCorrect = autonSpeedCorrect * -1.0;
-
-
-
-
 	theDriveTrain->Drive(speedToDrive + autonSpeedCorrect, -autonTurnAmount);
 	
 	
@@ -138,7 +133,6 @@ void DriveSubsystem::DriveStraight(float speedToDrive)
 //        onTargetTimer.Start();
 //        theDriveTrain->Drive(driveOutput.GetOutput(), turnOutput.GetOutput());
 //    }
-
 bool DriveSubsystem::TurnToAngle(float totalTurnAngle)
 {
     bool retValue = false;

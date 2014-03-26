@@ -48,7 +48,6 @@ void CheesyDrive::End() {
 // subsystems is scheduled to run
 void CheesyDrive::Interrupted() {
 }
-
 float CheesyDrive::GetThrottle()
 {
     if (Robot::oi->IsDriverUsingController())
@@ -60,7 +59,6 @@ float CheesyDrive::GetThrottle()
         return -(Robot::oi->getrightDriveStick()->GetY());
     }
 }
-
 float CheesyDrive::GetSteering()
 {
     if (Robot::oi->IsDriverUsingController())

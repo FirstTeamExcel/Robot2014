@@ -13,9 +13,10 @@
 #include "SpinShortGoal.h"
 #include "ArmTargetPosition.h"
 #include "ShooterSpinUp.h"
+#include "CollectorUP.h"
 
 SpinShortGoal::SpinShortGoal() {
-    AddParallel(new TargetShortGoal(), 1.0);
+    AddParallel(new TargetShortGoal());
     AddParallel(new CollectorUP());
     AddSequential(new ShooterSpinUp());
     

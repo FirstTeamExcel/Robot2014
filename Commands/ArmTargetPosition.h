@@ -88,7 +88,7 @@ public:
 };
 class TargetShortGoal: public ArmTargetCollectorRestrictedPosition {
 public:
-    TargetShortGoal():ArmTargetCollectorRestrictedPosition(ShooterArm::SHORT_GOAL){}
+    TargetShortGoal():ArmTargetPosition(ShooterArm::SHORT_GOAL){}
 };
 
 

@@ -19,8 +19,6 @@ CollectorEject::CollectorEject() {
 }
 // Called just before this Command runs the first time
 void CollectorEject::Initialize() {
-	ejectTimer.Reset();
-	ejectTimer.Start();
 }
 // Called repeatedly when this Command is scheduled to run
 void CollectorEject::Execute() {
@@ -29,14 +27,7 @@ void CollectorEject::Execute() {
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CollectorEject::IsFinished() {
-	if (ejectTimer.Get() > 2.0)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	return false;
 }
 // Called once after isFinished returns true
 void CollectorEject::End() {
