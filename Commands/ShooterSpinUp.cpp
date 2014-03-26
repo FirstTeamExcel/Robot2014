@@ -48,14 +48,29 @@ void ShooterSpinUp::Execute() {
 	case ShooterArm::EJECT:
         Robot::shooterWheels->SetPower(TARGET_EJECT_POWER);
 		break;
+
 	case ShooterArm::LONG_GOAL:
-		Robot::shooterWheels->SetTargetRpm(TARGET_LONG_GOAL_SPEED);
-		break;
+	    if (Robot::oi->GetLongShotType())
+	    {
+	        Robot::shooterWheels->SetTargetRpm(TARGET_LONG_GOAL_SPEED);
+	    }
+	    else
+	    {
+	        Robot::shooterWheels->SetPower(1.0);
+	    }
+	    break;
+//	case ShooterArm::LONG_GOAL:
+//		Robot::shooterWheels->SetTargetRpm(TARGET_LONG_GOAL_SPEED);
+//		break;
 	case ShooterArm::SHORT_GOAL:
 		Robot::shooterWheels->SetTargetRpm(TARGET_SHORT_GOAL_SPEED);
 		break;
 	case ShooterArm::TRUSS:
+#ifdef TARGET_TRUSS_POWER
+	    Robot::shooterWheels->SetPower(TARGET_TRUSS_POWER);
+#else
 		Robot::shooterWheels->SetTargetRpm(TARGET_TRUSS_SPEED);
+#endif
 		break;
 	case ShooterArm::AUTONOMOUS_1:
         Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_1_SPEED);

@@ -24,8 +24,8 @@ private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
     
-	bool leftIsUpToSpeed;
-	bool rightIsUpToSpeed;
+	bool leftReachedSpeed;
+	bool rightReachedSpeed;
 	bool takeBack;
 	float _targetRpm;
 	float power;

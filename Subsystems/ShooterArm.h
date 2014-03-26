@@ -73,7 +73,7 @@ public:
 	void TestPID(float setpoint,float p, float stage1I, float stage2I, float stage1D,float stage2D, float stage1Tol, float stage2Tol);
 	void ShooterArm::ResetPID();
 	
-	float GetBatteryVoltage(){return voltageMonitor->GetVoltage();}
+	float GetBatteryVoltage(){return DriverStation::GetInstance()->GetBatteryVoltage();}
 //	void SetTargetPosition(typedef enum position);
 	
 	

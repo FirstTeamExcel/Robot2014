@@ -46,7 +46,17 @@ bool ShooterPiston::Fire()
     }
     else
     {
-        printf("At Speed: %d\tOnTarget: %d\tRetracted: %d\t", upToSpeed,onTarget,retracted);
+        printf("At Speed: %d\tOnTarget: %d\tRetracted: %d\n", upToSpeed,onTarget,retracted);
+        if (upToSpeed == false)
+        {
+            float leftRpm,rightRpm;
+            Robot::shooterWheels->GetRpm(rightRpm,leftRpm);
+            printf("RPM Left= %f\tRight= %f\n", leftRpm,rightRpm);
+        }
+        if (onTarget == false)
+        {
+            printf("Arm Angle = %f\n", Robot::shooterArm->GetCurrentAngle());
+        }
         Idle();
     }
     return returnValue;

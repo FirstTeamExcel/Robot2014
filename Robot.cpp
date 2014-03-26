@@ -73,7 +73,6 @@ void Robot::AutonomousInit()
 }
 void Robot::AutonomousPeriodic()
 {
-    oi->UpdateShotType();
     Scheduler::GetInstance()->Run();
 }
 void Robot::TeleopInit()
@@ -89,7 +88,6 @@ void Robot::TeleopInit()
 }
 void Robot::TeleopPeriodic()
 {
-    oi->UpdateShotType();
     Scheduler::GetInstance()->Run();
     float leftRPM, rightRPM;
     shooterWheels->GetRpm(rightRPM,leftRPM);

@@ -25,7 +25,7 @@
  */
 class CollectUntilTrigger : public CollectThenFlip{
 public:
-	CollectUntilTrigger();
+	CollectUntilTrigger(float power = 0.0);
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();

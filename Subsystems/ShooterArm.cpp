@@ -36,8 +36,8 @@ ShooterArm::ShooterArm() : PIDSubsystem("ShooterArm", 0.75, 0.16, 0.7) {
 }
 double ShooterArm::ReturnPIDInput()
 {
-//    if (GetBatteryVoltage() < BROWNOUT_VOLTAGE)
-//        return _voltageTarget;
+    if (GetBatteryVoltage() < BROWNOUT_VOLTAGE)
+        return _voltageTarget;
     
     // Return your input value for the PID loop
     return shooterArmPot->GetAverageVoltage();;

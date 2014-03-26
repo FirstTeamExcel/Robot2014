@@ -24,8 +24,8 @@ ShooterWheels::ShooterWheels() :
 	takeBack = false;
 	_rpmControl = false;
 	_targetRpm = 0.0;
-    leftIsUpToSpeed = false;
-    rightIsUpToSpeed = false;
+    leftReachedSpeed = false;
+    rightReachedSpeed = false;
     power = 0.0;
     rightCurrentSpeed = 0.0;
     leftCurrentSpeed = 0.0;
@@ -91,6 +91,9 @@ void ShooterWheels::Run()
     float newLeftMotorCommand = 0.0;
 	if (_rpmControl == false)
 	{
+	    rightReachedSpeed = false;
+	    leftReachedSpeed = false;
+	            
         lastRightMotorCommand = 0.1;
         lastLeftMotorCommand = 0.1;
 		return;
@@ -109,6 +112,8 @@ void ShooterWheels::Run()
     }
     else if (_targetRpm == 0.0)
     {
+        rightReachedSpeed = false;
+        leftReachedSpeed = false;
         newRightMotorCommand = 0.0;
         newLeftMotorCommand = 0.0;
     }
@@ -118,9 +123,17 @@ void ShooterWheels::Run()
         {
             newRightMotorCommand = 1.0;
         }
+        else
+        {
+            rightReachedSpeed = false;
+        }
         if (leftCurrentSpeed > targetSPR)
         {
             newLeftMotorCommand = 1.0;
+        }
+        else
+        {
+            leftReachedSpeed = false;
         }
     }
     if (lastRightMotorCommand != newRightMotorCommand)
@@ -149,30 +162,41 @@ bool ShooterWheels::IsUpToSpeed()
 		{
 			return false;
 		}
-		double rightSpeed = rightCurrentSpeed;
-		double leftSpeed = leftCurrentSpeed;
-		if ((rightSpeed >= targetSPR_LowerLimit) && (rightSpeed <= targetSPR_UpperLimit))
-		{
-			rightIsUpToSpeed = true;
-		}
-		else
-		{
-			rightIsUpToSpeed = false;
-		}
-		if ((leftSpeed >= targetSPR_LowerLimit) && (leftSpeed
-				<= targetSPR_UpperLimit))
-		{
-			leftIsUpToSpeed = true;
-		}
-		else
-		{
-			leftIsUpToSpeed = false;
-		}
-		
-		if ((rightIsUpToSpeed == true) && (leftIsUpToSpeed == true))
-		{
-			atSpeed = true;
-		}
+		double combinedTarget_Low = targetSPR_LowerLimit * 2;
+        double combinedTarget_High = targetSPR_UpperLimit * 2;
+        double combinedSPR = rightCurrentSpeed + leftCurrentSpeed;
+
+        if (//leftReachedSpeed && rightReachedSpeed && 
+            (combinedSPR >= combinedTarget_Low) && (combinedSPR <= combinedTarget_High))
+        {
+            atSpeed = true;
+        }
+//      bool rightIsUpToSpeed = false;
+//      bool leftIsUpToSpeed = false;        
+//		double rightSpeed = rightCurrentSpeed;
+//		double leftSpeed = leftCurrentSpeed;
+//		if ((rightSpeed >= targetSPR_LowerLimit) && (rightSpeed <= targetSPR_UpperLimit))
+//		{
+//			rightIsUpToSpeed = true;
+//		}
+//		else
+//		{
+//			rightIsUpToSpeed = false;
+//		}
+//		if ((leftSpeed >= targetSPR_LowerLimit) && (leftSpeed
+//				<= targetSPR_UpperLimit))
+//		{
+//			leftIsUpToSpeed = true;
+//		}
+//		else
+//		{
+//			leftIsUpToSpeed = false;
+//		}
+//		
+//		if ((rightIsUpToSpeed == true) && (leftIsUpToSpeed == true))
+//		{
+//			atSpeed = true;
+//		}
 	}
     return atSpeed;
 }
