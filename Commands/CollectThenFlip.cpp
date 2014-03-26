@@ -25,8 +25,25 @@ void CollectThenFlip::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void CollectThenFlip::Execute() {
+<<<<<<< HEAD
     _wasTriggered |= Robot::collector->SwitchHit();
     Collect::Execute();
+=======
+	if (_power != 0.0)
+	    {
+	        Robot::collector->Pickup(_power);
+	    }
+	    else
+	    {
+	        Robot::collector->Pickup();
+	    }
+	
+	bool unflappable = Robot::collector->flipperSwitch->Get();
+	if (unflappable)
+	{
+		Robot::collector->SetFlipperPosition(false);
+	}
+>>>>>>> 9c0b374785fed8e0fd86af1fa7fefed46a008bbd
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CollectThenFlip::IsFinished() {
