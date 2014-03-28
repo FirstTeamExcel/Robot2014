@@ -39,7 +39,7 @@ private:
 	Counter* rightCount;
 	Counter* leftCount;
     Timer takeBackTimer;
-    Timer spinUpTimer;
+    Timer _spinUpTimer;
 //	DoubleSolenoid fireExtend;
 //	DoubleSolenoid fireRetract;
 public:

@@ -24,7 +24,7 @@
 DriveTwoBall::DriveTwoBall() {
     AddParallel(new CollectorDown());
     AddParallel(new TargetAutonomousClose());//1.2s
-    AddSequential(new DriveTwoSeconds(2.0));
+    AddSequential(new DriveTwoSeconds(1.0));
     AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_CLOSE_SPEED));//1.5s
     AddSequential(new Shoot());//2.2s
     AddParallel(new ShooterSetRpm(0.0));

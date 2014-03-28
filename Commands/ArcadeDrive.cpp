@@ -23,8 +23,8 @@ void ArcadeDrive::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ArcadeDrive::Execute() {
     //Arcade-Drive code
-    float rightYValue=Robot::oi->getrightDriveStick()->GetY();
-    float rightXValue=Robot::oi->getrightDriveStick()->GetX();
+    float rightYValue=Robot::oi->getthrottleDriveStick()->GetY();
+    float rightXValue=Robot::oi->getthrottleDriveStick()->GetX();
     Robot::driveSubsystem->theDriveTrain->ArcadeDrive(-rightYValue, rightXValue);
 	
 }

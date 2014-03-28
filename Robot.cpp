@@ -54,7 +54,7 @@ void Robot::RobotInit()
     defaultAuton = new SingleBallAutonomousCommand();
     autoChooser->AddDefault("Single Ball Auton", defaultAuton);
     autoChooser->AddObject("Two Ball Auton", new TwoBallAutonomousCommand());
-    autoChooser->AddObject("Three Ball Auton", new ThreeBallAutonomousCommand());
+    //autoChooser->AddObject("Three Ball Auton", new ThreeBallAutonomousCommand());
     autoChooser->AddObject("Drive 2 Ball", new DriveTwoBall());
     SmartDashboard::PutData("Autonomous Mode:", autoChooser);
     
@@ -94,9 +94,6 @@ void Robot::TeleopPeriodic()
     SmartDashboard::PutNumber("Left RPM",leftRPM);
     SmartDashboard::PutNumber("Right RPM",rightRPM);
     SmartDashboard::PutNumber("Arm Angle", shooterArm->GetCurrentAngle());
-    SmartDashboard::PutNumber("Voltage", shooterArm->GetBatteryVoltage());
-        
-    
 }
 void Robot::DisabledInit()
 {

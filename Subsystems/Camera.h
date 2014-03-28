@@ -15,7 +15,8 @@
 #include "Vision/ColorImage.h"
 #include "../jankyTask.h"
 //#include "../Math.h"
-#define VIEW_ANGLE 37.4
+#define Y_VIEW_ANGLE 37.4
+#define X_VIEW_ANGLE 47
 #define PI 3.141592653
 #define MAX_PARTICLES 8
 #define RECTANGULARITY_LIMIT 40
@@ -31,7 +32,6 @@
 //Low Resolution
 #define Y_IMAGE_RES 240
 #define X_IMAGE_RES 320
-#define X_VIEW_ANGLE 67
 #define X_DEGREES_PER_PIXEL (X_VIEW_ANGLE / X_IMAGE_RES)
 #define AREA_MINIMUM 60
 #define HEIGHT_MINIMUM 20

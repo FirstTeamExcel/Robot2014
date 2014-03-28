@@ -24,8 +24,7 @@ SingleBallAutonomousCommand::SingleBallAutonomousCommand() {
 	AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_1_SPEED));
 	AddSequential(new Shoot());
     AddSequential(new ShooterSetRpm(0.0));
-    AddSequential(new DriveTwoSeconds());
-    AddSequential(new DriveTwoSeconds());
+    AddSequential(new DriveTwoSeconds(1.4));
 //	AddSequential(new DriveTwoFeet());
 //	AddSequential(new DriveTwoFeet());
 	

@@ -48,23 +48,23 @@ void CheesyDrive::Interrupted() {
 }
 float CheesyDrive::GetThrottle()
 {
-    if (Robot::oi->IsDriverUsingController())
+//    if (Robot::oi->IsDriverUsingController())
+//    {
+//        return -(Robot::oi->getdriveController()->GetY());
+//    }
+//    else
     {
-        return -(Robot::oi->getdriveController()->GetY());
-    }
-    else
-    {
-        return -(Robot::oi->getrightDriveStick()->GetY());
+        return -(Robot::oi->getthrottleDriveStick()->GetY());
     }
 }
 float CheesyDrive::GetSteering()
 {
-    if (Robot::oi->IsDriverUsingController())
+//    if (Robot::oi->IsDriverUsingController())
+//    {
+//        return Robot::oi->getdriveController()->GetZ();
+//    }
+//    else
     {
-        return Robot::oi->getdriveController()->GetZ();
-    }
-    else
-    {
-        return Robot::oi->getleftDriveStick()->GetX();
+        return 0.6 * Robot::oi->getsteeringDriveStick()->GetX();
     }
 }

@@ -13,7 +13,6 @@
 #include "../ShooterWheelsSpeeds.h"
 #include "UpShift.h"
 #include "DownShift.h"
-
 static Command *upShiftCmd = (Command *) 0;
 static Command *downShiftCmd = (Command *) 0;
 ShooterSpinUp::ShooterSpinUp() {
@@ -33,7 +32,13 @@ ShooterSpinUp::ShooterSpinUp() {
 }
 // Called just before this Command runs the first time
 void ShooterSpinUp::Initialize() {
-	Robot::shifters->SetCurrentCommand(downShiftCmd);
+    
+//    if (Robot::shifters->IsHighGear() == true)
+//    {
+//        Robot::shifters->SetCurrentCommand(downShiftCmd);
+//        _wasHighGear = true;
+//    }
+          _wasHighGear = false;
 }
 // Called repeatedly when this Command is scheduled to run
 void ShooterSpinUp::Execute() {
@@ -48,7 +53,6 @@ void ShooterSpinUp::Execute() {
 	case ShooterArm::EJECT:
         Robot::shooterWheels->SetPower(TARGET_EJECT_POWER);
 		break;
-
 	case ShooterArm::LONG_GOAL:
 	    if (Robot::oi->GetLongShotType())
 	    {
@@ -98,7 +102,10 @@ void ShooterSpinUp::End() {
 //	Robot::shooterWheels->SetPower(0.0);
     Robot::shooterWheels->SetTargetRpm(0.0);
 	UpShift::SetDelay(0.25);
-    Robot::shifters->SetCurrentCommand(upShiftCmd);
+	if ((_wasHighGear == true) && (Robot::shifters->IsHighGear() == false))
+	{
+	    Robot::shifters->SetCurrentCommand(upShiftCmd);
+	}
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run

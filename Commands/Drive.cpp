@@ -22,8 +22,8 @@ void Drive::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void Drive::Execute() {
-float leftYValue=Robot::oi->getleftDriveStick()->GetY();	
-float rightYValue=Robot::oi->getrightDriveStick()->GetY();
+float leftYValue=Robot::oi->getsteeringDriveStick()->GetY();	
+float rightYValue=Robot::oi->getthrottleDriveStick()->GetY();
 Robot::driveSubsystem->theDriveTrain->TankDrive(-leftYValue, -rightYValue);
 		
 }

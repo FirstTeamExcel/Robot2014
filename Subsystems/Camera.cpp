@@ -541,7 +541,7 @@ double Camera::computeDistance(BinaryImage *image,
     targetHeight = 32;
     
     return Y_IMAGE_RES * targetHeight / (height * 12 * 2 * tan(
-            VIEW_ANGLE * PI / (180 * 2)));
+            Y_VIEW_ANGLE * PI / (180 * 2)));
 }
 double Camera::computeAngle(ParticleAnalysisReport *report)
 {

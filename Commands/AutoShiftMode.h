@@ -9,8 +9,8 @@
 // it from being updated in th future.
 
 
-#ifndef SHOOTERSPINUP_H
-#define SHOOTERSPINUP_H
+#ifndef AUTOSHIFTMODE_H
+#define AUTOSHIFTMODE_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,10 +21,9 @@
  *
  * @author ExampleAuthor
  */
-class ShooterSpinUp: public Command {
-    bool _wasHighGear;
+class AutoShiftMode: public Command {
 public:
-	ShooterSpinUp();
+	AutoShiftMode();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

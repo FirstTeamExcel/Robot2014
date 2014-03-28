@@ -33,5 +33,5 @@ TwoBallAutonomousCommand::TwoBallAutonomousCommand()
     AddSequential(new TargetAutonomous2());
     AddSequential(new Shoot());//6.9s
     AddSequential(new ShooterSetRpm(0.0));
-    AddSequential(new DriveTwoSeconds());
+    AddSequential(new DriveTwoSeconds(1.5));
 }

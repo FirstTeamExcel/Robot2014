@@ -14,9 +14,11 @@
 #include "../Robot.h"
 #include "TargetStartPosition.h"
 #include "CollectorUP.h"
+#include "ManualFlipperUp.h"
 
 CatchClose::CatchClose() {
 
+    AddParallel(new ManualFlipperUp());
         AddParallel(new TargetStartPosition());
         AddSequential(new CollectorUP());
 	// Add Commands here:

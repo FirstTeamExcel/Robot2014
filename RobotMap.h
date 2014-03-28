@@ -28,6 +28,7 @@ public:
 	static AnalogChannel* shooterArmshooterArmPot;
 	static SpeedController* shooterArmshooterArmMotor;
 	static AnalogChannel* shooterArmVoltageMonitor;
+	static AnalogChannel* shooterArmFiveVoltMeasure;
 	static SpeedController* shooterWheelsleftWheelMotor;
 	static SpeedController* shooterWheelsrightWheelMotor;
 	static DigitalInput* shooterWheelsleftWheelDigitalInput;

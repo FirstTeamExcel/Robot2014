@@ -1,3 +1,18 @@
+Install 5v jumper
+First Pit Test spin up times; tune our RPMs based on the desired spin up time.
+	-Single shot auton should be that highest reasonable RPM
+	-Long shot should have a sub 2 sec spin up, ideally 1 - 1.5 sec
+	-Close auton may need to be tuned to peak at the correct time. 
+(Record spinup times starting at max RPM and working down to reasonable times)
+Also test auto shift routine briefly, see if the thresholds make sense
+Go to practice field, tune angle so that shots peak at the goal height at the given RPM
+Then find the distance for that shot
+Manually position for our different shots, adjust angle and maintain speed.
+
+
+
+
+
 Lift shooter during collect?
 Enable upshift after spin up
 Disable PID when voltage is too low

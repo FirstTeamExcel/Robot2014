@@ -26,6 +26,7 @@ ShooterWheels::ShooterWheels() :
 	_targetRpm = 0.0;
     leftReachedSpeed = false;
     rightReachedSpeed = false;
+	_spinUpTimer.Start();
     power = 0.0;
     rightCurrentSpeed = 0.0;
     leftCurrentSpeed = 0.0;
@@ -55,6 +56,10 @@ void ShooterWheels::SetTargetRpm(float targetRpm)
     if (targetRpm > MAX_RPM)
     {
         targetRpm = MAX_RPM;
+    }
+    if (_targetRpm == 0)
+    {
+        _spinUpTimer.Reset();
     }
 	_targetRpm = targetRpm;
     if (targetRpm == 0)
@@ -125,7 +130,12 @@ void ShooterWheels::Run()
         }
         else
         {
-            rightReachedSpeed = false;
+            if ((rightReachedSpeed == false) &&  (leftReachedSpeed == true))
+            {
+                printf("Spin Up Time = %f", _spinUpTimer.Get());
+            }
+            rightReachedSpeed = true;
+            
         }
         if (leftCurrentSpeed > targetSPR)
         {
@@ -133,7 +143,11 @@ void ShooterWheels::Run()
         }
         else
         {
-            leftReachedSpeed = false;
+            if ((rightReachedSpeed == true) &&  (leftReachedSpeed == false))
+            {
+                printf("Spin Up Time = %f", _spinUpTimer.Get());
+            }
+            leftReachedSpeed = true;
         }
     }
     if (lastRightMotorCommand != newRightMotorCommand)
@@ -165,8 +179,7 @@ bool ShooterWheels::IsUpToSpeed()
 		double combinedTarget_Low = targetSPR_LowerLimit * 2;
         double combinedTarget_High = targetSPR_UpperLimit * 2;
         double combinedSPR = rightCurrentSpeed + leftCurrentSpeed;
-
-        if (//leftReachedSpeed && rightReachedSpeed && 
+        if (leftReachedSpeed && rightReachedSpeed && 
             (combinedSPR >= combinedTarget_Low) && (combinedSPR <= combinedTarget_High))
         {
             atSpeed = true;
