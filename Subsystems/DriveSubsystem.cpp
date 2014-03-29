@@ -57,7 +57,7 @@ void DriveSubsystem::InitDefaultCommand()
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-void DriveSubsystem::DriveStraight(float speedToDrive)
+void DriveSubsystem::DriveStraight(float speedToDrive, bool useGyro)
 {
 	static bool hasError = false;
 	float gyro_angle = driveGyro->GetAngle();
@@ -85,7 +85,15 @@ void DriveSubsystem::DriveStraight(float speedToDrive)
 			if (autonTurnAmount < -0.2) autonTurnAmount = -0.2;
 			autonSpeedCorrect = (autonTurnAmount) * AUTON_SPEED_CORRECT_FACTOR;
 			if (autonSpeedCorrect < 0.0) autonSpeedCorrect = autonSpeedCorrect * -1.0;
-	theDriveTrain->Drive(speedToDrive + autonSpeedCorrect, -autonTurnAmount);
+			
+			if (useGyro == false)
+			{
+                autonSpeedCorrect = 0.0;
+                autonTurnAmount = 0.0;
+			}
+
+		    //theDriveTrain->Drive(speedToDrive + autonSpeedCorrect, -autonTurnAmount);
+		    theDriveTrain->Drive(speedToDrive , autonTurnAmount);
 	
 	
 	

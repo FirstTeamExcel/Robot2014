@@ -62,7 +62,7 @@ public:
 	
 	void InitDefaultCommand();
 	
-	void DriveStraight(float speedToDrive);
+	void DriveStraight(float speedToDrive, bool useGyro = false);
 	bool TurnToAngle(float totalTurnAngle);
 	void Cancel();
 	void FunWithTimers();

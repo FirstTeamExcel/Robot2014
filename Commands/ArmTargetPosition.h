@@ -90,9 +90,29 @@ class TargetLongGoal: public ArmTargetCollectorRestrictedPosition {
 public:
     TargetLongGoal():ArmTargetCollectorRestrictedPosition(ShooterArm::LONG_GOAL){}
 };
+
+class TargetReverseShortGoal: public ArmTargetPosition {
+    TargetReverseShortGoal():ArmTargetPosition(ShooterArm::REVERSE_SHORT_GOAL){}
+};
+
 class TargetShortGoal: public ArmTargetPosition {
 public:
     TargetShortGoal():ArmTargetPosition(ShooterArm::SHORT_GOAL){}
+//    virtual void Execute()
+//        {
+//            if (Robot::collector->GetState() == Collector::UP)
+//            {
+//                ArmTargetPosition::Execute();
+//            }
+//            else if (Robot::collector->GetState() != Collector::TRAVELING_UP)
+//            {
+//                Command *cmd = Robot::collector->GetCurrentCommand();
+//                if (cmd != (Command *)0)
+//                    cmd->Cancel();
+//                
+//                Robot::collector->SetCollectorPosition(false);
+//            }
+//        }
 };
 
 

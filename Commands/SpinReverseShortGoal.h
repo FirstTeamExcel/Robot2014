@@ -10,12 +10,19 @@
 
 
 
-#include "SpinTruss.h"
-#include "ArmTargetPosition.h"
-#include "ShooterSpinUp.h"
+#ifndef SPINREVERSESHORTGOAL_H
+#define SPINREVERSESHORTGOAL_H
 
-SpinTruss::SpinTruss() {
+#include "Commands/CommandGroup.h"
 
-    AddParallel(new ShooterSpinUp());
-    AddSequential(new TargetTruss());
-}
+/**
+ *
+ *
+ * @author ExampleAuthor
+ */
+class SpinReverseShortGoal: public CommandGroup {
+public:	
+	SpinReverseShortGoal();
+};
+
+#endif

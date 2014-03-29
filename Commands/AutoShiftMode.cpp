@@ -10,8 +10,8 @@
 #include "AutoShiftMode.h"
 #include "Math.h"
 //Feet per second
-#define AUTO_UP_SHIFT_RATE 6.0
-#define AUTO_DOWN_SHIFT_RATE 2.0
+#define AUTO_UP_SHIFT_RATE 4.0
+#define AUTO_DOWN_SHIFT_RATE 1.5
 AutoShiftMode::AutoShiftMode() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);

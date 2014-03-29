@@ -20,5 +20,5 @@ SpinLoad::SpinLoad() {
 
     AddSequential(new ManualFlipperUp());
     AddParallel(new TargetLoadPosition());
-    AddSequential(new ShooterSpinUp());
+    AddSequential(new ShooterSpinUp(),2.0);
 }

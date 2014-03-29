@@ -55,6 +55,7 @@
 #include "Commands/SingleBallAutonomousCommand.h"
 #include "Commands/SpinLoad.h"
 #include "Commands/SpinLongGoal.h"
+#include "Commands/SpinReverseShortGoal.h"
 #include "Commands/SpinShortGoal.h"
 #include "Commands/SpinToss.h"
 #include "Commands/SpinTruss.h"
@@ -101,7 +102,7 @@ OI::OI() {
 	catcherOpen = new JoystickButton(operatorStick, 6);
 	catcherOpen->WhenPressed(new CatchOpen());
 	targetLoadPosition = new JoystickButton(operatorStick, 11);
-	targetLoadPosition->WhileHeld(new LoadBallCommand());
+	targetLoadPosition->WhenPressed(new SpinLoad());
 	targetTruss = new JoystickButton(operatorStick, 9);
 	targetTruss->WhileHeld(new SpinTruss());
 	targetShortShot = new JoystickButton(operatorStick, 10);
@@ -194,8 +195,8 @@ OI::OI() {
     SmartDashboard::PutData("CatchOpen", new CatchOpen());
 #endif
     spinChooser = new SendableChooser();
-    spinChooser->AddDefault("Speed Control", (void *)true);
-    spinChooser->AddObject("Full Power", (void *)false);
+    spinChooser->AddObject("Speed Control", (void *)true);
+    spinChooser->AddDefault("Full Power", (void *)false);
     SmartDashboard::PutData("Long Shot Mode:", spinChooser);
     
 //    controlChooser = new SendableChooser();

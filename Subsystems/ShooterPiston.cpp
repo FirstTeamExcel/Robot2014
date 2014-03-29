@@ -43,6 +43,9 @@ bool ShooterPiston::Fire()
         shotTimer.Reset();
         ready = false;
         returnValue = true;
+        float leftRpm,rightRpm;
+        Robot::shooterWheels->GetRpm(rightRpm,leftRpm);
+        printf("Fired At RPM Left= %f\tRight= %f\n", leftRpm,rightRpm);
     }
     else
     {

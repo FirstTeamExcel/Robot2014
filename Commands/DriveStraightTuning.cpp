@@ -31,6 +31,7 @@ DriveStraightTuning::DriveStraightTuning() {
 void DriveStraightTuning::Initialize() {
     _enabled = false;
     _distance = 0.0;
+    Robot::driveSubsystem->driveGyro->Reset();
 //    Robot::driveSubsystem->driveGyro->Reset();
 //    Robot::driveSubsystem->leftEncoder->Reset();
 //    Robot::driveSubsystem->rightEncoder->Reset();
@@ -47,6 +48,10 @@ void DriveStraightTuning::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void DriveStraightTuning::Execute() {
     DriveSubsystem *driveSub = Robot::driveSubsystem;
+    
+    driveSub->DriveStraight(0.3, true);
+    
+    SmartDashboard::PutNumber("Gryo Angle", driveSub->driveGyro->GetAngle());
 //    _drive_p = SmartDashboard::GetNumber("Drive P");
 //    _drive_i = SmartDashboard::GetNumber("Drive i");
 //    _drive_d = SmartDashboard::GetNumber("Drive d");

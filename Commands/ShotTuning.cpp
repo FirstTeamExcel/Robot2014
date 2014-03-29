@@ -10,7 +10,7 @@
 #include "ShotTuning.h"
 #include "../ShooterWheelsSpeeds.h"
 #include "../ShooterArmPositions.h"
-
+#include "Math.h"
 ShotTuning::ShotTuning() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -25,8 +25,8 @@ ShotTuning::ShotTuning() {
 void ShotTuning::Initialize() {
     ShooterArm *arm = Robot::shooterArm;
     //_angle = arm->GetCurrentAngle();
-    _angle = ARM_TARGET_LONG_GOAL;
-    _targetRpm = TARGET_LONG_GOAL_SPEED;
+    _angle = ARM_TARGET_AUTONOMOUS_1;
+    _targetRpm = TARGET_AUTONOMOUS_1_SPEED;
     _bias = 0.0;
     _goToAngle = false;
     _spinUp = false;
@@ -53,33 +53,33 @@ void ShotTuning::Execute() {
     
     Joystick *opStick = Robot::oi->getoperatorStick();
     static bool rpmPushed = false;
-    if (opStick->GetX() > 0.5)
+    if ((opStick->GetX() > 0.5) && (rpmPushed == false))
     {
         _targetRpm += 100;
         rpmPushed = true;
     }
-    else if (opStick->GetX() < -0.5)
+    else if ((opStick->GetX() < -0.5) && (rpmPushed == false))
     {
         _targetRpm -= 100;
         rpmPushed = true;
     }
-    else
+    else if (fabs(opStick->GetX() < 0.25))
     {
         rpmPushed = false;
     }
     
     static bool anglePushed = false;
-    if (opStick->GetY() < -0.5)
+    if ((opStick->GetY() < -0.5) && (anglePushed == false))
     {
         _angle += 1.0;
         anglePushed = true;
     }
-    else if (opStick->GetY() > 0.5)
+    else if ((opStick->GetY() > 0.5) && (anglePushed == false))
     {
         _angle -= 1.0;
         anglePushed = true;
     }
-    else
+    else if (fabs(opStick->GetY() < 0.25))
     {
         anglePushed = false;
     }
@@ -89,6 +89,7 @@ void ShotTuning::Execute() {
     {
         wheels->SetTargetRpm(_targetRpm);
         arm->SetAngle(_angle);
+        arm->Enable();
     }
     else
     {

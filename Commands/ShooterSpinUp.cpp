@@ -63,9 +63,9 @@ void ShooterSpinUp::Execute() {
 	        Robot::shooterWheels->SetPower(1.0);
 	    }
 	    break;
-//	case ShooterArm::LONG_GOAL:
-//		Robot::shooterWheels->SetTargetRpm(TARGET_LONG_GOAL_SPEED);
-//		break;
+	case ShooterArm::REVERSE_SHORT_GOAL:
+        Robot::shooterWheels->SetTargetRpm(TARGET_SHORT_GOAL_SPEED);
+	    break;
 	case ShooterArm::SHORT_GOAL:
 		Robot::shooterWheels->SetTargetRpm(TARGET_SHORT_GOAL_SPEED);
 		break;
@@ -101,11 +101,11 @@ bool ShooterSpinUp::IsFinished() {
 void ShooterSpinUp::End() {
 //	Robot::shooterWheels->SetPower(0.0);
     Robot::shooterWheels->SetTargetRpm(0.0);
-	UpShift::SetDelay(0.25);
-	if ((_wasHighGear == true) && (Robot::shifters->IsHighGear() == false))
-	{
-	    Robot::shifters->SetCurrentCommand(upShiftCmd);
-	}
+//	UpShift::SetDelay(0.25);
+//	if ((_wasHighGear == true) && (Robot::shifters->IsHighGear() == false))
+//	{
+//	    Robot::shifters->SetCurrentCommand(upShiftCmd);
+//	}
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run

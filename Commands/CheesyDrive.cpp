@@ -65,6 +65,6 @@ float CheesyDrive::GetSteering()
 //    }
 //    else
     {
-        return 0.6 * Robot::oi->getsteeringDriveStick()->GetX();
+        return 0.7 * Robot::oi->getsteeringDriveStick()->GetX();
     }
 }
