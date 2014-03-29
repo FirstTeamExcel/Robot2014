@@ -13,8 +13,10 @@
 #include "CatchOpen.h"
 #include "ArmTargetPosition.h"
 #include "CollectorDown.h"
+#include "ManualFlipperDown.h"
 
 CatchOpen::CatchOpen() {
+    AddParallel(new ManualFlipperDown());
     AddParallel(new TargetCatch());
     AddSequential(new CollectorDown());
 	// Add Commands here:
