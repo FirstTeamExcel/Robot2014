@@ -19,19 +19,32 @@
 #include "CollectUntilTrigger.h"
 #include "ShooterSetRpm.h"
 #include "LoadBallCommand.h"
+#include "ManualFlipperDown.h"
+#include "Collect.h"
 #include "../ShooterWheelsSpeeds.h"
+#include "CollectorIdle.h"
 
 DriveTwoBall::DriveTwoBall() {
     AddParallel(new CollectorDown());
+    AddParallel(new ManualFlipperDown());
+    AddParallel(new ShooterSetRpm(0.0));
     AddParallel(new TargetAutonomousClose());//1.2s
+    AddSequential(new CollectorLoad(0.8), 0.35);
+
+    AddParallel(new ShooterSetRpm(TARGET_AUTONOMOUS_CLOSE_SPEED));//1.5s
     AddSequential(new DriveTwoSeconds(1.0));
-    AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_CLOSE_SPEED));//1.5s
+    
     AddSequential(new Shoot());//2.2s
+    
     AddParallel(new ShooterSetRpm(0.0));
     AddParallel(new TargetTruss());
     AddSequential(new CollectUntilTrigger(1.0), 2.0);
+    
     AddSequential(new TargetLoadPosition());//4.7s
+    
+    AddParallel(new ShooterSetRpm(TARGET_AUTONOMOUS_CLOSE_SPEED));//1.5s
     AddParallel(new TargetAutonomousClose());//1.2s
     AddSequential(new Shoot());//6.9s
+    
     AddSequential(new ShooterSetRpm(0.0));
 }

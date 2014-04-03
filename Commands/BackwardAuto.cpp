@@ -8,27 +8,45 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 
-#include "CollectorDown.h"
 
-#include "ArmTargetPosition.h"
-#include "Shoot.h" 
-#include "DriveTwoFeet.h"
-#include "DriveTwoSeconds.h"
-#include "SingleBallAutonomousCommand.h"
+
+#include "BackwardAuto.h"
+#include "ManualFlipperDown.h"
+#include "CollectorDown.h"
 #include "ShooterSetRpm.h"
 #include "../ShooterWheelsSpeeds.h"
-#include "ManualFlipperDown.h"
+#include "Shoot.h" 
+#include "DriveTwoSeconds.h"
+#include "ArmTargetAngle.h"
+#include "Collect.h"
+#include "../ShooterArmPositions.h"
+#include "CollectUntilTrigger.h"
+#include "ArmTargetPosition.h"
 
-SingleBallAutonomousCommand::SingleBallAutonomousCommand() {
+
+BackwardAuto::BackwardAuto() {
+	
 	AddParallel(new ManualFlipperDown());
-	AddSequential(new CollectorDown());
-	AddParallel(new TargetAutonomous1());
-	AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_1_SPEED));
+	AddParallel(new ArmTargetAngle(ARM_TARGET_BACKWARDS_AUTONOMOUS));
+	AddSequential(new Collect(), 0.5);
+	
+	AddParallel(new CollectUntilTrigger(), 1.5);
+	AddParallel(new ShooterSetRpm(2100));
+	AddSequential(new DriveTwoSeconds(2.5, -0.5));
+	
 	AddSequential(new Shoot());
-    AddSequential(new ShooterSetRpm(0.0));
-    AddSequential(new DriveTwoSeconds(1.4));
-//	AddSequential(new DriveTwoFeet());
-//	AddSequential(new DriveTwoFeet());
+	AddParallel(new ShooterSetRpm(0.0));
+	AddSequential(new TargetLoadPosition());
+	
+	AddParallel(new ShooterSetRpm(2100));
+	AddSequential(new ArmTargetAngle(ARM_TARGET_BACKWARDS_AUTONOMOUS));
+	
+	AddSequential(new Shoot());
+	AddSequential(new ShooterSetRpm(0.0));
+	
+	
+	
+	
 	
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());

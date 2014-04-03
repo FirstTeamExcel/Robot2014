@@ -1,3 +1,12 @@
+Enable Arm 5v stuff
+AutoShift chooser, use abs value
+Add Cheesy/Tank chooser
+Fix AutoChooser?
+Test Backward auto
+
+
+
+
 Install 5v jumper
 First Pit Test spin up times; tune our RPMs based on the desired spin up time.
 	-Single shot auton should be that highest reasonable RPM

@@ -22,9 +22,21 @@ void Drive::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void Drive::Execute() {
-float leftYValue=Robot::oi->getsteeringDriveStick()->GetY();	
-float rightYValue=Robot::oi->getthrottleDriveStick()->GetY();
-Robot::driveSubsystem->theDriveTrain->TankDrive(-leftYValue, -rightYValue);
+	
+float leftYValue=-Robot::oi->getsteeringDriveStick()->GetY();	
+float rightYValue=-Robot::oi->getthrottleDriveStick()->GetY();
+if ((leftYValue <= 0 && rightYValue >= 0) || (rightYValue <= 0 && leftYValue >= 0))
+{
+	Robot::driveSubsystem->theDriveTrain->TankDrive( leftYValue, rightYValue);
+}
+else
+{
+	float avgFactor = (leftYValue + rightYValue) * (0.3);
+	float leftFactor = leftYValue * (0.4);
+	float rightFactor = rightYValue * (0.4);
+	
+	Robot::driveSubsystem->theDriveTrain->TankDrive(avgFactor + leftFactor, avgFactor + rightFactor);
+}
 		
 }
 // Make this return true when this Command no longer needs to run execute()
