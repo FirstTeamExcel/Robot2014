@@ -9,30 +9,20 @@
 // it from being updated in th future.
 
 
-#ifndef DRIVETWOSECONDS_H
-#define DRIVETWOSECONDS_H
 
+#ifndef BACKWARDAUTO_H
+#define BACKWARDAUTO_H
 
-#include "Commands/Subsystem.h"
-#include "../Robot.h"
+#include "Commands/CommandGroup.h"
 
 /**
  *
  *
  * @author ExampleAuthor
  */
-class DriveTwoSeconds: public Command {
-private:
-	float _driveTime;
-	float _drivePower;
-	Timer driveTimer;
-public:
-	DriveTwoSeconds(float time = 2.0, float power = 0.5);
-	virtual void Initialize();
-	virtual void Execute();
-	virtual bool IsFinished();
-	virtual void End();
-	virtual void Interrupted();
+class BackwardAuto: public CommandGroup {
+public:	
+	BackwardAuto();
 };
 
 #endif

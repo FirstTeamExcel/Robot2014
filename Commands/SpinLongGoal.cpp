@@ -13,8 +13,10 @@
 #include "SpinLongGoal.h"
 #include "ArmTargetPosition.h"
 #include "ShooterSpinUp.h"
+#include "ManualFlipperDown.h"
 
 SpinLongGoal::SpinLongGoal() {
     AddParallel(new TargetLongGoal());
+    AddParallel(new ManualFlipperDown());
     AddSequential(new ShooterSpinUp());
 }

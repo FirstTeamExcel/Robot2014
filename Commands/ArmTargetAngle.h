@@ -9,8 +9,8 @@
 // it from being updated in th future.
 
 
-#ifndef DRIVETWOSECONDS_H
-#define DRIVETWOSECONDS_H
+#ifndef ARMTARGETANGLE_H
+#define ARMTARGETANGLE_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,13 +21,10 @@
  *
  * @author ExampleAuthor
  */
-class DriveTwoSeconds: public Command {
-private:
-	float _driveTime;
-	float _drivePower;
-	Timer driveTimer;
+class ArmTargetAngle: public Command {
+	float _targetAngle;
 public:
-	DriveTwoSeconds(float time = 2.0, float power = 0.5);
+	ArmTargetAngle(float target);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
