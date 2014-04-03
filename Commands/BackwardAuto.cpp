@@ -32,7 +32,7 @@ BackwardAuto::BackwardAuto() {
 	
 	AddParallel(new CollectUntilTrigger(), 1.5);
 	AddParallel(new ShooterSetRpm(2100));
-	AddSequential(new DriveTwoSeconds(2.0, -0.5));
+	AddSequential(new DriveTwoSeconds(2.5, -0.5));
 	
 	AddSequential(new Shoot());
 	AddParallel(new ShooterSetRpm(0.0));

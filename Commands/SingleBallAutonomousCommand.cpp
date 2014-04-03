@@ -17,8 +17,10 @@
 #include "SingleBallAutonomousCommand.h"
 #include "ShooterSetRpm.h"
 #include "../ShooterWheelsSpeeds.h"
+#include "ManualFlipperDown.h"
 
 SingleBallAutonomousCommand::SingleBallAutonomousCommand() {
+	AddParallel(new ManualFlipperDown());
 	AddSequential(new CollectorDown());
 	AddParallel(new TargetAutonomous1());
 	AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_1_SPEED));
