@@ -1,5 +1,41 @@
 <xml version="1.0">
 <dashboard>
+	<widget field="Shift Mode:" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="580" y="150"/>
+	</widget>
+	<widget field="LoadIntoShooter" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="351" y="46"/>
+	</widget>
+	<widget field="Drive Mode:" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="570" y="234"/>
+	</widget>
+	<widget field="BackwardAuto" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="13" y="569"/>
+	</widget>
+	<widget field="Autonomous:" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="586" y="48"/>
+	</widget>
+	<widget field="Gryo Angle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="427"/>
+	</widget>
+	<widget field="T_ShotRpm" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="351" y="23"/>
+	</widget>
+	<widget field="T_ShotAngle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="343" y="0"/>
+	</widget>
+	<widget field="rightRate:" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="177" y="23"/>
+	</widget>
+	<widget field="leftRate:" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="177" y="0"/>
+	</widget>
+	<widget field="Long Shot Mode:" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="571" y="310"/>
+	</widget>
+	<widget field="AutoShiftMode" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="247" y="107"/>
+	</widget>
 	<widget field="SpinToss" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="0" y="642"/>
 	</widget>
@@ -16,7 +52,7 @@
 		<location x="0" y="463"/>
 	</widget>
 	<widget field="ShotTuning" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="427"/>
+		<location x="235" y="157"/>
 	</widget>
 	<widget field="ShooterArmTuningMode" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="0" y="391"/>

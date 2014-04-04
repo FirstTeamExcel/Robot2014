@@ -9,8 +9,8 @@
 // it from being updated in th future.
 
 
-#ifndef DRIVETOENCODERCOMMAND_H
-#define DRIVETOENCODERCOMMAND_H
+#ifndef DELAY_H
+#define DELAY_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,12 +21,9 @@
  *
  * @author ExampleAuthor
  */
-class DriveToEncoderCommand: public Command {
-private:
-	float _stopDistance;
-	float _drivePower;
+class Delay: public Command {
 public:
-	DriveToEncoderCommand(float distance, float power = 0.5);
+	Delay();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

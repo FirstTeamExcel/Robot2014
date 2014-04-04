@@ -69,6 +69,7 @@ void ShooterArm::InitDefaultCommand()
 void ShooterArm::SetAngle(float tgtAngle)
 {
     _targetPosition = CUSTOM;
+    ResetPID();
     SetTargetAngle(tgtAngle);
 }
 void ShooterArm::SetTargetAngle(float tgtAngle)
@@ -162,7 +163,7 @@ void ShooterArm::SetTargetPosition(ShooterArm::ShooterArmPosition position)
                 break;
         }
         
-        if (prevAngle < angle)
+        if ((prevAngle < angle) && (angle < 90.0))
         {
             _stage_2_D = 1.5;
             _bothStage_P = 1.1;
@@ -181,7 +182,7 @@ void ShooterArm::ResetPID()
     _stage_1_D = 0.0;
     _stage_2_D = 4.3;
     _stage_1_tolerance = 10.0;
-    _stage_2_tolerance = 3.0;
+    _stage_2_tolerance = 1.0;
 }
 float ShooterArm::GetTargetAngle()
 {

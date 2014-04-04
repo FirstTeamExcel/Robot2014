@@ -62,7 +62,6 @@ void DriveSubsystem::DriveStraight(float speedToDrive, bool useGyro)
 {
 	static bool hasError = false;
 	float gyro_angle = driveGyro->GetAngle();
-	float autonSpeedCorrect = 0;
 	if ((gyro_angle > 90.0) || (gyro_angle < -90.0) || (gyroOffTargetTimer.Get() > 1.0))
 	{
 		gyro_angle = 0.0;
@@ -82,24 +81,11 @@ void DriveSubsystem::DriveStraight(float speedToDrive, bool useGyro)
 	}
 	
 	float autonTurnAmount = gyro_angle / 50.0f;
-			if (autonTurnAmount > 0.2) autonTurnAmount = 0.2;
-			if (autonTurnAmount < -0.2) autonTurnAmount = -0.2;
-			autonSpeedCorrect = (autonTurnAmount) * AUTON_SPEED_CORRECT_FACTOR;
-			if (autonSpeedCorrect < 0.0) autonSpeedCorrect = autonSpeedCorrect * -1.0;
-			
-//			if (useGyro == false)
-//			{
-//                autonSpeedCorrect = 0.0;
-//                autonTurnAmount = 0.0;
-//			}
-		    //theDriveTrain->Drive(speedToDrive + autonSpeedCorrect, -autonTurnAmount);
-		    theDriveTrain->Drive(speedToDrive , autonTurnAmount);
-	
-	
-	
-	
-    //bool retValue = false;
-    //return retValue;
+    if (autonTurnAmount > 0.2) autonTurnAmount = 0.2;
+    if (autonTurnAmount < -0.2) autonTurnAmount = -0.2;
+    if (speedToDrive < 0.0) autonTurnAmount = -autonTurnAmount;//Invert gyro input going backwards
+    
+    theDriveTrain->Drive(speedToDrive , autonTurnAmount);
 }
 //bool DriveSubsystem::DriveStraight(float speedToDrive)
 //{

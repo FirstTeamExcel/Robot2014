@@ -38,6 +38,11 @@ ShooterWheels::ShooterWheels() :
 	leftCount->Start();
 	rightCount->Start();
 	
+//    ballInflationChooser = new SendableChooser();
+//    ballInflationChooser->AddDefault("Normal Inflation", (void *) 1.0f);
+//    ballInflationChooser->AddObject("Over Inflation", (void *) 0.95f);
+//    SmartDashboard::PutData("Ball Inflation:", ballInflationChooser);
+	
 	Start();
 }
 void ShooterWheels::InitDefaultCommand()

@@ -40,8 +40,8 @@ void AutoShiftMode::Execute() {
 	Encoder *leftEnc = Robot::driveSubsystem->leftEncoder;
 	Encoder *rightEnc = Robot::driveSubsystem->rightEncoder;
 	
-	float leftRate = leftEnc->GetRate();
-	double rightRate = rightEnc->GetRate();
+	float leftRate = fabs(leftEnc->GetRate());
+	float rightRate = fabs(rightEnc->GetRate());
 	 
 	
 	SmartDashboard::PutNumber("leftRate:", leftRate);

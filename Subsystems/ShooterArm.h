@@ -74,9 +74,9 @@ public:
 	
 //	float GetBatteryVoltage(){return DriverStation::GetInstance()->GetBatteryVoltage();}
 	float GetPotVoltage(){
-//	        float voltScalar = 5.0 / fiveVoltMeasure->GetAverageVoltage();
-//	        return shooterArmPot->GetAverageVoltage() * voltScalar;
-	        return shooterArmPot->GetAverageVoltage();
+	        float voltScalar = 5.0 / fiveVoltMeasure->GetAverageVoltage();
+	        return shooterArmPot->GetAverageVoltage() * voltScalar;
+//	        return shooterArmPot->GetAverageVoltage();
 	}
 //	void SetTargetPosition(typedef enum position);
 	

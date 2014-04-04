@@ -22,46 +22,32 @@
 #include "../ShooterArmPositions.h"
 #include "CollectUntilTrigger.h"
 #include "ArmTargetPosition.h"
-
+#include "ManualFlipperUp.h"
+#include "DriveToEncoderCommand.h"
+#include "Delay.h"
 
 BackwardAuto::BackwardAuto() {
-	
-	AddParallel(new ManualFlipperDown());
 	AddParallel(new ArmTargetAngle(ARM_TARGET_BACKWARDS_AUTONOMOUS));
+	AddSequential(new CollectorDown());
+	AddParallel(new ManualFlipperDown());
 	AddSequential(new Collect(), 0.5);
 	
 	AddParallel(new CollectUntilTrigger(), 1.5);
-	AddParallel(new ShooterSetRpm(2100));
-	AddSequential(new DriveTwoSeconds(2.5, -0.5));
-	
+	AddParallel(new ShooterSetRpm(1950));
+	//AddSequential(new DriveTwoSeconds(2.25, -0.5));
+	AddSequential(new DriveToEncoderCommand(4.4, -0.5),2.75);
+
+    AddSequential(new Delay(), 0.5);
 	AddSequential(new Shoot());
 	AddParallel(new ShooterSetRpm(0.0));
 	AddSequential(new TargetLoadPosition());
 	
-	AddParallel(new ShooterSetRpm(2100));
+	AddParallel(new ShooterSetRpm(1950));
 	AddSequential(new ArmTargetAngle(ARM_TARGET_BACKWARDS_AUTONOMOUS));
-	
+
+    AddSequential(new Delay(), 0.2);
 	AddSequential(new Shoot());
 	AddSequential(new ShooterSetRpm(0.0));
 	
 	
-	
-	
-	
-	// Add Commands here:
-	// e.g. AddSequential(new Command1());
-	//      AddSequential(new Command2());
-	// these will run in order.
-
-	// To run multiple commands at the same time,
-	// use AddParallel()
-	// e.g. AddParallel(new Command1());
-	//      AddSequential(new Command2());
-	// Command1 and Command2 will run in parallel.
-
-	// A command group will require all of the subsystems that each member
-	// would require.
-	// e.g. if Command1 requires chassis, and Command2 requires arm,
-	// a CommandGroup containing them would require both the chassis and the
-	// arm.
 }
