@@ -31,9 +31,9 @@ if ((leftYValue <= 0 && rightYValue >= 0) || (rightYValue <= 0 && leftYValue >= 
 }
 else
 {
-	float avgFactor = (leftYValue + rightYValue) * (0.3);
-	float leftFactor = leftYValue * (0.4);
-	float rightFactor = rightYValue * (0.4);
+	float avgFactor = (leftYValue + rightYValue) * (0.4);
+	float leftFactor = leftYValue * (0.2);
+	float rightFactor = rightYValue * (0.2);
 	
 	Robot::driveSubsystem->theDriveTrain->TankDrive(avgFactor + leftFactor, avgFactor + rightFactor);
 }

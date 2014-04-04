@@ -17,7 +17,7 @@
 SpinLongTruss::SpinLongTruss() {
 
     AddParallel(new ShooterSpinUp());
-    AddSequential(new TargetTruss());
+    AddSequential(new TargetLongTruss());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());

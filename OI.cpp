@@ -103,6 +103,8 @@ OI::OI() {
 	upCollector->WhileHeld(new CollectorUP());
 	operatorStick = new Joystick(3);
 	
+	targetLongShot = new JoystickButton(operatorStick, 8);
+	targetLongShot->WhileHeld(new SpinLongGoal());
 	catcherClose = new JoystickButton(operatorStick, 4);
 	catcherClose->WhenPressed(new CatchClose());
 	catcherOpen = new JoystickButton(operatorStick, 6);
@@ -113,8 +115,8 @@ OI::OI() {
 	targetTruss->WhileHeld(new SpinTruss());
 	targetShortShot = new JoystickButton(operatorStick, 10);
 	targetShortShot->WhileHeld(new SpinShortGoal());
-	targetLongShot = new JoystickButton(operatorStick, 7);
-	targetLongShot->WhileHeld(new SpinLongGoal());
+	targetLongTruss = new JoystickButton(operatorStick, 7);
+	targetLongTruss->WhileHeld(new SpinLongTruss());
 	tossBall = new JoystickButton(operatorStick, 12);
 	tossBall->WhileHeld(new SpinToss());
 	rollerControl = new JoystickButton(operatorStick, 3);

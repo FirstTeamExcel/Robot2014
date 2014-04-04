@@ -55,18 +55,51 @@ void ShooterWheels::InitDefaultCommand()
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-void ShooterWheels::SetTargetRpm(float targetRpm)
+void ShooterWheels::SetTargetRpm(float targetRpm, bool absoluteTolerance, float tolerance)
 {
-	_rpmControl = true;
+    _rpmControl = true;
     if (targetRpm > MAX_RPM)
     {
         targetRpm = MAX_RPM;
     }
+    
+    if (targetRpm == 0)
+    {
+        SetTargetRpm(0.0f,0.0f,0.0f);
+    }
+    else
+    {
+        if (absoluteTolerance)
+        {
+            SetTargetRpm(targetRpm, targetRpm + tolerance, targetRpm - tolerance);
+        }
+        else
+        {
+            float upper = targetRpm * (1.0 + tolerance);
+            float lower = targetRpm * (1.0 - tolerance);
+            SetTargetRpm(targetRpm, upper, lower);
+        }
+        
+    }
+}
+void ShooterWheels::SetTargetRpm(float targetRpm, float upperLimitRpm, float lowerLimitRpm)
+{
+    _rpmControl = true;
+    
+    if (lowerLimitRpm > MAX_RPM)
+    {
+        lowerLimitRpm = MAX_RPM;
+    }
+    if (targetRpm > MAX_RPM)
+    {
+        targetRpm = MAX_RPM;
+    }
+    
     if (_targetRpm == 0)
     {
         _spinUpTimer.Reset();
     }
-	_targetRpm = targetRpm;
+    _targetRpm = targetRpm;
     if (targetRpm == 0)
     {
         targetSPR = 0;
@@ -76,8 +109,8 @@ void ShooterWheels::SetTargetRpm(float targetRpm)
     else
     {
         targetSPR = ((double) 60.0) / ((double) _targetRpm);
-        targetSPR_UpperLimit = (targetSPR * (1.0 + SPEED_TOLERANCE));
-        targetSPR_LowerLimit = (targetSPR * (1.0 - SPEED_TOLERANCE));
+        targetSPR_LowerLimit = ((double) 60.0) / ((double) upperLimitRpm);  //High RPM limit defines the lower SPR limit
+        targetSPR_UpperLimit = ((double) 60.0) / ((double) lowerLimitRpm);  //Low RPM limit defines the upper SPR limit
     }
 }
 void ShooterWheels::SetPower(float power)

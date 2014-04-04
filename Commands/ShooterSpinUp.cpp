@@ -64,10 +64,10 @@ void ShooterSpinUp::Execute() {
 	    }
 	    break;
 	case ShooterArm::REVERSE_SHORT_GOAL:
-        Robot::shooterWheels->SetTargetRpm(TARGET_SHORT_GOAL_SPEED);
+        Robot::shooterWheels->SetTargetRpm(TARGET_SHORT_GOAL_SPEED, true, 50);
 	    break;
 	case ShooterArm::SHORT_GOAL:
-		Robot::shooterWheels->SetTargetRpm(TARGET_SHORT_GOAL_SPEED);
+		Robot::shooterWheels->SetTargetRpm(TARGET_SHORT_GOAL_SPEED, true, 50);
 		break;
 	case ShooterArm::TRUSS:
 #ifdef TARGET_TRUSS_POWER

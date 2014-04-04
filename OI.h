@@ -25,12 +25,13 @@ private:
 	JoystickButton* downCollector;
 	JoystickButton* upCollector;
 	Joystick* operatorStick;
+	JoystickButton* targetLongShot;
 	JoystickButton* catcherClose;
 	JoystickButton* catcherOpen;
 	JoystickButton* targetLoadPosition;
 	JoystickButton* targetTruss;
 	JoystickButton* targetShortShot;
-	JoystickButton* targetLongShot;
+	JoystickButton* targetLongTruss;
 	JoystickButton* tossBall;
 	JoystickButton* rollerControl;
 	JoystickButton* flipperUp;

@@ -55,12 +55,12 @@ void ShotTuning::Execute() {
     static bool rpmPushed = false;
     if ((opStick->GetX() > 0.5) && (rpmPushed == false))
     {
-        _targetRpm += 100;
+        _targetRpm += 50;
         rpmPushed = true;
     }
     else if ((opStick->GetX() < -0.5) && (rpmPushed == false))
     {
-        _targetRpm -= 100;
+        _targetRpm -= 50;
         rpmPushed = true;
     }
     else if (fabs(opStick->GetX() < 0.25))
@@ -71,23 +71,23 @@ void ShotTuning::Execute() {
     static bool anglePushed = false;
     if ((opStick->GetY() < -0.5) && (anglePushed == false))
     {
-        _angle += 1.0;
+        _angle += 0.5;
         anglePushed = true;
     }
     else if ((opStick->GetY() > 0.5) && (anglePushed == false))
     {
-        _angle -= 1.0;
+        _angle -= 0.5;
         anglePushed = true;
     }
     else if (fabs(opStick->GetY() < 0.25))
     {
-        anglePushed = false;
+        anglePushed = false; 
     }
     
     
     if (opStick->GetZ() > 0.5)
     {
-        wheels->SetTargetRpm(_targetRpm);
+        wheels->SetTargetRpm(_targetRpm, false, 0.03);
         arm->SetAngle(_angle);
         arm->Enable();
     }
@@ -95,6 +95,7 @@ void ShotTuning::Execute() {
     {
         wheels->SetTargetRpm(0.0);
     }
+    
     SmartDashboard::PutNumber("T_ShotAngle",_angle);
     SmartDashboard::PutNumber("T_ShotRpm",_targetRpm);
 //    if ((_goToAngle == true) && (prevGoToAngle == false)) 

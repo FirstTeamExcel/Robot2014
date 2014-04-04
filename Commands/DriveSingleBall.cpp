@@ -24,9 +24,9 @@ DriveSingleBall::DriveSingleBall() {
 
     AddParallel(new ManualFlipperDown());
     AddParallel(new TargetAutonomousClose());
-    AddParallel(new ShooterSetRpm(TARGET_AUTONOMOUS_CLOSE_SPEED));
+    AddParallel(new ShooterSetRpm(TARGET_AUTONOMOUS_CLOSE_SPEED, true, 50));
     
-    AddSequential(new DriveToEncoderCommand(6.2, 0.5),3.75);
+    AddSequential(new DriveToEncoderCommand(2.0, 0.5),2.0);
 
     AddSequential(new Delay(), 1.0);
     AddSequential(new Shoot());

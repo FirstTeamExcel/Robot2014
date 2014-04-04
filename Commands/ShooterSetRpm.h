@@ -24,8 +24,10 @@
 class ShooterSetRpm: public Command {
 private:
     float _setpoint;
+    bool _absoluteTolerance;
+    float _tolerance;
 public:
-	ShooterSetRpm(float rpm);
+	ShooterSetRpm(float rpm, bool absoluteTolerance = false, float tolerance = 1.0);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
