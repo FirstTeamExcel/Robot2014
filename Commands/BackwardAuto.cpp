@@ -33,7 +33,7 @@ BackwardAuto::BackwardAuto() {
 	AddSequential(new Collect(), 0.5);
 	
 	AddParallel(new CollectUntilTrigger(), 1.5);
-	AddParallel(new ShooterSetRpm(1950));
+	AddParallel(new ShooterSetRpm(TARGET_AUTONOMOUS_BACKWARD_CLOSE_SPEED));
 	//AddSequential(new DriveTwoSeconds(2.25, -0.5));
 	AddSequential(new DriveToEncoderCommand(4.4, -0.5),2.75);
 
@@ -42,10 +42,10 @@ BackwardAuto::BackwardAuto() {
 	AddParallel(new ShooterSetRpm(0.0));
 	AddSequential(new TargetLoadPosition());
 	
-	AddParallel(new ShooterSetRpm(1950));
+	AddParallel(new ShooterSetRpm(TARGET_AUTONOMOUS_BACKWARD_CLOSE_SPEED));
 	AddSequential(new ArmTargetAngle(ARM_TARGET_BACKWARDS_AUTONOMOUS));
 
-    AddSequential(new Delay(), 0.2);
+    AddSequential(new Delay(), 0.3);
 	AddSequential(new Shoot());
 	AddSequential(new ShooterSetRpm(0.0));
 	

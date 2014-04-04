@@ -76,6 +76,9 @@ void ShooterSpinUp::Execute() {
 		Robot::shooterWheels->SetTargetRpm(TARGET_TRUSS_SPEED);
 #endif
 		break;
+    case ShooterArm::LONG_TRUSS:
+        Robot::shooterWheels->SetPower(1.0);
+        break;
 	case ShooterArm::AUTONOMOUS_1:
         Robot::shooterWheels->SetTargetRpm(TARGET_AUTONOMOUS_1_SPEED);
 		break;
