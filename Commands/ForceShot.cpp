@@ -29,7 +29,8 @@ bool ForceShot::IsFinished() {
 }
 // Called once after isFinished returns true
 void ForceShot::End() {
-	Robot::shooterPiston->firingSolenoid->Set(DoubleSolenoid::kForward);
+//	Robot::shooterPiston->firingSolenoid->Set(DoubleSolenoid::kForward);
+    Robot::shooterPiston->Fire(true, true);
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run

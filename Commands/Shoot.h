@@ -24,6 +24,7 @@
 class Shoot: public Command {
 private:
     bool _fired;
+    Timer _waitTimer;
 public:
 	Shoot();
 	virtual void Initialize();

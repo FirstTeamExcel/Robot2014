@@ -30,11 +30,11 @@ void ShooterPiston::InitDefaultCommand() {
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-bool ShooterPiston::Fire()
+bool ShooterPiston::Fire(bool overrideSpeed , bool overrideAngle )
 {
     bool returnValue = false;
-    bool upToSpeed = Robot::shooterWheels->IsUpToSpeed();
-    bool onTarget = Robot::shooterArm->IsOnTarget();
+    bool upToSpeed = overrideSpeed || Robot::shooterWheels->IsUpToSpeed();
+    bool onTarget = overrideAngle || Robot::shooterArm->IsOnTarget();
     bool retracted = ready && shotTimer.HasPeriodPassed(PISTON_RETRACT_TIME);
     if (upToSpeed && onTarget && retracted)
     {
