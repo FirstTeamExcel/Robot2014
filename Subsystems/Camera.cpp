@@ -311,13 +311,13 @@ Camera::hotGoalSide Camera::DetectHotGoal()
                 //Determine if the horizontal target is in the expected location to the left of the vertical target
                 leftScore
                         = ratioToScore(
-                                1.2 * ((verticalReport->boundingRect.top - verticalReport->boundingRect.height)
-                                        - horizontalReport->center_mass_y)
+                                1.2 * ((verticalReport->boundingRect.top + verticalReport->boundingRect.height)//Left edge of vertical tape
+                                        - horizontalReport->center_mass_y)          //center of horizontal tape
                                         / horizWidth);
                 //Determine if the horizontal target is in the expected location to the right of the vertical target
                 rightScore = ratioToScore(
-                        1.2 * (horizontalReport->center_mass_y
-                                - verticalReport->boundingRect.top)
+                        1.2 * (horizontalReport->center_mass_y  //Center horizontal tape
+                                - verticalReport->boundingRect.top) //Right edge of vertical tape
                                 / horizWidth);
 #else
                 //Determine if the horizontal target is in the expected location to the left of the vertical target
@@ -330,7 +330,7 @@ Camera::hotGoalSide Camera::DetectHotGoal()
                 rightScore = ratioToScore(
                         1.2 * (horizontalReport->center_mass_x
                                 - verticalReport->boundingRect.left
-                                - verticalReport->boundingRect.width)
+                                - verticalReport->boundingRect.width)//Should this minus be plus?? probably not due to order of operations
                                 / horizWidth);
                 
 #endif
