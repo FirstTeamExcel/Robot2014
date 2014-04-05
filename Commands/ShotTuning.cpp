@@ -87,7 +87,7 @@ void ShotTuning::Execute() {
     
     if (opStick->GetZ() > 0.5)
     {
-        wheels->SetTargetRpm(_targetRpm, false, 0.03);
+        wheels->SetTargetRpm(_targetRpm, false, 0.03, 0.6);
         arm->SetAngle(_angle);
         arm->Enable();
     }

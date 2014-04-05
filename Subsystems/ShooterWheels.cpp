@@ -11,6 +11,7 @@
 #include "../Robotmap.h"
 #include "../Commands/ShooterIdle.h"
 #include "../ShooterWheelsSpeeds.h"
+
 ShooterWheels::ShooterWheels() :
     Subsystem("ShooterWheels")
 {
@@ -55,7 +56,7 @@ void ShooterWheels::InitDefaultCommand()
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-void ShooterWheels::SetTargetRpm(float targetRpm, bool absoluteTolerance, float tolerance)
+void ShooterWheels::SetTargetRpm(float targetRpm, bool absoluteTolerance, float tolerance, float takeBackPower)
 {
     _rpmControl = true;
     if (targetRpm > MAX_RPM)
@@ -71,24 +72,25 @@ void ShooterWheels::SetTargetRpm(float targetRpm, bool absoluteTolerance, float 
     {
         if (absoluteTolerance)
         {
-            SetTargetRpm(targetRpm, targetRpm + tolerance, targetRpm - tolerance);
+            SetTargetRpm(targetRpm, targetRpm + tolerance, targetRpm - tolerance, takeBackPower);
         }
         else
         {
             float upper = targetRpm * (1.0 + tolerance);
             float lower = targetRpm * (1.0 - tolerance);
-            SetTargetRpm(targetRpm, upper, lower);
+            SetTargetRpm(targetRpm, upper, lower, takeBackPower);
         }
         
     }
 }
-void ShooterWheels::SetTargetRpm(float targetRpm, float upperLimitRpm, float lowerLimitRpm)
+void ShooterWheels::SetTargetRpm(float targetRpm, float upperLimitRpm, float lowerLimitRpm, float takeBackPower)
 {
     _rpmControl = true;
 
     rightReachedSpeed = false;
     leftReachedSpeed = false;
             
+    _takeBackPower = takeBackPower;
     if (lowerLimitRpm > MAX_RPM)
     {
         lowerLimitRpm = MAX_RPM;
@@ -149,8 +151,18 @@ void ShooterWheels::Run()
     
     if (takeBack)
     {
-        newRightMotorCommand = TAKE_BACK_POWER;
-        newLeftMotorCommand = TAKE_BACK_POWER;
+        
+        float takeBackPower = _takeBackPower;
+        if (takeBackPower == 1.0)
+        {
+                takeBackPower = (12.0f / DriverStation::GetInstance()->GetBatteryVoltage()) * takeBackPower;
+                if (takeBackPower > 1.0)
+                {
+                    takeBackPower = 1.0;
+                }
+        }
+        newRightMotorCommand = takeBackPower;
+        newLeftMotorCommand = takeBackPower;
         if (takeBackTimer.HasPeriodPassed(TAKE_BACK_TIME))
         {
             takeBack = false;

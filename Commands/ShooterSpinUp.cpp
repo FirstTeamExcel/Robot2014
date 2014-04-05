@@ -56,7 +56,7 @@ void ShooterSpinUp::Execute() {
 	case ShooterArm::LONG_GOAL:
 	    if (Robot::oi->GetLongShotType())
 	    {
-	        Robot::shooterWheels->SetTargetRpm(TARGET_LONG_GOAL_SPEED );
+	        Robot::shooterWheels->SetTargetRpm(TARGET_LONG_GOAL_SPEED, 0.8);
 	    }
 	    else
 	    {
@@ -64,10 +64,10 @@ void ShooterSpinUp::Execute() {
 	    }
 	    break;
 	case ShooterArm::REVERSE_SHORT_GOAL:
-        Robot::shooterWheels->SetTargetRpm(TARGET_SHORT_GOAL_SPEED, true, 50);
+        Robot::shooterWheels->SetTargetRpm(TARGET_SHORT_GOAL_SPEED, true, 50, 0.6);
 	    break;
 	case ShooterArm::SHORT_GOAL:
-		Robot::shooterWheels->SetTargetRpm(TARGET_SHORT_GOAL_SPEED, true, 50);
+		Robot::shooterWheels->SetTargetRpm(TARGET_SHORT_GOAL_SPEED, true, 50, 0.6);
 		break;
 	case ShooterArm::TRUSS:
 #ifdef TARGET_TRUSS_POWER

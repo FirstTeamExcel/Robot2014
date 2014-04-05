@@ -26,6 +26,7 @@
 #define DEGREES_TO_VOLTAGE(degrees) ((degrees * VOLTAGE_DEG_SCALAR) + VOLTAGE_AT_ZERO_DEGREES)
 #define DEGREES_DEADZONE 0.5
 #define BROWNOUT_VOLTAGE 6.5
+
 //^^This is a macro, parenthesis immediately after the define allow you to pass a value into the macro and use it
 /**
  *

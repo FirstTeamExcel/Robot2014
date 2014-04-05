@@ -27,7 +27,7 @@ private:
     bool _absoluteTolerance;
     float _tolerance;
 public:
-	ShooterSetRpm(float rpm, bool absoluteTolerance = false, float tolerance = 1.0);
+	ShooterSetRpm(float rpm, bool absoluteTolerance = false, float tolerance = 1.0, float takeBackPower = 1.0);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
