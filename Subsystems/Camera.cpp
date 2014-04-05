@@ -17,7 +17,11 @@ ParticleFilterCriteria2 criteria[] =
 ParticleFilterCriteria2 vertCriteria[] =
     {
             { IMAQ_MT_AREA, AREA_MINIMUM, 65535, false, false } ,
-            { IMAQ_MT_BOUNDING_RECT_HEIGHT, HEIGHT_MINIMUM, 65535, false, false }  }; //Particle filter criteria, used to filter out small particles
+#ifdef IS_ROTATED_90_DEG
+            { IMAQ_MT_BOUNDING_RECT_WIDTH, HEIGHT_MINIMUM, 65535, false, false }}; //Particle filter criteria, used to filter out small particles
+#else
+            { IMAQ_MT_BOUNDING_RECT_HEIGHT, HEIGHT_MINIMUM, 65535, false, false }}; //Particle filter criteria, used to filter out small particles
+#endif
 Camera::Camera() :
     Subsystem("Camera"),
     JankyTask("DistanceCalc", 200) //Set the task priority to 200, a lower priority than the default 101
@@ -302,7 +306,19 @@ Camera::hotGoalSide Camera::DetectHotGoal()
                         verticalReport->particleIndex, 0,
                         IMAQ_MT_EQUIVALENT_RECT_SHORT_SIDE, &vertWidth);
                 
-                
+#ifdef IS_ROTATED_90_DEG
+                //Determine if the horizontal target is in the expected location to the left of the vertical target
+                leftScore
+                        = ratioToScore(
+                                1.2 * ((verticalReport->boundingRect.top - verticalReport->boundingRect.height)
+                                        - horizontalReport->center_mass_y)
+                                        / horizWidth);
+                //Determine if the horizontal target is in the expected location to the right of the vertical target
+                rightScore = ratioToScore(
+                        1.2 * (horizontalReport->center_mass_y
+                                - verticalReport->boundingRect.top)
+                                / horizWidth);
+#else
                 //Determine if the horizontal target is in the expected location to the left of the vertical target
                 leftScore
                         = ratioToScore(
@@ -316,15 +332,23 @@ Camera::hotGoalSide Camera::DetectHotGoal()
                                 - verticalReport->boundingRect.width)
                                 / horizWidth);
                 
+#endif
                 //Determine if the width of the tape on the two targets appears to be the same
                 tapeWidthScore = ratioToScore(vertWidth / horizHeight);
-                
+
+#ifdef IS_ROTATED_90_DEG
+                //Determine if the vertical location of the horizontal target appears to be correct
+                verticalScore = ratioToScore(
+                        1 - ((verticalReport->boundingRect.left + verticalReport->boundingRect.width)
+                                - horizontalReport->center_mass_x) / (4
+                                * horizHeight));
+#else
                 //Determine if the vertical location of the horizontal target appears to be correct
                 verticalScore = ratioToScore(
                         1 - (verticalReport->boundingRect.top
                                 - horizontalReport->center_mass_y) / (4
                                 * horizHeight));
-                
+#endif
                 //Initialize the total to either the left score or the right score (whichever is bigger)
                 total = leftScore > rightScore ? leftScore : rightScore;    //This (?) is the conditional operator, 
                                                                             //its syntax is _assertion_ ? _trueResponse_ : _falseResponse_
@@ -532,22 +556,32 @@ double Camera::computeDistance(BinaryImage *image,
 {
     double rectLong, height;
     int targetHeight;
-    
-    imaqMeasureParticle(image->GetImaqImage(), report->particleIndex, 0,
-            IMAQ_MT_EQUIVALENT_RECT_LONG_SIDE, &rectLong);
     //using the smaller of the estimated rectangle long side and the bounding rectangle height results in better performance
     //on skewed rectangles
-    height = min((float) report->boundingRect.height, (float) rectLong);
+    imaqMeasureParticle(image->GetImaqImage(), report->particleIndex, 0,
+            IMAQ_MT_EQUIVALENT_RECT_LONG_SIDE, &rectLong);
     targetHeight = 32;
-    
+#ifdef IS_ROTATED_90_DEG
+    height = min((float) report->boundingRect.width, (float) rectLong);
+    return X_IMAGE_RES * targetHeight / (height * 12 * 2 * tan(
+                X_VIEW_ANGLE * PI / (180 * 2)));
+
+#else
+    height = min((float) report->boundingRect.height, (float) rectLong);
     return Y_IMAGE_RES * targetHeight / (height * 12 * 2 * tan(
-            Y_VIEW_ANGLE * PI / (180 * 2)));
+                Y_VIEW_ANGLE * PI / (180 * 2)));
+#endif
 }
+
 double Camera::computeAngle(ParticleAnalysisReport *report)
 {
+#ifdef IS_ROTATED_90_DEG
+    double xCenter = report->center_mass_y - Y_IMAGE_RES;
+    return Y_DEGREES_PER_PIXEL * xCenter;
+#else
     double xCenter = report->center_mass_x - X_IMAGE_RES;
-    
     return X_DEGREES_PER_PIXEL * xCenter;
+#endif
 }
 /**
  * Computes a score (0-100) comparing the aspect ratio to the ideal aspect ratio for the target. This method uses
@@ -572,7 +606,11 @@ double Camera::scoreAspectRatio(BinaryImage *image,
     
     printf("RectLong: %f\tRectShort: %f\n",rectLong,rectShort);
     //Divide width by height to measure aspect ratio
+#ifdef IS_ROTATED_90_DEG
+    if (report->boundingRect.height > report->boundingRect.width)
+#else
     if (report->boundingRect.width > report->boundingRect.height)
+#endif
     {
         //particle is wider than it is tall, divide long by short
         aspectRatio = ratioToScore(((rectLong / rectShort) / idealAspectRatio));
@@ -648,10 +686,12 @@ bool Camera::hotOrNot(TargetReport target)
 }
 double Camera::centerXToScore(ParticleAnalysisReport *report)
 {
-    printf("scoring centerX\n");
-    float centerXScore = 50 * (1 - fabs(report->center_mass_x_normalized));
-    printf("centerX = %f\n",centerXScore);
-    return centerXScore;
+#ifdef IS_ROTATED_90_DEG
+    return 50 * (1 - fabs(report->center_mass_y_normalized));
+#else
+    return 50 * (1 - fabs(report->center_mass_x_normalized));
+#endif
+
 }
 void Camera::SetIdealRange(float min_distance, float max_distance)
 {

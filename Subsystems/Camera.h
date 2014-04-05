@@ -32,10 +32,19 @@
 //Low Resolution
 #define Y_IMAGE_RES 240
 #define X_IMAGE_RES 320
-#define X_DEGREES_PER_PIXEL (X_VIEW_ANGLE / X_IMAGE_RES)
+#define X_DEGREES_PER_PIXEL (X_VIEW_ANGLE / X_IMAGE_RES)    //0.146875
+#define Y_DEGREES_PER_PIXEL (Y_VIEW_ANGLE / Y_IMAGE_RES)    //0.15583333333333333333333333333333
 #define AREA_MINIMUM 60
-#define HEIGHT_MINIMUM 20
 #define THRESHOLD_HSV 78, 152, 76, 255, 33, 78
+
+#define IS_ROTATED_90_DEG   //The perspective of the camera is rotated 90 degrees clockwise
+
+#ifdef IS_ROTATED_90_DEG
+#define HEIGHT_MINIMUM 20
+#else
+#define HEIGHT_MINIMUM 20
+#endif 
+
 /**
  * @author ExampleAuthor
  */
