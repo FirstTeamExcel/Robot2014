@@ -59,11 +59,19 @@ void Robot::RobotInit()
     autoChooser->AddObject("Close Single Ball", new DriveSingleBall());
     SmartDashboard::PutData("Autonomous:", autoChooser);
     
+//    rangeChooser = new SendableChooser();
+//    rangeChooser->AddDefault("Range Finding Disabled", (void *)false);
+//    rangeChooser->AddObject("Range Finding Enabled", (void *)true);
+//    SmartDashboard::PutData("Range Finding:", rangeChooser);
+//        
+    
     SmartDashboard::PutNumber("Goal Distance", 0.0);
     SmartDashboard::PutString("Goal Side", "Taco Bell");
 }
 void Robot::AutonomousInit()
 {
+//    camera->ResetHotGoal();
+    
     shifters->SetCurrentCommand(new UpShift());
     driveSubsystem->theDriveTrain->SetSafetyEnabled(false);
     autonomousCommand = (Command *) autoChooser->GetSelected();
@@ -96,12 +104,26 @@ void Robot::TeleopPeriodic()
     SmartDashboard::PutNumber("Right RPM", rightRPM);
     SmartDashboard::PutNumber("Arm Angle", shooterArm->GetCurrentAngle());
     oi->UpdateDefaults();
+
+//    bool rangeEnabled = (bool) rangeChooser->GetSelected();
+//    
+//    if (rangeEnabled != camera->TaskRunning())
+//    {
+//        if (rangeEnabled)
+//        {
+//            camera->EnableDistanceChecking();
+//        }
+//        else
+//        {
+//            camera->DisableDistanceChecking();
+//        }
+//    }
 }
 void Robot::DisabledInit()
 {
     shooterArm->Disable();
-    //    camera->ResetHotGoal();
-    //    camera->ConnectCamera();
+//    camera->ResetHotGoal();
+//    camera->ConnectCamera();
     //    camera->EnableDistanceChecking();
 }
 void Robot::DisabledPeriodic()

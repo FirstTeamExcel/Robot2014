@@ -18,12 +18,17 @@
 #include "ShooterSetRpm.h"
 #include "../ShooterWheelsSpeeds.h"
 #include "ManualFlipperDown.h"
+#include "Delay.h"
+#include "WaitForHotGoal.h"
 
 SingleBallAutonomousCommand::SingleBallAutonomousCommand() {
 	AddParallel(new ManualFlipperDown());
 	AddSequential(new CollectorDown());
 	AddParallel(new TargetAutonomous1());
 	AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_1_SPEED));
+//	AddSequential(new Delay(), 1.0);
+//	AddSequential(new WaitForHotGoal());
+//    AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_1_SPEED));//Clear upToSpeed flags by setting RPM again
 	AddSequential(new Shoot());
     AddSequential(new ShooterSetRpm(0.0));
     AddSequential(new DriveTwoSeconds(1.4));

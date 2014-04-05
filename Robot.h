@@ -30,7 +30,8 @@ private:
     Command *defaultAuton;
 public:
 	Command *autonomousCommand;
-	SendableChooser *autoChooser;
+    SendableChooser *autoChooser;
+//    SendableChooser *rangeChooser;
 	static OI *oi;
 	LiveWindow *lw;
 	

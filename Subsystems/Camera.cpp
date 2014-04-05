@@ -336,7 +336,6 @@ Camera::hotGoalSide Camera::DetectHotGoal()
 #endif
                 //Determine if the width of the tape on the two targets appears to be the same
                 tapeWidthScore = ratioToScore(vertWidth / horizHeight);
-
 #ifdef IS_ROTATED_90_DEG
                 //Determine if the vertical location of the horizontal target appears to be correct
                 verticalScore = ratioToScore(
@@ -566,14 +565,12 @@ double Camera::computeDistance(BinaryImage *image,
     height = min((float) report->boundingRect.width, (float) rectLong);
     return X_IMAGE_RES * targetHeight / (height * 12 * 2 * tan(
                 X_VIEW_ANGLE * PI / (180 * 2)));
-
 #else
     height = min((float) report->boundingRect.height, (float) rectLong);
     return Y_IMAGE_RES * targetHeight / (height * 12 * 2 * tan(
                 Y_VIEW_ANGLE * PI / (180 * 2)));
 #endif
 }
-
 double Camera::computeAngle(ParticleAnalysisReport *report)
 {
 #ifdef IS_ROTATED_90_DEG
@@ -692,7 +689,6 @@ double Camera::centerXToScore(ParticleAnalysisReport *report)
 #else
     return 50 * (1 - fabs(report->center_mass_x_normalized));
 #endif
-
 }
 void Camera::SetIdealRange(float min_distance, float max_distance)
 {
@@ -701,7 +697,6 @@ void Camera::SetIdealRange(float min_distance, float max_distance)
 }
 void Camera::UpdateRangeLEDs(float _distance)
 {
-
     float minDistance = _minShootingDistance;
     float maxDistance = _maxShootingDistance;
     

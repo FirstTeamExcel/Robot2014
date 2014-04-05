@@ -124,7 +124,7 @@ void ShooterArm::SetTargetPosition(ShooterArm::ShooterArmPosition position)
             case ShooterArm::LONG_GOAL:
                 _stage_2_tolerance = 1.0;
                 angle = (ARM_TARGET_LONG_GOAL);
-                Robot::camera->SetIdealRange(12.0, 15.0);
+                Robot::camera->SetIdealRange(7.0, 9.0);
                 break;
             case ShooterArm::SHORT_GOAL:
                 _stage_2_tolerance = 0.5;
@@ -192,4 +192,3 @@ float ShooterArm::GetTargetAngle()
 {
     return _targetAngle; 
 }
-

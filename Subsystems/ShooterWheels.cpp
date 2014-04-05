@@ -85,7 +85,10 @@ void ShooterWheels::SetTargetRpm(float targetRpm, bool absoluteTolerance, float 
 void ShooterWheels::SetTargetRpm(float targetRpm, float upperLimitRpm, float lowerLimitRpm)
 {
     _rpmControl = true;
-    
+
+    rightReachedSpeed = false;
+    leftReachedSpeed = false;
+            
     if (lowerLimitRpm > MAX_RPM)
     {
         lowerLimitRpm = MAX_RPM;
