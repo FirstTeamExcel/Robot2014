@@ -87,8 +87,6 @@ void ShooterWheels::SetTargetRpm(float targetRpm, float upperLimitRpm, float low
 {
     _rpmControl = true;
 
-    rightReachedSpeed = false;
-    leftReachedSpeed = false;
             
     _takeBackPower = takeBackPower;
     if (lowerLimitRpm > MAX_RPM)

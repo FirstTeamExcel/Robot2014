@@ -209,8 +209,8 @@ OI::OI() {
     SmartDashboard::PutData("CatchOpen", new CatchOpen());
 #endif
     spinChooser = new SendableChooser();
-    spinChooser->AddObject("Speed Control", (void *)true);
-    spinChooser->AddDefault("Full Power", (void *)false);
+    spinChooser->AddDefault("Speed Control", (void *)true);
+    spinChooser->AddObject("Full Power", (void *)false);
     SmartDashboard::PutData("Long Shot Mode:", spinChooser);
     
     driveModeChooser = new SendableChooser();

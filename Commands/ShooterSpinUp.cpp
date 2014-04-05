@@ -56,7 +56,7 @@ void ShooterSpinUp::Execute() {
 	case ShooterArm::LONG_GOAL:
 	    if (Robot::oi->GetLongShotType())
 	    {
-	        Robot::shooterWheels->SetTargetRpm(TARGET_LONG_GOAL_SPEED, 0.8);
+	        Robot::shooterWheels->SetTargetRpm(TARGET_LONG_GOAL_SPEED, true, 50, 0.8);
 	    }
 	    else
 	    {
