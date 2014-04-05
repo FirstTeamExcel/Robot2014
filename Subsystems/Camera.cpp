@@ -10,6 +10,7 @@
 #include "Camera.h"
 #include "../Robotmap.h"
 #include "../Math.h"
+#include "../Robot.h"
 #include "stdio.h"
 Threshold threshold(THRESHOLD_HSV); //HSV threshold criteria, ranges are in that order ie. Hue is 60-100
 ParticleFilterCriteria2 criteria[] =
@@ -700,13 +701,45 @@ void Camera::SetIdealRange(float min_distance, float max_distance)
 }
 void Camera::UpdateRangeLEDs(float _distance)
 {
+
+    float minDistance = _minShootingDistance;
+    float maxDistance = _maxShootingDistance;
+    
+    if ((Robot::driveSubsystem->leftEncoder->GetStopped() == false) || (Robot::driveSubsystem->rightEncoder->GetStopped() == false))
+    {
+        float leftRateFPS = Robot::driveSubsystem->leftEncoder->GetRate();
+        float rightRateFPS = Robot::driveSubsystem->rightEncoder->GetRate();
+        
+        float rate = (leftRateFPS + rightRateFPS) / 2.0f;
+        float angleRad = Robot::shooterArm->GetCurrentRadians();
+        
+        float minRateMultiplier = (cos(angleRad) + 0.25) * 0.25;
+        float maxRateMultiplier = (cos(angleRad) + 0.25) * 0.4;
+    
+        minDistance += (rate * minRateMultiplier);
+        maxDistance += (rate * maxRateMultiplier);
+    }    
+    
+    
+    //Wheels Gear ratio ~= 17:45, wheel speed = 2.647 of shaft speed
+    //Wheel diameter =
+    //Exit Velocity = RPM * 2.647 * PI * wheelDia * slippageMultiplier
+    //vertical speed = ExitVelocity * sin(angle)
+    //horizontal speed = (ExitVelocity * cos(angle)) + rate
+    // Then factor in gravity and drag coefficient
+    //
+    
+    ///32ft/s^2 
+    
 	
-	if (_distance <= _maxShootingDistance && _distance >= _minShootingDistance)
+	if ((_distance <= maxDistance) && (_distance >= minDistance))
 	{
-		rangeGoodLEDs->Set(Relay::kForward);
+		rangeGoodLEDs->Set(Relay::kForward);//M+ = 12V, M- = GND
+//		rangeGoodLEDs->Set(Relay::kOn);//M+ = 12V, M- = 12v
 	}
 	else
 	{
-		rangeGoodLEDs->Set(Relay::kReverse);
+		rangeGoodLEDs->Set(Relay::kOff);
+		//rangeGoodLEDs->Set(Relay::kReverse);//M+ = 12V, M- = 12v
 	}
 }
