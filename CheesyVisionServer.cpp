@@ -9,6 +9,16 @@ CheesyVisionServer *CheesyVisionServer::_instance = (CheesyVisionServer *) 0;
 CheesyVisionServer::CheesyVisionServer(int port)
 {
     _listenPort = port;
+    _counting = false;
+    _curLeftStatus = false;
+    _curRightStatus = false;
+    _lastHeartbeatTime = Timer::GetFPGATimestamp();
+    _leftCount = 0;
+    _rightCount = 0;
+    _totalCount = 0;
+    _listening = false;
+    
+    
 }
 
 void CheesyVisionServer::Run()
