@@ -14,9 +14,12 @@
 #include "TargetStartPosition.h"
 #include "CollectorUP.h"
 #include "ManualFlipperUp.h"
+#include "UpShift.h"
+#include "Delay.h"
 
 StartingPosition::StartingPosition() {
 
+    AddParallel(new UpShift());
     AddParallel(new ManualFlipperUp());
     AddParallel(new TargetStartPosition());
     AddSequential(new CollectorUP());

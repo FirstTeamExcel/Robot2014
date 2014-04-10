@@ -80,9 +80,9 @@ void DriveSubsystem::DriveStraight(float speedToDrive, bool useGyro)
 		gyroOffTargetTimer.Reset();
 	}
 	
-	float autonTurnAmount = gyro_angle / 50.0f;
-    if (autonTurnAmount > 0.2) autonTurnAmount = 0.2;
-    if (autonTurnAmount < -0.2) autonTurnAmount = -0.2;
+	float autonTurnAmount = gyro_angle / 120.0f;
+    if (autonTurnAmount > 0.1) autonTurnAmount = 0.1;
+    if (autonTurnAmount < -0.1) autonTurnAmount = -0.1;
     if (speedToDrive < 0.0) autonTurnAmount = -autonTurnAmount;//Invert gyro input going backwards
     
     theDriveTrain->Drive(speedToDrive , autonTurnAmount);
