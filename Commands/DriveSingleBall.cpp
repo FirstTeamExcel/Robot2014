@@ -24,13 +24,13 @@
 DriveSingleBall::DriveSingleBall() {
 
     AddParallel(new ManualFlipperDown());
+    
+    AddSequential(new DriveToEncoderCommand(4.8, 0.65),5.0);
+
     AddParallel(new TargetAutonomousClose());
     AddParallel(new ShooterSetRpm(TARGET_AUTONOMOUS_CLOSE_SPEED, true, 50, 0.6));
-    
-    AddSequential(new DriveToEncoderCommand(5.0, 0.8),5.0);
-
-    AddSequential(new Delay(), 0.3);
-    AddSequential(new WaitForHotGoal());
+    AddSequential(new Delay(), 1.0);
+    AddSequential(new WaitForHotGoal(), 3.0);
     AddSequential(new Shoot());
     AddParallel(new ShooterSetRpm(0.0));
 

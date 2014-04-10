@@ -15,11 +15,13 @@
 #include "ShooterSpinUp.h"
 #include "CollectorUP.h"
 #include "ManualFlipperUp.h"
+#include "CollectorLoad.h"
 
 SpinShortGoal::SpinShortGoal() {
     AddParallel(new TargetShortGoal());
     AddParallel(new ManualFlipperUp());
-    AddParallel(new CollectorUP());
+    AddSequential(new CollectorUP());
+//    AddParallel(new CollectorLoad(0.5));
     AddSequential(new ShooterSpinUp());
     
 	// Add Commands here:
