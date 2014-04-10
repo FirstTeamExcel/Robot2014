@@ -6,7 +6,7 @@
 
 
 
-class CheesyVisionServer: public JankyTask
+class CheesyVisionServer: private JankyTask
 {
 
     static CheesyVisionServer *_instance;
@@ -29,7 +29,8 @@ public:
     bool HasClientConnection();
     void SetPort(int port){_listenPort = port;}
     virtual void Run();
-    
+    void StartListening(){_listening = true; Start();}
+    void StopListening(){_listening = false; Pause();}
     
     void Reset();
     void UpdateCounts(bool left, bool right);

@@ -13,49 +13,46 @@ CheesyVisionServer::CheesyVisionServer(int port)
 
 void CheesyVisionServer::Run()
 {
-    SocketServerStreamProvider *sock = NULL;
-    try {
-        sock = new SocketServerStreamProvider(_listenPort);
-        while (_listening)
-        {
-            IOStream *stream = sock->accept();
-            _lastHeartbeatTime = Timer::GetFPGATimestamp();
-            try
-            {
-                while (Timer::GetFPGATimestamp() < _lastHeartbeatTime + HEARTBEAT_TIMEOUT)
-                {
-                    try 
-                    {
-                        uint8_t byte;
-                        stream->read(&byte, 1);
-                        _curLeftStatus = (byte & (1 << 1)) > 0;
-                        _curRightStatus = (byte & (1 << 0)) > 0;
-                        UpdateCounts(_curLeftStatus,_curRightStatus);
-                        _lastHeartbeatTime = Timer::GetFPGATimestamp();
-                    }
-                    catch (EOFException e)
-                    {
-                        //End of file, wait for a bit and read some more
-                        
-                        sleep(50);
-                    }   
-                    
-                }
-            }
-            catch (IOException e) 
-            {
-                printf("Socket IO error: %s\n", e.what());
-                //Catching this exception will dro
-            }
-            delete stream;//close, delete and recreate the stream
-            
-            sleep(50);
-        }
-    }
-    catch (IOException e)
+    if (_listening == false) return;    //Make sure we are listening
+    
+    SocketServerStreamProvider *sock;
+    sock = new SocketServerStreamProvider(_listenPort);
+    while (_listening)
     {
-        printf("Socket Failure!\n, %s", e.what());
+        IOStream *stream = sock->accept();
+        _lastHeartbeatTime = Timer::GetFPGATimestamp();
+        try
+        {
+            while (Timer::GetFPGATimestamp() < _lastHeartbeatTime + HEARTBEAT_TIMEOUT)
+            {
+                try 
+                {
+                    uint8_t byte;
+                    stream->read(&byte, 1);
+                    _curLeftStatus = (byte & (1 << 1)) > 0;
+                    _curRightStatus = (byte & (1 << 0)) > 0;
+                    UpdateCounts(_curLeftStatus,_curRightStatus);
+                    _lastHeartbeatTime = Timer::GetFPGATimestamp();
+                }
+                catch (EOFException e)
+                {
+                    //End of file, wait for a bit and read some more
+                    
+                    sleep(50);
+                }   
+                
+            }
+        }
+        catch (IOException e) 
+        {
+            printf("Socket IO error: %s\n", e.what());
+            //Catching this exception will dro
+        }
+        delete stream;//close, delete and recreate the stream
+        
+        sleep(50);
     }
+    delete sock;
 }
 
 void CheesyVisionServer::Reset()
