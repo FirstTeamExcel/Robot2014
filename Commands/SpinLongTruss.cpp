@@ -13,9 +13,11 @@
 #include "SpinLongTruss.h"
 #include "ShooterSpinUp.h"
 #include "ArmTargetPosition.h"
+#include "ManualFlipperDown.h"
 
 SpinLongTruss::SpinLongTruss() {
 
+    AddParallel(new ManualFlipperDown());
     AddParallel(new ShooterSpinUp());
     AddSequential(new TargetLongTruss());
 	// Add Commands here:

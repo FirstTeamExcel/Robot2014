@@ -9,6 +9,7 @@
 // it from being updated in th future.
 #include "DriveStraightTuning.h"
 #include "../Subsystems/DriveSubsystem.h"
+#include "Math.h"
 DriveStraightTuning::DriveStraightTuning() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -48,10 +49,17 @@ void DriveStraightTuning::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void DriveStraightTuning::Execute() {
     DriveSubsystem *driveSub = Robot::driveSubsystem;
+    Encoder *leftEnc = Robot::driveSubsystem->leftEncoder;
+    Encoder *rightEnc = Robot::driveSubsystem->rightEncoder;
+    float leftRate = fabs(leftEnc->GetRate());
+        float rightRate = fabs(rightEnc->GetRate());
+         
+        
+        SmartDashboard::PutNumber("leftRate:", leftRate);
+        SmartDashboard::PutNumber("rightRate:", rightRate);
+    driveSub->theDriveTrain->Drive(0.5,0.0);
     
-    driveSub->DriveStraight(0.3, true);
-    
-    SmartDashboard::PutNumber("Gryo Angle", driveSub->driveGyro->GetAngle());
+//    SmartDashboard::PutNumber("Gryo Angle", driveSub->driveGyro->GetAngle());
 //    _drive_p = SmartDashboard::GetNumber("Drive P");
 //    _drive_i = SmartDashboard::GetNumber("Drive i");
 //    _drive_d = SmartDashboard::GetNumber("Drive d");

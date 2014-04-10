@@ -126,7 +126,7 @@ void ShooterArm::SetTargetPosition(ShooterArm::ShooterArmPosition position)
                 angle = (SHOOTER_ARM_TARGET_EJECT_POSITION);
                 break;
             case ShooterArm::LONG_GOAL:
-                _stage_2_tolerance = 1.0;
+                _stage_2_tolerance = 0.5;
                 angle = (ARM_TARGET_LONG_GOAL);
                 Robot::camera->SetIdealRange(7.0, 9.0);
                 break;
