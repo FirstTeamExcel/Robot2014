@@ -10,6 +10,7 @@
 
 
 #include "WaitForHotGoal.h"
+#include "../CheesyVisionServer.h"
 
 WaitForHotGoal::WaitForHotGoal() {
 	// Use requires() here to declare subsystem dependencies
@@ -31,7 +32,8 @@ void WaitForHotGoal::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool WaitForHotGoal::IsFinished() {
-	return (Robot::camera->GetHotGoal() == Camera::goalLeft) || (Robot::camera->GetHotGoal() == Camera::goalRight);
+	//return (Robot::camera->GetHotGoal() == Camera::goalLeft) || (Robot::camera->GetHotGoal() == Camera::goalRight);
+    return (CheesyVisionServer::GetInstance()->GetLeftStatus() && CheesyVisionServer::GetInstance()->GetRightStatus());
 }
 
 // Called once after isFinished returns true

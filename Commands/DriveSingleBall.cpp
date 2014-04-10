@@ -18,6 +18,7 @@
 #include "Shoot.h"
 #include "DriveToEncoderCommand.h"
 #include "../ShooterWheelsSpeeds.h"
+#include "WaitForHotGoal.h"
 
 
 DriveSingleBall::DriveSingleBall() {
@@ -26,9 +27,10 @@ DriveSingleBall::DriveSingleBall() {
     AddParallel(new TargetAutonomousClose());
     AddParallel(new ShooterSetRpm(TARGET_AUTONOMOUS_CLOSE_SPEED, true, 50, 0.6));
     
-    AddSequential(new DriveToEncoderCommand(5.0, 0.5),5.0);
+    AddSequential(new DriveToEncoderCommand(5.0, 0.8),5.0);
 
-    AddSequential(new Delay(), 1.0);
+    AddSequential(new Delay(), 0.3);
+    AddSequential(new WaitForHotGoal());
     AddSequential(new Shoot());
     AddParallel(new ShooterSetRpm(0.0));
 
