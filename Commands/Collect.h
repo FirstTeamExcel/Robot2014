@@ -23,6 +23,7 @@
  * @author ExampleAuthor
  */
 class Collect: public CollectorLoad {
+    bool _flipperLowered;
 public:
 	Collect(float power = 0.0);
 	virtual void Initialize();

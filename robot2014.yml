@@ -761,7 +761,7 @@ Children:
           name: Command
           type: Command
           validators: *id028
-          value: CollectorUP
+          value: CatchClose
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id029
           default: '1'
@@ -775,7 +775,7 @@ Children:
           default: whileHeld
           name: When to Run
           validators: null
-          value: whileHeld
+          value: whenPressed
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: *id031

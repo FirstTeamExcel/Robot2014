@@ -21,17 +21,20 @@ void Collect::Initialize() {
     Collector *col = Robot::collector;
     CollectorLoad::Initialize();
     col->SetCollectorPosition(true);
+    col->SetFlipperPosition(true);
+    _flipperLowered = false;
 }
 // Called repeatedly when this Command is scheduled to run
 void Collect::Execute() {
     Collector *col = Robot::collector;
     col->SetAutoFlipTimeout(2.5);
-    if (col->GetState() == Collector::DOWN)
+//    if (col->GetState() == Collector::DOWN)
+//    {
+//        col->SetFlipperPosition(true);
+//    }
+    if (_flipperLowered || (col->GetFlipperState() == Collector::F_DOWN))
     {
-        col->SetFlipperPosition(true);
-    }
-    if (col->GetFlipperState() == Collector::F_DOWN)
-    {
+        _flipperLowered = true;
         CollectorLoad::Execute();
     }
 }

@@ -13,9 +13,11 @@
 #include "SpinToss.h"
 #include "ArmTargetPosition.h"
 #include "ShooterSpinUp.h"
+#include "ManualFlipperDown.h"
 
 SpinToss::SpinToss() {
     AddParallel(new TargetEjectPosition());
+    AddParallel(new ManualFlipperDown());
     AddSequential(new ShooterSpinUp());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());

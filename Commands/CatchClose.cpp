@@ -15,12 +15,14 @@
 #include "TargetStartPosition.h"
 #include "CollectorUP.h"
 #include "ManualFlipperUp.h"
+#include "ArmTargetPosition.h"
 
 CatchClose::CatchClose() {
 
     AddParallel(new ManualFlipperUp());
-        AddParallel(new TargetStartPosition());
-        AddSequential(new CollectorUP());
+    AddSequential(new TargetTruss());
+    AddParallel(new TargetStartPosition());
+    AddSequential(new CollectorUP());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());

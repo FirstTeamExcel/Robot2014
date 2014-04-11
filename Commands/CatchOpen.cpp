@@ -16,7 +16,7 @@
 #include "ManualFlipperDown.h"
 
 CatchOpen::CatchOpen() {
-    AddParallel(new ManualFlipperDown());
+    AddParallel(new ManualFlipperDown(0.0));
     AddParallel(new TargetCatch());
     AddSequential(new CollectorDown());
 	// Add Commands here:

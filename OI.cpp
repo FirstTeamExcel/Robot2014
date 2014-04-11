@@ -101,7 +101,7 @@ OI::OI() {
 	downCollector = new JoystickButton(driveController, 7);
 	downCollector->WhileHeld(new CollectThenFlip());
 	upCollector = new JoystickButton(driveController, 5);
-	upCollector->WhileHeld(new CollectorUP());
+	upCollector->WhenPressed(new CatchClose());
 	operatorStick = new Joystick(3);
 	
 	targetLongShot = new JoystickButton(operatorStick, 8);

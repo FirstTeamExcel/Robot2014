@@ -14,12 +14,12 @@
 #include "CollectorUP.h"
 #include "ArmTargetPosition.h"
 #include "DownShift.h"
+#include "CatchClose.h"
 #include "ManualFlipperUp.h"
 
 TurtleStance::TurtleStance() {
     AddParallel(new DownShift());
-    AddParallel(new ManualFlipperUp());
-    AddSequential (new CollectorUP());
+    AddSequential(new CatchClose());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
