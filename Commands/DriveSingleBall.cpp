@@ -28,11 +28,11 @@ DriveSingleBall::DriveSingleBall() {
     AddParallel(new TargetAutonomousClose());
     AddSequential(new DriveToEncoderCommand(4.8, 0.7),5.0);
 
-    AddParallel(new ShooterSetRpm(TARGET_AUTONOMOUS_CLOSE_SPEED, true, 50, 0.6));
+    AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_CLOSE_SPEED, true, 50, 0.6));
     AddSequential(new Delay(), 0.3);
     AddSequential(new WaitForHotGoal());
     AddSequential(new Shoot());
-    AddParallel(new ShooterSetRpm(0.0));
+    AddSequential(new ShooterSetRpm(0.0));
 
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());

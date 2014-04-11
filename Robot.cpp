@@ -55,10 +55,10 @@ void Robot::RobotInit()
     //preferences = Preferences::GetInstance();
 	
     autoChooser = new SendableChooser();
-    defaultAuton = new SingleBallAutonomousCommand();
-    autoChooser->AddDefault("Single Ball Auton", defaultAuton);
+    defaultAuton = new DriveSingleBall();
+    autoChooser->AddDefault("Close Single Ball", defaultAuton);
     autoChooser->AddObject("Back 2 Ball", new BackwardAuto());
-    autoChooser->AddObject("Close Single Ball", new DriveSingleBall());
+    autoChooser->AddObject("Single Ball Auton", new SingleBallAutonomousCommand());
     SmartDashboard::PutData("Autonomous:", autoChooser);
     
 //    rangeChooser = new SendableChooser();

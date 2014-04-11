@@ -27,7 +27,7 @@ SingleBallAutonomousCommand::SingleBallAutonomousCommand() {
 	AddParallel(new TargetAutonomous1());
 	AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_1_SPEED));
 //	AddSequential(new Delay(), 1.0);
-//	AddSequential(new WaitForHotGoal());
+	AddSequential(new WaitForHotGoal());
 //    AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_1_SPEED));//Clear upToSpeed flags by setting RPM again
 	AddSequential(new Shoot());
     AddSequential(new ShooterSetRpm(0.0));

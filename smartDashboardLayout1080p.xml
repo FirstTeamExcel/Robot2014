@@ -1,5 +1,35 @@
 <xml version="1.0">
 <dashboard>
+	<widget field="Right Distance:" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="385" y="381"/>
+	</widget>
+	<widget field="Left Distance:" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="343" y="82"/>
+	</widget>
+	<widget field="SpinLongTruss" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="198" y="265"/>
+	</widget>
+	<widget field="DriveSingleBall" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="198" y="229"/>
+	</widget>
+	<widget field="CheesyDrive" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="193" y="193"/>
+	</widget>
+	<widget field="CheeseTotal Count:" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="605"/>
+	</widget>
+	<widget field="CheeseRight:" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="128"/>
+	</widget>
+	<widget field="CheeseRight Count:" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="105"/>
+	</widget>
+	<widget field="CheeseLeft:" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="82"/>
+	</widget>
+	<widget field="CheeseLeft Count:" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="21" y="59"/>
+	</widget>
 	<widget field="Shift Mode:" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
 		<location x="580" y="150"/>
 	</widget>

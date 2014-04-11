@@ -214,13 +214,13 @@ OI::OI() {
     SmartDashboard::PutData("Long Shot Mode:", spinChooser);
     
     driveModeChooser = new SendableChooser();
-    driveModeChooser->AddDefault("Tank Drive", new Drive());
-    driveModeChooser->AddObject("Cheesy Drive", new CheesyDrive());
+    driveModeChooser->AddObject("Tank Drive", new Drive());
+    driveModeChooser->AddDefault("Cheesy Drive", new CheesyDrive());
     SmartDashboard::PutData("Drive Mode:", driveModeChooser);
     
     shiftModeChooser = new SendableChooser();
-    shiftModeChooser->AddDefault("High Gear", new UpShift());
-    shiftModeChooser->AddObject("Auto Shift", new AutoShiftMode());
+    shiftModeChooser->AddObject("High Gear", new UpShift());
+    shiftModeChooser->AddDefault("Auto Shift", new AutoShiftMode());
     SmartDashboard::PutData("Shift Mode:", shiftModeChooser);
        
         
