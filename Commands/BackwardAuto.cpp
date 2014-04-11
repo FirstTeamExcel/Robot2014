@@ -29,7 +29,7 @@
 BackwardAuto::BackwardAuto() {
 	AddParallel(new ArmTargetAngle(ARM_TARGET_BACKWARDS_AUTONOMOUS));
 	AddSequential(new CollectorDown());
-	AddParallel(new ManualFlipperDown());
+	AddParallel(new ManualFlipperDown(10.0));
 	AddSequential(new Collect(), 0.5);
 	
 	AddParallel(new CollectUntilTrigger(), 1.5);

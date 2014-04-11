@@ -1,3 +1,7 @@
+Fix flipper up while collecting
+Catch close takes two presses when collector and arm are down
+Spit should put flipper down
+
 Add a spin while lifting flipper
 
 

@@ -25,6 +25,7 @@ void Collect::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void Collect::Execute() {
     Collector *col = Robot::collector;
+    col->SetAutoFlipTimeout(2.5);
     if (col->GetState() == Collector::DOWN)
     {
         col->SetFlipperPosition(true);

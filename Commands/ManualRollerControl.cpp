@@ -22,6 +22,8 @@ void ManualRollerControl::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ManualRollerControl::Execute() {
 	Joystick *operatorStick = Robot::oi->getoperatorStick();
+
+	Robot::collector->SetAutoFlipTimeout(1.0);
 	float y = -operatorStick->GetY();
 	if (fabs(y) > 0.25)
 	{

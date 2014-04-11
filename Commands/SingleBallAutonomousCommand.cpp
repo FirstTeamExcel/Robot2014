@@ -22,7 +22,7 @@
 #include "WaitForHotGoal.h"
 
 SingleBallAutonomousCommand::SingleBallAutonomousCommand() {
-	AddParallel(new ManualFlipperDown());
+	AddParallel(new ManualFlipperDown(10.0));
 	AddSequential(new CollectorDown());
 	AddParallel(new TargetAutonomous1());
 	AddSequential(new ShooterSetRpm(TARGET_AUTONOMOUS_1_SPEED));

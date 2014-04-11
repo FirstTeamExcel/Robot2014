@@ -22,8 +22,9 @@
  * @author ExampleAuthor
  */
 class ManualFlipperDown: public Command {
+    float _autoFlipUpTime;
 public:
-	ManualFlipperDown();
+	ManualFlipperDown(float autoFlipUpTime = 1.0);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

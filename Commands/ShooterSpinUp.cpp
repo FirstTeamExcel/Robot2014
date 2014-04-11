@@ -42,6 +42,7 @@ void ShooterSpinUp::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void ShooterSpinUp::Execute() {
+    Robot::collector->SetAutoFlipTimeout(1.5);
 	ShooterArm::ShooterArmPosition position = Robot::shooterArm->GetTargetPosition();
 	Robot::compressorSubsystem->Stop();
 	switch(position)

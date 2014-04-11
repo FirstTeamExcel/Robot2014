@@ -23,7 +23,7 @@
 
 DriveSingleBall::DriveSingleBall() {
 
-    AddParallel(new ManualFlipperDown());
+    AddParallel(new ManualFlipperDown(10.0));
     AddParallel(new UpShift());
     AddParallel(new TargetAutonomousClose());
     AddSequential(new DriveToEncoderCommand(4.8, 0.7),5.0);
