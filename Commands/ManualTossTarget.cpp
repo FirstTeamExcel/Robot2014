@@ -10,6 +10,8 @@
 
 
 #include "ManualTossTarget.h"
+#include "Math.h"
+#include "../ShooterArmPositions.h"
 
 ManualTossTarget::ManualTossTarget() {
 	// Use requires() here to declare subsystem dependencies
@@ -21,12 +23,21 @@ ManualTossTarget::ManualTossTarget() {
 
 // Called just before this Command runs the first time
 void ManualTossTarget::Initialize() {
-	
+	prevAngle = 0.0;
 }
 
 // Called repeatedly when this Command is scheduled to run
 void ManualTossTarget::Execute() {
+	Joystick *op = Robot::oi->getoperatorStick();
 	
+	float yFactor = (op->GetY() + 1.0) / (2.0);
+	float angle = SHOOTER_ARM_TARGET_EJECT_POSITION + (90 * yFactor);
+	float diff = fabs(angle - prevAngle);
+	if (diff > 2.0)
+	{
+	    prevAngle = angle;
+	    Robot::shooterArm->SetAngle(angle);
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()

@@ -22,6 +22,7 @@
  * @author ExampleAuthor
  */
 class ManualTossTarget: public Command {
+    float prevAngle;
 public:
 	ManualTossTarget();
 	virtual void Initialize();

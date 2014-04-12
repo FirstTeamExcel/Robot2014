@@ -1,5 +1,8 @@
 <xml version="1.0">
 <dashboard>
+	<widget field="ManualTossTarget" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="385" y="143"/>
+	</widget>
 	<widget field="Right Distance:" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="385" y="381"/>
 	</widget>
