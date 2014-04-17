@@ -127,6 +127,7 @@ void Robot::DisabledInit()
     shooterArm->Disable();
     cheeseView->StartSamplingCounts();
     cheeseView->StartListening();
+    
 
 //    camera->ResetHotGoal();
 //    camera->ConnectCamera();
@@ -142,7 +143,8 @@ void Robot::DisabledPeriodic()
     SmartDashboard::PutNumber("CheeseLeft Count:", cheeseView->GetLeftCount());
     SmartDashboard::PutNumber("CheeseRight Count:", cheeseView->GetRightCount());
     SmartDashboard::PutNumber("CheeseTotal Count:", cheeseView->GetTotalCount());
-    
+
+    SmartDashboard::PutBoolean("Cheesy Connected:", cheeseView->HasClientConnection());
     //    float leftRPM, rightRPM;
     //    
     //    shooterWheels->GetRpm(rightRPM,leftRPM);

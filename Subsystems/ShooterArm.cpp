@@ -188,7 +188,7 @@ void ShooterArm::ResetPID()
     _stage_1_I = 0.0;
     _stage_2_I = 0.14;
     _stage_1_D = 0.0;
-    _stage_2_D = 4.3;
+    _stage_2_D = 4.8;
     _stage_1_tolerance = 10.0;
     _stage_2_tolerance = 1.0;
 }
