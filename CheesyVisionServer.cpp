@@ -47,7 +47,6 @@ void CheesyVisionServer::Run()
                 catch (EOFException e)
                 {
                     //End of file, wait for a bit and read some more
-
                     Wait(0.05);
                 }   
                 
