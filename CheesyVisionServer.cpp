@@ -48,7 +48,7 @@ void CheesyVisionServer::Run()
                 {
                     //End of file, wait for a bit and read some more
                     
-                    sleep(50);
+                    sleep(1);
                 }   
                 
             }
@@ -60,7 +60,7 @@ void CheesyVisionServer::Run()
         }
         delete stream;//close, delete and recreate the stream
         
-        sleep(50);
+        sleep(1);
     }
     delete sock;
 }
