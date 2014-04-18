@@ -47,8 +47,8 @@ void CheesyVisionServer::Run()
                 catch (EOFException e)
                 {
                     //End of file, wait for a bit and read some more
-                    
-                    sleep(50);
+
+                    Wait(0.05);
                 }   
                 
             }
@@ -59,8 +59,8 @@ void CheesyVisionServer::Run()
             //Catching this exception will dro
         }
         delete stream;//close, delete and recreate the stream
-        
-        sleep(50);
+
+        Wait(0.05);
     }
     delete sock;
 }
